@@ -8,9 +8,7 @@ export default function LanguageSetter({ locale }: { locale: string }) {
 
     // Set the document title with locale
     const currentTitle = document.title;
-    if (!currentTitle.includes("ZoomPDF")) {
-      document.title = `ZoomPDF - ${locale.toUpperCase()}`;
-    }
+    
   }, [locale]);
 
   return null;

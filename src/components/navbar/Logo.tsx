@@ -21,16 +21,13 @@ export const Logo: React.FC<LogoProps> = ({ onNavigateHome }) => {
     >
       {/* <Image
         src="/assets/images/logo.svg"
-        alt="ZoomPDF"
+        alt="WordToWallet"
         width={100}
         height={0}
         style={{ height: "auto" }}
         priority
       /> */}
-      <div className="text-xl font-bold">
-
-      LOGO
-      </div>
+      <div className="text-xl font-bold">LOGO</div>
     </div>
   );
 };
