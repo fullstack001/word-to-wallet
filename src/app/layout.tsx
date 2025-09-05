@@ -9,11 +9,9 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "ZoomPDF - PDF Tools",
-  description: "Convert, edit, compress, and manage your PDF files online",
+  title: "WordToWallet - Writer and Seller",
+  description: "Writer and Seller",
 };
-
-
 
 export default function RootLayout({
   children,
