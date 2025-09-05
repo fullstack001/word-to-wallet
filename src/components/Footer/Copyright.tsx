@@ -3,7 +3,7 @@ export default function Copyright() {
 
   return (
     <div className="text-sm text-gray-300">
-      © {currentYear}2025 Best Global AI, LLC All rights reserved.
+      © {currentYear} Best Global AI, LLC All rights reserved.
     </div>
   );
 }
