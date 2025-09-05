@@ -63,6 +63,7 @@ export default function SecurityPriority() {
     >
       {/* Background overlay with gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary-600/98 via-primary-700/95 to-primary-800/98"></div>
+      <div className="absolute inset-0 bg-black/40"></div>
 
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">

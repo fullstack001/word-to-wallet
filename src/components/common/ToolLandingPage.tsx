@@ -16,8 +16,8 @@ export default function ToolLandingPage() {
     <main>
       {/* <Navbar /> */}
       <HeroSection />
-      <HowItWorks />
       <FeatureCTA />
+      <HowItWorks />
       {/* <WhyUs /> */}
       <SecurityPriority />
       <FAQ />

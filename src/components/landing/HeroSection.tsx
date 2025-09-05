@@ -82,7 +82,7 @@ export default function HeroSection() {
             className="w-full h-full object-cover"
           />
           {/* Dark overlay for better text readability */}
-          <div className="absolute inset-0 bg-black/10"></div>
+          <div className="absolute inset-0 bg-black/40"></div>
         </div>
 
         {/* Animated background elements */}
