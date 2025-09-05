@@ -1,0 +1,93 @@
+/* PSPDFKit Custom Styles - Override without modifying core files */
+
+/* Toolbar Background Colors */
+.PSPDFKit-ToolbarResponsiveGroup {
+  background-color: #f8fafc !important;
+  border-bottom: 1px solid #e2e8f0 !important;
+}
+
+.PSPDFKit-ToolbarResponsiveGroup--primary {
+  background-color: #f8fafc !important;
+}
+
+.PSPDFKit-ToolbarResponsiveGroup--secondary {
+  background-color: #e2e8f0 !important;
+  border-top: 1px solid #cbd5e1 !important;
+}
+
+/* Toolbar Buttons */
+.PSPDFKit-ToolbarButton {
+  background-color: transparent !important;
+  border-radius: 4px !important;
+  transition: background-color 0.2s ease !important;
+}
+
+.PSPDFKit-ToolbarButton:hover {
+  background-color: #e2e8f0 !important;
+}
+
+.PSPDFKit-ToolbarButton.isActive {
+  background-color: #3b82f6 !important;
+  color: #ffffff !important;
+}
+
+.PSPDFKit-ToolbarButton.isActive svg {
+  fill: #ffffff !important;
+}
+
+/* Sidebar Styling */
+.PSPDFKit-Sidebar {
+  background-color: #f8fafc !important;
+  border-right: 1px solid #e2e8f0 !important;
+}
+
+/* Modal Styling */
+.PSPDFKit-Modal-dialog {
+  background-color: #ffffff !important;
+  border-radius: 8px !important;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04) !important;
+}
+
+/* Search Bar */
+.PSPDFKit-SearchField {
+  background-color: #ffffff !important;
+  border: 1px solid #d1d5db !important;
+  border-radius: 6px !important;
+}
+
+/* Dropdown Menus */
+.PSPDFKit-DropdownMenu {
+  background-color: #ffffff !important;
+  border: 1px solid #e5e7eb !important;
+  border-radius: 6px !important;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05) !important;
+}
+
+/* Custom Color Schemes */
+.pspdfkit-theme-dark {
+  --PSPDFKit-ToolbarResponsiveGroup--primary-background: #1e293b;
+  --PSPDFKit-ToolbarResponsiveGroup--secondary-background: #334155;
+  --PSPDFKit-ToolbarButton-isActive-background: #3b82f6;
+  --PSPDFKit-ToolbarButton-svg-fill: #e2e8f0;
+}
+
+.pspdfkit-theme-blue {
+  --PSPDFKit-ToolbarResponsiveGroup--primary-background: #dbeafe;
+  --PSPDFKit-ToolbarResponsiveGroup--secondary-background: #bfdbfe;
+  --PSPDFKit-ToolbarButton-isActive-background: #2563eb;
+  --PSPDFKit-ToolbarButton-svg-fill: #1e40af;
+}
+
+.pspdfkit-theme-green {
+  --PSPDFKit-ToolbarResponsiveGroup--primary-background: #dcfce7;
+  --PSPDFKit-ToolbarResponsiveGroup--secondary-background: #bbf7d0;
+  --PSPDFKit-ToolbarButton-isActive-background: #16a34a;
+  --PSPDFKit-ToolbarButton-svg-fill: #15803d;
+}
+
+.pspdfkit-theme-purple {
+  --PSPDFKit-ToolbarResponsiveGroup--primary-background: #f3e8ff;
+  --PSPDFKit-ToolbarResponsiveGroup--secondary-background: #e9d5ff;
+  --PSPDFKit-ToolbarButton-isActive-background: #9333ea;
+  --PSPDFKit-ToolbarButton-svg-fill: #7c3aed;
+} 

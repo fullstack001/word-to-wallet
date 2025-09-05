@@ -1,0 +1,189 @@
+{
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "configNotFound": "Configuration not found for home page."
+  },
+  "errors": {
+    "oops": "Oops!",
+    "somethingWentWrong": "Something went wrong",
+    "pageNotFound": "Page Not Found",
+    "pageNotExist": "The page you are looking for does not exist.",
+    "errorLoadingPage": "We encountered an error while loading this page. Please try again.",
+    "errorLoadingApp": "We encountered an error while loading the application. Please try again.",
+    "tryAgain": "Try again",
+    "goHome": "Go Home",
+    "goToHomePage": "Go to home page",
+    "errorDetails": "Error details (development only)"
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "multipleUsers": "Can multiple users from our company use the service simultaneously?",
+    "multipleUsersAnswer": "Yes! Create one account and your entire team can use our tools. Simply register, start processing files, and choose the plan that best fits your needs.",
+    "customerSupport": "Do you offer customer support for technical issues?",
+    "customerSupportAnswer": "Absolutely! Our support team is available 24/7 to help with any technical issues you encounter.",
+    "processingSpeed": "How quickly are documents processed on your platform?",
+    "processingSpeedAnswer": "Documents are typically processed within seconds, even for large files.",
+    "moneyBack": "Do you have a money-back guarantee?",
+    "moneyBackAnswer": "Yes, we offer a 14-day money-back guarantee if you're not satisfied with our service.",
+    "ctaTitle": "Ready to transform your document workflow?",
+    "ctaDescription": "Join thousands of successful businesses using WordToWallet to streamline their PDF operations. Start your free trial today!",
+    "ctaButton": "Get Started"
+  },
+  "footer": {
+    "selectLanguage": "Select Language"
+  },
+  "auth": {
+    "signIn": "Sign In",
+    "email": "Email",
+    "password": "Password",
+    "emailAddress": "Email Address"
+  },
+  "account": {
+    "account": "Account",
+    "membership": "Membership",
+    "noSubscription": "No active subscription",
+    "unlockAllTools": "Unlock all tools",
+    "fullAccess": "Get full access to all PDF tools",
+    "subscribeNow": "Subscribe now",
+    "subscribe": "Subscribe",
+    "paymentMethod": "Payment Method",
+    "saveTime": "Save time with automatic payments",
+    "cardNumber": "Card Number",
+    "notSpecified": "Not specified",
+    "importantUpdates": "Important updates about your account"
+  },
+  "plan": {
+    "choosePlan": "Choose Your Plan",
+    "continue": "Continue"
+  },
+  "navbar": {
+    "profileDetails": "Profile Details",
+    "noSubscription": "No subscription",
+    "myDocuments": "My Documents",
+    "myAccount": "My Account"
+  },
+  "hero": {
+    "badge": "Trusted by 10,000+ writers worldwide",
+    "title": "Write Better with",
+    "titleHighlight": "AI",
+    "subtitle": "Transform your writing with AI-powered lessons. Build your audience. Keep your rights and customer data while selling directly to readers.",
+    "ctaPrimary": "Start Free Course",
+    "ctaSecondary": "Watch Demo",
+    "features": {
+      "noCreditCard": "No credit card required",
+      "freeForever": "Free forever",
+      "cancelAnytime": "Cancel anytime"
+    }
+  },
+  "howItWorks": {
+    "title": "How It Works",
+    "subtitle": "Get started in minutes with our simple 3-step process designed for success",
+    "steps": {
+      "step1": {
+        "title": "Start Learning",
+        "description": "Begin with our free AI writing course. Learn practical techniques in bite-sized lessons."
+      },
+      "step2": {
+        "title": "Build Your List",
+        "description": "Use our reader magnets and MailerLite integration to grow your email audience."
+      },
+      "step3": {
+        "title": "Sell & Scale",
+        "description": "Launch your products and let BookFunnel handle delivery while you focus on writing."
+      }
+    },
+    "cta": "Get Started Now"
+  },
+  "features": {
+    "title": "Everything You Need to",
+    "titleHighlight": "Succeed",
+    "subtitle": "From AI-powered writing lessons to direct sales infrastructure, we've got you covered.",
+    "cards": {
+      "aiWriting": {
+        "title": "Learn AI Writing",
+        "description": "10-minute practical lessons that teach you to produce chapters, blurbs, and ads using AI.",
+        "features": [
+          "Interactive tutorials",
+          "Real-world examples",
+          "Progress tracking"
+        ]
+      },
+      "audience": {
+        "title": "Build Your Audience",
+        "description": "Reader magnet + MailerLite integration automatically builds your email list.",
+        "features": ["Lead magnets", "Email automation", "Audience analytics"]
+      },
+      "sales": {
+        "title": "Sell Direct",
+        "description": "Connect your store; BookFunnel delivers files directly to buyers.",
+        "features": ["Direct sales", "File delivery", "Customer management"]
+      }
+    }
+  },
+  "security": {
+    "badge": "Security First",
+    "title": "Your Security is Our Priority",
+    "subtitle": "We implement enterprise-grade security measures to ensure your documents and data remain completely protected at all times.",
+    "features": {
+      "encryption": {
+        "title": "Bank-Level Encryption",
+        "description": "256-bit SSL encryption protects your data"
+      },
+      "processing": {
+        "title": "Secure Processing",
+        "description": "Files are automatically deleted after processing"
+      },
+      "privacy": {
+        "title": "Privacy First",
+        "description": "No human access to your documents"
+      },
+      "compliance": {
+        "title": "GDPR Compliant",
+        "description": "Full compliance with data protection regulations"
+      }
+    },
+    "trustedBy": "Trusted by 400,000+ users worldwide"
+  },
+  "testimonials": {
+    "title": "Trusted by professionals worldwide",
+    "subtitle": "See what our customers are saying",
+    "rating": "5.0 rating from 3,000+ reviews",
+    "review1": {
+      "name": "Jennifer Martinez",
+      "role": "Legal Operations Director",
+      "company": "Global Law Partners",
+      "review": "WordToWallet has transformed our document workflow. Our legal team can now process contracts 3x faster with the automated form filling and e-signature features. The team collaboration tools have eliminated version control issues completely."
+    },
+    "review2": {
+      "name": "David Chen",
+      "role": "CTO",
+      "company": "TechFlow Solutions",
+      "review": "As a growing startup, we needed enterprise-grade document management without the enterprise price tag. WordToWallet's team features and unlimited processing have scaled perfectly with our business. ROI was achieved within the first month."
+    },
+    "review3": {
+      "name": "Sarah Williams",
+      "role": "Finance Manager",
+      "company": "Merchant Capital Group",
+      "review": "The OCR capabilities have revolutionized our document digitization process. Our accounting team can now search through thousands of scanned invoices instantly. This has saved us countless hours and improved our audit readiness significantly."
+    },
+    "review4": {
+      "name": "Michael Rodriguez",
+      "role": "Compliance Officer",
+      "company": "SecureBank International",
+      "review": "WordToWallet's enterprise security features give us confidence when handling sensitive client documents. The compliance tools and audit trails have made our regulatory reporting much more straightforward. Our compliance team loves it."
+    },
+    "review5": {
+      "name": "Lisa Thompson",
+      "role": "Marketing Operations Manager",
+      "company": "Digital Growth Agency",
+      "review": "Our marketing team processes hundreds of PDFs weekly for campaigns. WordToWallet's batch processing and automation features have reduced our document preparation time by 70%. The ROI is incredible for any business looking to scale operations."
+    },
+    "review6": {
+      "name": "Robert Kim",
+      "role": "Project Director",
+      "company": "Construction Dynamics",
+      "review": "The team collaboration features have eliminated our document bottlenecks. Multiple departments can now work on the same documents simultaneously with real-time updates. This has improved our project delivery times by 40%."
+    }
+  }
+}

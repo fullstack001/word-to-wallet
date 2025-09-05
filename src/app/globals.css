@@ -1,0 +1,270 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Optional reset */
+body {
+  @apply font-sans;
+}
+
+:root {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  
+  /* PSPDFKit Toolbar Customization */
+  --PSPDFKit-ToolbarResponsiveGroup--primary-background: #f8fafc; /* Light gray background */
+  --PSPDFKit-ToolbarResponsiveGroup--secondary-background: #e2e8f0; /* Slightly darker for secondary toolbar */
+  --PSPDFKit-ToolbarResponsiveGroup--secondary-border: #cbd5e1; /* Border color */
+  --PSPDFKit-ToolbarButton-isActive-background: #3b82f6; /* Active button background (blue) */
+  --PSPDFKit-ToolbarButton-isActive-color: #ffffff; /* Active button text color */
+  --PSPDFKit-ToolbarButton-svg-fill: #64748b; /* Default icon color */
+  --PSPDFKit-ToolbarButton-isHovered-background: #e2e8f0; /* Hover background */
+}
+
+.font-medium {
+  font-weight: 500;
+}
+
+.bg-primary-900 {
+  background-color: #3758f9;
+}
+
+.bg-primary-50 {
+  background-color: #edf0ff;
+  color: #4b68ff;
+}
+
+.bg-primary-50-1 {
+  background-color: #edf0ff;
+}
+
+/* PSPDFKit Toolbar Styling */
+.PSPDFKit-ToolbarResponsiveGroup {
+  background-color: #f8fafc !important; /* Light gray background */
+  border-bottom: 1px solid #e2e8f0 !important;
+}
+
+.PSPDFKit-ToolbarResponsiveGroup--primary {
+  background-color: #f8fafc !important;
+}
+
+.PSPDFKit-ToolbarResponsiveGroup--secondary {
+  background-color: #e2e8f0 !important;
+  border-top: 1px solid #cbd5e1 !important;
+}
+
+/* Toolbar button styling */
+.PSPDFKit-ToolbarButton {
+  background-color: transparent !important;
+  border-radius: 4px !important;
+  transition: background-color 0.2s ease !important;
+}
+
+.PSPDFKit-ToolbarButton:hover {
+  background-color: #e2e8f0 !important;
+}
+
+.PSPDFKit-ToolbarButton.isActive {
+  background-color: #3b82f6 !important;
+  color: #ffffff !important;
+}
+
+.PSPDFKit-ToolbarButton.isActive svg {
+  fill: #ffffff !important;
+}
+
+/* General toolbar icon style */
+[class^="custom-icon-"],
+[class*=" custom-icon-"] {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: 20px 20px;
+  width: 56px;
+  height: 56px;
+  padding-top: 22px;
+  font-size: 10px;
+  color: #4b5563; /* Tailwind's gray-700 */
+  text-align: center;
+  line-height: 1.2;
+  font-weight: 500;
+}
+
+/* Add your custom icons and text below */
+.custom-icon-sidebar-thumbnails {
+  background-image: url("/icons/sidebar-thumbnails.svg");
+}
+.custom-icon-sidebar-thumbnails::after {
+  content: "Thumbnails";
+}
+
+.custom-icon-sidebar-document-outline {
+  background-image: url("/icons/sidebar-outline.svg");
+}
+.custom-icon-sidebar-document-outline::after {
+  content: "Outline";
+}
+
+.custom-icon-sidebar-annotations {
+  background-image: url("/icons/sidebar-annotations.svg");
+}
+.custom-icon-sidebar-annotations::after {
+  content: "Annotations";
+}
+
+.custom-icon-zoom-in {
+  background-image: url("/icons/zoom-in.svg");
+}
+.custom-icon-zoom-in::after {
+  content: "Zoom In";
+}
+
+.custom-icon-zoom-out {
+  background-image: url("/icons/zoom-out.svg");
+}
+.custom-icon-zoom-out::after {
+  content: "Zoom Out";
+}
+
+.custom-icon-pan {
+  background-image: url("/icons/pan.svg");
+}
+.custom-icon-pan::after {
+  content: "Pan";
+}
+
+.custom-icon-text-highlighter {
+  background-image: url("/icons/highlight.svg");
+}
+.custom-icon-text-highlighter::after {
+  content: "Highlight";
+}
+
+.custom-icon-ink {
+  background-image: url("/icons/ink.svg");
+}
+.custom-icon-ink::after {
+  content: "Draw";
+}
+
+.custom-icon-line {
+  background-image: url("/icons/line.svg");
+}
+.custom-icon-line::after {
+  content: "Line";
+}
+
+.custom-icon-arrow {
+  background-image: url("/icons/arrow.svg");
+}
+.custom-icon-arrow::after {
+  content: "Arrow";
+}
+
+.custom-icon-rectangle {
+  background-image: url("/icons/rectangle.svg");
+}
+.custom-icon-rectangle::after {
+  content: "Rectangle";
+}
+
+.custom-icon-ellipse {
+  background-image: url("/icons/ellipse.svg");
+}
+.custom-icon-ellipse::after {
+  content: "Ellipse";
+}
+
+.custom-icon-polygon {
+  background-image: url("/icons/polygon.svg");
+}
+.custom-icon-polygon::after {
+  content: "Polygon";
+}
+
+.custom-icon-signature {
+  background-image: url("/icons/signature.svg");
+}
+.custom-icon-signature::after {
+  content: "Sign";
+}
+
+.custom-icon-stamp {
+  background-image: url("/icons/stamp.svg");
+}
+.custom-icon-stamp::after {
+  content: "Stamp";
+}
+
+.custom-icon-text {
+  background-image: url("/icons/text.svg");
+}
+.custom-icon-text::after {
+  content: "Text";
+}
+
+.custom-icon-note {
+  background-image: url("/icons/note.svg");
+}
+.custom-icon-note::after {
+  content: "Note";
+}
+
+.custom-icon-comment {
+  background-image: url("/icons/comment.svg");
+}
+.custom-icon-comment::after {
+  content: "Comment";
+}
+
+.custom-icon-ink-eraser {
+  background-image: url("/icons/eraser.svg");
+}
+.custom-icon-ink-eraser::after {
+  content: "Eraser";
+}
+
+.custom-icon-undo {
+  background-image: url("/icons/undo.svg");
+}
+.custom-icon-undo::after {
+  content: "Undo";
+}
+
+.custom-icon-redo {
+  background-image: url("/icons/redo.svg");
+}
+.custom-icon-redo::after {
+  content: "Redo";
+}
+
+.custom-icon-search {
+  background-image: url("/icons/search.svg");
+}
+.custom-icon-search::after {
+  content: "Search";
+}
+
+.custom-icon-print {
+  background-image: url("/icons/print.svg");
+}
+.custom-icon-print::after {
+  content: "Print";
+}
+
+.custom-icon-export-pdf {
+  background-image: url("/icons/export.svg");
+}
+.custom-icon-export-pdf::after {
+  content: "Export";
+}
+
+.custom-icon-document-editor {
+  background-image: url("/icons/edit.svg");
+}
+.custom-icon-document-editor::after {
+  content: "Edit";
+}

@@ -1,0 +1,189 @@
+{
+  "common": {
+    "loading": "Laddar...",
+    "error": "Fel",
+    "configNotFound": "Konfiguration hittades inte för hemsidan."
+  },
+  "errors": {
+    "oops": "Oj!",
+    "somethingWentWrong": "Något gick fel",
+    "pageNotFound": "Sidan hittades inte",
+    "pageNotExist": "Sidan du letar efter finns inte.",
+    "errorLoadingPage": "Vi stötte på ett fel när vi laddade denna sida. Försök igen.",
+    "errorLoadingApp": "Vi stötte på ett fel när vi laddade applikationen. Försök igen.",
+    "tryAgain": "Försök igen",
+    "goHome": "Gå hem",
+    "goToHomePage": "Gå till hemsidan",
+    "errorDetails": "Felinformation (endast utveckling)"
+  },
+  "faq": {
+    "title": "Vanliga frågor",
+    "multipleUsers": "Kan flera användare från vårt företag använda tjänsten samtidigt?",
+    "multipleUsersAnswer": "Ja! Skapa ett konto så kan hela ditt team använda våra verktyg. Registrera dig helt enkelt, börja bearbeta filer och välj planen som passar dina behov bäst.",
+    "customerSupport": "Erbjuder ni kundstöd för tekniska problem?",
+    "customerSupportAnswer": "Absolut! Vårt stödteam är tillgängligt 24/7 för att hjälpa till med alla tekniska problem du stöter på.",
+    "processingSpeed": "Hur snabbt bearbetas dokument på er plattform?",
+    "processingSpeedAnswer": "Dokument bearbetas vanligtvis inom sekunder, även för stora filer.",
+    "moneyBack": "Har ni pengarna-tillbaka-garanti?",
+    "moneyBackAnswer": "Ja, vi erbjuder en 14-dagars pengarna-tillbaka-garanti om du inte är nöjd med vår tjänst.",
+    "ctaTitle": "Redo att transformera ditt dokumentarbetsflöde?",
+    "ctaDescription": "Gå med i tusentals framgångsrika företag som använder WordToWallet för att effektivisera sina PDF-operationer. Starta din gratis provperiod idag!",
+    "ctaButton": "Kom igång"
+  },
+  "footer": {
+    "selectLanguage": "Välj språk"
+  },
+  "auth": {
+    "signIn": "Logga in",
+    "email": "E-post",
+    "password": "Lösenord",
+    "emailAddress": "E-postadress"
+  },
+  "account": {
+    "account": "Konto",
+    "membership": "Medlemskap",
+    "noSubscription": "Inget aktivt abonnemang",
+    "unlockAllTools": "Lås upp alla verktyg",
+    "fullAccess": "Få full tillgång till alla PDF-verktyg",
+    "subscribeNow": "Prenumerera nu",
+    "subscribe": "Prenumerera",
+    "paymentMethod": "Betalningsmetod",
+    "saveTime": "Spara tid med automatiska betalningar",
+    "cardNumber": "Kortnummer",
+    "notSpecified": "Inte angivet",
+    "importantUpdates": "Viktiga uppdateringar om ditt konto"
+  },
+  "plan": {
+    "choosePlan": "Välj din plan",
+    "continue": "Fortsätt"
+  },
+  "navbar": {
+    "profileDetails": "Profildetaljer",
+    "noSubscription": "Inget abonnemang",
+    "myDocuments": "Mina dokument",
+    "myAccount": "Mitt konto"
+  },
+  "hero": {
+    "badge": "Betrodd av över 10 000 författare världen över",
+    "title": "Skriv bättre med",
+    "titleHighlight": "AI",
+    "subtitle": "Transformera ditt skrivande med AI-drivna lektioner. Bygg din publik. Behåll dina rättigheter och kunddata medan du säljer direkt till läsare.",
+    "ctaPrimary": "Starta gratis kurs",
+    "ctaSecondary": "Titta på demo",
+    "features": {
+      "noCreditCard": "Inget kreditkort krävs",
+      "freeForever": "Gratis för alltid",
+      "cancelAnytime": "Avbryt när som helst"
+    }
+  },
+  "howItWorks": {
+    "title": "Hur det fungerar",
+    "subtitle": "Kom igång på minuter med vår enkla 3-stegs process utformad för framgång",
+    "steps": {
+      "step1": {
+        "title": "Börja lära dig",
+        "description": "Börja med vår gratis AI-skrivkurs. Lär dig praktiska tekniker i lättsmälta lektioner."
+      },
+      "step2": {
+        "title": "Bygg din lista",
+        "description": "Använd våra läsarmagneter och MailerLite-integration för att växa din e-postpublik."
+      },
+      "step3": {
+        "title": "Sälj och skala",
+        "description": "Lansera dina produkter och låt BookFunnel hantera leveransen medan du fokuserar på att skriva."
+      }
+    },
+    "cta": "Kom igång nu"
+  },
+  "features": {
+    "title": "Allt du behöver för att",
+    "titleHighlight": "Lyckas",
+    "subtitle": "Från AI-drivna skrivlektioner till direktförsäljningsinfrastruktur har vi dig täckt.",
+    "cards": {
+      "aiWriting": {
+        "title": "Lär dig AI-skrivning",
+        "description": "10-minuters praktiska lektioner som lär dig att producera kapitel, blurbar och annonser med AI.",
+        "features": [
+          "Interaktiva tutorials",
+          "Verkliga exempel",
+          "Framstegsspårning"
+        ]
+      },
+      "audience": {
+        "title": "Bygg din publik",
+        "description": "Läsarmagnet + MailerLite-integration bygger automatiskt din e-postlista.",
+        "features": ["Leadmagneter", "E-postautomatisering", "Publikanalys"]
+      },
+      "sales": {
+        "title": "Sälj direkt",
+        "description": "Anslut din butik; BookFunnel levererar filer direkt till köpare.",
+        "features": ["Direktförsäljning", "Filleverans", "Kundhantering"]
+      }
+    }
+  },
+  "security": {
+    "badge": "Säkerhet först",
+    "title": "Din säkerhet är vår prioritet",
+    "subtitle": "Vi implementerar företagsgrad säkerhetsåtgärder för att säkerställa att dina dokument och data förblir helt skyddade till alla tider.",
+    "features": {
+      "encryption": {
+        "title": "Bankgrad kryptering",
+        "description": "256-bitars SSL-kryptering skyddar dina data"
+      },
+      "processing": {
+        "title": "Säker bearbetning",
+        "description": "Filer raderas automatiskt efter bearbetning"
+      },
+      "privacy": {
+        "title": "Integritet först",
+        "description": "Ingen mänsklig åtkomst till dina dokument"
+      },
+      "compliance": {
+        "title": "GDPR-kompatibel",
+        "description": "Fullständig efterlevnad av dataskyddsförordningar"
+      }
+    },
+    "trustedBy": "Betrodd av över 400 000 användare världen över"
+  },
+  "testimonials": {
+    "title": "Betrodd av yrkesverksamma världen över",
+    "subtitle": "Se vad våra kunder säger",
+    "rating": "5.0 betyg från över 3 000 affärsrecensioner",
+    "review1": {
+      "name": "Jennifer Martinez",
+      "role": "Juridisk operationsdirektör",
+      "company": "Global Law Partners",
+      "review": "WordToWallet har transformerat vårt dokumentarbetsflöde. Vårt juridiska team kan nu bearbeta kontrakt 3x snabbare med de automatiserade formulärfyllnings- och e-signaturfunktionerna. Teamkollaborationsverktygen har helt eliminerat versionskontrollproblem."
+    },
+    "review2": {
+      "name": "David Chen",
+      "role": "CTO",
+      "company": "TechFlow Solutions",
+      "review": "Som växande startup behövde vi företagsgrad dokumenthantering utan företagspriset. WordToWallet:s teamfunktioner och obegränsad bearbetning har skalat perfekt med vårt företag. ROI uppnåddes inom den första månaden."
+    },
+    "review3": {
+      "name": "Sarah Williams",
+      "role": "Finanschef",
+      "company": "Merchant Capital Group",
+      "review": "OCR-funktionerna har revolutionerat vår dokumentdigitaliseringsprocess. Vårt redovisningsteam kan nu söka bland tusentals skannade fakturor omedelbart. Detta har sparat oss otaliga timmar och förbättrat vår revisionsberedskap avsevärt."
+    },
+    "review4": {
+      "name": "Michael Rodriguez",
+      "role": "Compliance Officer",
+      "company": "SecureBank International",
+      "review": "WordToWallet:s företagssäkerhetsfunktioner ger oss förtroende när vi hanterar känsliga kunddokument. Compliance-verktygen och revisionsspåren har gjort våra regulatoriska rapporter mycket enklare. Vårt compliance-team älskar det."
+    },
+    "review5": {
+      "name": "Lisa Thompson",
+      "role": "Marketing Operations Manager",
+      "company": "Digital Growth Agency",
+      "review": "Vårt marknadsföringsteam bearbetar hundratals PDF:er veckovis för kampanjer. WordToWallet:s batchbearbetning och automatiseringsfunktioner har minskat vår dokumentförberedelsetid med 70%. ROI är otrolig för alla företag som vill skala operationer."
+    },
+    "review6": {
+      "name": "Robert Kim",
+      "role": "Projektdirektör",
+      "company": "Construction Dynamics",
+      "review": "Teamkollaborationsfunktionerna har eliminerat våra dokumentflaskhalsar. Flera avdelningar kan nu arbeta på samma dokument samtidigt med realtidsuppdateringar. Detta har förbättrat våra projektleveranstider med 40%."
+    }
+  }
+}

@@ -1,0 +1,197 @@
+{
+  "common": {
+    "loading": "Chargement...",
+    "error": "Erreur",
+    "configNotFound": "Configuration non trouvée pour la page d'accueil."
+  },
+  "errors": {
+    "oops": "Oups !",
+    "somethingWentWrong": "Quelque chose s'est mal passé",
+    "pageNotFound": "Page non trouvée",
+    "pageNotExist": "La page que vous recherchez n'existe pas.",
+    "errorLoadingPage": "Nous avons rencontré une erreur lors du chargement de cette page. Veuillez réessayer.",
+    "errorLoadingApp": "Nous avons rencontré une erreur lors du chargement de l'application. Veuillez réessayer.",
+    "tryAgain": "Réessayer",
+    "goHome": "Aller à l'accueil",
+    "goToHomePage": "Aller à la page d'accueil",
+    "errorDetails": "Détails de l'erreur (développement uniquement)"
+  },
+  "faq": {
+    "title": "Questions fréquemment posées",
+    "multipleUsers": "Plusieurs utilisateurs de notre entreprise peuvent-ils utiliser le service simultanément ?",
+    "multipleUsersAnswer": "Oui ! Créez un compte et toute votre équipe peut utiliser nos outils. Inscrivez-vous simplement, commencez à traiter des fichiers et choisissez le plan qui convient le mieux à vos besoins.",
+    "customerSupport": "Offrez-vous un support client pour les problèmes techniques ?",
+    "customerSupportAnswer": "Absolument ! Notre équipe de support est disponible 24h/24 et 7j/7 pour vous aider avec tous les problèmes techniques que vous rencontrez.",
+    "processingSpeed": "À quelle vitesse les documents sont-ils traités sur votre plateforme ?",
+    "processingSpeedAnswer": "Les documents sont généralement traités en quelques secondes, même pour les gros fichiers.",
+    "moneyBack": "Avez-vous une garantie de remboursement ?",
+    "moneyBackAnswer": "Oui, nous offrons une garantie de remboursement de 14 jours si vous n'êtes pas satisfait de notre service.",
+    "ctaTitle": "Prêt à transformer votre flux de travail documentaire ?",
+    "ctaDescription": "Rejoignez des milliers d'entreprises prospères qui utilisent WordToWallet pour rationaliser leurs opérations PDF. Commencez votre essai gratuit aujourd'hui !",
+    "ctaButton": "Commencer"
+  },
+  "footer": {
+    "selectLanguage": "Sélectionner la langue"
+  },
+  "auth": {
+    "signIn": "Se connecter",
+    "email": "E-mail",
+    "password": "Mot de passe",
+    "emailAddress": "Adresse e-mail"
+  },
+  "account": {
+    "account": "Compte",
+    "membership": "Adhésion",
+    "noSubscription": "Aucun abonnement actif",
+    "unlockAllTools": "Débloquer tous les outils",
+    "fullAccess": "Obtenez un accès complet à tous les outils PDF",
+    "subscribeNow": "Abonnez-vous maintenant",
+    "subscribe": "S'abonner",
+    "paymentMethod": "Méthode de paiement",
+    "saveTime": "Gagnez du temps avec des paiements automatiques",
+    "cardNumber": "Numéro de carte",
+    "notSpecified": "Non spécifié",
+    "importantUpdates": "Mises à jour importantes concernant votre compte"
+  },
+  "plan": {
+    "choosePlan": "Choisissez votre plan",
+    "continue": "Continuer"
+  },
+  "navbar": {
+    "profileDetails": "Détails du profil",
+    "noSubscription": "Aucun abonnement",
+    "myDocuments": "Mes documents",
+    "myAccount": "Mon compte"
+  },
+  "hero": {
+    "badge": "Approuvé par plus de 10 000 écrivains dans le monde",
+    "title": "Écrivez mieux avec",
+    "titleHighlight": "l'IA",
+    "subtitle": "Transformez votre écriture avec des leçons alimentées par l'IA. Construisez votre audience. Gardez vos droits et données clients tout en vendant directement à vos lecteurs.",
+    "ctaPrimary": "Commencer le cours gratuit",
+    "ctaSecondary": "Voir la démo",
+    "features": {
+      "noCreditCard": "Aucune carte de crédit requise",
+      "freeForever": "Gratuit pour toujours",
+      "cancelAnytime": "Annulez à tout moment"
+    }
+  },
+  "howItWorks": {
+    "title": "Comment ça marche",
+    "subtitle": "Commencez en quelques minutes avec notre processus simple en 3 étapes conçu pour la réussite",
+    "steps": {
+      "step1": {
+        "title": "Commencez à apprendre",
+        "description": "Commencez par notre cours gratuit d'écriture IA. Apprenez des techniques pratiques dans des leçons faciles à digérer."
+      },
+      "step2": {
+        "title": "Construisez votre liste",
+        "description": "Utilisez nos aimants de lecteurs et l'intégration MailerLite pour développer votre audience email."
+      },
+      "step3": {
+        "title": "Vendez et développez",
+        "description": "Lancez vos produits et laissez BookFunnel gérer la livraison pendant que vous vous concentrez sur l'écriture."
+      }
+    },
+    "cta": "Commencer maintenant"
+  },
+  "features": {
+    "title": "Tout ce dont vous avez besoin pour",
+    "titleHighlight": "Réussir",
+    "subtitle": "Des leçons d'écriture alimentées par l'IA à l'infrastructure de vente directe, nous avons tout prévu.",
+    "cards": {
+      "aiWriting": {
+        "title": "Apprenez l'écriture IA",
+        "description": "Des leçons pratiques de 10 minutes qui vous enseignent à produire des chapitres, des descriptions et des publicités en utilisant l'IA.",
+        "features": [
+          "Tutoriels interactifs",
+          "Exemples du monde réel",
+          "Suivi des progrès"
+        ]
+      },
+      "audience": {
+        "title": "Construisez votre audience",
+        "description": "Aimant de lecteurs + intégration MailerLite construit automatiquement votre liste email.",
+        "features": [
+          "Aimants de leads",
+          "Automatisation email",
+          "Analyses d'audience"
+        ]
+      },
+      "sales": {
+        "title": "Vendez directement",
+        "description": "Connectez votre boutique ; BookFunnel livre les fichiers directement aux acheteurs.",
+        "features": [
+          "Ventes directes",
+          "Livraison de fichiers",
+          "Gestion des clients"
+        ]
+      }
+    }
+  },
+  "security": {
+    "badge": "Sécurité d'abord",
+    "title": "Votre sécurité est notre priorité",
+    "subtitle": "Nous mettons en œuvre des mesures de sécurité de niveau entreprise pour garantir que vos documents et données restent entièrement protégés à tout moment.",
+    "features": {
+      "encryption": {
+        "title": "Chiffrement de niveau bancaire",
+        "description": "Le chiffrement SSL 256 bits protège vos données"
+      },
+      "processing": {
+        "title": "Traitement sécurisé",
+        "description": "Les fichiers sont automatiquement supprimés après traitement"
+      },
+      "privacy": {
+        "title": "Confidentialité d'abord",
+        "description": "Aucun accès humain à vos documents"
+      },
+      "compliance": {
+        "title": "Conforme au RGPD",
+        "description": "Conformité totale aux réglementations de protection des données"
+      }
+    },
+    "trustedBy": "Approuvé par plus de 400 000 utilisateurs dans le monde"
+  },
+  "testimonials": {
+    "title": "Approuvé par des professionnels dans le monde entier",
+    "subtitle": "Découvrez ce que disent nos clients",
+    "rating": "Note de 5.0 sur plus de 3 000 avis",
+    "review1": {
+      "name": "Jennifer Martinez",
+      "role": "Directrice des opérations juridiques",
+      "company": "Global Law Partners",
+      "review": "WordToWallet a transformé notre flux de travail documentaire. Notre équipe juridique peut maintenant traiter les contrats 3x plus rapidement avec les fonctionnalités de remplissage automatique de formulaires et de signature électronique. Les outils de collaboration d'équipe ont complètement éliminé les problèmes de contrôle de version."
+    },
+    "review2": {
+      "name": "David Chen",
+      "role": "CTO",
+      "company": "TechFlow Solutions",
+      "review": "En tant que startup en croissance, nous avions besoin d'une gestion de documents de niveau entreprise sans le prix entreprise. Les fonctionnalités d'équipe et le traitement illimité de WordToWallet ont parfaitement évolué avec notre entreprise. Le ROI a été atteint dès le premier mois."
+    },
+    "review3": {
+      "name": "Sarah Williams",
+      "role": "Responsable des finances",
+      "company": "Merchant Capital Group",
+      "review": "Les capacités OCR ont révolutionné notre processus de numérisation de documents. Notre équipe comptable peut maintenant rechercher parmi des milliers de factures numérisées instantanément. Cela nous a fait gagner d'innombrables heures et amélioré considérablement notre préparation aux audits."
+    },
+    "review4": {
+      "name": "Michael Rodriguez",
+      "role": "Responsable de la conformité",
+      "company": "SecureBank International",
+      "review": "Les fonctionnalités de sécurité entreprise de WordToWallet nous donnent confiance lors de la manipulation de documents clients sensibles. Les outils de conformité et les pistes d'audit ont rendu nos rapports réglementaires beaucoup plus simples. Notre équipe de conformité adore."
+    },
+    "review5": {
+      "name": "Lisa Thompson",
+      "role": "Responsable des opérations marketing",
+      "company": "Digital Growth Agency",
+      "review": "Notre équipe marketing traite des centaines de PDF par semaine pour les campagnes. Les fonctionnalités de traitement par lots et d'automatisation de WordToWallet ont réduit notre temps de préparation des documents de 70%. Le ROI est incroyable pour toute entreprise cherchant à développer ses opérations."
+    },
+    "review6": {
+      "name": "Robert Kim",
+      "role": "Directeur de projet",
+      "company": "Construction Dynamics",
+      "review": "Les fonctionnalités de collaboration d'équipe ont éliminé nos goulots d'étranglement documentaires. Plusieurs départements peuvent maintenant travailler sur les mêmes documents simultanément avec des mises à jour en temps réel. Cela a amélioré nos délais de livraison de projet de 40%."
+    }
+  }
+}

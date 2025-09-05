@@ -1,0 +1,48 @@
+{
+  "name": "wordtowallet",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 3065",
+    "build": "next build",
+    "postbuild": "node scripts/create-uploads-dir.js",
+    "start": "next start -p 3065",
+    "lint": "next lint",
+    "copy-pdfjs-worker": "powershell -ExecutionPolicy Bypass -File scripts/copy-pdfjs-worker.ps1"
+  },
+  "dependencies": {
+    "@heroicons/react": "^2.2.0",
+    "@reduxjs/toolkit": "^2.8.2",
+    "@stripe/react-stripe-js": "^3.7.0",
+    "@stripe/stripe-js": "^7.4.0",
+    "@types/fabric": "^5.3.10",
+    "@types/uuid": "^10.0.0",
+    "axios": "^1.10.0",
+    "contentful": "^11.7.6",
+    "fabric": "^5.5.2",
+    "framer-motion": "^12.23.12",
+    "jwt-decode": "^4.0.0",
+    "lucide-react": "^0.511.0",
+    "next": "15.1.8",
+    "next-intl": "^4.3.4",
+    "pdf-lib": "^1.17.1",
+    "pdfjs-dist": "^4.10.38",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-redux": "^9.2.0",
+    "redux-thunk": "^3.1.0",
+    "uuid": "^11.1.0"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "autoprefixer": "^10.4.21",
+    "eslint": "^9",
+    "eslint-config-next": "15.1.8",
+    "postcss": "^8.5.3",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5"
+  }
+}

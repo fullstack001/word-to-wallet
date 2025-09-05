@@ -1,0 +1,185 @@
+{
+  "common": {
+    "loading": "로딩 중...",
+    "error": "오류",
+    "configNotFound": "홈페이지 설정을 찾을 수 없습니다."
+  },
+  "errors": {
+    "oops": "앗!",
+    "somethingWentWrong": "문제가 발생했습니다",
+    "pageNotFound": "페이지를 찾을 수 없습니다",
+    "pageNotExist": "찾고 계신 페이지가 존재하지 않습니다.",
+    "errorLoadingPage": "이 페이지를 로드하는 중 오류가 발생했습니다. 다시 시도해 주세요.",
+    "errorLoadingApp": "애플리케이션을 로드하는 중 오류가 발생했습니다. 다시 시도해 주세요.",
+    "tryAgain": "다시 시도",
+    "goHome": "홈으로 이동",
+    "goToHomePage": "홈페이지로 이동",
+    "errorDetails": "오류 세부사항 (개발용만)"
+  },
+  "faq": {
+    "title": "자주 묻는 질문",
+    "multipleUsers": "회사의 여러 사용자가 동시에 서비스를 사용할 수 있나요?",
+    "multipleUsersAnswer": "네! 하나의 계정을 만들면 전체 팀이 도구를 사용할 수 있습니다. 간단히 등록하고, 파일 처리를 시작하고, 요구사항에 가장 적합한 플랜을 선택하세요.",
+    "customerSupport": "기술적 문제에 대한 고객 지원을 제공하나요?",
+    "customerSupportAnswer": "물론입니다! 지원팀이 24/7 사용 가능하여 겪는 모든 기술적 문제를 도와드립니다.",
+    "processingSpeed": "플랫폼에서 문서가 얼마나 빨리 처리되나요?",
+    "processingSpeedAnswer": "문서는 일반적으로 큰 파일이라도 몇 초 내에 처리됩니다.",
+    "moneyBack": "환불 보장이 있나요?",
+    "moneyBackAnswer": "네, 서비스에 만족하지 않으시면 14일 환불 보장을 제공합니다.",
+    "ctaTitle": "문서 워크플로우를 혁신할 준비가 되셨나요?",
+    "ctaDescription": "WordToWallet을 사용하여 PDF 작업을 간소화하는 수천 개의 성공적인 비즈니스에 합류하세요. 오늘 무료 체험을 시작하세요!",
+    "ctaButton": "시작하기"
+  },
+  "footer": {
+    "selectLanguage": "언어 선택"
+  },
+  "auth": {
+    "signIn": "로그인",
+    "email": "이메일",
+    "password": "비밀번호",
+    "emailAddress": "이메일 주소"
+  },
+  "account": {
+    "account": "계정",
+    "membership": "멤버십",
+    "noSubscription": "활성 구독 없음",
+    "unlockAllTools": "모든 도구 잠금 해제",
+    "fullAccess": "모든 PDF 도구에 대한 전체 액세스 권한 획득",
+    "subscribeNow": "지금 구독하기",
+    "subscribe": "구독하기",
+    "paymentMethod": "결제 방법",
+    "saveTime": "자동 결제로 시간 절약",
+    "cardNumber": "카드 번호",
+    "notSpecified": "지정되지 않음",
+    "importantUpdates": "계정에 대한 중요한 업데이트"
+  },
+  "plan": {
+    "choosePlan": "플랜 선택",
+    "continue": "계속하기"
+  },
+  "navbar": {
+    "profileDetails": "프로필 세부사항",
+    "noSubscription": "구독 없음",
+    "myDocuments": "내 문서",
+    "myAccount": "내 계정"
+  },
+  "hero": {
+    "badge": "전 세계 10,000명 이상의 작가들이 신뢰",
+    "title": "AI로 더 나은 글쓰기",
+    "titleHighlight": "AI",
+    "subtitle": "AI 기반 레슨으로 글쓰기를 혁신하세요. 독자층을 구축하세요. 독자에게 직접 판매하면서 권리와 고객 데이터를 유지하세요.",
+    "ctaPrimary": "무료 코스 시작",
+    "ctaSecondary": "데모 보기",
+    "features": {
+      "noCreditCard": "신용카드 불필요",
+      "freeForever": "영구 무료",
+      "cancelAnytime": "언제든지 취소 가능"
+    }
+  },
+  "howItWorks": {
+    "title": "작동 방식",
+    "subtitle": "성공을 위해 설계된 간단한 3단계 프로세스로 몇 분 안에 시작하세요",
+    "steps": {
+      "step1": {
+        "title": "학습 시작",
+        "description": "무료 AI 글쓰기 코스로 시작하세요. 간단한 레슨에서 실용적인 기법을 배우세요."
+      },
+      "step2": {
+        "title": "독자층 구축",
+        "description": "독자 마그넷과 MailerLite 통합을 사용하여 이메일 독자층을 성장시키세요."
+      },
+      "step3": {
+        "title": "판매 및 확장",
+        "description": "제품을 출시하고 BookFunnel이 배송을 처리하는 동안 글쓰기에 집중하세요."
+      }
+    },
+    "cta": "지금 시작하기"
+  },
+  "features": {
+    "title": "성공에 필요한 모든 것",
+    "titleHighlight": "성공",
+    "subtitle": "AI 기반 글쓰기 레슨부터 직접 판매 인프라까지, 모든 것을 제공합니다.",
+    "cards": {
+      "aiWriting": {
+        "title": "AI 글쓰기 학습",
+        "description": "AI를 사용하여 챕터, 블러브, 광고를 만드는 방법을 가르치는 10분 실용 레슨.",
+        "features": ["인터랙티브 튜토리얼", "실제 사례", "진행 상황 추적"]
+      },
+      "audience": {
+        "title": "독자층 구축",
+        "description": "독자 마그넷 + MailerLite 통합이 자동으로 이메일 리스트를 구축합니다.",
+        "features": ["리드 마그넷", "이메일 자동화", "독자층 분석"]
+      },
+      "sales": {
+        "title": "직접 판매",
+        "description": "스토어를 연결하세요; BookFunnel이 구매자에게 파일을 직접 전달합니다.",
+        "features": ["직접 판매", "파일 전달", "고객 관리"]
+      }
+    }
+  },
+  "security": {
+    "badge": "보안 우선",
+    "title": "귀하의 보안이 우리의 우선순위입니다",
+    "subtitle": "엔터프라이즈급 보안 조치를 구현하여 문서와 데이터가 항상 완전히 보호되도록 보장합니다.",
+    "features": {
+      "encryption": {
+        "title": "은행급 암호화",
+        "description": "256비트 SSL 암호화로 데이터 보호"
+      },
+      "processing": {
+        "title": "보안 처리",
+        "description": "처리 후 파일이 자동으로 삭제됩니다"
+      },
+      "privacy": {
+        "title": "개인정보 보호 우선",
+        "description": "인간의 문서 접근 불가"
+      },
+      "compliance": {
+        "title": "GDPR 준수",
+        "description": "데이터 보호 규정 완전 준수"
+      }
+    },
+    "trustedBy": "전 세계 400,000명 이상의 사용자가 신뢰"
+  },
+  "testimonials": {
+    "title": "전 세계 전문가들이 신뢰",
+    "subtitle": "고객들이 말하는 내용을 확인하세요",
+    "rating": "3,000개 이상의 비즈니스 리뷰에서 5.0점",
+    "review1": {
+      "name": "Jennifer Martinez",
+      "role": "법무 운영 이사",
+      "company": "Global Law Partners",
+      "review": "WordToWallet이 문서 워크플로우를 혁신했습니다. 법무팀이 자동 양식 작성 및 전자 서명 기능으로 계약을 3배 빠르게 처리할 수 있습니다. 팀 협업 도구가 버전 관리 문제를 완전히 해결했습니다."
+    },
+    "review2": {
+      "name": "David Chen",
+      "role": "CTO",
+      "company": "TechFlow Solutions",
+      "review": "성장하는 스타트업으로서 엔터프라이즈 가격 없이 엔터프라이즈급 문서 관리가 필요했습니다. WordToWallet의 팀 기능과 무제한 처리가 비즈니스와 함께 완벽하게 확장되었습니다. 첫 달에 ROI를 달성했습니다."
+    },
+    "review3": {
+      "name": "Sarah Williams",
+      "role": "재무 매니저",
+      "company": "Merchant Capital Group",
+      "review": "OCR 기능이 문서 디지털화 프로세스를 혁신했습니다. 회계팀이 이제 수천 개의 스캔된 인보이스를 즉시 검색할 수 있습니다. 이는 수많은 시간을 절약하고 감사 준비를 크게 개선했습니다."
+    },
+    "review4": {
+      "name": "Michael Rodriguez",
+      "role": "준수 담당관",
+      "company": "SecureBank International",
+      "review": "WordToWallet의 엔터프라이즈 보안 기능은 민감한 고객 문서를 처리할 때 자신감을 줍니다. 준수 도구와 감사 추적이 규제 보고를 훨씬 간단하게 만들었습니다. 준수팀이 좋아합니다."
+    },
+    "review5": {
+      "name": "Lisa Thompson",
+      "role": "마케팅 운영 매니저",
+      "company": "Digital Growth Agency",
+      "review": "마케팅팀이 캠페인을 위해 매주 수백 개의 PDF를 처리합니다. WordToWallet의 배치 처리 및 자동화 기능이 문서 준비 시간을 70% 줄였습니다. 운영을 확장하려는 모든 비즈니스에 ROI가 놀랍습니다."
+    },
+    "review6": {
+      "name": "Robert Kim",
+      "role": "프로젝트 디렉터",
+      "company": "Construction Dynamics",
+      "review": "팀 협업 기능이 문서 병목을 제거했습니다. 여러 부서가 이제 실시간 업데이트로 동시에 같은 문서에서 작업할 수 있습니다. 이는 프로젝트 전달 시간을 40% 개선했습니다."
+    }
+  }
+}
