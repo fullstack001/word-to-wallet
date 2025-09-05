@@ -241,12 +241,12 @@ export default function CustomerTestimonials() {
                         <h4 className="font-semibold text-gray-900 text-lg">
                           {testimonial.name}
                         </h4>
-                        <p className="text-gray-600 text-sm">
+                        {/* <p className="text-gray-600 text-sm">
                           {testimonial.role}
                         </p>
                         <p className="text-purple-600 text-sm font-medium">
                           {testimonial.company}
-                        </p>
+                        </p> */}
                       </div>
                     </div>
 
