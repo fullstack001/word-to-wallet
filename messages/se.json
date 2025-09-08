@@ -185,5 +185,22 @@
       "company": "Construction Dynamics",
       "review": "Teamkollaborationsfunktionerna har eliminerat våra dokumentflaskhalsar. Flera avdelningar kan nu arbeta på samma dokument samtidigt med realtidsuppdateringar. Detta har förbättrat våra projektleveranstider med 40%."
     }
+  },
+  "promo": {
+    "badge": "Medlemsbonus · Privata Tekniker",
+    "title": "Förvandla Ord till Inkomst — Gratis Mini-Kurs",
+    "sub": {
+      "part1": "Få min sanning-först, minimalistiska metod för att använda ChatGPT-5 för brainstorming, forskning och polering av publicerbart skrivande—utan att förlora din röst.",
+      "highlight": "Gratis för betalande medlemmar."
+    },
+    "points": {
+      "0": "Kort kurs, lång tillämpning: små dagliga repetitioner → publicerbara utkast",
+      "1": "Laglig, etisk arbetsflöde; din röst förblir din",
+      "2": "Fiktion och facklitteratur: berättelsekärna, scenstegar, forskningsinfogning",
+      "3": "Direkta läsarverktyg: ePub3, Draft2Digital, BookFunnel, SocialPilot, e-post"
+    },
+    "ctaPrimary": "Bli Betalande Medlem",
+    "ctaSecondary": "Förhandsvisa Gratis Kurs",
+    "legal": "Att använda LLM är lagligt för författare; tvister riktar sig mot modellleverantörer, inte författare. Tekniker lärs ut privat och för professionell användning av medlemmar."
   }
 }

@@ -5,6 +5,7 @@ import {
   LanguageSelector,
   Copyright,
 } from "./Footer/";
+import { ConditionalGoogleTranslate } from "./common";
 
 export default function Footer() {
   return (
@@ -15,6 +16,7 @@ export default function Footer() {
           <div className="text-center space-y-3">
             <PolicyLinks />
             <LanguageSelector />
+            <ConditionalGoogleTranslate className="text-center" />
             <PaymentIcons />
             <Copyright />
           </div>
@@ -29,11 +31,12 @@ export default function Footer() {
 
           <div className="flex items-center justify-between space-x-6 mt-4">
             <PaymentIcons />
-            <LanguageSelector />
+            <div className="flex items-center space-x-4">
+              <LanguageSelector />
+              <ConditionalGoogleTranslate />
+            </div>
           </div>
         </div>
-
-       
       </div>
     </footer>
   );

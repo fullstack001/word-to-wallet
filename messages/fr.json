@@ -193,5 +193,22 @@
       "company": "Construction Dynamics",
       "review": "Les fonctionnalités de collaboration d'équipe ont éliminé nos goulots d'étranglement documentaires. Plusieurs départements peuvent maintenant travailler sur les mêmes documents simultanément avec des mises à jour en temps réel. Cela a amélioré nos délais de livraison de projet de 40%."
     }
+  },
+  "promo": {
+    "badge": "Bonus Membres · Techniques Privées",
+    "title": "Transformez les Mots en Revenus — Mini-Cours Gratuit",
+    "sub": {
+      "part1": "Obtenez ma méthode minimaliste et basée sur la vérité pour utiliser ChatGPT-5 pour brainstormer, rechercher et polir des écrits publiable—sans perdre votre voix.",
+      "highlight": "Gratuit pour les membres payants."
+    },
+    "points": {
+      "0": "Cours court, application longue : petites répétitions quotidiennes → brouillons publiable",
+      "1": "Flux de travail légal et éthique ; votre voix reste la vôtre",
+      "2": "Fiction et non-fiction : cœur d'histoire, échelles de scènes, intégration de recherche",
+      "3": "Outils directs au lecteur : ePub3, Draft2Digital, BookFunnel, SocialPilot, email"
+    },
+    "ctaPrimary": "Devenir Membre Payant",
+    "ctaSecondary": "Aperçu du Cours Gratuit",
+    "legal": "Utiliser les LLM est légal pour les auteurs ; les litiges ciblent les fournisseurs de modèles, pas les écrivains. Les techniques sont enseignées en privé et pour usage professionnel par les membres."
   }
 }

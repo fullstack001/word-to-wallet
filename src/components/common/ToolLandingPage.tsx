@@ -1,6 +1,7 @@
 "use client";
 
 import HeroSection from "@/components/landing/HeroSection";
+import PromoFreeCourse from "@/components/landing/PromoFreeCourse";
 import HowItWorks from "@/components/landing/HowItWorks";
 import FeatureCTA from "@/components/landing/FeatureCTA";
 import SecurityPriority from "@/components/landing/SecurityPriority";
@@ -16,6 +17,7 @@ export default function ToolLandingPage() {
     <main>
       {/* <Navbar /> */}
       <HeroSection />
+      <PromoFreeCourse />
       <FeatureCTA />
       <HowItWorks />
       {/* <WhyUs /> */}

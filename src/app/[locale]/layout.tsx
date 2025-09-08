@@ -2,6 +2,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { Providers } from "../providers";
 import LanguageSetter from "./LanguageSetter";
+import GoogleTranslateWidget from "@/components/common/GoogleTranslateWidget";
 
 export default async function LocaleLayout({
   children,
@@ -17,6 +18,7 @@ export default async function LocaleLayout({
     <NextIntlClientProvider messages={messages}>
       <Providers>
         <LanguageSetter locale={locale} />
+        <GoogleTranslateWidget />
         {children}
       </Providers>
     </NextIntlClientProvider>

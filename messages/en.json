@@ -185,5 +185,22 @@
       "company": "Construction Dynamics",
       "review": "The team collaboration features have eliminated our document bottlenecks. Multiple departments can now work on the same documents simultaneously with real-time updates. This has improved our project delivery times by 40%."
     }
+  },
+  "promo": {
+    "badge": "Members Bonus · Private Techniques",
+    "title": "Turn Words into Income — Free Mini-Course",
+    "sub": {
+      "part1": "Get my truth-first, minimalist method for using ChatGPT-5 to brainstorm, research, and polish publishable writing—without losing your voice.",
+      "highlight": "Free for paid members."
+    },
+    "points": {
+      "0": "Short course, long application: tiny daily reps → publishable drafts",
+      "1": "Legal, ethical workflow; your voice stays yours",
+      "2": "Fiction & non-fiction: story core, scene ladders, research fold-ins",
+      "3": "Direct-to-reader tools: ePub3, Draft2Digital, BookFunnel, SocialPilot, email"
+    },
+    "ctaPrimary": "Become a Paid Member",
+    "ctaSecondary": "Preview the Free Course",
+    "legal": "Using LLMs is legal for authors; disputes target model providers, not writers. Techniques are privately taught and for professional use by members."
   }
 }

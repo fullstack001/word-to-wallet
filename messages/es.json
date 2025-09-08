@@ -193,5 +193,22 @@
       "company": "Construction Dynamics",
       "review": "Las funciones de colaboración en equipo han eliminado nuestros cuellos de botella de documentos. Múltiples departamentos ahora pueden trabajar en los mismos documentos simultáneamente con actualizaciones en tiempo real. Esto ha mejorado nuestros tiempos de entrega de proyectos en un 40%."
     }
+  },
+  "promo": {
+    "badge": "Bono de Miembros · Técnicas Privadas",
+    "title": "Convierte Palabras en Ingresos — Mini-Curso Gratuito",
+    "sub": {
+      "part1": "Obtén mi método minimalista y basado en la verdad para usar ChatGPT-5 para lluvia de ideas, investigación y pulir escritos publicables—sin perder tu voz.",
+      "highlight": "Gratis para miembros pagos."
+    },
+    "points": {
+      "0": "Curso corto, aplicación larga: pequeñas repeticiones diarias → borradores publicables",
+      "1": "Flujo de trabajo legal y ético; tu voz permanece tuya",
+      "2": "Ficción y no ficción: núcleo de historia, escaleras de escenas, integración de investigación",
+      "3": "Herramientas directas al lector: ePub3, Draft2Digital, BookFunnel, SocialPilot, email"
+    },
+    "ctaPrimary": "Convertirse en Miembro Pagado",
+    "ctaSecondary": "Vista Previa del Curso Gratuito",
+    "legal": "Usar LLMs es legal para autores; las disputas se dirigen a los proveedores de modelos, no a los escritores. Las técnicas se enseñan en privado y son para uso profesional por miembros."
   }
 }
