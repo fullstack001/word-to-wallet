@@ -11,7 +11,13 @@ import {
 export default function PromoFreeCourse() {
   const t = useTranslations("promo");
 
-  const points = [t("points.0"), t("points.1"), t("points.2"), t("points.3")];
+  const points = [
+    t("points.0"),
+    t("points.1"),
+    t("points.2"),
+    t("points.3"),
+    t("points.4"),
+  ];
 
   return (
     <section className="relative py-20 bg-gradient-to-br from-purple-50 via-blue-50 to-indigo-50 overflow-hidden">
