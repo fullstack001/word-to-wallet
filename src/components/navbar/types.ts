@@ -1,21 +1,9 @@
-import type { RootState } from "../../store/store";
-
-export interface MenuItem {
-  label: string;
-  route: string;
-}
-
-export interface MenuCategory {
-  title: string;
-  items: MenuItem[];
-}
-
 export interface User {
+  id?: string;
   email?: string;
-  cardnumber?: string; // Add cardnumber property
-  avatar?: string;
+  name?: string;
   subscription?: {
-    plan?: string;
+    plan: string;
   };
 }
 
@@ -23,7 +11,7 @@ export interface NavbarProps {
   isLoggedIn: boolean;
   user: User;
   t: (key: string) => string;
-  navigate: (route: string) => void;
+  navigate: (path: string) => void;
   mobileMenuOpen: boolean;
   userDropdownOpen: boolean;
   onMobileToggle: () => void;
@@ -31,21 +19,4 @@ export interface NavbarProps {
   onLogout: () => void;
   onCloseMobileMenu: () => void;
   onCloseUserDropdown: () => void;
-}
-
-export interface DropdownProps {
-  label: string;
-  icon?: React.ReactNode;
-  children: React.ReactNode;
-  className?: string;
-}
-
-export interface AuthButtonProps {
-  onClick: () => void;
-  label: string;
-  className?: string;
-}
-
-export interface LogoProps {
-  onNavigateHome: () => void;
 }

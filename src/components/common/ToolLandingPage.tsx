@@ -8,6 +8,7 @@ import SecurityPriority from "@/components/landing/SecurityPriority";
 import CustomerTestimonials from "@/components/landing/CustomerTestimonials";
 import FAQ from "@/components/landing/FAQ";
 import Footer from "@/components/Footer";
+import Navbar from "@/components/Navbar";
 import { useTranslations } from "next-intl";
 
 export default function ToolLandingPage() {
@@ -15,16 +16,18 @@ export default function ToolLandingPage() {
 
   return (
     <main>
-      {/* <Navbar /> */}
-      <HeroSection />
-      <PromoFreeCourse />
-      <FeatureCTA />
-      <HowItWorks />
-      {/* <WhyUs /> */}
-      <SecurityPriority />
-      <FAQ />
-      <CustomerTestimonials />
-      <Footer />
+      <Navbar />
+      <div>
+        <HeroSection />
+        <PromoFreeCourse />
+        <FeatureCTA />
+        <HowItWorks />
+        {/* <WhyUs /> */}
+        <SecurityPriority />
+        <FAQ />
+        <CustomerTestimonials />
+        <Footer />
+      </div>
     </main>
   );
 }

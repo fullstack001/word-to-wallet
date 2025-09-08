@@ -1,23 +1,21 @@
-import React from "react";
-import { LockIcon } from "lucide-react";
-import type { AuthButtonProps } from "./types";
+"use client";
 
-/**
- * Authentication button component for sign in/sign up actions
- */
-export const AuthButton: React.FC<AuthButtonProps> = ({
-  onClick,
-  label,
-  className = "",
-}) => {
+import { motion } from "framer-motion";
+
+interface AuthButtonProps {
+  onClick: () => void;
+  label: string;
+}
+
+export function AuthButton({ onClick, label }: AuthButtonProps) {
   return (
-    <button
+    <motion.button
       onClick={onClick}
-      className={`px-4 py-3 text-2xl bg-white border-2 text-[#3758F9] border-[#3758F9] rounded-xl flex items-center hover:bg-blue-50 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 ${className}`}
-      aria-label={label}
+      className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 py-2 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
+      whileHover={{ scale: 1.05, y: -2 }}
+      whileTap={{ scale: 0.95 }}
     >
-      <LockIcon size={14} />
-      <span className="ml-1 font-medium">{label}</span>
-    </button>
+      {label}
+    </motion.button>
   );
-};
+}

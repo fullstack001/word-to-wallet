@@ -1,251 +1,125 @@
-import React, { useState, useCallback } from "react";
-import Image from "next/image";
-import {
-  MenuIcon,
-  XIcon,
-  ChevronDownIcon,
-  UserIcon,
-  FileTextIcon,
-  CrownIcon,
-  ChevronRightIcon,
-} from "lucide-react";
-import { AuthButton } from "./AuthButton";
-import type { NavbarProps, MenuItem } from "./types";
-import { Logo } from "./Logo";
+"use client";
 
-/**
- * Mobile navigation component with collapsible menu
- */
-export const MobileNavigation: React.FC<NavbarProps> = ({
+import { motion, AnimatePresence } from "framer-motion";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import type { NavbarProps } from "./types";
+
+export function MobileNavigation({
   isLoggedIn,
   user,
+  t,
+  navigate,
   mobileMenuOpen,
   onMobileToggle,
   onCloseMobileMenu,
-  navigate,
-  onLogout,
-  t,
-}) => {
-  const handleNavigate = useCallback(
-    (route: string) => {
-      navigate(route);
-      onCloseMobileMenu();
-    },
-    [navigate, onCloseMobileMenu]
-  );
-
-  const handleLogout = useCallback(() => {
-    onLogout();
-    onCloseMobileMenu();
-  }, [onLogout, onCloseMobileMenu]);
+}: NavbarProps) {
+  const navigationItems = [
+    { label: "Free Course", path: "/free-course" },
+    { label: "Contact Us", path: "/contact" },
+    { label: "Blogs", path: "/blogs" },
+    // { label: "Start with Free", path: "/start-free" },
+  ];
 
   return (
-    <div className="md:block xl:hidden">
-      <button
+    <div className="xl:hidden">
+      {/* Mobile menu button */}
+      <motion.button
         onClick={onMobileToggle}
-        className="xl:hidden focus:outline-none focus:ring-2 focus:ring-blue-500 rounded p-1"
-        aria-expanded={mobileMenuOpen}
-        aria-label="Toggle mobile menu"
+        className="p-2 rounded-full bg-white/80 backdrop-blur-sm border border-white/50 shadow-lg"
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
       >
-        {mobileMenuOpen ? <XIcon size={20} /> : <MenuIcon size={20} />}
-      </button>
+        {mobileMenuOpen ? (
+          <XMarkIcon className="w-6 h-6 text-gray-700" />
+        ) : (
+          <Bars3Icon className="w-6 h-6 text-gray-700" />
+        )}
+      </motion.button>
 
-      {mobileMenuOpen && (
-        <div className="bg-white px-6 py-4 shadow-inner absolute top-20 left-0 w-full z-40">
-          <div className="flex justify-between items-center">
-            <Logo onNavigateHome={() => navigate("/")} />
-            <button
-              onClick={onMobileToggle}
-              className="xl:hidden focus:outline-none focus:ring-2 focus:ring-blue-500 rounded p-1"
-              aria-expanded={mobileMenuOpen}
-              aria-label="Toggle mobile menu"
+      {/* Mobile menu overlay */}
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40"
+              onClick={onCloseMobileMenu}
+            />
+
+            <motion.div
+              initial={{ opacity: 0, x: "100%" }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: "100%" }}
+              transition={{ type: "spring", damping: 25, stiffness: 200 }}
+              className="fixed top-0 right-0 h-full w-80 bg-white/95 backdrop-blur-sm shadow-2xl z-50 p-6"
             >
-              {mobileMenuOpen ? <XIcon size={20} /> : <MenuIcon size={20} />}
-            </button>
-          </div>
+              <div className="flex flex-col h-full">
+                {/* Header */}
+                <div className="flex items-center justify-between mb-8">
+                  <h2 className="text-xl font-bold text-gray-900">Menu</h2>
+                  <button
+                    onClick={onCloseMobileMenu}
+                    className="p-2 rounded-full hover:bg-gray-100 transition-colors duration-200"
+                  >
+                    <XMarkIcon className="w-6 h-6 text-gray-700" />
+                  </button>
+                </div>
 
-          <hr className="my-4" />
+                {/* Navigation items */}
+                <nav className="flex-1 space-y-4">
+                  {navigationItems.map((item, index) => (
+                    <motion.button
+                      key={item.path}
+                      onClick={() => {
+                        navigate(item.path);
+                        onCloseMobileMenu();
+                      }}
+                      className="w-full text-left px-4 py-3 rounded-xl text-gray-700 hover:bg-purple-50 hover:text-purple-600 transition-all duration-200"
+                      initial={{ opacity: 0, x: 20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: index * 0.1 }}
+                    >
+                      {item.label}
+                    </motion.button>
+                  ))}
+                </nav>
 
-          {/* User Section */}
-          {isLoggedIn ? (
-            <MobileUserSection
-              user={user}
-              t={t}
-              onNavigate={handleNavigate}
-              onLogout={handleLogout}
-            />
-          ) : (
-            <AuthButton
-              onClick={() => handleNavigate("/login")}
-              label={t("auth.signIn")}
-              className="px-4 py-2 text-md"
-            />
-          )}
-        </div>
-      )}
-    </div>
-  );
-};
-
-/**
- * Mobile menu item with collapsible submenu
- */
-interface MobileMenuItemProps {
-  label: string;
-  items: MenuItem[];
-  open: boolean;
-  onToggle: () => void;
-  onNavigate: (route: string) => void;
-}
-
-const MobileMenuItem: React.FC<MobileMenuItemProps> = ({
-  label,
-  items,
-  open,
-  onToggle,
-  onNavigate,
-}) => (
-  <div className="mb-3">
-    <button
-      onClick={onToggle}
-      className="flex justify-between items-center w-full text-left text-sm font-semibold text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded p-1"
-      aria-expanded={open}
-    >
-      {label}
-      <ChevronDownIcon
-        className={`transform transition-transform ${open ? "rotate-180" : ""}`}
-        size={16}
-      />
-    </button>
-    {open && (
-      <ul className="mt-2 pl-4 space-y-1">
-        {items.map((item) => (
-          <li
-            key={item.route}
-            onClick={() => onNavigate(item.route)}
-            className="text-sm text-gray-600 hover:text-blue-600 cursor-pointer transition-colors p-1 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-            role="button"
-            tabIndex={0}
-            onKeyDown={(e) => {
-              if (e.key === "Enter" || e.key === " ") {
-                e.preventDefault();
-                onNavigate(item.route);
-              }
-            }}
-          >
-            {item.label}
-          </li>
-        ))}
-      </ul>
-    )}
-  </div>
-);
-
-/**
- * Mobile user section for authenticated users - simplified version
- */
-interface MobileUserSectionProps {
-  user: any;
-  t: (key: string) => string;
-  onNavigate: (route: string) => void;
-  onLogout: () => void;
-}
-
-const MobileUserSection: React.FC<MobileUserSectionProps> = ({
-  user,
-  t,
-  onNavigate,
-  onLogout,
-}) => {
-  const isPremium =
-    user.subscription?.plan && user.subscription.plan !== "free";
-
-  return (
-    <div className="space-y-3">
-      {/* User Profile Header */}
-      <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-4 border border-blue-100">
-        <div className="flex items-center gap-3">
-          <div className="relative">
-            <Image
-              src={user.avatar || "/assets/images/profile.jpg"}
-              alt="User"
-              width={48}
-              height={48}
-              className="rounded-full ring-2 ring-white shadow-md"
-            />
-            {isPremium && (
-              <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-yellow-400 rounded-full flex items-center justify-center border-2 border-white">
-                <CrownIcon size={12} className="text-yellow-800" />
+                {/* Auth section */}
+                <div className="pt-6 border-t border-gray-200">
+                  {isLoggedIn ? (
+                    <div className="space-y-3">
+                      <div className="px-4 py-2 text-sm text-gray-600">
+                        Welcome, {user.name || user.email || "User"}
+                      </div>
+                      <button
+                        onClick={() => {
+                          navigate("/account");
+                          onCloseMobileMenu();
+                        }}
+                        className="w-full text-left px-4 py-3 rounded-xl text-gray-700 hover:bg-purple-50 transition-colors duration-200"
+                      >
+                        My Account
+                      </button>
+                    </div>
+                  ) : (
+                    <button
+                      onClick={() => {
+                        navigate("/login");
+                        onCloseMobileMenu();
+                      }}
+                      className="w-full bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 py-3 rounded-xl font-semibold shadow-lg"
+                    >
+                      {t("auth.signIn")}
+                    </button>
+                  )}
+                </div>
               </div>
-            )}
-          </div>
-          <div className="flex-1 min-w-0">
-            <p className="text-sm font-semibold text-gray-900 truncate">
-              {user.email || t("navbar.profileDetails")}
-            </p>
-            <div className="flex items-center gap-2 mt-1">
-              {isPremium ? (
-                <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
-                  <CrownIcon size={10} className="mr-1" />
-                  {user.subscription?.plan}
-                </span>
-              ) : (
-                <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-600">
-                  {t("navbar.noSubscription")}
-                </span>
-              )}
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Simplified Menu - Only My Documents and My Account */}
-      <div className="bg-gray-50 rounded-xl p-2 space-y-1">
-        <MobileUserMenuItem
-          icon={<FileTextIcon size={18} className="text-blue-600" />}
-          label={t("navbar.myDocuments")}
-          onClick={() => onNavigate("/files")}
-        />
-        <MobileUserMenuItem
-          icon={<UserIcon size={18} className="text-gray-600" />}
-          label={t("navbar.myAccount")}
-          onClick={() => onNavigate("/my-account")}
-        />
-      </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
     </div>
   );
-};
-
-/**
- * Simplified individual user menu item for mobile
- */
-interface MobileUserMenuItemProps {
-  icon: React.ReactNode;
-  label: string;
-  onClick: () => void;
 }
-
-const MobileUserMenuItem: React.FC<MobileUserMenuItemProps> = ({
-  icon,
-  label,
-  onClick,
-}) => {
-  return (
-    <div
-      onClick={onClick}
-      className="flex items-center gap-3 p-3 rounded-lg cursor-pointer transition-all duration-150 hover:bg-white text-gray-700 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500"
-      role="button"
-      tabIndex={0}
-      onKeyDown={(e) => {
-        if (e.key === "Enter" || e.key === " ") {
-          e.preventDefault();
-          onClick();
-        }
-      }}
-    >
-      <div className="flex-shrink-0">{icon}</div>
-      <div className="font-medium text-sm">{label}</div>
-      <ChevronRightIcon size={16} className="text-gray-400 flex-shrink-0" />
-    </div>
-  );
-};
