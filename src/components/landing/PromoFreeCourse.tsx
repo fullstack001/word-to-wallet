@@ -17,6 +17,7 @@ export default function PromoFreeCourse() {
     t("points.2"),
     t("points.3"),
     t("points.4"),
+    t("points.5"),
   ];
 
   return (
@@ -71,46 +72,46 @@ export default function PromoFreeCourse() {
         </div>
 
         {/* Main content grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Left side - Points */}
+        <div className="space-y-16">
+          {/* Points Section - 2 Column Layout */}
           <motion.div
-            className="space-y-6"
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
             viewport={{ once: true }}
           >
             {points.map((point, index) => (
               <motion.div
                 key={index}
-                className="flex items-start space-x-4 p-6 bg-white/70 backdrop-blur-sm rounded-2xl shadow-lg border border-white/50 hover:shadow-xl transition-all duration-300"
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                className="flex items-start space-x-4 p-5 bg-white/70 backdrop-blur-sm rounded-2xl shadow-lg border border-white/50 hover:shadow-xl transition-all duration-300"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.8 + index * 0.1 }}
                 viewport={{ once: true }}
                 whileHover={{ scale: 1.02, y: -2 }}
               >
-                <div className="flex-shrink-0 w-8 h-8 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center">
-                  <CheckIcon className="w-5 h-5 text-white" />
+                <div className="flex-shrink-0 w-7 h-7 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center">
+                  <CheckIcon className="w-4 h-4 text-white" />
                 </div>
-                <p className="text-gray-700 text-base sm:text-lg leading-relaxed">
+                <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
                   {point}
                 </p>
               </motion.div>
             ))}
           </motion.div>
 
-          {/* Right side - CTA */}
+          {/* CTA Section - Centered */}
           <motion.div
-            className="text-center lg:text-left"
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            className="flex justify-center"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
             viewport={{ once: true }}
           >
-            <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 lg:p-12 shadow-2xl border border-white/50">
+            <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 lg:p-12 shadow-2xl border border-white/50 max-w-2xl w-full">
               <motion.div
-                className="space-y-6"
+                className="space-y-6 text-center"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 1.0 }}
