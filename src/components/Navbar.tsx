@@ -8,11 +8,8 @@ import { motion } from "framer-motion";
 import { RootState } from "../store/store";
 import { logout } from "../store/slices/authSlice";
 import { useLocalizedNavigation } from "../utils/navigation";
-// @ts-expect-error: Module may be missing during build, but exists at runtime
 import { MobileNavigation } from "./navbar/MobileNavigation";
-// @ts-expect-error: Module may be missing during build, but exists at runtime
 import { UserDropdown } from "./navbar/UserDropdown";
-// @ts-expect-error: Module may be missing during build, but exists at runtime
 import { AuthButton } from "./navbar/AuthButton";
 import { Logo } from "./navbar/Logo";
 

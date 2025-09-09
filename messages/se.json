@@ -204,5 +204,53 @@
     "ctaPrimary": "Bli Betalande Medlem",
     "ctaSecondary": "Förhandsvisa Gratis Kurs",
     "legal": "Att använda LLM är lagligt för författare; tvister riktar sig mot modellleverantörer, inte författare. Tekniker lärs ut privat och för professionell användning av medlemmar."
+  },
+  "privacyPolicy": {
+    "title": "Integritetspolicy",
+    "lastUpdated": "Senast uppdaterad: December 2024",
+    "websiteAddress": "Vår webbplatsadress är: https://bestglobalai.com",
+    "sections": {
+      "whoWeAre": {
+        "title": "Vem vi är",
+        "content": "Vår webbplatsadress är: https://bestglobalai.com"
+      },
+      "comments": {
+        "title": "Kommentarer",
+        "content": "När besökare lämnar kommentarer på webbplatsen samlar vi in data som visas i kommentarsformuläret, samt besökarens IP-adress och webbläsarens användaragentsträng för att hjälpa till med spamdetektering. En anonymiserad sträng skapad från din e-postadress (också kallad hash) kan tillhandahållas till Gravatar-tjänsten för att se om du använder den. Gravatar-tjänstens integritetspolicy finns här: https://automattic.com/privacy/. Efter godkännande av din kommentar är din profilbild synlig för allmänheten i samband med din kommentar."
+      },
+      "media": {
+        "title": "Media",
+        "content": "Om du laddar upp bilder till webbplatsen bör du undvika att ladda upp bilder med inbäddade platsdata (EXIF GPS) inkluderade. Besökare på webbplatsen kan ladda ner och extrahera platsdata från bilder på webbplatsen."
+      },
+      "cookies": {
+        "title": "Kakor",
+        "content": "Vi använder inga kakor för att samla in våra besökares information."
+      },
+      "embeddedContent": {
+        "title": "Inbäddat innehåll från andra webbplatser",
+        "content": "Artiklar på denna webbplats kan innehålla inbäddat innehåll (t.ex. videor, bilder, artiklar, etc.). Inbäddat innehåll från andra webbplatser beter sig exakt på samma sätt som om besökaren hade besökt den andra webbplatsen."
+      },
+      "dataSharing": {
+        "title": "Vem vi delar dina data med",
+        "content": "Om du begär en lösenordsåterställning kommer din IP-adress att inkluderas i återställnings-e-postmeddelandet."
+      },
+      "dataRetention": {
+        "title": "Hur länge vi behåller dina data",
+        "content": "Om du lämnar en kommentar behålls kommentaren och dess metadata på obestämd tid. Detta är så att vi kan känna igen och godkänna eventuella uppföljningskommentarer automatiskt istället för att hålla dem i en modereringskö. För användare som registrerar sig på vår webbplats (om några) lagrar vi också den personliga information de tillhandahåller i deras användarprofil. Alla användare kan se, redigera eller ta bort sin personliga information när som helst (förutom att de inte kan ändra sitt användarnamn). Webbplatsadministratörer kan också se och redigera den informationen."
+      },
+      "userRights": {
+        "title": "Vilka rättigheter du har över dina data",
+        "content": "Om du har ett konto på denna webbplats, eller har lämnat kommentarer, kan du begära att få en exporterad fil av de personuppgifter vi har om dig, inklusive alla data du har tillhandahållit oss. Du kan också begära att vi raderar alla personuppgifter vi har om dig. Detta inkluderar inte några data vi är skyldiga att behålla för administrativa, juridiska eller säkerhetssyften."
+      },
+      "dataTransfer": {
+        "title": "Var dina data skickas",
+        "content": "Besökar kommentarer kan kontrolleras genom en automatiserad spamdetekteringstjänst."
+      }
+    },
+    "contact": {
+      "title": "Frågor om denna policy?",
+      "description": "Om du har några frågor om denna Integritetspolicy eller hur vi hanterar dina data, tveka inte att kontakta oss.",
+      "website": "https://bestglobalai.com"
+    }
   }
 }

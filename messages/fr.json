@@ -212,5 +212,53 @@
     "ctaPrimary": "Devenir Membre Payant",
     "ctaSecondary": "Aperçu du Cours Gratuit",
     "legal": "Utiliser les LLM est légal pour les auteurs ; les litiges ciblent les fournisseurs de modèles, pas les écrivains. Les techniques sont enseignées en privé et pour usage professionnel par les membres."
+  },
+  "privacyPolicy": {
+    "title": "Politique de Confidentialité",
+    "lastUpdated": "Dernière mise à jour : Décembre 2024",
+    "websiteAddress": "Notre adresse de site web est : https://bestglobalai.com",
+    "sections": {
+      "whoWeAre": {
+        "title": "Qui nous sommes",
+        "content": "Notre adresse de site web est : https://bestglobalai.com"
+      },
+      "comments": {
+        "title": "Commentaires",
+        "content": "Lorsque les visiteurs laissent des commentaires sur le site, nous collectons les données affichées dans le formulaire de commentaires, ainsi que l'adresse IP du visiteur et la chaîne d'agent utilisateur du navigateur pour aider à la détection de spam. Une chaîne anonymisée créée à partir de votre adresse e-mail (également appelée hash) peut être fournie au service Gravatar pour voir si vous l'utilisez. La politique de confidentialité du service Gravatar est disponible ici : https://automattic.com/privacy/. Après approbation de votre commentaire, votre photo de profil est visible au public dans le contexte de votre commentaire."
+      },
+      "media": {
+        "title": "Médias",
+        "content": "Si vous téléchargez des images sur le site web, vous devez éviter de télécharger des images avec des données de localisation intégrées (EXIF GPS) incluses. Les visiteurs du site web peuvent télécharger et extraire toute donnée de localisation des images sur le site web."
+      },
+      "cookies": {
+        "title": "Cookies",
+        "content": "Nous n'utilisons aucun cookie pour collecter les informations de nos visiteurs."
+      },
+      "embeddedContent": {
+        "title": "Contenu intégré d'autres sites web",
+        "content": "Les articles sur ce site peuvent inclure du contenu intégré (par exemple, vidéos, images, articles, etc.). Le contenu intégré d'autres sites web se comporte exactement de la même manière que si le visiteur avait visité l'autre site web."
+      },
+      "dataSharing": {
+        "title": "Avec qui nous partageons vos données",
+        "content": "Si vous demandez une réinitialisation de mot de passe, votre adresse IP sera incluse dans l'e-mail de réinitialisation."
+      },
+      "dataRetention": {
+        "title": "Combien de temps nous conservons vos données",
+        "content": "Si vous laissez un commentaire, le commentaire et ses métadonnées sont conservés indéfiniment. C'est pour que nous puissions reconnaître et approuver automatiquement tout commentaire de suivi au lieu de les maintenir dans une file de modération. Pour les utilisateurs qui s'inscrivent sur notre site web (le cas échéant), nous stockons également les informations personnelles qu'ils fournissent dans leur profil utilisateur. Tous les utilisateurs peuvent voir, modifier ou supprimer leurs informations personnelles à tout moment (sauf qu'ils ne peuvent pas changer leur nom d'utilisateur). Les administrateurs du site web peuvent également voir et modifier ces informations."
+      },
+      "userRights": {
+        "title": "Quels droits vous avez sur vos données",
+        "content": "Si vous avez un compte sur ce site, ou avez laissé des commentaires, vous pouvez demander à recevoir un fichier exporté des données personnelles que nous détenons sur vous, y compris toutes les données que vous nous avez fournies. Vous pouvez également demander que nous effacions toutes les données personnelles que nous détenons sur vous. Cela n'inclut aucune donnée que nous sommes obligés de conserver à des fins administratives, légales ou de sécurité."
+      },
+      "dataTransfer": {
+        "title": "Où vos données sont envoyées",
+        "content": "Les commentaires des visiteurs peuvent être vérifiés par un service automatisé de détection de spam."
+      }
+    },
+    "contact": {
+      "title": "Des questions sur cette politique ?",
+      "description": "Si vous avez des questions sur cette Politique de Confidentialité ou sur la façon dont nous gérons vos données, n'hésitez pas à nous contacter.",
+      "website": "https://bestglobalai.com"
+    }
   }
 }

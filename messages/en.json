@@ -204,5 +204,53 @@
     "ctaPrimary": "Become a Paid Member",
     "ctaSecondary": "Preview the Free Course",
     "legal": "Using LLMs is legal for authors; disputes target model providers, not writers. Techniques are privately taught and for professional use by members."
+  },
+  "privacyPolicy": {
+    "title": "Privacy Policy",
+    "lastUpdated": "Last updated: December 2024",
+    "websiteAddress": "Our website address is: https://bestglobalai.com",
+    "sections": {
+      "whoWeAre": {
+        "title": "Who we are",
+        "content": "Our website address is: https://bestglobalai.com"
+      },
+      "comments": {
+        "title": "Comments",
+        "content": "When visitors leave comments on the site we collect the data shown in the comments form, and also the visitor's IP address and browser user agent string to help spam detection. An anonymized string created from your email address (also called a hash) may be provided to the Gravatar service to see if you are using it. The Gravatar service privacy policy is available here: https://automattic.com/privacy/. After approval of your comment, your profile picture is visible to the public in the context of your comment."
+      },
+      "media": {
+        "title": "Media",
+        "content": "If you upload images to the website, you should avoid uploading images with embedded location data (EXIF GPS) included. Visitors to the website can download and extract any location data from images on the website."
+      },
+      "cookies": {
+        "title": "Cookies",
+        "content": "We use no cookies to collect our visitors' information."
+      },
+      "embeddedContent": {
+        "title": "Embedded content from other websites",
+        "content": "Articles on this site may include embedded content (e.g. videos, images, articles, etc.). Embedded content from other websites behaves in the exact same way as if the visitor has visited the other website."
+      },
+      "dataSharing": {
+        "title": "Who we share your data with",
+        "content": "If you request a password reset, your IP address will be included in the reset email."
+      },
+      "dataRetention": {
+        "title": "How long we retain your data",
+        "content": "If you leave a comment, the comment and its metadata are retained indefinitely. This is so we can recognize and approve any follow-up comments automatically instead of holding them in a moderation queue. For users that register on our website (if any), we also store the personal information they provide in their user profile. All users can see, edit, or delete their personal information at any time (except they cannot change their username). Website administrators can also see and edit that information."
+      },
+      "userRights": {
+        "title": "What rights you have over your data",
+        "content": "If you have an account on this site, or have left comments, you can request to receive an exported file of the personal data we hold about you, including any data you have provided to us. You can also request that we erase any personal data we hold about you. This does not include any data we are obliged to keep for administrative, legal, or security purposes."
+      },
+      "dataTransfer": {
+        "title": "Where your data is sent",
+        "content": "Visitor comments may be checked through an automated spam detection service."
+      }
+    },
+    "contact": {
+      "title": "Questions About This Policy?",
+      "description": "If you have any questions about this Privacy Policy or how we handle your data, please don't hesitate to contact us.",
+      "website": "https://bestglobalai.com"
+    }
   }
 }
