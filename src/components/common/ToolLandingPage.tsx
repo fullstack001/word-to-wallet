@@ -1,8 +1,10 @@
 "use client";
 
 import HeroSection from "@/components/landing/HeroSection";
-import PromoFreeCourse from "@/components/landing/PromoFreeCourse";
-import HowItWorks from "@/components/landing/HowItWorks";
+import AudiencesSection from "@/components/landing/AudiencesSection";
+import ValueSection from "@/components/landing/ValueSection";
+import CourseSection from "@/components/landing/CourseSection";
+import HowItWorksNew from "@/components/landing/HowItWorksNew";
 import FeatureCTA from "@/components/landing/FeatureCTA";
 import SecurityPriority from "@/components/landing/SecurityPriority";
 import CustomerTestimonials from "@/components/landing/CustomerTestimonials";
@@ -19,9 +21,11 @@ export default function ToolLandingPage() {
       <Navbar />
       <div>
         <HeroSection />
-        <PromoFreeCourse />
+        <AudiencesSection />
+        <ValueSection />
+        <HowItWorksNew />
+        <CourseSection />
         <FeatureCTA />
-        <HowItWorks />
         {/* <WhyUs /> */}
         <SecurityPriority />
         <FAQ />

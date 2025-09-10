@@ -120,14 +120,7 @@ export default function HeroSection() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
               >
-                {t("title")}{" "}
-                <span className="bg-gradient-to-r from-pink-400 via-purple-400 to-blue-400 bg-clip-text text-transparent animate-gradient-x">
-                  {t("titleHighlight")}
-                </span>
-                <br />
-                <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent animate-gradient-x-reverse">
-                  Sell Direct to Your Readers
-                </span>
+                {t("title")}
               </motion.h1>
 
               <motion.p
@@ -136,7 +129,7 @@ export default function HeroSection() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
               >
-                {t("subtitle")}
+                {t("sub")}
               </motion.p>
 
               <motion.div
@@ -169,38 +162,13 @@ export default function HeroSection() {
               </motion.div>
 
               <motion.div
-                className="flex flex-col sm:flex-row gap-4 sm:gap-8 text-sm text-gray-300"
+                className="flex items-center text-sm text-gray-300"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.8 }}
               >
-                {[
-                  {
-                    text: t("features.noCreditCard"),
-                    icon: CheckIcon,
-                    color: "text-green-400",
-                  },
-                  {
-                    text: t("features.freeForever"),
-                    icon: CheckIcon,
-                    color: "text-blue-400",
-                  },
-                  {
-                    text: t("features.cancelAnytime"),
-                    icon: CheckIcon,
-                    color: "text-purple-400",
-                  },
-                ].map((item, index) => (
-                  <motion.div
-                    key={index}
-                    className="flex items-center"
-                    whileHover={{ scale: 1.1 }}
-                    transition={{ type: "spring", stiffness: 400 }}
-                  >
-                    <item.icon className={`w-4 h-4 mr-2 ${item.color}`} />
-                    {item.text}
-                  </motion.div>
-                ))}
+                <CheckIcon className="w-4 h-4 mr-2 text-green-400" />
+                {t("legal")}
               </motion.div>
             </motion.div>
 

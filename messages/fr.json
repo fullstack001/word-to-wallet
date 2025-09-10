@@ -18,17 +18,18 @@
   },
   "faq": {
     "title": "Questions fréquemment posées",
-    "multipleUsers": "Plusieurs utilisateurs de notre entreprise peuvent-ils utiliser le service simultanément ?",
-    "multipleUsersAnswer": "Oui ! Créez un compte et toute votre équipe peut utiliser nos outils. Inscrivez-vous simplement, commencez à traiter des fichiers et choisissez le plan qui convient le mieux à vos besoins.",
-    "customerSupport": "Offrez-vous un support client pour les problèmes techniques ?",
-    "customerSupportAnswer": "Absolument ! Notre équipe de support est disponible 24h/24 et 7j/7 pour vous aider avec tous les problèmes techniques que vous rencontrez.",
-    "processingSpeed": "À quelle vitesse les documents sont-ils traités sur votre plateforme ?",
-    "processingSpeedAnswer": "Les documents sont généralement traités en quelques secondes, même pour les gros fichiers.",
-    "moneyBack": "Avez-vous une garantie de remboursement ?",
-    "moneyBackAnswer": "Oui, nous offrons une garantie de remboursement de 14 jours si vous n'êtes pas satisfait de notre service.",
-    "ctaTitle": "Prêt à transformer votre flux de travail documentaire ?",
-    "ctaDescription": "Rejoignez des milliers d'entreprises prospères qui utilisent WordToWallet pour rationaliser leurs opérations PDF. Commencez votre essai gratuit aujourd'hui !",
-    "ctaButton": "Commencer"
+    "q1": {
+      "q": "Ai-je besoin d'autres outils d'IA ?",
+      "a": "Non. WordToWallet centralise la copie, le design et la livraison pour que vous n'ayez pas à jongler avec des dizaines d'applications."
+    },
+    "q2": {
+      "q": "Puis-je encore publier sur les marchés ?",
+      "a": "Oui—connectez vos comptes Draft2Digital ou BookFunnel et transférez quand vous voulez une distribution plus large."
+    },
+    "q3": {
+      "q": "Le cours est-il vraiment gratuit ?",
+      "a": "Oui—le cours est gratuit pour les membres. Vous payez pour l'accès à la plateforme et pouvez annuler à tout moment."
+    }
   },
   "footer": {
     "selectLanguage": "Sélectionner la langue"
@@ -64,16 +65,51 @@
     "myAccount": "Mon compte"
   },
   "hero": {
-    "badge": "Approuvé par plus de 10 000 écrivains dans le monde",
-    "title": "Écrivez mieux avec",
-    "titleHighlight": "l'IA",
-    "subtitle": "Transformez votre écriture avec des leçons alimentées par l'IA. Construisez votre audience. Gardez vos droits et données clients tout en vendant directement à vos lecteurs.",
-    "ctaPrimary": "Commencer le cours gratuit",
-    "ctaSecondary": "Voir la démo",
-    "features": {
-      "noCreditCard": "Aucune carte de crédit requise",
-      "freeForever": "Gratuit pour toujours",
-      "cancelAnytime": "Annulez à tout moment"
+    "badge": "Membres d'abord · Outils Privés · Portée Mondiale",
+    "title": "Transformez les Mots en Ventes — Cours Gratuit + Plateforme ePub3",
+    "sub": "Créez des promos ePub3 interactives avec ChatGPT-5 et vendez directement par email. Multilingue, mesurable et sans intermédiaire.",
+    "ctaPrimary": "Obtenir l'Accès à la Plateforme",
+    "ctaSecondary": "Aperçu du Cours Gratuit",
+    "legal": "Nous ne vendons jamais vos données. Annulez à tout moment."
+  },
+  "audiences": {
+    "title": "Conçu pour votre Cas d'Usage",
+    "solopreneurs": {
+      "title": "Solopreneurs et Micro-Équipes",
+      "desc": "Lancez des promos, collectez des abonnés et vendez des services ou produits sans plateformes publicitaires coûteuses."
+    },
+    "authors": {
+      "title": "Auteurs Auto-Publiés et Micro-Agences de RP",
+      "desc": "Créez des campagnes et des mises en page de livres (fiction et non-fiction), livrez des ARCs et vendez à des listes de lecteurs de niche."
+    }
+  },
+  "value": {
+    "title": "Pourquoi WordToWallet",
+    "cards": {
+      "epub3": {
+        "title": "Studio Créateur ePub3",
+        "description": "Créez des promos et mises en page de livres. Collez le code et les designs générés par ChatGPT-5, prévisualisez sur mobile et publiez en minutes.",
+        "features": {
+          "0": "XHTML/CSS prêt à coller depuis les prompts",
+          "1": "Accessibilité et traduction prêtes",
+          "2": "Modèles réutilisables pour fiction/non-fiction"
+        }
+      },
+      "email": {
+        "title": "Email Sécurisé en Boîte",
+        "description": "Envoyez des emails texte d'abord avec des liens alignés et des protections de livraison intégrées (SPF/DKIM/DMARC). Réchauffez et surveillez sans deviner.",
+        "features": []
+      },
+      "analytics": {
+        "title": "Listes Privées et Analyses",
+        "description": "Importez des CSV, segmentez par produit/genre et suivez les clics → téléchargements → réponses/achats depuis un seul tableau de bord.",
+        "features": []
+      },
+      "byoa": {
+        "title": "BYOA: D2D et BookFunnel",
+        "description": "Exportez des packages prêts pour les marchés ou livrez des ARCs avec des liens—intégrez quand vous voulez une distribution plus large.",
+        "features": []
+      }
     }
   },
   "howItWorks": {
@@ -94,6 +130,23 @@
       }
     },
     "cta": "Commencer maintenant"
+  },
+  "howItWorksNew": {
+    "title": "Comment ça marche",
+    "steps": {
+      "step1": {
+        "title": "Dites votre objectif à ChatGPT-5",
+        "description": "Utilisez nos cartes de prompts pour les offres, audiences et langues."
+      },
+      "step2": {
+        "title": "Générez copie et code",
+        "description": "Lignes d'objet, CTAs et sections ePub3 prêtes à coller."
+      },
+      "step3": {
+        "title": "Publiez et envoyez",
+        "description": "Allez en direct via email de première partie et suivez l'entonnoir."
+      }
+    }
   },
   "features": {
     "title": "Tout ce dont vous avez besoin pour",
@@ -194,24 +247,16 @@
       "review": "Les fonctionnalités de collaboration d'équipe ont éliminé nos goulots d'étranglement documentaires. Plusieurs départements peuvent maintenant travailler sur les mêmes documents simultanément avec des mises à jour en temps réel. Cela a amélioré nos délais de livraison de projet de 40%."
     }
   },
-  "promo": {
-    "badge": "Bonus Membres · Techniques Privées",
-    "title": "Transformez les Mots en Revenus — Mini-Cours Gratuit",
-    "sub": {
-      "part1": "Obtenez ma méthode minimaliste et basée sur la vérité pour utiliser ChatGPT-5 pour brainstormer, rechercher et polir des écrits publiable—sans perdre votre voix.",
-      "highlight": "Gratuit pour les membres payants."
-    },
-    "points": {
-      "0": "Cours court, application longue : petites répétitions quotidiennes → brouillons publiable",
-      "1": "Flux de travail légal et éthique ; votre voix reste la vôtre",
-      "2": "Fiction et non-fiction : cœur d'histoire, échelles de scènes, intégration de recherche",
-      "3": "Outils directs au lecteur : ePub3, Draft2Digital, BookFunnel, SocialPilot, email",
-      "4": "Apprenez ce que les grandes maisons d'édition ne veulent pas que vous sachiez",
-      "5": "Apprenez à utiliser le nouvel Agent ChatGPT-5 qui exécutera vos tâches sur instruction."
-    },
-    "ctaPrimary": "Devenir Membre Payant",
-    "ctaSecondary": "Aperçu du Cours Gratuit",
-    "legal": "Utiliser les LLM est légal pour les auteurs ; les litiges ciblent les fournisseurs de modèles, pas les écrivains. Les techniques sont enseignées en privé et pour usage professionnel par les membres."
+  "course": {
+    "badge": "Cours Gratuit Inclus",
+    "title": "Cours Gratuit Inclus",
+    "bullets": [
+      "Guide de vente directe pour email + ePub3.",
+      "Bibliothèque de prompts : offres, promos, sections de landing, traduction.",
+      "Modèles d'invitation anti-spam et liste de vérification de réchauffement.",
+      "Projet final : votre sprint de profit de 7 jours."
+    ],
+    "cta": "S'inscrire Gratuitement (avec Accès à la Plateforme)"
   },
   "privacyPolicy": {
     "title": "Politique de Confidentialité",

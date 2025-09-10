@@ -18,17 +18,18 @@
   },
   "faq": {
     "title": "Preguntas frecuentes",
-    "multipleUsers": "¿Pueden múltiples usuarios de nuestra empresa usar el servicio simultáneamente?",
-    "multipleUsersAnswer": "¡Sí! Crea una cuenta y todo tu equipo puede usar nuestras herramientas. Simplemente regístrate, comienza a procesar archivos y elige el plan que mejor se adapte a tus necesidades.",
-    "customerSupport": "¿Ofrecen soporte al cliente para problemas técnicos?",
-    "customerSupportAnswer": "¡Absolutamente! Nuestro equipo de soporte está disponible 24/7 para ayudar con cualquier problema técnico que encuentres.",
-    "processingSpeed": "¿Qué tan rápido se procesan los documentos en su plataforma?",
-    "processingSpeedAnswer": "Los documentos se procesan típicamente en segundos, incluso para archivos grandes.",
-    "moneyBack": "¿Tienen garantía de devolución de dinero?",
-    "moneyBackAnswer": "Sí, ofrecemos una garantía de devolución de dinero de 14 días si no estás satisfecho con nuestro servicio.",
-    "ctaTitle": "¿Listo para transformar tu flujo de trabajo de documentos?",
-    "ctaDescription": "Únete a miles de empresas exitosas que usan WordToWallet para optimizar sus operaciones PDF. ¡Comienza tu prueba gratuita hoy!",
-    "ctaButton": "Comenzar"
+    "q1": {
+      "q": "¿Necesito otras herramientas de IA?",
+      "a": "No. WordToWallet centraliza copia, diseño y entrega para que no tengas que manejar docenas de aplicaciones."
+    },
+    "q2": {
+      "q": "¿Puedo seguir publicando en mercados?",
+      "a": "Sí—conecta tus cuentas de Draft2Digital o BookFunnel y transfiere cuando quieras distribución más amplia."
+    },
+    "q3": {
+      "q": "¿El curso es realmente gratuito?",
+      "a": "Sí—el curso es gratuito para miembros. Pagas por el acceso a la plataforma y puedes cancelar en cualquier momento."
+    }
   },
   "footer": {
     "selectLanguage": "Seleccionar idioma"
@@ -64,16 +65,51 @@
     "myAccount": "Mi cuenta"
   },
   "hero": {
-    "badge": "Confiado por más de 10,000 escritores en todo el mundo",
-    "title": "Escribe mejor con",
-    "titleHighlight": "IA",
-    "subtitle": "Transforma tu escritura con lecciones impulsadas por IA. Construye tu audiencia. Mantén tus derechos y datos de clientes mientras vendes directamente a los lectores.",
-    "ctaPrimary": "Comenzar curso gratuito",
-    "ctaSecondary": "Ver demo",
-    "features": {
-      "noCreditCard": "No se requiere tarjeta de crédito",
-      "freeForever": "Gratis para siempre",
-      "cancelAnytime": "Cancela en cualquier momento"
+    "badge": "Miembros Primero · Herramientas Privadas · Alcance Global",
+    "title": "Convierte Palabras en Ventas — Curso Gratuito + Plataforma ePub3",
+    "sub": "Construye promociones ePub3 interactivas con ChatGPT-5 y vende directamente por email. Multilingüe, medible y sin intermediarios.",
+    "ctaPrimary": "Obtener Acceso a la Plataforma",
+    "ctaSecondary": "Vista Previa del Curso Gratuito",
+    "legal": "Nunca vendemos tus datos. Cancela en cualquier momento."
+  },
+  "audiences": {
+    "title": "Construido para tu Caso de Uso",
+    "solopreneurs": {
+      "title": "Solopreneurs y Micro-Equipos",
+      "desc": "Lanza promos, recopila suscriptores y vende servicios o productos sin plataformas publicitarias costosas."
+    },
+    "authors": {
+      "title": "Autores Auto-Publicados y Micro-Agencias de PR",
+      "desc": "Crea campañas y diseños de libros (ficción y no ficción), entrega ARCs y vende a listas de lectores específicos."
+    }
+  },
+  "value": {
+    "title": "Por qué WordToWallet",
+    "cards": {
+      "epub3": {
+        "title": "Estudio Creador ePub3",
+        "description": "Crea promociones y diseños de libros. Pega código y diseños generados por ChatGPT-5, previsualiza en móvil y publica en minutos.",
+        "features": {
+          "0": "XHTML/CSS listo para pegar desde prompts",
+          "1": "Accesibilidad y traducción listas",
+          "2": "Plantillas reutilizables para ficción/no ficción"
+        }
+      },
+      "email": {
+        "title": "Email Seguro en Bandeja",
+        "description": "Envía emails de texto primero con enlaces alineados y protecciones de entregabilidad integradas (SPF/DKIM/DMARC). Calienta y monitorea sin adivinanzas.",
+        "features": []
+      },
+      "analytics": {
+        "title": "Listas Privadas y Análisis",
+        "description": "Importa CSVs, segmenta por producto/género y rastrea clics → descargas → respuestas/compras desde un solo panel.",
+        "features": []
+      },
+      "byoa": {
+        "title": "BYOA: D2D y BookFunnel",
+        "description": "Exporta paquetes listos para mercados o entrega ARCs con enlaces—integra cuando quieras distribución más amplia.",
+        "features": []
+      }
     }
   },
   "howItWorks": {
@@ -94,6 +130,23 @@
       }
     },
     "cta": "Comenzar ahora"
+  },
+  "howItWorksNew": {
+    "title": "Cómo funciona",
+    "steps": {
+      "step1": {
+        "title": "Dile a ChatGPT-5 tu objetivo",
+        "description": "Usa nuestras tarjetas de prompts para ofertas, audiencias e idiomas."
+      },
+      "step2": {
+        "title": "Genera copia y código",
+        "description": "Líneas de asunto, CTAs y secciones ePub3 listas para pegar."
+      },
+      "step3": {
+        "title": "Publica y envía",
+        "description": "Ponte en vivo vía email de primera parte y rastrea el embudo."
+      }
+    }
   },
   "features": {
     "title": "Todo lo que necesitas para",
@@ -194,24 +247,16 @@
       "review": "Las funciones de colaboración en equipo han eliminado nuestros cuellos de botella de documentos. Múltiples departamentos ahora pueden trabajar en los mismos documentos simultáneamente con actualizaciones en tiempo real. Esto ha mejorado nuestros tiempos de entrega de proyectos en un 40%."
     }
   },
-  "promo": {
-    "badge": "Bono de Miembros · Técnicas Privadas",
-    "title": "Convierte Palabras en Ingresos — Mini-Curso Gratuito",
-    "sub": {
-      "part1": "Obtén mi método minimalista y basado en la verdad para usar ChatGPT-5 para lluvia de ideas, investigación y pulir escritos publicables—sin perder tu voz.",
-      "highlight": "Gratis para miembros pagos."
-    },
-    "points": {
-      "0": "Curso corto, aplicación larga: pequeñas repeticiones diarias → borradores publicables",
-      "1": "Flujo de trabajo legal y ético; tu voz permanece tuya",
-      "2": "Ficción y no ficción: núcleo de historia, escaleras de escenas, integración de investigación",
-      "3": "Herramientas directas al lector: ePub3, Draft2Digital, BookFunnel, SocialPilot, email",
-      "4": "Aprende lo que las grandes editoriales no quieren que sepas",
-      "5": "Aprende a usar el nuevo Agente de ChatGPT-5 que realizará tus tareas bajo instrucción."
-    },
-    "ctaPrimary": "Convertirse en Miembro Pagado",
-    "ctaSecondary": "Vista Previa del Curso Gratuito",
-    "legal": "Usar LLMs es legal para autores; las disputas se dirigen a los proveedores de modelos, no a los escritores. Las técnicas se enseñan en privado y son para uso profesional por miembros."
+  "course": {
+    "badge": "Curso Gratuito Incluido",
+    "title": "Curso Gratuito Incluido",
+    "bullets": [
+      "Guía de ventas directas para email + ePub3.",
+      "Biblioteca de prompts: ofertas, promos, secciones de landing, traducción.",
+      "Plantillas de invitación anti-spam y lista de verificación de calentamiento.",
+      "Proyecto final: tu sprint de ganancias de 7 días."
+    ],
+    "cta": "Inscribirse Gratis (con Acceso a la Plataforma)"
   },
   "privacyPolicy": {
     "title": "Política de Privacidad",

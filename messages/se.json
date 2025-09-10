@@ -18,17 +18,18 @@
   },
   "faq": {
     "title": "Vanliga frågor",
-    "multipleUsers": "Kan flera användare från vårt företag använda tjänsten samtidigt?",
-    "multipleUsersAnswer": "Ja! Skapa ett konto så kan hela ditt team använda våra verktyg. Registrera dig helt enkelt, börja bearbeta filer och välj planen som passar dina behov bäst.",
-    "customerSupport": "Erbjuder ni kundstöd för tekniska problem?",
-    "customerSupportAnswer": "Absolut! Vårt stödteam är tillgängligt 24/7 för att hjälpa till med alla tekniska problem du stöter på.",
-    "processingSpeed": "Hur snabbt bearbetas dokument på er plattform?",
-    "processingSpeedAnswer": "Dokument bearbetas vanligtvis inom sekunder, även för stora filer.",
-    "moneyBack": "Har ni pengarna-tillbaka-garanti?",
-    "moneyBackAnswer": "Ja, vi erbjuder en 14-dagars pengarna-tillbaka-garanti om du inte är nöjd med vår tjänst.",
-    "ctaTitle": "Redo att transformera ditt dokumentarbetsflöde?",
-    "ctaDescription": "Gå med i tusentals framgångsrika företag som använder WordToWallet för att effektivisera sina PDF-operationer. Starta din gratis provperiod idag!",
-    "ctaButton": "Kom igång"
+    "q1": {
+      "q": "Behöver jag andra AI-verktyg?",
+      "a": "Nej. WordToWallet centraliserar kopior, design och leverans så att du inte behöver jonglera med dussintals appar."
+    },
+    "q2": {
+      "q": "Kan jag fortfarande publicera på marknadsplatser?",
+      "a": "Ja—anslut dina Draft2Digital eller BookFunnel-konton och överlämna när du vill ha bredare distribution."
+    },
+    "q3": {
+      "q": "Är kursen verkligen gratis?",
+      "a": "Ja—kursen är gratis för medlemmar. Du betalar för plattformsåtkomst och kan avbryta när som helst."
+    }
   },
   "footer": {
     "selectLanguage": "Välj språk"
@@ -64,16 +65,51 @@
     "myAccount": "Mitt konto"
   },
   "hero": {
-    "badge": "Betrodd av över 10 000 författare världen över",
-    "title": "Skriv bättre med",
-    "titleHighlight": "AI",
-    "subtitle": "Transformera ditt skrivande med AI-drivna lektioner. Bygg din publik. Behåll dina rättigheter och kunddata medan du säljer direkt till läsare.",
-    "ctaPrimary": "Starta gratis kurs",
-    "ctaSecondary": "Titta på demo",
-    "features": {
-      "noCreditCard": "Inget kreditkort krävs",
-      "freeForever": "Gratis för alltid",
-      "cancelAnytime": "Avbryt när som helst"
+    "badge": "Medlemmar Först · Privata Verktyg · Global Räckvidd",
+    "title": "Förvandla Ord till Försäljning — Gratis Kurs + ePub3 Plattform",
+    "sub": "Bygg interaktiva ePub3-promos med ChatGPT-5 och sälj direkt via e-post. Flerspråkig, mätbar och utan mellanhänder.",
+    "ctaPrimary": "Få Plattformsåtkomst",
+    "ctaSecondary": "Förhandsvisa Gratis Kurs",
+    "legal": "Vi säljer aldrig dina data. Avbryt när som helst."
+  },
+  "audiences": {
+    "title": "Byggd för ditt Användningsfall",
+    "solopreneurs": {
+      "title": "Soloprenörer och Mikro-Team",
+      "desc": "Lansera promos, samla prenumeranter och sälj tjänster eller produkter utan kostsamma annonsplattformar."
+    },
+    "authors": {
+      "title": "Självutgivna Författare och PR Mikro-Agenturer",
+      "desc": "Skapa kampanjer och boklayouter (fiktion och facklitteratur), leverera ARCs och sälj till nischade läsarlistor."
+    }
+  },
+  "value": {
+    "title": "Varför WordToWallet",
+    "cards": {
+      "epub3": {
+        "title": "ePub3 Creator Studio",
+        "description": "Skapa promos och boklayouter. Klistra in kod och design genererade av ChatGPT-5, förhandsgranska på mobil och publicera på minuter.",
+        "features": {
+          "0": "Klistra-in-redo XHTML/CSS från prompts",
+          "1": "Tillgänglighet och översättning redo",
+          "2": "Återanvändbara mallar för fiktion/facklitteratur"
+        }
+      },
+      "email": {
+        "title": "Inkorgssäker E-post",
+        "description": "Skicka text-först, justerade länk-e-post med inbyggda leveransskydd (SPF/DKIM/DMARC). Värm upp och övervaka utan gissningar.",
+        "features": []
+      },
+      "analytics": {
+        "title": "Privata Listor och Analys",
+        "description": "Importera CSV, segmentera efter produkt/genre och spåra klick → nedladdningar → svar/köp från en dashboard.",
+        "features": []
+      },
+      "byoa": {
+        "title": "BYOA: D2D och BookFunnel",
+        "description": "Exportera marknadsplats-redo paket eller leverera ARCs med länkar—integrera när du vill ha bredare distribution.",
+        "features": []
+      }
     }
   },
   "howItWorks": {
@@ -94,6 +130,23 @@
       }
     },
     "cta": "Kom igång nu"
+  },
+  "howItWorksNew": {
+    "title": "Hur det fungerar",
+    "steps": {
+      "step1": {
+        "title": "Berätta för ChatGPT-5 ditt mål",
+        "description": "Använd våra promptkort för erbjudanden, målgrupper och språk."
+      },
+      "step2": {
+        "title": "Generera kopior och kod",
+        "description": "Ämnesrader, CTAs och klistra-in-redo ePub3-sektioner."
+      },
+      "step3": {
+        "title": "Publicera och skicka",
+        "description": "Gå live via första parts e-post och spåra trattan."
+      }
+    }
   },
   "features": {
     "title": "Allt du behöver för att",
@@ -186,24 +239,16 @@
       "review": "Teamkollaborationsfunktionerna har eliminerat våra dokumentflaskhalsar. Flera avdelningar kan nu arbeta på samma dokument samtidigt med realtidsuppdateringar. Detta har förbättrat våra projektleveranstider med 40%."
     }
   },
-  "promo": {
-    "badge": "Medlemsbonus · Privata Tekniker",
-    "title": "Förvandla Ord till Inkomst — Gratis Mini-Kurs",
-    "sub": {
-      "part1": "Få min sanning-först, minimalistiska metod för att använda ChatGPT-5 för brainstorming, forskning och polering av publicerbart skrivande—utan att förlora din röst.",
-      "highlight": "Gratis för betalande medlemmar."
-    },
-    "points": {
-      "0": "Kort kurs, lång tillämpning: små dagliga repetitioner → publicerbara utkast",
-      "1": "Laglig, etisk arbetsflöde; din röst förblir din",
-      "2": "Fiktion och facklitteratur: berättelsekärna, scenstegar, forskningsinfogning",
-      "3": "Direkta läsarverktyg: ePub3, Draft2Digital, BookFunnel, SocialPilot, e-post",
-      "4": "Lär dig vad de stora förlagen inte vill att du ska veta",
-      "5": "Lär dig att använda ChatGPT-5:s nya Agent som kommer att utföra dina uppgifter enligt instruktion."
-    },
-    "ctaPrimary": "Bli Betalande Medlem",
-    "ctaSecondary": "Förhandsvisa Gratis Kurs",
-    "legal": "Att använda LLM är lagligt för författare; tvister riktar sig mot modellleverantörer, inte författare. Tekniker lärs ut privat och för professionell användning av medlemmar."
+  "course": {
+    "badge": "Gratis Kurs Inkluderad",
+    "title": "Gratis Kurs Inkluderad",
+    "bullets": [
+      "Direktförsäljningsspelbok för e-post + ePub3.",
+      "Promptbibliotek: erbjudanden, promos, landningssektioner, översättning.",
+      "Anti-spam inbjudningsmallar och uppvärmningschecklista.",
+      "Capstone: din 7-dagars vinstsprint."
+    ],
+    "cta": "Anmäl Dig Gratis (med Plattformsåtkomst)"
   },
   "privacyPolicy": {
     "title": "Integritetspolicy",
