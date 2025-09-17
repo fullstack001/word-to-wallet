@@ -11,6 +11,15 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   title: "WordToWallet - Writer and Seller",
   description: "Writer and Seller",
+  icons: {
+    icon: [
+      { url: "/assets/images/logo.png", sizes: "32x32", type: "image/png" },
+      { url: "/assets/images/logo.png", type: "image/png" },
+    ],
+    apple: [
+      { url: "/assets/images/logo.png", sizes: "180x180", type: "image/png" },
+    ],
+  },
 };
 
 export default function RootLayout({

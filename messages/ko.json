@@ -293,5 +293,32 @@
       "description": "이 개인정보 보호정책이나 데이터 처리 방식에 대한 질문이 있으시면 언제든지 연락해 주세요.",
       "website": "https://bestglobalai.com"
     }
+  },
+  "contactPage": {
+    "title": "문의하기",
+    "description": "서비스에 대한 도움이 필요하거나 질문이 있으시면 언제든지 연락해 주세요.",
+    "form": {
+      "name": "이름",
+      "namePlaceholder": "귀하의 이름",
+      "email": "이메일 주소",
+      "emailPlaceholder": "email@domain.com",
+      "message": "메시지",
+      "messagePlaceholder": "메시지를 입력하세요",
+      "sendButton": "메시지 보내기"
+    },
+    "directContact": {
+      "title": "직접 문의하기"
+    },
+    "billing": {
+      "title": "결제 지원",
+      "description": "요금에 대한 질문이 있으신가요? 플랫폼의 결제 관련 질문이 있으시면 다음으로 연락해 주세요:"
+    },
+    "customer": {
+      "title": "고객 지원",
+      "description": "언제나 기꺼이 대화하겠습니다. 서비스에 대한 질문이 있으시면 전화하거나 이메일을 보내주세요:"
+    },
+    "postal": {
+      "title": "우편 주소"
+    }
   }
 }

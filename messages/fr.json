@@ -305,5 +305,32 @@
       "description": "Si vous avez des questions sur cette Politique de Confidentialité ou sur la façon dont nous gérons vos données, n'hésitez pas à nous contacter.",
       "website": "https://bestglobalai.com"
     }
+  },
+  "contactPage": {
+    "title": "Contactez-nous",
+    "description": "Si vous avez besoin d'aide avec notre service ou avez des questions, n'hésitez pas à nous contacter.",
+    "form": {
+      "name": "Nom",
+      "namePlaceholder": "Votre Nom",
+      "email": "Adresse e-mail",
+      "emailPlaceholder": "email@domaine.com",
+      "message": "Message",
+      "messagePlaceholder": "Tapez votre message ici",
+      "sendButton": "Envoyer le Message"
+    },
+    "directContact": {
+      "title": "Contactez-nous directement"
+    },
+    "billing": {
+      "title": "Support de facturation",
+      "description": "Avez-vous une question sur votre charge ? Pour toute question liée aux paiements sur la plateforme, contactez-nous à :"
+    },
+    "customer": {
+      "title": "Support client",
+      "description": "Nous sommes toujours ravis de vous parler. Si vous avez des questions sur notre service, appelez-nous ou envoyez-nous un e-mail à :"
+    },
+    "postal": {
+      "title": "Notre adresse postale"
+    }
   }
 }

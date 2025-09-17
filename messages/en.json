@@ -297,5 +297,32 @@
       "description": "If you have any questions about this Privacy Policy or how we handle your data, please don't hesitate to contact us.",
       "website": "https://bestglobalai.com"
     }
+  },
+  "contactPage": {
+    "title": "Contact us",
+    "description": "If you need assistance with our service or have any questions, don't hesitate to get in touch with us.",
+    "form": {
+      "name": "Name",
+      "namePlaceholder": "Your Name",
+      "email": "Email address",
+      "emailPlaceholder": "email@domain.com",
+      "message": "Message",
+      "messagePlaceholder": "Type your message here",
+      "sendButton": "Send Message"
+    },
+    "directContact": {
+      "title": "Contact us directly"
+    },
+    "billing": {
+      "title": "Billing support",
+      "description": "Do you have a question about your charge? For any payment-related questions on the platform, please contact us at:"
+    },
+    "customer": {
+      "title": "Customer support",
+      "description": "We're always glad to talk to you. If you have any questions about our service, give us a call or email us at:"
+    },
+    "postal": {
+      "title": "Our postal address"
+    }
   }
 }

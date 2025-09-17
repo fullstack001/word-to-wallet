@@ -297,5 +297,32 @@
       "description": "Om du har några frågor om denna Integritetspolicy eller hur vi hanterar dina data, tveka inte att kontakta oss.",
       "website": "https://bestglobalai.com"
     }
+  },
+  "contactPage": {
+    "title": "Kontakta oss",
+    "description": "Om du behöver hjälp med vår tjänst eller har några frågor, tveka inte att kontakta oss.",
+    "form": {
+      "name": "Namn",
+      "namePlaceholder": "Ditt namn",
+      "email": "E-postadress",
+      "emailPlaceholder": "email@domain.com",
+      "message": "Meddelande",
+      "messagePlaceholder": "Skriv ditt meddelande här",
+      "sendButton": "Skicka meddelande"
+    },
+    "directContact": {
+      "title": "Kontakta oss direkt"
+    },
+    "billing": {
+      "title": "Faktureringssupport",
+      "description": "Har du en fråga om din avgift? För eventuella betalningsrelaterade frågor på plattformen, kontakta oss på:"
+    },
+    "customer": {
+      "title": "Kundsupport",
+      "description": "Vi är alltid glada att prata med dig. Om du har några frågor om vår tjänst, ring oss eller skicka e-post till:"
+    },
+    "postal": {
+      "title": "Vår postadress"
+    }
   }
 }
