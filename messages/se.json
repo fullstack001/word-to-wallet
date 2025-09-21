@@ -321,8 +321,9 @@
       "title": "Kundsupport",
       "description": "Vi är alltid glada att prata med dig. Om du har några frågor om vår tjänst, ring oss eller skicka e-post till:"
     },
-    "postal": {
-      "title": "Vår postadress"
+    "meet": {
+      "title": "Boka ett Möte",
+      "description": "Behöver du direkt hjälp? Boka ett personligt möte med vårt team för att diskutera dina behov och få expertvägledning."
     }
   }
 }

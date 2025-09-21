@@ -37,7 +37,26 @@ export interface SubscriptionData {
 }
 
 // Base API configuration
-const API_BASE_URL = "https://api.wordtowallet.com/api";
+const API_BASE_URL =
+  process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
+
+// Rate limiting helper
+let lastRequestTime = 0;
+const MIN_REQUEST_INTERVAL = 100; // Minimum 100ms between requests
+
+const rateLimitedRequest = async (requestFn: () => Promise<any>) => {
+  const now = Date.now();
+  const timeSinceLastRequest = now - lastRequestTime;
+
+  if (timeSinceLastRequest < MIN_REQUEST_INTERVAL) {
+    await new Promise((resolve) =>
+      setTimeout(resolve, MIN_REQUEST_INTERVAL - timeSinceLastRequest)
+    );
+  }
+
+  lastRequestTime = Date.now();
+  return requestFn();
+};
 
 // Create axios instance with base configuration
 const api = axios.create({
@@ -70,14 +89,28 @@ export const loginUser = async (
   password: string
 ): Promise<AuthResponse> => {
   try {
-    const response: AxiosResponse<AuthResponse> = await api.post(
-      "/auth/login",
-      {
-        email,
-        password,
-      }
-    );
-    return response.data;
+    const response = await api.post("/auth/login", {
+      email,
+      password,
+    });
+
+    // Extract data from the backend response structure
+    const { data } = response.data;
+    const { user, tokens } = data;
+
+    // Transform to match frontend AuthResponse interface
+    return {
+      token: tokens.accessToken,
+      user: {
+        id: user.id,
+        email: user.email,
+        name: user.fullName,
+        cardnumber: "", // Not provided by backend
+        avatar: "", // Not provided by backend
+        isAdmin: user.role === "admin",
+      },
+      subscription: undefined, // Not provided by login endpoint
+    };
   } catch (error) {
     const axiosError = error as AxiosError<{ message?: string }>;
     const errorMessage = axiosError.response?.data?.message || "Login failed";
@@ -397,6 +430,356 @@ export const createStripeSubscription = async (
 
 export const getSavedPdfUrl = (base64Data: string): string => {
   return base64Data; // base64 data can be used directly as URL
+};
+
+// Admin API Types
+export interface Subject {
+  _id: string;
+  name: string;
+  description: string;
+  isActive: boolean;
+  createdBy: string;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface MediaFile {
+  id: string;
+  filename: string;
+  originalName: string;
+  mimeType: string;
+  size: number;
+  path: string;
+  url: string;
+  uploadedAt: string;
+}
+
+export interface MultimediaContent {
+  images: MediaFile[];
+  audio: MediaFile[];
+  video: MediaFile[];
+}
+
+export interface Course {
+  _id: string;
+  title: string;
+  description: string;
+  subject: string | Subject;
+  epubFile?: string;
+  epubMetadata?: {
+    title: string;
+    author: string;
+    publisher?: string;
+    language: string;
+    description?: string;
+    coverImage?: string;
+    totalPages?: number;
+    fileSize?: number;
+    lastModified?: string;
+  };
+  thumbnail?: string;
+  multimediaContent?: MultimediaContent;
+  isActive: boolean;
+  isPublished: boolean;
+  createdBy: string;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface CreateSubjectData {
+  name: string;
+  description: string;
+}
+
+export interface UpdateSubjectData {
+  name?: string;
+  description?: string;
+  isActive?: boolean;
+}
+
+export interface CreateCourseData {
+  title: string;
+  description: string;
+  subject: string;
+  epubFile?: File;
+  thumbnail?: File;
+  multimediaContent?: {
+    images?: File[];
+    audio?: File[];
+    video?: File[];
+  };
+  isActive?: boolean;
+  isPublished?: boolean;
+}
+
+export interface UpdateCourseData {
+  title?: string;
+  description?: string;
+  subject?: string;
+  isActive?: boolean;
+  isPublished?: boolean;
+}
+
+// Admin API Functions
+export const getSubjects = async (): Promise<Subject[]> => {
+  try {
+    const token = getAuthToken();
+    const response: AxiosResponse<{ success: boolean; data: Subject[] }> =
+      await rateLimitedRequest(() =>
+        api.get("/subjects", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
+      );
+    return response.data.data;
+  } catch (error) {
+    const axiosError = error as AxiosError<{ message?: string }>;
+    const errorMessage =
+      axiosError.response?.data?.message || "Failed to fetch subjects";
+    throw new Error(errorMessage);
+  }
+};
+
+export const createSubject = async (
+  data: CreateSubjectData
+): Promise<Subject> => {
+  try {
+    const token = getAuthToken();
+    const response: AxiosResponse<{ success: boolean; data: Subject }> =
+      await api.post("/subjects", data, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+    return response.data.data;
+  } catch (error) {
+    const axiosError = error as AxiosError<{
+      message?: string;
+      errors?: string[];
+    }>;
+    console.error("Create subject error:", axiosError.response?.data);
+
+    let errorMessage = "Failed to create subject";
+
+    if (axiosError.response?.data?.message) {
+      errorMessage = axiosError.response.data.message;
+    } else if (axiosError.response?.data?.errors) {
+      errorMessage = axiosError.response.data.errors.join(", ");
+    } else if (axiosError.message) {
+      errorMessage = axiosError.message;
+    }
+
+    throw new Error(errorMessage);
+  }
+};
+
+export const updateSubject = async (
+  id: string,
+  data: UpdateSubjectData
+): Promise<Subject> => {
+  try {
+    const token = getAuthToken();
+    const response: AxiosResponse<{ success: boolean; data: Subject }> =
+      await api.put(`/subjects/${id}`, data, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+    return response.data.data;
+  } catch (error) {
+    const axiosError = error as AxiosError<{ message?: string }>;
+    const errorMessage =
+      axiosError.response?.data?.message || "Failed to update subject";
+    throw new Error(errorMessage);
+  }
+};
+
+export const deleteSubject = async (id: string): Promise<void> => {
+  try {
+    const token = getAuthToken();
+    await api.delete(`/subjects/${id}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+  } catch (error) {
+    const axiosError = error as AxiosError<{ message?: string }>;
+    const errorMessage =
+      axiosError.response?.data?.message || "Failed to delete subject";
+    throw new Error(errorMessage);
+  }
+};
+
+export const toggleSubjectStatus = async (id: string): Promise<Subject> => {
+  try {
+    const token = getAuthToken();
+    const response: AxiosResponse<{ success: boolean; data: Subject }> =
+      await api.patch(
+        `/subjects/${id}/toggle-status`,
+        {},
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+    return response.data.data;
+  } catch (error) {
+    const axiosError = error as AxiosError<{ message?: string }>;
+    const errorMessage =
+      axiosError.response?.data?.message || "Failed to toggle subject status";
+    throw new Error(errorMessage);
+  }
+};
+
+export const getCourses = async (): Promise<Course[]> => {
+  try {
+    const token = getAuthToken();
+    const response: AxiosResponse<{ success: boolean; data: Course[] }> =
+      await rateLimitedRequest(() =>
+        api.get("/courses", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
+      );
+    return response.data.data;
+  } catch (error) {
+    const axiosError = error as AxiosError<{ message?: string }>;
+    const errorMessage =
+      axiosError.response?.data?.message || "Failed to fetch courses";
+    throw new Error(errorMessage);
+  }
+};
+
+export const createCourse = async (data: CreateCourseData): Promise<Course> => {
+  try {
+    const token = getAuthToken();
+    const response: AxiosResponse<{ success: boolean; data: Course }> =
+      await api.post("/courses", data, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+    return response.data.data;
+  } catch (error) {
+    const axiosError = error as AxiosError<{ message?: string }>;
+    const errorMessage =
+      axiosError.response?.data?.message || "Failed to create course";
+    throw new Error(errorMessage);
+  }
+};
+
+export const updateCourse = async (
+  id: string,
+  data: UpdateCourseData
+): Promise<Course> => {
+  try {
+    const token = getAuthToken();
+    const response: AxiosResponse<{ success: boolean; data: Course }> =
+      await api.put(`/courses/${id}`, data, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+    return response.data.data;
+  } catch (error) {
+    const axiosError = error as AxiosError<{ message?: string }>;
+    const errorMessage =
+      axiosError.response?.data?.message || "Failed to update course";
+    throw new Error(errorMessage);
+  }
+};
+
+export const deleteCourse = async (id: string): Promise<void> => {
+  try {
+    const token = getAuthToken();
+    await api.delete(`/courses/${id}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+  } catch (error) {
+    const axiosError = error as AxiosError<{ message?: string }>;
+    const errorMessage =
+      axiosError.response?.data?.message || "Failed to delete course";
+    throw new Error(errorMessage);
+  }
+};
+
+export const toggleCoursePublishedStatus = async (
+  id: string
+): Promise<Course> => {
+  try {
+    const token = getAuthToken();
+    const response: AxiosResponse<{ success: boolean; data: Course }> =
+      await api.patch(
+        `/courses/${id}/toggle-published`,
+        {},
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+    return response.data.data;
+  } catch (error) {
+    const axiosError = error as AxiosError<{ message?: string }>;
+    const errorMessage =
+      axiosError.response?.data?.message || "Failed to toggle course status";
+    throw new Error(errorMessage);
+  }
+};
+
+export const uploadCourseEpub = async (
+  id: string,
+  file: File
+): Promise<Course> => {
+  try {
+    const token = getAuthToken();
+    const formData = new FormData();
+    formData.append("epub", file);
+
+    const response: AxiosResponse<{ success: boolean; data: Course }> =
+      await api.post(`/courses/${id}/upload-epub`, formData, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "multipart/form-data",
+        },
+      });
+    return response.data.data;
+  } catch (error) {
+    const axiosError = error as AxiosError<{ message?: string }>;
+    const errorMessage =
+      axiosError.response?.data?.message || "Failed to upload EPUB file";
+    throw new Error(errorMessage);
+  }
+};
+
+export const uploadCourseThumbnail = async (
+  id: string,
+  file: File
+): Promise<Course> => {
+  try {
+    const token = getAuthToken();
+    const formData = new FormData();
+    formData.append("thumbnail", file);
+
+    const response: AxiosResponse<{ success: boolean; data: Course }> =
+      await api.post(`/courses/${id}/upload-thumbnail`, formData, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "multipart/form-data",
+        },
+      });
+    return response.data.data;
+  } catch (error) {
+    const axiosError = error as AxiosError<{ message?: string }>;
+    const errorMessage =
+      axiosError.response?.data?.message || "Failed to upload thumbnail";
+    throw new Error(errorMessage);
+  }
 };
 
 export const base64ToBlob = (base64Data: string): Blob => {

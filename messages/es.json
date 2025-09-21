@@ -329,8 +329,9 @@
       "title": "Soporte al cliente",
       "description": "Siempre estamos encantados de hablar contigo. Si tienes alguna pregunta sobre nuestro servicio, llámanos o envíanos un correo electrónico a:"
     },
-    "postal": {
-      "title": "Nuestra dirección postal"
+    "meet": {
+      "title": "Programar una Reunión",
+      "description": "¿Necesitas ayuda directa? Programa una reunión personalizada con nuestro equipo para discutir tus necesidades y obtener orientación experta."
     }
   }
 }

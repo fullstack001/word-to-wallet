@@ -329,8 +329,9 @@
       "title": "Support client",
       "description": "Nous sommes toujours ravis de vous parler. Si vous avez des questions sur notre service, appelez-nous ou envoyez-nous un e-mail à :"
     },
-    "postal": {
-      "title": "Notre adresse postale"
+    "meet": {
+      "title": "Planifier une Réunion",
+      "description": "Besoin d'aide directe ? Planifiez une réunion personnalisée avec notre équipe pour discuter de vos besoins et obtenir des conseils d'experts."
     }
   }
 }

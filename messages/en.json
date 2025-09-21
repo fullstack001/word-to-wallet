@@ -321,8 +321,9 @@
       "title": "Customer support",
       "description": "We're always glad to talk to you. If you have any questions about our service, give us a call or email us at:"
     },
-    "postal": {
-      "title": "Our postal address"
+    "meet": {
+      "title": "Schedule a Meeting",
+      "description": "Need direct help? Schedule a personalized meeting with our team to discuss your needs and get expert guidance."
     }
   }
 }

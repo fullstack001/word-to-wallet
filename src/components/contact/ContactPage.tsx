@@ -41,11 +41,10 @@ export default function ContactPage() {
   const supportCards = [
     {
       key: "billing",
-      icon: PhoneIcon,
+      icon: EnvelopeIcon,
       color: "blue",
       title: t("billing.title"),
       description: t("billing.description"),
-      phone: "+1 (833) 470-2108",
       email: "billing@wordtowallet.com",
     },
     {
@@ -54,18 +53,15 @@ export default function ContactPage() {
       color: "green",
       title: t("customer.title"),
       description: t("customer.description"),
-      phone: "+1 (833) 470-2108",
       email: "support@wordtowallet.com",
     },
     {
-      key: "postal",
+      key: "meet",
       icon: MapPinIcon,
       color: "purple",
-      title: t("postal.title"),
-      company: "WordToWallet Inc.",
-      address:
-        "1234 Innovation Drive, Suite 200, San Francisco, CA 94105, United States",
-      email: "info@wordtowallet.com",
+      title: t("meet.title"),
+      description: t("meet.description"),
+      email: "meet@wordtowallet.com",
     },
   ];
 
@@ -317,19 +313,20 @@ export default function ContactPage() {
                       {card.description}
                     </p>
 
-                    {card.key === "postal" ? (
-                      <div className="space-y-3 text-left">
-                        <div>
-                          <span className="font-medium text-gray-700">
-                            Name:
-                          </span>
-                          <p className="text-gray-600">{card.company}</p>
-                        </div>
-                        <div>
-                          <span className="font-medium text-gray-700">
-                            Address:
-                          </span>
-                          <p className="text-gray-600">{card.address}</p>
+                    {card.key === "meet" ? (
+                      <div className="space-y-4 text-center">
+                        <div className="bg-gradient-to-r from-purple-50 to-blue-50 rounded-xl p-4 mb-4">
+                          <div className="text-2xl mb-2">📅</div>
+                          <p className="text-sm text-gray-600 mb-3">
+                            Schedule a personalized meeting with our team
+                          </p>
+                          <motion.button
+                            className={`w-full bg-gradient-to-r ${colors.button} text-white py-3 px-6 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1`}
+                            whileHover={{ scale: 1.02 }}
+                            whileTap={{ scale: 0.98 }}
+                          >
+                            SCHEDULE MEETING
+                          </motion.button>
                         </div>
                         <div>
                           <span className="font-medium text-gray-700">
@@ -338,7 +335,7 @@ export default function ContactPage() {
                           <p className="text-gray-600">{card.email}</p>
                         </div>
                         <motion.button
-                          className={`w-full bg-gradient-to-r ${colors.button} text-white py-2 px-4 rounded-xl font-medium transition-all duration-300 mt-4 shadow-lg hover:shadow-xl transform hover:-translate-y-1`}
+                          className={`w-full bg-gradient-to-r ${colors.button} text-white py-2 px-4 rounded-xl font-medium transition-all duration-300 mt-2 shadow-lg hover:shadow-xl transform hover:-translate-y-1`}
                           whileHover={{ scale: 1.02 }}
                           whileTap={{ scale: 0.98 }}
                         >
@@ -346,37 +343,41 @@ export default function ContactPage() {
                         </motion.button>
                       </div>
                     ) : (
-                      <div className="space-y-4">
-                        <div>
-                          <div className="flex items-center justify-between">
-                            <span className="font-medium text-gray-700">
-                              phone:
-                            </span>
-                            <p className="text-gray-600">{card.phone}</p>
+                      <div className="space-y-4 text-center">
+                        <div
+                          className={`bg-gradient-to-r ${colors.light} rounded-xl p-4 mb-4`}
+                        >
+                          <div className="text-2xl mb-2">
+                            {card.key === "billing" ? "💳" : "💬"}
                           </div>
+                          <p className="text-sm text-gray-600 mb-3">
+                            {card.key === "billing"
+                              ? "Get help with payments and billing questions"
+                              : "Get support for your account and technical issues"}
+                          </p>
                           <motion.button
-                            className={`w-full bg-gradient-to-r ${colors.button} text-white py-2 px-4 rounded-xl font-medium transition-all duration-300 mt-2 shadow-lg hover:shadow-xl transform hover:-translate-y-1`}
+                            className={`w-full bg-gradient-to-r ${colors.button} text-white py-3 px-6 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1`}
                             whileHover={{ scale: 1.02 }}
                             whileTap={{ scale: 0.98 }}
                           >
-                            CALL US
+                            {card.key === "billing"
+                              ? "CONTACT BILLING"
+                              : "GET SUPPORT"}
                           </motion.button>
                         </div>
                         <div>
-                          <div className="flex items-center justify-between">
-                            <span className="font-medium text-gray-700">
-                              email:
-                            </span>
-                            <p className="text-gray-600">{card.email}</p>
-                          </div>
-                          <motion.button
-                            className={`w-full bg-gradient-to-r ${colors.button} text-white py-2 px-4 rounded-xl font-medium transition-all duration-300 mt-2 shadow-lg hover:shadow-xl transform hover:-translate-y-1`}
-                            whileHover={{ scale: 1.02 }}
-                            whileTap={{ scale: 0.98 }}
-                          >
-                            EMAIL US
-                          </motion.button>
+                          <span className="font-medium text-gray-700">
+                            Email:
+                          </span>
+                          <p className="text-gray-600">{card.email}</p>
                         </div>
+                        <motion.button
+                          className={`w-full bg-gradient-to-r ${colors.button} text-white py-2 px-4 rounded-xl font-medium transition-all duration-300 mt-2 shadow-lg hover:shadow-xl transform hover:-translate-y-1`}
+                          whileHover={{ scale: 1.02 }}
+                          whileTap={{ scale: 0.98 }}
+                        >
+                          EMAIL US
+                        </motion.button>
                       </div>
                     )}
                   </div>

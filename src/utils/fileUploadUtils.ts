@@ -1,142 +1,204 @@
-import { v4 as uuidv4 } from 'uuid';
+import { MediaFile } from "./apiUtils";
 
-export interface UploadedFile {
-  id: string;
-  originalName: string;
-  fileName: string;
-  filePath: string;
-  size: number;
-  type: string;
-  uploadedAt: Date;
+export interface UploadProgress {
+  loaded: number;
+  total: number;
+  percentage: number;
 }
 
-class FileUploadManager {
-  private uploadedFiles: Map<string, UploadedFile> = new Map();
+export interface UploadResult {
+  success: boolean;
+  file?: MediaFile;
+  error?: string;
+}
 
-  async uploadFile(file: File, onProgress?: (progress: number) => void): Promise<UploadedFile> {
-    const fileId = uuidv4();
-    const fileExtension = file.name.split('.').pop();
-    const fileName = `${fileId}.${fileExtension}`;
-    const filePath = `/uploads/${fileName}`;
+export class FileUploadManager {
+  private static readonly MAX_FILE_SIZE = 100 * 1024 * 1024; // 100MB
+  private static readonly ALLOWED_IMAGE_TYPES = [
+    "image/jpeg",
+    "image/png",
+    "image/gif",
+    "image/webp",
+  ];
+  private static readonly ALLOWED_AUDIO_TYPES = [
+    "audio/mpeg",
+    "audio/wav",
+    "audio/ogg",
+    "audio/mp3",
+  ];
+  private static readonly ALLOWED_VIDEO_TYPES = [
+    "video/mp4",
+    "video/webm",
+    "video/ogg",
+  ];
+  private static readonly ALLOWED_EPUB_TYPES = ["application/epub+zip"];
 
-    console.log('Starting upload for file:', file.name, 'with ID:', fileId);
-
-    // Create FormData to send file to server
-    const formData = new FormData();
-    formData.append('file', file);
-    formData.append('fileName', fileName);
-    formData.append('fileId', fileId);
-
-    return new Promise((resolve, reject) => {
-      const xhr = new XMLHttpRequest();
-
-      // Track upload progress
-      xhr.upload.addEventListener('progress', (event) => {
-        if (event.lengthComputable && onProgress) {
-          const progressPercent = Math.round((event.loaded / event.total) * 100);
-          onProgress(progressPercent);
-        }
-      });
-
-      // Handle response
-      xhr.addEventListener('load', () => {
-        if (xhr.status >= 200 && xhr.status < 300) {
-          try {
-            const responseData = JSON.parse(xhr.responseText);
-            console.log('Upload response:', responseData);
-
-            if (!responseData.success) {
-              console.error('Server reported upload failure:', responseData);
-              reject(new Error(responseData.error || 'Upload failed on server'));
-              return;
-            }
-
-            const uploadedFile: UploadedFile = {
-              id: fileId,
-              originalName: file.name,
-              fileName,
-              filePath,
-              size: file.size,
-              type: file.type,
-              uploadedAt: new Date(),
-            };
-
-            this.uploadedFiles.set(fileId, uploadedFile);
-            console.log('File uploaded successfully:', uploadedFile);
-            resolve(uploadedFile);
-          } catch (error) {
-            console.error('Error parsing response:', error, 'Response text:', xhr.responseText);
-            reject(new Error('Failed to parse upload response'));
-          }
-        } else {
-          console.error('Upload response not ok:', xhr.status, xhr.responseText);
-          reject(
-            new Error(
-              `Failed to upload file: ${xhr.status} - ${xhr.responseText}`
-            )
-          );
-        }
-      });
-
-      // Handle errors
-      xhr.addEventListener('error', () => {
-        console.error('Upload error:', xhr.statusText);
-        reject(new Error('Network error during upload'));
-      });
-
-      xhr.addEventListener('abort', () => {
-        console.error('Upload aborted');
-        reject(new Error('Upload was aborted'));
-      });
-
-      // Send the request
-      xhr.open('POST', '/api/upload');
-      xhr.send(formData);
-    });
-  }
-
-  getFile(fileId: string): UploadedFile | undefined {
-    return this.uploadedFiles.get(fileId);
-  }
-
-  async deleteFile(fileId: string): Promise<void> {
-    const file = this.uploadedFiles.get(fileId);
-    if (!file) {
-      console.log('File not found for deletion:', fileId);
-      return;
+  static validateFile(
+    file: File,
+    type: "image" | "audio" | "video" | "epub"
+  ): string | null {
+    // Check file size
+    if (file.size > this.MAX_FILE_SIZE) {
+      return `File size must be less than ${
+        this.MAX_FILE_SIZE / (1024 * 1024)
+      }MB`;
     }
 
+    // Check file type
+    let allowedTypes: string[];
+    switch (type) {
+      case "image":
+        allowedTypes = this.ALLOWED_IMAGE_TYPES;
+        break;
+      case "audio":
+        allowedTypes = this.ALLOWED_AUDIO_TYPES;
+        break;
+      case "video":
+        allowedTypes = this.ALLOWED_VIDEO_TYPES;
+        break;
+      case "epub":
+        allowedTypes = this.ALLOWED_EPUB_TYPES;
+        break;
+      default:
+        return "Invalid file type";
+    }
+
+    if (!allowedTypes.includes(file.type)) {
+      return `File type ${
+        file.type
+      } is not allowed. Allowed types: ${allowedTypes.join(", ")}`;
+    }
+
+    return null;
+  }
+
+  static async uploadFile(
+    file: File,
+    type: "image" | "audio" | "video" | "epub",
+    onProgress?: (progress: UploadProgress) => void
+  ): Promise<UploadResult> {
     try {
-      const response = await fetch('/api/upload', {
-        method: 'DELETE',
+      // Validate file
+      const validationError = this.validateFile(file, type);
+      if (validationError) {
+        return { success: false, error: validationError };
+      }
+
+      // Create FormData
+      const formData = new FormData();
+      formData.append("file", file);
+      formData.append("type", type);
+
+      // Get auth token
+      const token = localStorage.getItem("authToken");
+      if (!token) {
+        return { success: false, error: "Authentication token not found" };
+      }
+
+      // Upload file
+      const response = await fetch("/api/upload", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
         },
-        body: JSON.stringify({ fileName: file.fileName }),
+        body: formData,
       });
 
       if (!response.ok) {
-        console.error('Failed to delete file from server:', response.status);
-      } else {
-        console.log('File deleted from server successfully');
+        const errorData = await response.json();
+        return { success: false, error: errorData.message || "Upload failed" };
       }
 
-      this.uploadedFiles.delete(fileId);
+      const result = await response.json();
+      return { success: true, file: result.data };
     } catch (error) {
-      console.error('Error deleting file:', error);
+      console.error("Upload error:", error);
+      return { success: false, error: "Upload failed due to network error" };
     }
   }
 
-  cleanupAllFiles(): Promise<void[]> {
-    const deletePromises = Array.from(this.uploadedFiles.keys()).map(fileId =>
-      this.deleteFile(fileId)
-    );
-    return Promise.all(deletePromises);
+  static async uploadMultipleFiles(
+    files: File[],
+    type: "image" | "audio" | "video",
+    onProgress?: (fileIndex: number, progress: UploadProgress) => void
+  ): Promise<UploadResult[]> {
+    const results: UploadResult[] = [];
+
+    for (let i = 0; i < files.length; i++) {
+      const file = files[i];
+      const result = await this.uploadFile(file, type, (progress) => {
+        onProgress?.(i, progress);
+      });
+      results.push(result);
+
+      // If any upload fails, we might want to stop or continue based on requirements
+      if (!result.success) {
+        console.warn(`Upload failed for file ${file.name}:`, result.error);
+      }
+    }
+
+    return results;
   }
 
-  getAllFiles(): UploadedFile[] {
-    return Array.from(this.uploadedFiles.values());
+  static formatFileSize(bytes: number): string {
+    if (bytes === 0) return "0 Bytes";
+
+    const k = 1024;
+    const sizes = ["Bytes", "KB", "MB", "GB"];
+    const i = Math.floor(Math.log(bytes) / Math.log(k));
+
+    return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + " " + sizes[i];
+  }
+
+  static getFileIcon(mimeType: string): string {
+    if (mimeType.startsWith("image/")) return "🖼️";
+    if (mimeType.startsWith("audio/")) return "🎵";
+    if (mimeType.startsWith("video/")) return "🎬";
+    if (mimeType === "application/epub+zip") return "📚";
+    return "📄";
+  }
+
+  static getFileTypeFromMime(
+    mimeType: string
+  ): "image" | "audio" | "video" | "epub" | "other" {
+    if (mimeType.startsWith("image/")) return "image";
+    if (mimeType.startsWith("audio/")) return "audio";
+    if (mimeType.startsWith("video/")) return "video";
+    if (mimeType === "application/epub+zip") return "epub";
+    return "other";
   }
 }
 
-export const fileUploadManager = new FileUploadManager(); 
+export const useFileUpload = () => {
+  const uploadFile = async (
+    file: File,
+    type: "image" | "audio" | "video" | "epub",
+    onProgress?: (progress: UploadProgress) => void
+  ) => {
+    return FileUploadManager.uploadFile(file, type, onProgress);
+  };
+
+  const uploadMultipleFiles = async (
+    files: File[],
+    type: "image" | "audio" | "video",
+    onProgress?: (fileIndex: number, progress: UploadProgress) => void
+  ) => {
+    return FileUploadManager.uploadMultipleFiles(files, type, onProgress);
+  };
+
+  const validateFile = (
+    file: File,
+    type: "image" | "audio" | "video" | "epub"
+  ) => {
+    return FileUploadManager.validateFile(file, type);
+  };
+
+  return {
+    uploadFile,
+    uploadMultipleFiles,
+    validateFile,
+    formatFileSize: FileUploadManager.formatFileSize,
+    getFileIcon: FileUploadManager.getFileIcon,
+    getFileTypeFromMime: FileUploadManager.getFileTypeFromMime,
+  };
+};
