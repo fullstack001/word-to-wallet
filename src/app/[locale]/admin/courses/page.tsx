@@ -9,6 +9,7 @@ import AdminSidebar from "../../../../components/admin/AdminSidebar";
 import AdminHeader from "../../../../components/admin/AdminHeader";
 import CourseModal from "../../../../components/admin/CourseModal";
 import Breadcrumb from "../../../../components/admin/Breadcrumb";
+import { BackButton } from "../../../../components/common";
 import {
   Course,
   Subject,
@@ -506,46 +507,33 @@ export default function CoursesPage() {
           <div className="max-w-7xl mx-auto">
             <Breadcrumb />
             <div className="mb-8">
-              <div className="flex justify-between items-center">
-                <div>
-                  <div className="flex items-center space-x-4">
-                    {currentView === "courses" && selectedSubject && (
-                      <button
-                        onClick={handleBackToSubjects}
-                        className="inline-flex items-center px-3 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-                      >
-                        <svg
-                          className="w-4 h-4 mr-2"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M15 19l-7-7 7-7"
-                          />
-                        </svg>
-                        Back to Subjects
-                      </button>
-                    )}
-                    <div>
-                      <h1 className="text-3xl font-bold text-gray-900">
-                        {currentView === "subjects"
-                          ? "Subjects"
-                          : selectedSubject
-                          ? `${selectedSubject.name} Courses`
-                          : "All Courses"}
-                      </h1>
-                      <p className="mt-2 text-gray-600">
-                        {currentView === "subjects"
-                          ? "Select a subject to view its courses."
-                          : selectedSubject
-                          ? `Manage courses for ${selectedSubject.name}.`
-                          : "Manage your courses and learning materials."}
-                      </p>
-                    </div>
+              {/* Back Button - Separate row for better spacing */}
+              {currentView === "courses" && selectedSubject && (
+                <div className="mb-4">
+                  <BackButton onClick={handleBackToSubjects}>
+                    Back to Subjects
+                  </BackButton>
+                </div>
+              )}
+
+              <div className="flex justify-between items-start">
+                <div className="flex-1">
+                  {/* Page Title */}
+                  <div className="mb-2">
+                    <h1 className="text-3xl font-bold text-gray-900">
+                      {currentView === "subjects"
+                        ? "Subjects"
+                        : selectedSubject
+                        ? `${selectedSubject.name} Courses`
+                        : "All Courses"}
+                    </h1>
+                    <p className="mt-2 text-gray-600">
+                      {currentView === "subjects"
+                        ? "Select a subject to view its courses."
+                        : selectedSubject
+                        ? `Manage courses for ${selectedSubject.name}.`
+                        : "Manage your courses and learning materials."}
+                    </p>
                   </div>
                 </div>
                 {currentView === "subjects" && (

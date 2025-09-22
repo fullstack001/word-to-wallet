@@ -6,4 +6,5 @@ export {
   default as ConditionalGoogleTranslate,
   GoogleTranslateIndicator,
 } from "./ConditionalGoogleTranslate";
+export { default as BackButton } from "./BackButton";
 export * from "./types";
