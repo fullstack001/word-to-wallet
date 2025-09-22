@@ -16,6 +16,9 @@ export interface Subscription {
   subscriptionType: string;
   subscribedDate: string;
   expiryDate: string;
+  status?: string;
+  trialStart?: string;
+  trialEnd?: string;
 }
 
 export interface AuthResponse {
@@ -112,7 +115,19 @@ export const loginUser = async (
         avatar: "", // Not provided by backend
         isAdmin: user.role === "admin",
       },
-      subscription: undefined, // Not provided by login endpoint
+      subscription: user.subscription
+        ? {
+            subscriptionId: user.subscription.stripeSubscriptionId,
+            plan: user.subscription.plan,
+            subscriptionType: user.subscription.status,
+            subscribedDate: user.subscription.trialStart,
+            expiryDate:
+              user.subscription.trialEnd || user.subscription.currentPeriodEnd,
+            status: user.subscription.status,
+            trialStart: user.subscription.trialStart,
+            trialEnd: user.subscription.trialEnd,
+          }
+        : undefined,
     };
   } catch (error) {
     const axiosError = error as AxiosError<{ message?: string }>;
@@ -1005,4 +1020,60 @@ export const base64ToBlob = (base64Data: string): Blob => {
   }
   const byteArray = new Uint8Array(byteNumbers);
   return new Blob([byteArray], { type: "application/pdf" });
+};
+
+// Subscription API functions
+export const createTrialSubscription = async (): Promise<any> => {
+  try {
+    const response = await api.post("/subscriptions/trial");
+    return response.data;
+  } catch (error) {
+    const axiosError = error as AxiosError<{ message?: string }>;
+    const errorMessage =
+      axiosError.response?.data?.message ||
+      "Failed to create trial subscription";
+    throw new Error(errorMessage);
+  }
+};
+
+export const createSubscription = async (
+  paymentMethodId: string,
+  plan: string = "basic"
+): Promise<any> => {
+  try {
+    const response = await api.post("/subscriptions", {
+      paymentMethodId,
+      plan,
+    });
+    return response.data;
+  } catch (error) {
+    const axiosError = error as AxiosError<{ message?: string }>;
+    const errorMessage =
+      axiosError.response?.data?.message || "Failed to create subscription";
+    throw new Error(errorMessage);
+  }
+};
+
+export const getSubscription = async (): Promise<any> => {
+  try {
+    const response = await api.get("/subscriptions");
+    return response.data;
+  } catch (error) {
+    const axiosError = error as AxiosError<{ message?: string }>;
+    const errorMessage =
+      axiosError.response?.data?.message || "Failed to get subscription";
+    throw new Error(errorMessage);
+  }
+};
+
+export const createSetupIntent = async (): Promise<any> => {
+  try {
+    const response = await api.post("/subscriptions/setup-intent");
+    return response.data;
+  } catch (error) {
+    const axiosError = error as AxiosError<{ message?: string }>;
+    const errorMessage =
+      axiosError.response?.data?.message || "Failed to create setup intent";
+    throw new Error(errorMessage);
+  }
 };

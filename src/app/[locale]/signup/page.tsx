@@ -1,10 +1,11 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useLocalizedNavigation } from "../../../utils/navigation";
+import { RootState } from "../../../store/store";
 import {
   EyeIcon,
   EyeSlashIcon,
@@ -58,6 +59,34 @@ export default function SignupPage() {
   const [isLoading, setIsLoading] = useState(false);
   const [currentStep, setCurrentStep] = useState(1);
   const [paymentMethodId, setPaymentMethodId] = useState<string | null>(null);
+
+  // Get authentication state from Redux
+  const isLoggedIn = useSelector((state: RootState) => state.auth.isLoggedIn);
+  const user = useSelector((state: RootState) => state.user);
+
+  // Check if user is already authenticated on component mount
+  useEffect(() => {
+    const checkAuthStatus = () => {
+      // Check if user is logged in via Redux state
+      if (isLoggedIn && user) {
+        // User is already authenticated, go directly to payment step
+        setCurrentStep(2);
+        return;
+      }
+
+      // Check if user has auth token in localStorage/sessionStorage
+      const authToken =
+        localStorage.getItem("authToken") ||
+        sessionStorage.getItem("authToken");
+      if (authToken) {
+        // User has token but Redux state might not be updated, go to payment step
+        setCurrentStep(2);
+        return;
+      }
+    };
+
+    checkAuthStatus();
+  }, [isLoggedIn, user]);
 
   const validateForm = (): boolean => {
     const newErrors: FormErrors = {};
@@ -518,11 +547,14 @@ export default function SignupPage() {
                   <CheckIcon className="w-8 h-8 text-white" />
                 </div>
                 <h2 className="text-2xl font-bold text-gray-900 mb-4">
-                  Account Created Successfully!
+                  {isLoggedIn
+                    ? "Welcome Back!"
+                    : "Account Created Successfully!"}
                 </h2>
                 <p className="text-gray-600 mb-8">
-                  Your account has been created. Now let's set up your payment
-                  method to start your 7-day free trial.
+                  {isLoggedIn
+                    ? "Let's set up your payment method to start your 7-day free trial."
+                    : "Your account has been created. Now let's set up your payment method to start your 7-day free trial."}
                 </p>
 
                 {/* Stripe Payment Form */}

@@ -132,17 +132,33 @@ export default function LoginPage() {
         localStorage.removeItem("rememberMe");
       }
 
-      // Redirect based on user role
+      // Check subscription status and redirect appropriately
       if (user.isAdmin) {
         // Admin users go to admin dashboard
         navigate("/admin/dashboard");
+      } else if (!subscription) {
+        // User has no subscription - redirect to signup/payment page
+        navigate("/signup");
+      } else if (
+        subscription.subscriptionType === "trialing" &&
+        subscription.trialEnd &&
+        new Date(subscription.trialEnd) > new Date()
+      ) {
+        // User is in trial period - redirect to dashboard
+        navigate("/dashboard");
+      } else if (
+        subscription.subscriptionType === "trialing" &&
+        subscription.trialEnd &&
+        new Date(subscription.trialEnd) <= new Date()
+      ) {
+        // Trial has expired - redirect to signup/payment page
+        navigate("/signup");
+      } else if (subscription.subscriptionType === "active") {
+        // User has active subscription - redirect to dashboard
+        navigate("/dashboard");
       } else {
-        // Regular users go to their intended destination or home
-        if (subscription && new Date(subscription.expiryDate) > new Date()) {
-          navigate("/");
-        } else {
-          navigate("/plan");
-        }
+        // User needs to resubscribe - redirect to signup/payment page
+        navigate("/signup");
       }
     } catch (error: any) {
       setError(error.message || "Login failed. Please try again.");

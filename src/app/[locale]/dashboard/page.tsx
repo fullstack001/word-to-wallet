@@ -19,7 +19,9 @@ import {
 } from "@heroicons/react/24/outline";
 import { RootState } from "../../../store/store";
 import { logout } from "../../../store/slices/authSlice";
-import { clearUser } from "../../../store/slices/userSlice";
+import { clearUser, setUser } from "../../../store/slices/userSlice";
+import Navbar from "../../../components/Navbar";
+import Footer from "../../../components/Footer";
 
 interface Course {
   _id: string;
@@ -56,6 +58,8 @@ export default function DashboardPage() {
     totalTimeSpent: 0,
   });
   const [isLoading, setIsLoading] = useState(true);
+  const [isDataFetched, setIsDataFetched] = useState(false);
+  const [requestInProgress, setRequestInProgress] = useState(false);
 
   useEffect(() => {
     if (!isLoggedIn) {
@@ -63,40 +67,92 @@ export default function DashboardPage() {
       return;
     }
 
-    fetchDashboardData();
-  }, [isLoggedIn, navigate]);
+    // Only fetch data once
+    if (!isDataFetched) {
+      fetchDashboardData();
+    }
+  }, [isLoggedIn, navigate, isDataFetched]);
 
   const fetchDashboardData = async () => {
+    // Prevent multiple simultaneous requests
+    if (isLoading || requestInProgress || isDataFetched) return;
+
     try {
-      const token = localStorage.getItem("authToken");
+      setIsLoading(true);
+      setRequestInProgress(true);
+      const token =
+        localStorage.getItem("authToken") ||
+        sessionStorage.getItem("authToken");
       if (!token) {
         navigate("/login");
         return;
       }
 
-      // Fetch courses
-      const coursesResponse = await fetch("/api/courses", {
+      const API_BASE_URL =
+        process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
+
+      // Single API call to dashboard endpoint
+      const dashboardResponse = await fetch(`${API_BASE_URL}/dashboard`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       });
 
-      if (coursesResponse.ok) {
-        const coursesData = await coursesResponse.json();
-        setCourses(coursesData.data?.courses || []);
-      }
+      if (dashboardResponse.ok) {
+        const dashboardData = await dashboardResponse.json();
+        const {
+          stats,
+          courses: fetchedCourses,
+          subscription,
+        } = dashboardData.data;
 
-      // Mock stats for now - in real implementation, this would come from the backend
-      setStats({
-        totalCourses: 5,
-        completedCourses: 2,
-        inProgressCourses: 3,
-        totalTimeSpent: 12, // hours
-      });
+        setCourses(fetchedCourses);
+        setStats(stats);
+
+        // Update user subscription info in Redux if available
+        if (subscription && user) {
+          dispatch(
+            setUser({
+              ...user,
+              subscription: {
+                subscriptionId: subscription.status,
+                plan: subscription.plan,
+                subscriptionType: subscription.status,
+                subscribedDate: subscription.trialStart,
+                expiryDate:
+                  subscription.trialEnd || subscription.currentPeriodEnd,
+                status: subscription.status,
+                trialStart: subscription.trialStart,
+                trialEnd: subscription.trialEnd,
+              },
+            })
+          );
+        }
+      } else {
+        console.error("Dashboard API failed:", dashboardResponse.status);
+        // Set default values if API fails
+        setStats({
+          totalCourses: 0,
+          completedCourses: 0,
+          inProgressCourses: 0,
+          totalTimeSpent: 0,
+        });
+        setCourses([]);
+      }
     } catch (error) {
       console.error("Error fetching dashboard data:", error);
+      // Set default values on error
+      setStats({
+        totalCourses: 0,
+        completedCourses: 0,
+        inProgressCourses: 0,
+        totalTimeSpent: 0,
+      });
+      setCourses([]);
     } finally {
       setIsLoading(false);
+      setRequestInProgress(false);
+      setIsDataFetched(true);
     }
   };
 
@@ -130,39 +186,60 @@ export default function DashboardPage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Header */}
-      <header className="bg-white shadow-sm border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-6">
-            <div className="flex items-center space-x-4">
-              <div className="w-10 h-10 bg-gradient-to-r from-purple-600 to-blue-600 rounded-lg flex items-center justify-center">
-                <BookOpenIcon className="w-6 h-6 text-white" />
-              </div>
-              <div>
-                <h1 className="text-2xl font-bold text-gray-900">Dashboard</h1>
-                <p className="text-gray-600">
-                  Welcome back, {user.name || user.email}!
-                </p>
-              </div>
-            </div>
+      <Navbar />
 
-            <div className="flex items-center space-x-4">
-              <div className="text-right">
-                <p className="text-sm text-gray-600">Trial Period</p>
-                <p className="text-lg font-semibold text-green-600">
-                  5 days remaining
-                </p>
+      {/* Dashboard Header */}
+      <div className="pt-20 pb-8 bg-gradient-to-r from-purple-600 to-blue-600">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="text-white"
+            >
+              <h1 className="text-4xl font-bold mb-4">
+                Welcome back, {user.name || user.email}!
+              </h1>
+              <p className="text-xl text-purple-100 mb-6">
+                Your learning dashboard
+              </p>
+
+              {/* Subscription Status */}
+              <div className="inline-flex items-center bg-white/20 backdrop-blur-sm rounded-full px-6 py-3">
+                <ClockIcon className="w-5 h-5 text-white mr-2" />
+                <span className="text-white font-medium">
+                  {user.subscription?.subscriptionType === "trialing"
+                    ? `Trial: ${
+                        user.subscription?.trialEnd
+                          ? Math.ceil(
+                              (new Date(user.subscription.trialEnd).getTime() -
+                                new Date().getTime()) /
+                                (1000 * 60 * 60 * 24)
+                            )
+                          : 0
+                      } days remaining`
+                    : user.subscription?.subscriptionType === "active"
+                    ? "Active Subscription"
+                    : user.subscription?.status === "trialing"
+                    ? `Trial: ${
+                        user.subscription?.trialEnd
+                          ? Math.ceil(
+                              (new Date(user.subscription.trialEnd).getTime() -
+                                new Date().getTime()) /
+                                (1000 * 60 * 60 * 24)
+                            )
+                          : 0
+                      } days remaining`
+                    : user.subscription?.status === "active"
+                    ? "Active Subscription"
+                    : "No Subscription"}
+                </span>
               </div>
-              <button
-                onClick={handleLogout}
-                className="px-4 py-2 text-gray-600 hover:text-gray-900 transition-colors"
-              >
-                Logout
-              </button>
-            </div>
+            </motion.div>
           </div>
         </div>
-      </header>
+      </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Stats Cards */}
@@ -466,6 +543,8 @@ export default function DashboardPage() {
           </div>
         </div>
       </div>
+
+      <Footer />
     </div>
   );
 }

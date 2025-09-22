@@ -13,6 +13,9 @@ interface UserState {
     subscriptionType: string;
     subscribedDate: string;
     expiryDate: string;
+    status?: string;
+    trialStart?: string;
+    trialEnd?: string;
   } | null;
 }
 
