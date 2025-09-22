@@ -3,7 +3,7 @@
 interface BasicInfoFormProps {
   formData: {
     title: string;
-    description: string;
+    description?: string;
     subject: string;
     isActive: boolean;
     isPublished: boolean;

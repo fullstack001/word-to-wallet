@@ -436,7 +436,7 @@ export const getSavedPdfUrl = (base64Data: string): string => {
 export interface Subject {
   _id: string;
   name: string;
-  description: string;
+  description?: string;
   isActive: boolean;
   createdBy: string;
   createdAt: string;
@@ -464,7 +464,7 @@ export interface MultimediaContent {
 export interface Course {
   _id: string;
   title: string;
-  description: string;
+  description?: string;
   subject: string | Subject;
   epubFile?: string;
   epubCover?: string;
@@ -493,7 +493,7 @@ export interface Course {
 
 export interface CreateSubjectData {
   name: string;
-  description: string;
+  description?: string;
 }
 
 export interface UpdateSubjectData {
@@ -511,7 +511,7 @@ export interface Chapter {
 
 export interface CreateCourseData {
   title: string;
-  description: string;
+  description?: string;
   subject: string;
   chapters: Chapter[];
   cover?: File;
@@ -691,6 +691,77 @@ export const getCourseById = async (id: string): Promise<Course> => {
   }
 };
 
+// Content Generation API functions
+export interface GenerateContentRequest {
+  title: string;
+  description: string;
+  courseTitle?: string;
+  subjectName?: string;
+}
+
+export interface GenerateContentResponse {
+  success: boolean;
+  message: string;
+  data: {
+    content: string;
+    usage?: {
+      prompt_tokens: number;
+      completion_tokens: number;
+      total_tokens: number;
+    };
+  };
+}
+
+export const generateChapterContent = async (
+  data: GenerateContentRequest
+): Promise<GenerateContentResponse> => {
+  try {
+    const token = getAuthToken();
+    const response: AxiosResponse<GenerateContentResponse> =
+      await rateLimitedRequest(() =>
+        api.post("/content-generation/generate-chapter-content", data, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
+      );
+    return response.data;
+  } catch (error) {
+    const axiosError = error as AxiosError<{ message?: string }>;
+    const errorMessage =
+      axiosError.response?.data?.message || "Failed to generate content";
+    throw new Error(errorMessage);
+  }
+};
+
+export const getContentGenerationStatus = async (): Promise<{
+  success: boolean;
+  message: string;
+  data: {
+    available: boolean;
+    models?: any[];
+    recommended?: string;
+    reason?: string;
+  };
+}> => {
+  try {
+    const token = getAuthToken();
+    const response = await rateLimitedRequest(() =>
+      api.get("/content-generation/models-status", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+    );
+    return response.data;
+  } catch (error) {
+    const axiosError = error as AxiosError<{ message?: string }>;
+    const errorMessage =
+      axiosError.response?.data?.message || "Failed to get generation status";
+    throw new Error(errorMessage);
+  }
+};
+
 export const createCourse = async (data: CreateCourseData): Promise<Course> => {
   try {
     const token = getAuthToken();
@@ -700,7 +771,7 @@ export const createCourse = async (data: CreateCourseData): Promise<Course> => {
 
     // Add text fields
     formData.append("title", data.title);
-    formData.append("description", data.description);
+    if (data.description) formData.append("description", data.description);
     formData.append("subject", data.subject);
     formData.append("chapters", JSON.stringify(data.chapters));
     formData.append("isActive", String(data.isActive ?? true));

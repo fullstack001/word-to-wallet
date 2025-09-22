@@ -1,5 +1,10 @@
 "use client";
+import { useState } from "react";
 import JoditEditor from "jodit-react";
+import {
+  generateChapterContent,
+  GenerateContentRequest,
+} from "@/utils/apiUtils";
 import "./jodit-styles.css";
 
 export interface Chapter {
@@ -28,6 +33,103 @@ export default function ChaptersForm({
   onRemoveChapter,
   onUpdateChapter,
 }: ChaptersFormProps) {
+  const [generatingContent, setGeneratingContent] = useState<string | null>(
+    null
+  );
+  const [generationErrors, setGenerationErrors] = useState<{
+    [chapterId: string]: string;
+  }>({});
+
+  const handleGenerateContent = async (
+    chapterId: string,
+    title: string,
+    description: string
+  ) => {
+    // Clear any previous errors for this chapter
+    setGenerationErrors((prev) => ({ ...prev, [chapterId]: "" }));
+
+    // Frontend validation
+    if (!title.trim()) {
+      setGenerationErrors((prev) => ({
+        ...prev,
+        [chapterId]: "Chapter title is required to generate content.",
+      }));
+      return;
+    }
+
+    if (!description.trim()) {
+      setGenerationErrors((prev) => ({
+        ...prev,
+        [chapterId]: "Chapter description is required to generate content.",
+      }));
+      return;
+    }
+
+    if (title.trim().length < 3) {
+      setGenerationErrors((prev) => ({
+        ...prev,
+        [chapterId]: "Chapter title must be at least 3 characters long.",
+      }));
+      return;
+    }
+
+    if (description.trim().length < 10) {
+      setGenerationErrors((prev) => ({
+        ...prev,
+        [chapterId]: "Chapter description must be at least 10 characters long.",
+      }));
+      return;
+    }
+
+    if (title.trim().length > 200) {
+      setGenerationErrors((prev) => ({
+        ...prev,
+        [chapterId]: "Chapter title must be less than 200 characters.",
+      }));
+      return;
+    }
+
+    if (description.trim().length > 1000) {
+      setGenerationErrors((prev) => ({
+        ...prev,
+        [chapterId]: "Chapter description must be less than 1000 characters.",
+      }));
+      return;
+    }
+
+    setGeneratingContent(chapterId);
+
+    try {
+      const requestData: GenerateContentRequest = {
+        title: title.trim(),
+        description: description.trim(),
+        // Not passing courseTitle and subjectName - let AI focus on chapter content
+      };
+
+      const response = await generateChapterContent(requestData);
+
+      if (response.success && response.data.content) {
+        onUpdateChapter(chapterId, "content", response.data.content);
+        setGenerationErrors((prev) => ({ ...prev, [chapterId]: "" })); // Clear errors on success
+      } else {
+        setGenerationErrors((prev) => ({
+          ...prev,
+          [chapterId]: "Failed to generate content. Please try again.",
+        }));
+      }
+    } catch (error) {
+      console.error("Error generating content:", error);
+      setGenerationErrors((prev) => ({
+        ...prev,
+        [chapterId]:
+          error instanceof Error
+            ? error.message
+            : "Failed to generate content. Please try again.",
+      }));
+    } finally {
+      setGeneratingContent(null);
+    }
+  };
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
@@ -126,9 +228,78 @@ export default function ChaptersForm({
             </div>
 
             <div className="mt-4">
-              <label className="block text-sm font-medium text-gray-700 mb-1">
-                Chapter Content
-              </label>
+              <div className="flex items-center justify-between mb-1">
+                <label className="block text-sm font-medium text-gray-700">
+                  Chapter Content
+                </label>
+                <button
+                  type="button"
+                  onClick={() =>
+                    handleGenerateContent(
+                      chapter.id,
+                      chapter.title,
+                      chapter.description
+                    )
+                  }
+                  disabled={generatingContent === chapter.id}
+                  className={`inline-flex items-center px-3 py-1.5 border border-transparent text-xs font-medium rounded-md text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 ${
+                    generatingContent === chapter.id
+                      ? "bg-gray-400 cursor-not-allowed"
+                      : "bg-green-600 hover:bg-green-700"
+                  }`}
+                >
+                  {generatingContent === chapter.id ? (
+                    <>
+                      <svg
+                        className="animate-spin -ml-1 mr-1 h-3 w-3 text-white"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                      >
+                        <circle
+                          className="opacity-25"
+                          cx="12"
+                          cy="12"
+                          r="10"
+                          stroke="currentColor"
+                          strokeWidth="4"
+                        ></circle>
+                        <path
+                          className="opacity-75"
+                          fill="currentColor"
+                          d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                        ></path>
+                      </svg>
+                      Generating...
+                    </>
+                  ) : (
+                    <>
+                      <svg
+                        className="w-3 h-3 mr-1"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M13 10V3L4 14h7v7l9-11h-7z"
+                        />
+                      </svg>
+                      Generate with AI
+                    </>
+                  )}
+                </button>
+              </div>
+
+              {generationErrors[chapter.id] && (
+                <div className="mb-2 p-2 bg-red-50 border border-red-200 rounded-md">
+                  <p className="text-xs text-red-600">
+                    {generationErrors[chapter.id]}
+                  </p>
+                </div>
+              )}
+
               <div className="border border-gray-300 rounded-md overflow-hidden">
                 <JoditEditor
                   value={chapter.content}

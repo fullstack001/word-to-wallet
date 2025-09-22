@@ -21,44 +21,65 @@ export default function Breadcrumb({ items }: BreadcrumbProps) {
     if (items) return items;
 
     const pathSegments = pathname.split("/").filter(Boolean);
-    const breadcrumbs: BreadcrumbItem[] = [
-      { name: "Admin", href: "/admin", current: pathname === "/admin" },
-    ];
+    const breadcrumbs: BreadcrumbItem[] = [];
 
-    if (pathSegments.length > 1) {
-      const section = pathSegments[1];
-      const sectionName = section.charAt(0).toUpperCase() + section.slice(1);
+    // Check if we're in an admin path
+    const isAdminPath = pathSegments.includes("admin");
 
+    if (isAdminPath) {
+      // Find the admin segment and build breadcrumbs from there
+      const adminIndex = pathSegments.indexOf("admin");
+
+      // Add Admin breadcrumb
       breadcrumbs.push({
-        name: sectionName,
-        href: `/admin/${section}`,
-        current: pathname === `/admin/${section}`,
+        name: "Admin",
+        href: "/admin/dashboard",
+        current: pathname === "/admin/dashboard",
       });
 
-      // Add specific page if exists
-      if (pathSegments.length > 2) {
-        const page = pathSegments[2];
-        if (page !== "edit" && page !== "new") {
-          const pageName = page.charAt(0).toUpperCase() + page.slice(1);
-          breadcrumbs.push({
-            name: pageName,
-            href: `/admin/${section}/${page}`,
-            current: true,
-          });
-        } else if (page === "edit") {
-          breadcrumbs.push({
-            name: "Edit",
-            href: pathname,
-            current: true,
-          });
-        } else if (page === "new") {
-          breadcrumbs.push({
-            name: "New",
-            href: pathname,
-            current: true,
-          });
+      // Add section breadcrumb if exists
+      if (adminIndex + 1 < pathSegments.length) {
+        const section = pathSegments[adminIndex + 1];
+        const sectionName = section.charAt(0).toUpperCase() + section.slice(1);
+
+        breadcrumbs.push({
+          name: sectionName,
+          href: `/admin/${section}`,
+          current: pathname === `/admin/${section}`,
+        });
+
+        // Add specific page if exists
+        if (adminIndex + 2 < pathSegments.length) {
+          const page = pathSegments[adminIndex + 2];
+          if (page !== "edit" && page !== "new") {
+            const pageName = page.charAt(0).toUpperCase() + page.slice(1);
+            breadcrumbs.push({
+              name: pageName,
+              href: `/admin/${section}/${page}`,
+              current: true,
+            });
+          } else if (page === "edit") {
+            breadcrumbs.push({
+              name: "Edit",
+              href: pathname,
+              current: true,
+            });
+          } else if (page === "new") {
+            breadcrumbs.push({
+              name: "New",
+              href: pathname,
+              current: true,
+            });
+          }
         }
       }
+    } else {
+      // For non-admin paths, add Admin breadcrumb as before
+      breadcrumbs.push({
+        name: "Admin",
+        href: "/admin/dashboard",
+        current: pathname === "/admin/dashboard",
+      });
     }
 
     return breadcrumbs;

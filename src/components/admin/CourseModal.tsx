@@ -19,7 +19,7 @@ interface CourseModalProps {
   selectedSubject?: Subject | null;
   onSubmit: (data: {
     title: string;
-    description: string;
+    description?: string;
     subject: string;
     epubCover?: File | null;
     chapters: Chapter[];
@@ -81,7 +81,7 @@ export default function CourseModal({
     if (course) {
       setFormData({
         title: course.title,
-        description: course.description,
+        description: course.description || "",
         subject:
           typeof course.subject === "string"
             ? course.subject
@@ -129,9 +129,11 @@ export default function CourseModal({
       newErrors.title = "Title must be at least 3 characters";
     }
 
-    if (!formData.description.trim()) {
-      newErrors.description = "Description is required";
-    } else if (formData.description.trim().length < 10) {
+    if (
+      formData.description &&
+      formData.description.trim().length > 0 &&
+      formData.description.trim().length < 10
+    ) {
       newErrors.description = "Description must be at least 10 characters";
     }
 

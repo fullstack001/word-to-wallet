@@ -110,7 +110,7 @@ export default function CoursesPage() {
 
   const handleCreateCourse = async (data: {
     title: string;
-    description: string;
+    description?: string;
     subject: string;
     epubCover?: File | null;
     chapters: any[];
@@ -127,7 +127,7 @@ export default function CoursesPage() {
       // Convert the data to the new format
       const courseData = {
         title: data.title,
-        description: data.description,
+        description: data.description || undefined,
         subject: data.subject,
         chapters: data.chapters,
         cover: data.epubCover || undefined,
@@ -193,7 +193,7 @@ export default function CoursesPage() {
 
   const handleUpdateCourse = async (data: {
     title: string;
-    description: string;
+    description?: string;
     subject: string;
     epubCover?: File | null;
     chapters: any[];
@@ -212,7 +212,7 @@ export default function CoursesPage() {
       // Convert the data to the update format
       const updateData = {
         title: data.title,
-        description: data.description,
+        description: data.description || undefined,
         subject: data.subject,
         chapters: data.chapters,
         multimediaContent: data.multimediaContent,
@@ -405,7 +405,7 @@ export default function CoursesPage() {
 
       const subjectData: CreateSubjectData = {
         name: subjectFormData.name.trim(),
-        description: subjectFormData.description.trim(),
+        description: subjectFormData.description.trim() || undefined,
       };
 
       await createSubject(subjectData);
@@ -482,7 +482,8 @@ export default function CoursesPage() {
     const filtered = coursesToShow.filter((course) => {
       const matchesSearch =
         course.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        course.description.toLowerCase().includes(searchTerm.toLowerCase());
+        (course.description &&
+          course.description.toLowerCase().includes(searchTerm.toLowerCase()));
       const matchesPublished =
         filterPublished === null || course.isPublished === filterPublished;
       const matchesSubject =
