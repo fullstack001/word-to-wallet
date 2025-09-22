@@ -69,6 +69,8 @@ export default function EditCoursePage() {
     description?: string;
     subject: string;
     epubCover?: File | null;
+    googleDocLink?: string;
+    googleClassroomLink?: string;
     chapters: any[];
     multimediaContent?: {
       audio: any[];
@@ -86,6 +88,8 @@ export default function EditCoursePage() {
         title: data.title,
         description: data.description,
         subject: data.subject,
+        googleDocLink: data.googleDocLink,
+        googleClassroomLink: data.googleClassroomLink,
         chapters: data.chapters,
         multimediaContent: data.multimediaContent,
         epubCover: data.epubCover,

@@ -79,7 +79,7 @@ export default function CourseModal({
 
   useEffect(() => {
     if (course) {
-      setFormData({
+      const initialFormData = {
         title: course.title,
         description: course.description || "",
         subject:
@@ -90,7 +90,9 @@ export default function CourseModal({
         isPublished: course.isPublished,
         googleDocLink: course.googleDocLink || "",
         googleClassroomLink: course.googleClassroomLink || "",
-      });
+      };
+
+      setFormData(initialFormData);
 
       // Set existing multimedia content (only audio and video)
       if (course.multimediaContent) {
@@ -163,7 +165,7 @@ export default function CourseModal({
           chapter.content.trim()
       );
 
-      onSubmit({
+      const submitData = {
         ...formData,
         epubCover: epubCoverFile,
         chapters: filteredChapters,
@@ -171,7 +173,9 @@ export default function CourseModal({
         removeExistingCover,
         googleDocLink: formData.googleDocLink,
         googleClassroomLink: formData.googleClassroomLink,
-      });
+      };
+
+      onSubmit(submitData);
     }
   };
 
@@ -181,11 +185,16 @@ export default function CourseModal({
     >
   ) => {
     const { name, value, type } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]:
-        type === "checkbox" ? (e.target as HTMLInputElement).checked : value,
-    }));
+
+    setFormData((prev) => {
+      const newFormData = {
+        ...prev,
+        [name]:
+          type === "checkbox" ? (e.target as HTMLInputElement).checked : value,
+      };
+
+      return newFormData;
+    });
 
     // Clear error when user starts typing
     if (errors[name]) {
