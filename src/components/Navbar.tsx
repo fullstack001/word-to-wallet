@@ -48,6 +48,11 @@ export default function Navbar() {
 
   const handleLogout = useCallback(() => {
     dispatch(logout());
+    // Clear both localStorage and sessionStorage
+    localStorage.removeItem("authToken");
+    localStorage.removeItem("rememberedEmail");
+    localStorage.removeItem("rememberMe");
+    sessionStorage.removeItem("authToken");
     navigate("/");
     setUserDropdownOpen(false);
   }, [dispatch, navigate]);

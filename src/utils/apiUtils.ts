@@ -452,6 +452,7 @@ export interface MediaFile {
   path: string;
   url: string;
   uploadedAt: string;
+  file?: File; // Optional File object for local files before upload
 }
 
 export interface MultimediaContent {
@@ -466,6 +467,7 @@ export interface Course {
   description: string;
   subject: string | Subject;
   epubFile?: string;
+  epubCover?: string;
   epubMetadata?: {
     title: string;
     author: string;
@@ -477,6 +479,7 @@ export interface Course {
     fileSize?: number;
     lastModified?: string;
   };
+  chapters?: Chapter[];
   thumbnail?: string;
   multimediaContent?: MultimediaContent;
   isActive: boolean;
@@ -497,17 +500,21 @@ export interface UpdateSubjectData {
   isActive?: boolean;
 }
 
+export interface Chapter {
+  id: string;
+  title: string;
+  description: string;
+  content: string;
+}
+
 export interface CreateCourseData {
   title: string;
   description: string;
   subject: string;
-  epubFile?: File;
-  thumbnail?: File;
-  multimediaContent?: {
-    images?: File[];
-    audio?: File[];
-    video?: File[];
-  };
+  chapters: Chapter[];
+  cover?: File;
+  audio?: File[];
+  video?: File[];
   isActive?: boolean;
   isPublished?: boolean;
 }
@@ -516,6 +523,11 @@ export interface UpdateCourseData {
   title?: string;
   description?: string;
   subject?: string;
+  chapters?: Chapter[];
+  multimediaContent?: {
+    audio?: MediaFile[];
+    video?: MediaFile[];
+  };
   isActive?: boolean;
   isPublished?: boolean;
 }
@@ -653,13 +665,65 @@ export const getCourses = async (): Promise<Course[]> => {
   }
 };
 
-export const createCourse = async (data: CreateCourseData): Promise<Course> => {
+export const getCourseById = async (id: string): Promise<Course> => {
   try {
     const token = getAuthToken();
     const response: AxiosResponse<{ success: boolean; data: Course }> =
-      await api.post("/courses", data, {
+      await rateLimitedRequest(() =>
+        api.get(`/courses/id/${id}`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
+      );
+    return response.data.data;
+  } catch (error) {
+    const axiosError = error as AxiosError<{ message?: string }>;
+    const errorMessage =
+      axiosError.response?.data?.message || "Failed to fetch course";
+    throw new Error(errorMessage);
+  }
+};
+
+export const createCourse = async (data: CreateCourseData): Promise<Course> => {
+  try {
+    const token = getAuthToken();
+
+    // Create FormData for file uploads
+    const formData = new FormData();
+
+    // Add text fields
+    formData.append("title", data.title);
+    formData.append("description", data.description);
+    formData.append("subject", data.subject);
+    formData.append("chapters", JSON.stringify(data.chapters));
+    formData.append("isActive", String(data.isActive ?? true));
+    formData.append("isPublished", String(data.isPublished ?? false));
+
+    // Add cover image if present
+    if (data.cover) {
+      formData.append("cover", data.cover);
+    }
+
+    // Add audio files if present
+    if (data.audio && data.audio.length > 0) {
+      data.audio.forEach((file) => {
+        formData.append("audio", file);
+      });
+    }
+
+    // Add video files if present
+    if (data.video && data.video.length > 0) {
+      data.video.forEach((file) => {
+        formData.append("video", file);
+      });
+    }
+
+    const response: AxiosResponse<{ success: boolean; data: Course }> =
+      await api.post("/courses", formData, {
         headers: {
           Authorization: `Bearer ${token}`,
+          "Content-Type": "multipart/form-data",
         },
       });
     return response.data.data;
@@ -673,17 +737,78 @@ export const createCourse = async (data: CreateCourseData): Promise<Course> => {
 
 export const updateCourse = async (
   id: string,
-  data: UpdateCourseData
+  data: UpdateCourseData & {
+    epubCover?: File | null;
+    audio?: File[];
+    video?: File[];
+  }
 ): Promise<Course> => {
   try {
     const token = getAuthToken();
-    const response: AxiosResponse<{ success: boolean; data: Course }> =
-      await api.put(`/courses/${id}`, data, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
-    return response.data.data;
+
+    // Check if we have files to upload
+    const hasFiles =
+      data.epubCover ||
+      (data.audio && data.audio.length > 0) ||
+      (data.video && data.video.length > 0);
+
+    if (hasFiles) {
+      // Use FormData for file uploads
+      const formData = new FormData();
+
+      // Add text fields
+      if (data.title) formData.append("title", data.title);
+      if (data.description) formData.append("description", data.description);
+      if (data.subject) formData.append("subject", data.subject);
+      if (data.chapters)
+        formData.append("chapters", JSON.stringify(data.chapters));
+      if (data.multimediaContent)
+        formData.append(
+          "multimediaContent",
+          JSON.stringify(data.multimediaContent)
+        );
+      if (data.isActive !== undefined)
+        formData.append("isActive", String(data.isActive));
+      if (data.isPublished !== undefined)
+        formData.append("isPublished", String(data.isPublished));
+
+      // Add cover image if present
+      if (data.epubCover) {
+        formData.append("epubCover", data.epubCover);
+      }
+
+      // Add audio files if present
+      if (data.audio && data.audio.length > 0) {
+        data.audio.forEach((file) => {
+          formData.append("audio", file);
+        });
+      }
+
+      // Add video files if present
+      if (data.video && data.video.length > 0) {
+        data.video.forEach((file) => {
+          formData.append("video", file);
+        });
+      }
+
+      const response: AxiosResponse<{ success: boolean; data: Course }> =
+        await api.put(`/courses/${id}`, formData, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "multipart/form-data",
+          },
+        });
+      return response.data.data;
+    } else {
+      // Use JSON for text-only updates
+      const response: AxiosResponse<{ success: boolean; data: Course }> =
+        await api.put(`/courses/${id}`, data, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+      return response.data.data;
+    }
   } catch (error) {
     const axiosError = error as AxiosError<{ message?: string }>;
     const errorMessage =
@@ -723,6 +848,8 @@ export const toggleCoursePublishedStatus = async (
           },
         }
       );
+    console.log("API Response:", response.data);
+    console.log("Returned course data:", response.data.data);
     return response.data.data;
   } catch (error) {
     const axiosError = error as AxiosError<{ message?: string }>;

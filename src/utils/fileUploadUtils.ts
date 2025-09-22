@@ -13,34 +13,34 @@ export interface UploadResult {
 }
 
 export class FileUploadManager {
-  private static readonly MAX_FILE_SIZE = 100 * 1024 * 1024; // 100MB
-  private static readonly ALLOWED_IMAGE_TYPES = [
+  static readonly MAX_FILE_SIZE = 100 * 1024 * 1024; // 100MB
+  static readonly ALLOWED_IMAGE_TYPES = [
     "image/jpeg",
     "image/png",
     "image/gif",
     "image/webp",
   ];
-  private static readonly ALLOWED_AUDIO_TYPES = [
+  static readonly ALLOWED_AUDIO_TYPES = [
     "audio/mpeg",
     "audio/wav",
     "audio/ogg",
     "audio/mp3",
   ];
-  private static readonly ALLOWED_VIDEO_TYPES = [
+  static readonly ALLOWED_VIDEO_TYPES = [
     "video/mp4",
     "video/webm",
     "video/ogg",
   ];
-  private static readonly ALLOWED_EPUB_TYPES = ["application/epub+zip"];
+  static readonly ALLOWED_EPUB_TYPES = ["application/epub+zip"];
 
   static validateFile(
     file: File,
     type: "image" | "audio" | "video" | "epub"
   ): string | null {
     // Check file size
-    if (file.size > this.MAX_FILE_SIZE) {
+    if (file.size > FileUploadManager.MAX_FILE_SIZE) {
       return `File size must be less than ${
-        this.MAX_FILE_SIZE / (1024 * 1024)
+        FileUploadManager.MAX_FILE_SIZE / (1024 * 1024)
       }MB`;
     }
 
@@ -48,16 +48,16 @@ export class FileUploadManager {
     let allowedTypes: string[];
     switch (type) {
       case "image":
-        allowedTypes = this.ALLOWED_IMAGE_TYPES;
+        allowedTypes = FileUploadManager.ALLOWED_IMAGE_TYPES;
         break;
       case "audio":
-        allowedTypes = this.ALLOWED_AUDIO_TYPES;
+        allowedTypes = FileUploadManager.ALLOWED_AUDIO_TYPES;
         break;
       case "video":
-        allowedTypes = this.ALLOWED_VIDEO_TYPES;
+        allowedTypes = FileUploadManager.ALLOWED_VIDEO_TYPES;
         break;
       case "epub":
-        allowedTypes = this.ALLOWED_EPUB_TYPES;
+        allowedTypes = FileUploadManager.ALLOWED_EPUB_TYPES;
         break;
       default:
         return "Invalid file type";
@@ -79,7 +79,7 @@ export class FileUploadManager {
   ): Promise<UploadResult> {
     try {
       // Validate file
-      const validationError = this.validateFile(file, type);
+      const validationError = FileUploadManager.validateFile(file, type);
       if (validationError) {
         return { success: false, error: validationError };
       }
@@ -126,9 +126,13 @@ export class FileUploadManager {
 
     for (let i = 0; i < files.length; i++) {
       const file = files[i];
-      const result = await this.uploadFile(file, type, (progress) => {
-        onProgress?.(i, progress);
-      });
+      const result = await FileUploadManager.uploadFile(
+        file,
+        type,
+        (progress) => {
+          onProgress?.(i, progress);
+        }
+      );
       results.push(result);
 
       // If any upload fails, we might want to stop or continue based on requirements

@@ -41,7 +41,7 @@ export default function AdminHeader({
   }, [userMenuOpen]);
 
   return (
-    <header className="bg-white shadow-sm border-b border-gray-200">
+    <header className="bg-gradient-to-r from-blue-600 to-blue-700 shadow-lg border-b border-blue-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Mobile menu button */}
@@ -49,7 +49,7 @@ export default function AdminHeader({
             <button
               type="button"
               onClick={onMobileMenuToggle}
-              className="bg-white p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500 transition-colors duration-200"
+              className="bg-white/10 backdrop-blur-sm p-2 rounded-lg text-white hover:text-white hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white/50 transition-all duration-200"
             >
               <span className="sr-only">Open main menu</span>
               <svg
@@ -82,24 +82,19 @@ export default function AdminHeader({
           {/* Logo/Brand */}
           <div className="flex items-center">
             <div className="flex items-center">
-              <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center mr-3">
-                <svg
-                  className="w-5 h-5 text-white"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
-                </svg>
+              <div className="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-lg flex items-center justify-center mr-3">
+                <img
+                  src="/logo.png"
+                  alt="Word2Wallet Logo"
+                  className="w-6 h-6"
+                />
               </div>
-              <h1 className="text-xl font-semibold text-gray-900">
-                Word2Wallet Admin
-              </h1>
+              <div>
+                <h1 className="text-xl font-bold text-white">
+                  Word2Wallet Admin
+                </h1>
+                <p className="text-xs text-blue-100">Management Dashboard</p>
+              </div>
             </div>
           </div>
 
@@ -107,22 +102,25 @@ export default function AdminHeader({
           <div className="relative">
             <button
               type="button"
-              className="flex items-center text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 hover:bg-gray-50 px-2 py-1 transition-colors duration-200"
+              className="flex items-center text-sm rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white/50 hover:bg-white/10 px-3 py-2 transition-all duration-200 backdrop-blur-sm"
               onClick={() => setUserMenuOpen(!userMenuOpen)}
             >
               <span className="sr-only">Open user menu</span>
-              <div className="h-8 w-8 rounded-full bg-blue-500 flex items-center justify-center ring-2 ring-white shadow-sm">
-                <span className="text-sm font-medium text-white">
+              <div className="h-8 w-8 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center ring-2 ring-white/30 shadow-lg">
+                <span className="text-sm font-bold text-white">
                   {user.name
                     ? user.name.charAt(0).toUpperCase()
                     : user.email.charAt(0).toUpperCase()}
                 </span>
               </div>
-              <span className="ml-2 text-gray-700 font-medium hidden sm:block">
-                {user.name || user.email}
-              </span>
+              <div className="ml-3 text-left hidden sm:block">
+                <p className="text-sm font-medium text-white">
+                  {user.name || user.email}
+                </p>
+                <p className="text-xs text-blue-100">Administrator</p>
+              </div>
               <svg
-                className={`ml-1 h-4 w-4 text-gray-400 transition-transform duration-200 ${
+                className={`ml-2 h-4 w-4 text-white/80 transition-transform duration-200 ${
                   userMenuOpen ? "rotate-180" : ""
                 }`}
                 fill="none"
@@ -140,16 +138,38 @@ export default function AdminHeader({
 
             {/* Dropdown menu */}
             {userMenuOpen && (
-              <div className="origin-top-right absolute right-0 mt-2 w-56 rounded-lg shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none z-50 animate-in slide-in-from-top-2 duration-200">
-                <div className="py-1">
-                  <div className="px-4 py-3 text-sm text-gray-700 border-b border-gray-100">
-                    <p className="font-medium text-gray-900">
-                      {user.name || "Admin User"}
-                    </p>
-                    <p className="text-gray-500 text-xs">{user.email}</p>
-                    <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-blue-100 text-blue-800 mt-1">
-                      Administrator
-                    </span>
+              <div className="origin-top-right absolute right-0 mt-2 w-64 rounded-xl shadow-2xl bg-white/95 backdrop-blur-sm ring-1 ring-black/10 focus:outline-none z-50 animate-in slide-in-from-top-2 duration-200">
+                <div className="py-2">
+                  <div className="px-4 py-4 text-sm text-gray-700 border-b border-gray-100/50">
+                    <div className="flex items-center">
+                      <div className="h-10 w-10 rounded-full bg-gradient-to-r from-blue-500 to-blue-600 flex items-center justify-center ring-2 ring-blue-100">
+                        <span className="text-sm font-bold text-white">
+                          {user.name
+                            ? user.name.charAt(0).toUpperCase()
+                            : user.email.charAt(0).toUpperCase()}
+                        </span>
+                      </div>
+                      <div className="ml-3">
+                        <p className="font-semibold text-gray-900">
+                          {user.name || "Admin User"}
+                        </p>
+                        <p className="text-gray-500 text-xs">{user.email}</p>
+                        <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-gradient-to-r from-blue-100 to-blue-200 text-blue-800 mt-1">
+                          <svg
+                            className="w-3 h-3 mr-1"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                          >
+                            <path
+                              fillRule="evenodd"
+                              d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                              clipRule="evenodd"
+                            />
+                          </svg>
+                          Administrator
+                        </span>
+                      </div>
+                    </div>
                   </div>
 
                   <button
@@ -157,22 +177,29 @@ export default function AdminHeader({
                       setUserMenuOpen(false);
                       navigate("/");
                     }}
-                    className="flex items-center w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors duration-150"
+                    className="flex items-center w-full text-left px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition-all duration-150 group"
                   >
-                    <svg
-                      className="w-4 h-4 mr-3 text-gray-400"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                      />
-                    </svg>
-                    View Main Site
+                    <div className="w-8 h-8 rounded-lg bg-blue-100 group-hover:bg-blue-200 flex items-center justify-center mr-3 transition-colors duration-150">
+                      <svg
+                        className="w-4 h-4 text-blue-600"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                        />
+                      </svg>
+                    </div>
+                    <div>
+                      <p className="font-medium">View Main Site</p>
+                      <p className="text-xs text-gray-500">
+                        Go to public website
+                      </p>
+                    </div>
                   </button>
 
                   <button
@@ -180,22 +207,29 @@ export default function AdminHeader({
                       setUserMenuOpen(false);
                       onLogout();
                     }}
-                    className="flex items-center w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors duration-150"
+                    className="flex items-center w-full text-left px-4 py-3 text-sm text-gray-700 hover:bg-red-50 hover:text-red-700 transition-all duration-150 group"
                   >
-                    <svg
-                      className="w-4 h-4 mr-3 text-gray-400"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
-                      />
-                    </svg>
-                    Sign out
+                    <div className="w-8 h-8 rounded-lg bg-red-100 group-hover:bg-red-200 flex items-center justify-center mr-3 transition-colors duration-150">
+                      <svg
+                        className="w-4 h-4 text-red-600"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
+                        />
+                      </svg>
+                    </div>
+                    <div>
+                      <p className="font-medium">Sign out</p>
+                      <p className="text-xs text-gray-500">
+                        Logout from admin panel
+                      </p>
+                    </div>
                   </button>
                 </div>
               </div>

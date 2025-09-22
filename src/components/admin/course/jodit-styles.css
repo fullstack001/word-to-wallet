@@ -1,0 +1,36 @@
+/* Jodit Editor Custom Styles */
+.jodit-container {
+  border-radius: 0.375rem !important;
+}
+
+.jodit-toolbar {
+  border-top-left-radius: 0.375rem !important;
+  border-top-right-radius: 0.375rem !important;
+}
+
+.jodit-workplace {
+  border-bottom-left-radius: 0.375rem !important;
+  border-bottom-right-radius: 0.375rem !important;
+}
+
+/* Ensure proper spacing within the editor */
+.jodit-wysiwyg {
+  padding: 12px !important;
+  min-height: 250px !important;
+}
+
+/* Custom styling for better integration */
+.jodit-container .jodit-toolbar {
+  background-color: #f9fafb !important;
+  border-bottom: 1px solid #e5e7eb !important;
+}
+
+.jodit-container .jodit-workplace {
+  border: none !important;
+}
+
+/* Focus state */
+.jodit-container:focus-within {
+  outline: 2px solid #3b82f6 !important;
+  outline-offset: 2px !important;
+}

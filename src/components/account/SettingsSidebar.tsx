@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { CreditCard, LogOut, Star, User } from "lucide-react";
@@ -67,8 +67,11 @@ export default function SettingsSidebar({ onItemClick }: SettingsSidebarProps) {
       dispatch(clearUser());
       dispatch(clearFlow());
 
-      // Clear localStorage
+      // Clear both localStorage and sessionStorage
       localStorage.removeItem("authToken");
+      localStorage.removeItem("rememberedEmail");
+      localStorage.removeItem("rememberMe");
+      sessionStorage.removeItem("authToken");
 
       // Navigate to home page
       navigate("/");

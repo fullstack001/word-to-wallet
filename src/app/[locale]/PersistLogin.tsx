@@ -11,7 +11,10 @@ export default function PersistLogin() {
   useEffect(() => {
     const initializeAuth = async () => {
       try {
-        const oldToken = localStorage.getItem("authToken");
+        // Check both localStorage and sessionStorage for auth token
+        const localToken = localStorage.getItem("authToken");
+        const sessionToken = sessionStorage.getItem("authToken");
+        const oldToken = localToken || sessionToken;
 
         if (oldToken) {
           const API_BASE_URL =
@@ -38,7 +41,14 @@ export default function PersistLogin() {
             isAdmin: user.role === "admin",
           };
           const subscription = undefined; // Not provided by profile endpoint
-          localStorage.setItem("authToken", token);
+
+          // Store token in the same storage type it was found in
+          if (localToken) {
+            localStorage.setItem("authToken", token);
+          } else if (sessionToken) {
+            sessionStorage.setItem("authToken", token);
+          }
+
           dispatch(
             setUser({
               ...transformedUser,
@@ -49,7 +59,11 @@ export default function PersistLogin() {
         }
       } catch (error) {
         console.error("Token validation failed:", error);
+        // Clear both storage types on error
         localStorage.removeItem("authToken");
+        localStorage.removeItem("rememberedEmail");
+        localStorage.removeItem("rememberMe");
+        sessionStorage.removeItem("authToken");
       }
     };
 

@@ -8,7 +8,6 @@ export default function LanguageSetter({ locale }: { locale: string }) {
 
     // Set the document title with locale
     const currentTitle = document.title;
-    
   }, [locale]);
 
   return null;

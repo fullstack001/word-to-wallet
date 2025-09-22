@@ -112,7 +112,11 @@ export default function AdminDashboard() {
   const handleLogout = () => {
     dispatch(logout());
     dispatch(clearUser());
+    // Clear both localStorage and sessionStorage
     localStorage.removeItem("authToken");
+    localStorage.removeItem("rememberedEmail");
+    localStorage.removeItem("rememberMe");
+    sessionStorage.removeItem("authToken");
     navigate("/login");
   };
 
@@ -425,7 +429,7 @@ export default function AdminDashboard() {
                   </button>
 
                   <button
-                    onClick={() => navigate("/admin/subjects")}
+                    onClick={() => navigate("/admin/courses")}
                     className="group inline-flex items-center px-4 py-3 border border-gray-300 text-sm font-medium rounded-lg text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors duration-200"
                   >
                     <svg

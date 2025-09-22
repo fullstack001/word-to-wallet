@@ -27,6 +27,7 @@ export default function AdminSidebar({
     {
       name: "Dashboard",
       href: "/admin/dashboard",
+      description: "Overview and analytics",
       icon: (
         <svg
           className="w-5 h-5"
@@ -50,27 +51,9 @@ export default function AdminSidebar({
       ),
     },
     {
-      name: "Subjects",
-      href: "/admin/subjects",
-      icon: (
-        <svg
-          className="w-5 h-5"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
-          />
-        </svg>
-      ),
-    },
-    {
-      name: "Courses",
+      name: "Courses & Subjects",
       href: "/admin/courses",
+      description: "Manage courses and subjects",
       icon: (
         <svg
           className="w-5 h-5"
@@ -90,6 +73,7 @@ export default function AdminSidebar({
     {
       name: "Users",
       href: "/admin/users",
+      description: "User management",
       icon: (
         <svg
           className="w-5 h-5"
@@ -102,6 +86,26 @@ export default function AdminSidebar({
             strokeLinejoin="round"
             strokeWidth={2}
             d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"
+          />
+        </svg>
+      ),
+    },
+    {
+      name: "Analytics",
+      href: "/admin/analytics",
+      description: "Reports and insights",
+      icon: (
+        <svg
+          className="w-5 h-5"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
           />
         </svg>
       ),
@@ -123,54 +127,66 @@ export default function AdminSidebar({
       )}
 
       {/* Desktop sidebar */}
-      <div className={`hidden md:flex md:w-64 md:flex-col ${className}`}>
-        <div className="flex flex-col flex-grow pt-5 bg-white overflow-y-auto border-r border-gray-200">
-          <div className="flex items-center flex-shrink-0 px-4">
+      <div className={`hidden md:flex md:w-72 md:flex-col ${className}`}>
+        <div className="flex flex-col flex-grow pt-6 bg-gradient-to-b from-gray-50 to-white overflow-y-auto border-r border-gray-200 shadow-sm">
+          <div className="flex items-center flex-shrink-0 px-6">
             <div className="flex items-center">
-              <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center mr-3">
-                <svg
-                  className="w-5 h-5 text-white"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
-                </svg>
+              <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mr-3 shadow-lg">
+                <img
+                  src="/logo.png"
+                  alt="Word2Wallet Logo"
+                  className="w-6 h-6"
+                />
               </div>
-              <h1 className="text-xl font-bold text-gray-900">Admin Panel</h1>
+              <div>
+                <h1 className="text-xl font-bold text-gray-900">Admin Panel</h1>
+                <p className="text-xs text-gray-500">Management Console</p>
+              </div>
             </div>
           </div>
-          <div className="mt-5 flex-grow flex flex-col">
-            <nav className="flex-1 px-2 pb-4 space-y-1">
+          <div className="mt-8 flex-grow flex flex-col">
+            <nav className="flex-1 px-3 pb-4 space-y-2">
               {navigation.map((item) => {
                 const isCurrent = isCurrentPath(item.href);
                 return (
                   <button
                     key={item.name}
                     onClick={() => handleNavigation(item.href)}
-                    className={`group flex items-center px-3 py-2 text-sm font-medium rounded-lg w-full text-left transition-all duration-200 ${
+                    className={`group flex items-center px-4 py-3 text-sm font-medium rounded-xl w-full text-left transition-all duration-200 ${
                       isCurrent
-                        ? "bg-blue-100 text-blue-900 shadow-sm"
-                        : "text-gray-600 hover:bg-gray-50 hover:text-gray-900"
+                        ? "bg-gradient-to-r from-blue-500 to-blue-600 text-white shadow-lg shadow-blue-500/25"
+                        : "text-gray-600 hover:bg-white hover:text-gray-900 hover:shadow-md"
                     }`}
                   >
-                    <span
-                      className={`mr-3 flex-shrink-0 h-5 w-5 transition-colors duration-200 ${
+                    <div
+                      className={`mr-4 flex-shrink-0 w-10 h-10 rounded-lg flex items-center justify-center transition-all duration-200 ${
                         isCurrent
-                          ? "text-blue-500"
-                          : "text-gray-400 group-hover:text-gray-500"
+                          ? "bg-white/20"
+                          : "bg-gray-100 group-hover:bg-blue-100"
                       }`}
                     >
-                      {item.icon}
-                    </span>
-                    {item.name}
+                      <span
+                        className={`h-5 w-5 transition-colors duration-200 ${
+                          isCurrent
+                            ? "text-white"
+                            : "text-gray-500 group-hover:text-blue-600"
+                        }`}
+                      >
+                        {item.icon}
+                      </span>
+                    </div>
+                    <div className="flex-1">
+                      <p className="font-semibold">{item.name}</p>
+                      <p
+                        className={`text-xs ${
+                          isCurrent ? "text-blue-100" : "text-gray-500"
+                        }`}
+                      >
+                        {item.description}
+                      </p>
+                    </div>
                     {isCurrent && (
-                      <div className="ml-auto w-2 h-2 bg-blue-500 rounded-full" />
+                      <div className="ml-auto w-2 h-2 bg-white rounded-full shadow-sm" />
                     )}
                   </button>
                 );
@@ -182,33 +198,28 @@ export default function AdminSidebar({
 
       {/* Mobile sidebar */}
       <div
-        className={`fixed inset-y-0 left-0 z-50 w-64 bg-white transform transition-transform duration-300 ease-in-out md:hidden ${
+        className={`fixed inset-y-0 left-0 z-50 w-72 bg-white transform transition-transform duration-300 ease-in-out md:hidden shadow-2xl ${
           mobileMenuOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
-        <div className="flex flex-col h-full">
-          <div className="flex items-center justify-between px-4 py-4 border-b border-gray-200">
+        <div className="flex flex-col h-full bg-gradient-to-b from-gray-50 to-white">
+          <div className="flex items-center justify-between px-6 py-6 border-b border-gray-200">
             <div className="flex items-center">
-              <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center mr-3">
-                <svg
-                  className="w-5 h-5 text-white"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
-                </svg>
+              <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mr-3 shadow-lg">
+                <img
+                  src="/logo.png"
+                  alt="Word2Wallet Logo"
+                  className="w-6 h-6"
+                />
               </div>
-              <h1 className="text-xl font-bold text-gray-900">Admin Panel</h1>
+              <div>
+                <h1 className="text-xl font-bold text-gray-900">Admin Panel</h1>
+                <p className="text-xs text-gray-500">Management Console</p>
+              </div>
             </div>
             <button
               onClick={onMobileMenuClose}
-              className="p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100"
+              className="p-2 rounded-lg text-gray-400 hover:text-gray-500 hover:bg-gray-100 transition-colors duration-200"
             >
               <svg
                 className="h-6 w-6"
@@ -225,31 +236,48 @@ export default function AdminSidebar({
               </svg>
             </button>
           </div>
-          <nav className="flex-1 px-2 py-4 space-y-1 overflow-y-auto">
+          <nav className="flex-1 px-3 py-4 space-y-2 overflow-y-auto">
             {navigation.map((item) => {
               const isCurrent = isCurrentPath(item.href);
               return (
                 <button
                   key={item.name}
                   onClick={() => handleNavigation(item.href)}
-                  className={`group flex items-center px-3 py-2 text-sm font-medium rounded-lg w-full text-left transition-all duration-200 ${
+                  className={`group flex items-center px-4 py-3 text-sm font-medium rounded-xl w-full text-left transition-all duration-200 ${
                     isCurrent
-                      ? "bg-blue-100 text-blue-900 shadow-sm"
-                      : "text-gray-600 hover:bg-gray-50 hover:text-gray-900"
+                      ? "bg-gradient-to-r from-blue-500 to-blue-600 text-white shadow-lg shadow-blue-500/25"
+                      : "text-gray-600 hover:bg-white hover:text-gray-900 hover:shadow-md"
                   }`}
                 >
-                  <span
-                    className={`mr-3 flex-shrink-0 h-5 w-5 transition-colors duration-200 ${
+                  <div
+                    className={`mr-4 flex-shrink-0 w-10 h-10 rounded-lg flex items-center justify-center transition-all duration-200 ${
                       isCurrent
-                        ? "text-blue-500"
-                        : "text-gray-400 group-hover:text-gray-500"
+                        ? "bg-white/20"
+                        : "bg-gray-100 group-hover:bg-blue-100"
                     }`}
                   >
-                    {item.icon}
-                  </span>
-                  {item.name}
+                    <span
+                      className={`h-5 w-5 transition-colors duration-200 ${
+                        isCurrent
+                          ? "text-white"
+                          : "text-gray-500 group-hover:text-blue-600"
+                      }`}
+                    >
+                      {item.icon}
+                    </span>
+                  </div>
+                  <div className="flex-1">
+                    <p className="font-semibold">{item.name}</p>
+                    <p
+                      className={`text-xs ${
+                        isCurrent ? "text-blue-100" : "text-gray-500"
+                      }`}
+                    >
+                      {item.description}
+                    </p>
+                  </div>
                   {isCurrent && (
-                    <div className="ml-auto w-2 h-2 bg-blue-500 rounded-full" />
+                    <div className="ml-auto w-2 h-2 bg-white rounded-full shadow-sm" />
                   )}
                 </button>
               );

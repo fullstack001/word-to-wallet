@@ -6,8 +6,13 @@ import {
   MediaFile,
   MultimediaContent,
 } from "@/utils/apiUtils";
-import MultimediaUpload from "./MultimediaUpload";
-import EpubUpload from "./EpubUpload";
+import {
+  BasicInfoForm,
+  FilesMediaForm,
+  ChaptersForm,
+  MultimediaForm,
+  Chapter,
+} from "./course";
 
 interface CourseModalProps {
   course?: Course | null;
@@ -16,15 +21,15 @@ interface CourseModalProps {
     title: string;
     description: string;
     subject: string;
-    epubFile?: File | null;
-    thumbnail?: File | null;
+    epubCover?: File | null;
+    chapters: Chapter[];
     multimediaContent?: {
-      images: MediaFile[];
       audio: MediaFile[];
       video: MediaFile[];
     };
     isActive?: boolean;
     isPublished?: boolean;
+    removeExistingCover?: boolean;
   }) => void;
   onClose: () => void;
   error?: string;
@@ -47,14 +52,23 @@ export default function CourseModal({
     isPublished: false,
   });
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
-  const [epubFile, setEpubFile] = useState<File | null>(null);
-  const [thumbnailFile, setThumbnailFile] = useState<File | null>(null);
+  const [epubCoverFile, setEpubCoverFile] = useState<File | null>(null);
+  const [existingCoverImage, setExistingCoverImage] = useState<string | null>(
+    null
+  );
+  const [removeExistingCover, setRemoveExistingCover] = useState(false);
+  const [chapters, setChapters] = useState<Chapter[]>([
+    {
+      id: "1",
+      title: "",
+      description: "",
+      content: "",
+    },
+  ]);
   const [multimediaContent, setMultimediaContent] = useState<{
-    images: MediaFile[];
     audio: MediaFile[];
     video: MediaFile[];
   }>({
-    images: [],
     audio: [],
     video: [],
   });
@@ -72,13 +86,24 @@ export default function CourseModal({
         isPublished: course.isPublished,
       });
 
-      // Set existing multimedia content
+      // Set existing multimedia content (only audio and video)
       if (course.multimediaContent) {
         setMultimediaContent({
-          images: course.multimediaContent.images || [],
           audio: course.multimediaContent.audio || [],
           video: course.multimediaContent.video || [],
         });
+      }
+
+      // Set existing chapters if available (assuming chapters might be in course data)
+      if ((course as any).chapters && Array.isArray((course as any).chapters)) {
+        setChapters((course as any).chapters);
+      }
+
+      // Set existing cover image if available
+      if (course.epubCover) {
+        // Construct the full URL for the cover image
+        const coverUrl = `/api/courses/${course._id}/cover`;
+        setExistingCoverImage(coverUrl);
       }
     }
   }, [course]);
@@ -102,6 +127,18 @@ export default function CourseModal({
       newErrors.subject = "Subject is required";
     }
 
+    // Validate chapters
+    const validChapters = chapters.filter(
+      (chapter) =>
+        chapter.title.trim() &&
+        chapter.description.trim() &&
+        chapter.content.trim()
+    );
+
+    if (validChapters.length === 0) {
+      newErrors.chapters = "At least one complete chapter is required";
+    }
+
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -109,11 +146,19 @@ export default function CourseModal({
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (validateForm()) {
+      const filteredChapters = chapters.filter(
+        (chapter) =>
+          chapter.title.trim() &&
+          chapter.description.trim() &&
+          chapter.content.trim()
+      );
+
       onSubmit({
         ...formData,
-        epubFile,
-        thumbnail: thumbnailFile,
+        epubCover: epubCoverFile,
+        chapters: filteredChapters,
         multimediaContent,
+        removeExistingCover,
       });
     }
   };
@@ -139,9 +184,42 @@ export default function CourseModal({
     }
   };
 
+  const handleRemoveExistingCover = () => {
+    setExistingCoverImage(null);
+    setRemoveExistingCover(true);
+  };
+
+  const addChapter = () => {
+    const newChapter: Chapter = {
+      id: Date.now().toString(),
+      title: "",
+      description: "",
+      content: "",
+    };
+    setChapters([...chapters, newChapter]);
+  };
+
+  const removeChapter = (chapterId: string) => {
+    if (chapters.length > 1) {
+      setChapters(chapters.filter((chapter) => chapter.id !== chapterId));
+    }
+  };
+
+  const updateChapter = (
+    chapterId: string,
+    field: keyof Chapter,
+    value: string
+  ) => {
+    setChapters(
+      chapters.map((chapter) =>
+        chapter.id === chapterId ? { ...chapter, [field]: value } : chapter
+      )
+    );
+  };
+
   return (
     <div className="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full z-50">
-      <div className="relative top-10 mx-auto p-5 border w-full max-w-2xl shadow-lg rounded-md bg-white">
+      <div className="relative top-10 mx-auto p-5 border w-full max-w-6xl shadow-lg rounded-md bg-white">
         <div className="mt-3">
           <div className="flex items-center justify-between mb-4">
             <h3 className="text-lg font-medium text-gray-900">
@@ -191,180 +269,45 @@ export default function CourseModal({
             </div>
           )}
 
-          <form onSubmit={handleSubmit} className="space-y-4">
-            <div>
-              <label
-                htmlFor="title"
-                className="block text-sm font-medium text-gray-700"
-              >
-                Course Title
-              </label>
-              <input
-                type="text"
-                id="title"
-                name="title"
-                value={formData.title}
+          <form onSubmit={handleSubmit} className="space-y-6">
+            {/* Two Column Layout for Desktop */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              {/* Left Column - Basic Information */}
+              <BasicInfoForm
+                formData={formData}
+                subjects={subjects}
+                errors={errors}
                 onChange={handleChange}
-                className={`mt-1 block w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${
-                  errors.title ? "border-red-300" : "border-gray-300"
-                }`}
-                placeholder="Enter course title"
               />
-              {errors.title && (
-                <p className="mt-1 text-sm text-red-600">{errors.title}</p>
-              )}
-            </div>
 
-            <div>
-              <label
-                htmlFor="description"
-                className="block text-sm font-medium text-gray-700"
-              >
-                Description
-              </label>
-              <textarea
-                id="description"
-                name="description"
-                rows={4}
-                value={formData.description}
-                onChange={handleChange}
-                className={`mt-1 block w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${
-                  errors.description ? "border-red-300" : "border-gray-300"
-                }`}
-                placeholder="Enter course description"
+              {/* Right Column - Files and Media */}
+              <FilesMediaForm
+                epubCoverFile={epubCoverFile}
+                onEpubCoverChange={setEpubCoverFile}
+                existingCoverImage={existingCoverImage}
+                onRemoveExistingCover={handleRemoveExistingCover}
               />
-              {errors.description && (
-                <p className="mt-1 text-sm text-red-600">
-                  {errors.description}
-                </p>
-              )}
             </div>
 
-            <div>
-              <label
-                htmlFor="subject"
-                className="block text-sm font-medium text-gray-700"
-              >
-                Subject
-              </label>
-              <select
-                id="subject"
-                name="subject"
-                value={formData.subject}
-                onChange={handleChange}
-                className={`mt-1 block w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${
-                  errors.subject ? "border-red-300" : "border-gray-300"
-                }`}
-              >
-                <option value="">Select a subject</option>
-                {subjects.map((subject) => (
-                  <option key={subject._id} value={subject._id}>
-                    {subject.name}
-                  </option>
-                ))}
-              </select>
-              {errors.subject && (
-                <p className="mt-1 text-sm text-red-600">{errors.subject}</p>
-              )}
-            </div>
-
-            {/* EPUB Upload */}
-            <EpubUpload
-              onEpubUpload={setEpubFile}
-              currentEpub={epubFile ? epubFile.name : undefined}
+            {/* Chapters Section - Full Width */}
+            <ChaptersForm
+              chapters={chapters}
+              errors={errors}
+              onAddChapter={addChapter}
+              onRemoveChapter={removeChapter}
+              onUpdateChapter={updateChapter}
             />
 
-            {/* Thumbnail Upload */}
-            <div className="space-y-2">
-              <label className="block text-sm font-medium text-gray-700">
-                Course Thumbnail
-              </label>
-              <input
-                type="file"
-                accept="image/*"
-                onChange={(e) => {
-                  if (e.target.files && e.target.files[0]) {
-                    setThumbnailFile(e.target.files[0]);
-                  }
-                }}
-                className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
-              />
-              {thumbnailFile && (
-                <p className="text-sm text-gray-600">
-                  Selected: {thumbnailFile.name}
-                </p>
-              )}
-            </div>
-
-            {/* Multimedia Content */}
-            <div className="space-y-6">
-              <h4 className="text-lg font-medium text-gray-900">
-                Multimedia Content
-              </h4>
-
-              <MultimediaUpload
-                type="image"
-                files={multimediaContent.images}
-                onFilesChange={(files) =>
-                  setMultimediaContent((prev) => ({ ...prev, images: files }))
-                }
-                maxFiles={20}
-              />
-
-              <MultimediaUpload
-                type="audio"
-                files={multimediaContent.audio}
-                onFilesChange={(files) =>
-                  setMultimediaContent((prev) => ({ ...prev, audio: files }))
-                }
-                maxFiles={10}
-              />
-
-              <MultimediaUpload
-                type="video"
-                files={multimediaContent.video}
-                onFilesChange={(files) =>
-                  setMultimediaContent((prev) => ({ ...prev, video: files }))
-                }
-                maxFiles={5}
-              />
-            </div>
-
-            <div className="grid grid-cols-2 gap-4">
-              <div className="flex items-center">
-                <input
-                  id="isActive"
-                  name="isActive"
-                  type="checkbox"
-                  checked={formData.isActive}
-                  onChange={handleChange}
-                  className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
-                />
-                <label
-                  htmlFor="isActive"
-                  className="ml-2 block text-sm text-gray-900"
-                >
-                  Active
-                </label>
-              </div>
-
-              <div className="flex items-center">
-                <input
-                  id="isPublished"
-                  name="isPublished"
-                  type="checkbox"
-                  checked={formData.isPublished}
-                  onChange={handleChange}
-                  className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
-                />
-                <label
-                  htmlFor="isPublished"
-                  className="ml-2 block text-sm text-gray-900"
-                >
-                  Published
-                </label>
-              </div>
-            </div>
+            {/* Multimedia Content - Full Width */}
+            <MultimediaForm
+              multimediaContent={multimediaContent}
+              onAudioChange={(files) =>
+                setMultimediaContent((prev) => ({ ...prev, audio: files }))
+              }
+              onVideoChange={(files) =>
+                setMultimediaContent((prev) => ({ ...prev, video: files }))
+              }
+            />
 
             <div className="flex justify-end space-x-3 pt-4">
               <button
