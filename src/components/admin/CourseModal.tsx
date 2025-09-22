@@ -30,6 +30,8 @@ interface CourseModalProps {
     isActive?: boolean;
     isPublished?: boolean;
     removeExistingCover?: boolean;
+    googleDocLink?: string;
+    googleClassroomLink?: string;
   }) => void;
   onClose: () => void;
   error?: string;
@@ -50,6 +52,8 @@ export default function CourseModal({
     subject: "",
     isActive: true,
     isPublished: false,
+    googleDocLink: "",
+    googleClassroomLink: "",
   });
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
   const [epubCoverFile, setEpubCoverFile] = useState<File | null>(null);
@@ -84,6 +88,8 @@ export default function CourseModal({
             : course.subject._id,
         isActive: course.isActive,
         isPublished: course.isPublished,
+        googleDocLink: course.googleDocLink || "",
+        googleClassroomLink: course.googleClassroomLink || "",
       });
 
       // Set existing multimedia content (only audio and video)
@@ -161,6 +167,8 @@ export default function CourseModal({
         chapters: filteredChapters,
         multimediaContent,
         removeExistingCover,
+        googleDocLink: formData.googleDocLink,
+        googleClassroomLink: formData.googleClassroomLink,
       });
     }
   };

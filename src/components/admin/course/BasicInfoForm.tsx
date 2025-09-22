@@ -7,6 +7,8 @@ interface BasicInfoFormProps {
     subject: string;
     isActive: boolean;
     isPublished: boolean;
+    googleDocLink: string;
+    googleClassroomLink: string;
   };
   errors: { [key: string]: string };
   onChange: (
@@ -70,6 +72,54 @@ export default function BasicInfoForm({
         />
         {errors.description && (
           <p className="mt-1 text-sm text-red-600">{errors.description}</p>
+        )}
+      </div>
+
+      <div>
+        <label
+          htmlFor="googleDocLink"
+          className="block text-sm font-medium text-gray-700"
+        >
+          Google Doc Link
+        </label>
+        <input
+          type="url"
+          id="googleDocLink"
+          name="googleDocLink"
+          value={formData.googleDocLink}
+          onChange={onChange}
+          className={`mt-1 block w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${
+            errors.googleDocLink ? "border-red-300" : "border-gray-300"
+          }`}
+          placeholder="https://docs.google.com/document/d/..."
+        />
+        {errors.googleDocLink && (
+          <p className="mt-1 text-sm text-red-600">{errors.googleDocLink}</p>
+        )}
+      </div>
+
+      <div>
+        <label
+          htmlFor="googleClassroomLink"
+          className="block text-sm font-medium text-gray-700"
+        >
+          Google Classroom Link
+        </label>
+        <input
+          type="url"
+          id="googleClassroomLink"
+          name="googleClassroomLink"
+          value={formData.googleClassroomLink}
+          onChange={onChange}
+          className={`mt-1 block w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${
+            errors.googleClassroomLink ? "border-red-300" : "border-gray-300"
+          }`}
+          placeholder="https://classroom.google.com/c/..."
+        />
+        {errors.googleClassroomLink && (
+          <p className="mt-1 text-sm text-red-600">
+            {errors.googleClassroomLink}
+          </p>
         )}
       </div>
 

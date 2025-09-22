@@ -148,6 +148,56 @@ export default function CourseView({
                 </div>
               </div>
               <p className="text-lg text-gray-600 mb-4">{course.description}</p>
+
+              {/* Google Links */}
+              {(course.googleDocLink || course.googleClassroomLink) && (
+                <div className="mb-4">
+                  <h3 className="text-sm font-medium text-gray-700 mb-2">
+                    External Resources
+                  </h3>
+                  <div className="flex flex-wrap gap-3">
+                    {course.googleDocLink && (
+                      <a
+                        href={course.googleDocLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center px-3 py-2 border border-gray-300 shadow-sm text-sm leading-4 font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                      >
+                        <svg
+                          className="w-4 h-4 mr-2"
+                          viewBox="0 0 24 24"
+                          fill="currentColor"
+                        >
+                          <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" />
+                          <polyline points="14,2 14,8 20,8" />
+                          <line x1="16" y1="13" x2="8" y2="13" />
+                          <line x1="16" y1="17" x2="8" y2="17" />
+                          <polyline points="10,9 9,9 8,9" />
+                        </svg>
+                        Google Doc
+                      </a>
+                    )}
+                    {course.googleClassroomLink && (
+                      <a
+                        href={course.googleClassroomLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center px-3 py-2 border border-gray-300 shadow-sm text-sm leading-4 font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                      >
+                        <svg
+                          className="w-4 h-4 mr-2"
+                          viewBox="0 0 24 24"
+                          fill="currentColor"
+                        >
+                          <path d="M1 3h22v18H1V3zm2 2v14h18V5H3zm2 2h14v2H5V7zm0 4h14v2H5v-2zm0 4h10v2H5v-2z" />
+                        </svg>
+                        Google Classroom
+                      </a>
+                    )}
+                  </div>
+                </div>
+              )}
+
               <div className="flex items-center text-sm text-gray-500 space-x-4">
                 <span>
                   Subject:{" "}

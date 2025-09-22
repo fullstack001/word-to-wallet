@@ -484,6 +484,8 @@ export interface Course {
   multimediaContent?: MultimediaContent;
   isActive: boolean;
   isPublished: boolean;
+  googleDocLink?: string;
+  googleClassroomLink?: string;
   createdBy: string;
   createdAt: string;
   updatedAt: string;
@@ -517,6 +519,8 @@ export interface CreateCourseData {
   video?: File[];
   isActive?: boolean;
   isPublished?: boolean;
+  googleDocLink?: string;
+  googleClassroomLink?: string;
 }
 
 export interface UpdateCourseData {
@@ -530,6 +534,8 @@ export interface UpdateCourseData {
   };
   isActive?: boolean;
   isPublished?: boolean;
+  googleDocLink?: string;
+  googleClassroomLink?: string;
 }
 
 // Admin API Functions
@@ -699,6 +705,10 @@ export const createCourse = async (data: CreateCourseData): Promise<Course> => {
     formData.append("chapters", JSON.stringify(data.chapters));
     formData.append("isActive", String(data.isActive ?? true));
     formData.append("isPublished", String(data.isPublished ?? false));
+    if (data.googleDocLink)
+      formData.append("googleDocLink", data.googleDocLink);
+    if (data.googleClassroomLink)
+      formData.append("googleClassroomLink", data.googleClassroomLink);
 
     // Add cover image if present
     if (data.cover) {
@@ -771,6 +781,10 @@ export const updateCourse = async (
         formData.append("isActive", String(data.isActive));
       if (data.isPublished !== undefined)
         formData.append("isPublished", String(data.isPublished));
+      if (data.googleDocLink !== undefined)
+        formData.append("googleDocLink", data.googleDocLink || "");
+      if (data.googleClassroomLink !== undefined)
+        formData.append("googleClassroomLink", data.googleClassroomLink || "");
 
       // Add cover image if present
       if (data.epubCover) {

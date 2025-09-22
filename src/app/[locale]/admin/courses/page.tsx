@@ -120,6 +120,8 @@ export default function CoursesPage() {
     };
     isActive?: boolean;
     isPublished?: boolean;
+    googleDocLink?: string;
+    googleClassroomLink?: string;
   }) => {
     try {
       // Convert the data to the new format
@@ -133,6 +135,8 @@ export default function CoursesPage() {
         video: data.multimediaContent?.video?.map((item) => item.file) || [],
         isActive: data.isActive,
         isPublished: data.isPublished,
+        googleDocLink: data.googleDocLink,
+        googleClassroomLink: data.googleClassroomLink,
       };
 
       const newCourse = await createCourse(courseData);
@@ -199,6 +203,8 @@ export default function CoursesPage() {
     };
     isActive?: boolean;
     isPublished?: boolean;
+    googleDocLink?: string;
+    googleClassroomLink?: string;
   }) => {
     try {
       if (!editingCourse) return;
@@ -221,6 +227,8 @@ export default function CoursesPage() {
             .filter(Boolean) || [],
         isActive: data.isActive,
         isPublished: data.isPublished,
+        googleDocLink: data.googleDocLink,
+        googleClassroomLink: data.googleClassroomLink,
       };
 
       const updatedCourse = await updateCourse(editingCourse._id, updateData);
