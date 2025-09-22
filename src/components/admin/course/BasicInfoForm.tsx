@@ -1,5 +1,4 @@
 "use client";
-import { Subject } from "@/utils/apiUtils";
 
 interface BasicInfoFormProps {
   formData: {
@@ -9,7 +8,6 @@ interface BasicInfoFormProps {
     isActive: boolean;
     isPublished: boolean;
   };
-  subjects: Subject[];
   errors: { [key: string]: string };
   onChange: (
     e: React.ChangeEvent<
@@ -20,7 +18,6 @@ interface BasicInfoFormProps {
 
 export default function BasicInfoForm({
   formData,
-  subjects,
   errors,
   onChange,
 }: BasicInfoFormProps) {
@@ -73,34 +70,6 @@ export default function BasicInfoForm({
         />
         {errors.description && (
           <p className="mt-1 text-sm text-red-600">{errors.description}</p>
-        )}
-      </div>
-
-      <div>
-        <label
-          htmlFor="subject"
-          className="block text-sm font-medium text-gray-700"
-        >
-          Subject
-        </label>
-        <select
-          id="subject"
-          name="subject"
-          value={formData.subject}
-          onChange={onChange}
-          className={`mt-1 block w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${
-            errors.subject ? "border-red-300" : "border-gray-300"
-          }`}
-        >
-          <option value="">Select a subject</option>
-          {subjects.map((subject) => (
-            <option key={subject._id} value={subject._id}>
-              {subject.name}
-            </option>
-          ))}
-        </select>
-        {errors.subject && (
-          <p className="mt-1 text-sm text-red-600">{errors.subject}</p>
         )}
       </div>
 

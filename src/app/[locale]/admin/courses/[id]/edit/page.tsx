@@ -295,7 +295,7 @@ export default function EditCoursePage() {
             <div className="bg-white shadow rounded-lg">
               <CourseModal
                 course={course}
-                subjects={subjects}
+                selectedSubject={null}
                 onSubmit={handleUpdateCourse}
                 onClose={handleCancel}
                 error={error}

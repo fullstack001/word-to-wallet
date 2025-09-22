@@ -16,7 +16,7 @@ import {
 
 interface CourseModalProps {
   course?: Course | null;
-  subjects: Subject[];
+  selectedSubject?: Subject | null;
   onSubmit: (data: {
     title: string;
     description: string;
@@ -38,7 +38,7 @@ interface CourseModalProps {
 
 export default function CourseModal({
   course,
-  subjects,
+  selectedSubject,
   onSubmit,
   onClose,
   error,
@@ -105,8 +105,14 @@ export default function CourseModal({
         const coverUrl = `/api/courses/${course._id}/cover`;
         setExistingCoverImage(coverUrl);
       }
+    } else if (selectedSubject) {
+      // For new courses, automatically set the subject from the selected subject
+      setFormData((prev) => ({
+        ...prev,
+        subject: selectedSubject._id,
+      }));
     }
-  }, [course]);
+  }, [course, selectedSubject]);
 
   const validateForm = () => {
     const newErrors: { [key: string]: string } = {};
@@ -121,10 +127,6 @@ export default function CourseModal({
       newErrors.description = "Description is required";
     } else if (formData.description.trim().length < 10) {
       newErrors.description = "Description must be at least 10 characters";
-    }
-
-    if (!formData.subject) {
-      newErrors.subject = "Subject is required";
     }
 
     // Validate chapters
@@ -275,7 +277,6 @@ export default function CourseModal({
               {/* Left Column - Basic Information */}
               <BasicInfoForm
                 formData={formData}
-                subjects={subjects}
                 errors={errors}
                 onChange={handleChange}
               />

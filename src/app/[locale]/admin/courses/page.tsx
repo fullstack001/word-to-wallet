@@ -1094,7 +1094,7 @@ export default function CoursesPage() {
       {showModal && (
         <CourseModal
           course={editingCourse}
-          subjects={subjects}
+          selectedSubject={selectedSubject}
           onSubmit={editingCourse ? handleUpdateCourse : handleCreateCourse}
           onClose={closeModal}
         />
