@@ -14,7 +14,7 @@ export function MobileNavigation({
   onCloseMobileMenu,
 }: NavbarProps) {
   const navigationItems = [
-    { label: "Free Course", path: "/free-course" },
+    { label: "Course", path: "/course" },
     { label: "Contact Us", path: "/contact" },
     { label: "Blogs", path: "/blogs" },
     // { label: "Start with Free", path: "/start-free" },

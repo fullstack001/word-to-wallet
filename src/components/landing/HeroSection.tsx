@@ -10,6 +10,7 @@ import {
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import { useState } from "react";
+import { useLocalizedNavigation } from "../../utils/navigation";
 
 // Video Modal Component
 function VideoModal({
@@ -66,6 +67,7 @@ function VideoModal({
 
 export default function HeroSection() {
   const t = useTranslations("hero");
+  const { navigate } = useLocalizedNavigation();
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
 
   const openVideoModal = () => setIsVideoModalOpen(true);
@@ -139,6 +141,7 @@ export default function HeroSection() {
                 transition={{ duration: 0.8, delay: 0.6 }}
               >
                 <motion.button
+                  onClick={() => navigate("/signup")}
                   className="group bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold text-base sm:text-lg shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 flex items-center justify-center relative overflow-hidden"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}

@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
+import { useLocalizedNavigation } from "../../utils/navigation";
 import {
   BookOpenIcon,
   CheckIcon,
@@ -13,6 +14,7 @@ import {
 
 export default function CourseSection() {
   const t = useTranslations("course");
+  const { navigate } = useLocalizedNavigation();
 
   const bullets = [
     t("bullets.0"),
@@ -109,6 +111,7 @@ export default function CourseSection() {
               transition={{ duration: 0.8, delay: 1.0 }}
             >
               <motion.button
+                onClick={() => navigate("/signup")}
                 className="group bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 text-white px-8 py-4 rounded-2xl font-semibold text-lg shadow-xl hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300 flex items-center"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}

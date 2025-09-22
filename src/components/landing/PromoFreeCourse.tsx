@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
+import { useLocalizedNavigation } from "../../utils/navigation";
 import {
   CheckIcon,
   ArrowRightIcon,
@@ -10,6 +11,7 @@ import {
 
 export default function PromoFreeCourse() {
   const t = useTranslations("promo");
+  const { navigate } = useLocalizedNavigation();
 
   const points = [
     t("points.0"),
@@ -123,6 +125,7 @@ export default function PromoFreeCourse() {
 
                 <div className="space-y-4">
                   <motion.button
+                    onClick={() => navigate("/signup")}
                     className="w-full bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 text-white px-8 py-4 rounded-xl font-semibold text-lg shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 flex items-center justify-center relative overflow-hidden group"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
