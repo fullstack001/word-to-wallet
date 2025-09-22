@@ -389,7 +389,7 @@ export default function AdminDashboard() {
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                   <button
-                    onClick={() => navigate("/admin/subjects")}
+                    onClick={() => navigate("/admin/course")}
                     className="group inline-flex items-center px-4 py-3 border border-transparent text-sm font-medium rounded-lg text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors duration-200"
                   >
                     <svg
@@ -499,7 +499,7 @@ export default function AdminDashboard() {
                   </p>
                   <div className="mt-6">
                     <button
-                      onClick={() => navigate("/admin/subjects")}
+                      onClick={() => navigate("/admin/courses")}
                       className="inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                     >
                       <svg
