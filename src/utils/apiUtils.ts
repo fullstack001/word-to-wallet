@@ -69,7 +69,10 @@ const api = axios.create({
 // Helper function to get auth token
 const getAuthToken = (): string | null => {
   if (typeof window !== "undefined") {
-    return localStorage.getItem("authToken");
+    // Check both localStorage and sessionStorage for auth token
+    const localToken = localStorage.getItem("authToken");
+    const sessionToken = sessionStorage.getItem("authToken");
+    return localToken || sessionToken;
   }
   return null;
 };

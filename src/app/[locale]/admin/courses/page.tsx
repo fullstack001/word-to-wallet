@@ -3,8 +3,6 @@ import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useLocalizedNavigation } from "@/utils/navigation";
 import { RootState } from "@/store/store";
-import { logout } from "@/store/slices/authSlice";
-import { clearUser } from "@/store/slices/userSlice";
 import AdminSidebar from "../../../../components/admin/AdminSidebar";
 import AdminHeader from "../../../../components/admin/AdminHeader";
 import CourseModal from "../../../../components/admin/CourseModal";
@@ -335,17 +333,6 @@ export default function CoursesPage() {
     }
   };
 
-  const handleLogout = () => {
-    dispatch(logout());
-    dispatch(clearUser());
-    // Clear both localStorage and sessionStorage
-    localStorage.removeItem("authToken");
-    localStorage.removeItem("rememberedEmail");
-    localStorage.removeItem("rememberMe");
-    sessionStorage.removeItem("authToken");
-    navigate("/login");
-  };
-
   const openEditModal = (course: Course) => {
     navigate(`/admin/courses/${course._id}/edit`);
   };
@@ -501,7 +488,6 @@ export default function CoursesPage() {
     <div className="min-h-screen bg-gray-50">
       <AdminHeader
         user={user}
-        onLogout={handleLogout}
         onMobileMenuToggle={() => setMobileMenuOpen(!mobileMenuOpen)}
         mobileMenuOpen={mobileMenuOpen}
       />

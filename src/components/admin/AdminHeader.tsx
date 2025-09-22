@@ -1,6 +1,9 @@
 "use client";
 import { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
 import { useLocalizedNavigation } from "@/utils/navigation";
+import { logout } from "@/store/slices/authSlice";
+import { clearUser } from "@/store/slices/userSlice";
 
 interface User {
   id: string;
@@ -12,25 +15,47 @@ interface User {
 
 interface AdminHeaderProps {
   user: User;
-  onLogout: () => void;
   onMobileMenuToggle?: () => void;
   mobileMenuOpen?: boolean;
 }
 
 export default function AdminHeader({
   user,
-  onLogout,
   onMobileMenuToggle,
   mobileMenuOpen = false,
 }: AdminHeaderProps) {
   const [userMenuOpen, setUserMenuOpen] = useState(false);
+  const dispatch = useDispatch();
   const { navigate } = useLocalizedNavigation();
+
+  // Debug logging
+
+  // Internal logout handler
+  const handleLogout = () => {
+    // Clear all global state
+    dispatch(logout());
+    dispatch(clearUser());
+
+    // Clear both localStorage and sessionStorage
+    localStorage.removeItem("authToken");
+    localStorage.removeItem("rememberedEmail");
+    localStorage.removeItem("rememberMe");
+    sessionStorage.removeItem("authToken");
+
+    // Close user menu and navigate
+    setUserMenuOpen(false);
+    navigate("/");
+  };
 
   // Close user menu when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (userMenuOpen) {
-        setUserMenuOpen(false);
+        const target = event.target as Element;
+        // Don't close if clicking inside the dropdown menu
+        if (!target.closest(".user-dropdown-menu")) {
+          setUserMenuOpen(false);
+        }
       }
     };
 
@@ -138,7 +163,7 @@ export default function AdminHeader({
 
             {/* Dropdown menu */}
             {userMenuOpen && (
-              <div className="origin-top-right absolute right-0 mt-2 w-64 rounded-xl shadow-2xl bg-white/95 backdrop-blur-sm ring-1 ring-black/10 focus:outline-none z-50 animate-in slide-in-from-top-2 duration-200">
+              <div className="user-dropdown-menu origin-top-right absolute right-0 mt-2 w-64 rounded-xl shadow-2xl bg-white/95 backdrop-blur-sm ring-1 ring-black/10 focus:outline-none z-50 animate-in slide-in-from-top-2 duration-200">
                 <div className="py-2">
                   <div className="px-4 py-4 text-sm text-gray-700 border-b border-gray-100/50">
                     <div className="flex items-center">
@@ -203,9 +228,10 @@ export default function AdminHeader({
                   </button>
 
                   <button
-                    onClick={() => {
-                      setUserMenuOpen(false);
-                      onLogout();
+                    onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      handleLogout();
                     }}
                     className="flex items-center w-full text-left px-4 py-3 text-sm text-gray-700 hover:bg-red-50 hover:text-red-700 transition-all duration-150 group"
                   >

@@ -41,10 +41,6 @@ export default function PaymentForm({
   const { navigate } = useLocalizedNavigation();
   const [agreed, setAgreed] = useState(false); // State for checkbox
 
-  const fileName = useSelector((state: RootState) => state.flow.fileName);
-  const action = useSelector((state: RootState) => state.flow.action);
-  const flow = useSelector((state: RootState) => state.flow);
-
   const handlePurchaseSubscription = (
     subscriptionType: string,
     subscriptionId: string
@@ -96,19 +92,8 @@ export default function PaymentForm({
         dispatch(login());
         localStorage.setItem("authToken", token as string);
 
-        // Check for edited PDF data first
-        if (fileName && action) {
-          // Fallback to regular conversion flow
-          try {
-            await downloadFile(fileName, action, token);
-            navigate("/files");
-          } catch (err) {
-            console.error("Error downloading file:", err);
-            window.alert("Failed to download file.");
-          }
-        } else {
-          navigate(`/files`); // Redirect to files page if no flow data
-        }
+        // Redirect to files page after successful payment
+        navigate("/files");
       })
       .catch(() => {
         console.log("network error");

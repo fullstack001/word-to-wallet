@@ -4,8 +4,6 @@ import { useParams, useRouter } from "next/navigation";
 import { useSelector, useDispatch } from "react-redux";
 import { useLocalizedNavigation } from "@/utils/navigation";
 import { RootState } from "@/store/store";
-import { logout } from "@/store/slices/authSlice";
-import { clearUser } from "@/store/slices/userSlice";
 import {
   getCourseById,
   getSubjects,
@@ -68,7 +66,7 @@ export default function EditCoursePage() {
 
   const handleUpdateCourse = async (data: {
     title: string;
-    description: string;
+    description?: string;
     subject: string;
     epubCover?: File | null;
     chapters: any[];
@@ -113,13 +111,6 @@ export default function EditCoursePage() {
     }
   };
 
-  const handleLogout = () => {
-    dispatch(logout());
-    dispatch(clearUser());
-    localStorage.removeItem("authToken");
-    navigate("/login");
-  };
-
   const handleCancel = () => {
     navigate("/admin/courses");
   };
@@ -141,7 +132,6 @@ export default function EditCoursePage() {
       <div className="min-h-screen bg-gray-50">
         <AdminHeader
           user={user}
-          onLogout={handleLogout}
           onMobileMenuToggle={() => setMobileMenuOpen(!mobileMenuOpen)}
           mobileMenuOpen={mobileMenuOpen}
         />
@@ -172,7 +162,6 @@ export default function EditCoursePage() {
       <div className="min-h-screen bg-gray-50">
         <AdminHeader
           user={user}
-          onLogout={handleLogout}
           onMobileMenuToggle={() => setMobileMenuOpen(!mobileMenuOpen)}
           mobileMenuOpen={mobileMenuOpen}
         />
@@ -206,7 +195,6 @@ export default function EditCoursePage() {
       <div className="min-h-screen bg-gray-50">
         <AdminHeader
           user={user}
-          onLogout={handleLogout}
           onMobileMenuToggle={() => setMobileMenuOpen(!mobileMenuOpen)}
           mobileMenuOpen={mobileMenuOpen}
         />
@@ -244,7 +232,6 @@ export default function EditCoursePage() {
     <div className="min-h-screen bg-gray-50">
       <AdminHeader
         user={user}
-        onLogout={handleLogout}
         onMobileMenuToggle={() => setMobileMenuOpen(!mobileMenuOpen)}
         mobileMenuOpen={mobileMenuOpen}
       />

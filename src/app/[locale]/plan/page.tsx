@@ -1,7 +1,6 @@
 "use client";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { setPlan } from "@/store/slices/flowSlice"; // Import the setPlan action
 import { useLocalizedNavigation } from "@/utils/navigation"; // Import localized navigation
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -18,7 +17,6 @@ export default function PlanPage() {
 
   const confirmPlan = () => {
     if (selectedOption) {
-      dispatch(setPlan(selectedOption)); // Save the selected plan to the global store
       navigate("/payment"); // Navigate to the payment page with proper locale handling
     }
   };

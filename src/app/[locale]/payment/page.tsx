@@ -17,12 +17,10 @@ const prices = [
 ];
 
 export default function PaymentPage() {
-  const currentPlan = useSelector((state: RootState) => state.flow.plan); // Get current plan
   const user = useSelector((state: RootState) => state.user); // Use RootState for type safety
   console.log(user);
 
-  const selectedPrice =
-    prices.find((plan) => plan.id === currentPlan) || prices[0]; // Ensure a valid plan object is always selected
+  const selectedPrice = prices[0]; // Default to first plan
 
   return (
     <div className="bg-[#EDF0FF] min-h-screen">
@@ -38,7 +36,7 @@ export default function PaymentPage() {
           </div>
           <div className="w-full max-w-sm space-y-4">
             <PaymentPreview />
-            <PaymentFeatures selectedPlan={currentPlan} />
+            <PaymentFeatures selectedPlan={selectedPrice.id} />
             <PaymentTotal price={selectedPrice.price} />
           </div>
         </div>

@@ -4,7 +4,6 @@ import { useDispatch } from "react-redux";
 import { CreditCard, LogOut, Star, User } from "lucide-react";
 import { logout } from "@/store/slices/authSlice";
 import { clearUser } from "@/store/slices/userSlice";
-import { clearFlow } from "@/store/slices/flowSlice";
 import { useLocalizedNavigation } from "@/utils/navigation";
 
 const items = [
@@ -65,7 +64,6 @@ export default function SettingsSidebar({ onItemClick }: SettingsSidebarProps) {
       // Clear all global state
       dispatch(logout());
       dispatch(clearUser());
-      dispatch(clearFlow());
 
       // Clear both localStorage and sessionStorage
       localStorage.removeItem("authToken");

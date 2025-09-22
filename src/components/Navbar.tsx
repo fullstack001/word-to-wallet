@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 
 import { RootState } from "../store/store";
 import { logout } from "../store/slices/authSlice";
+import { clearUser } from "../store/slices/userSlice";
 import { useLocalizedNavigation } from "../utils/navigation";
 import { MobileNavigation } from "./navbar/MobileNavigation";
 import { UserDropdown } from "./navbar/UserDropdown";
@@ -47,12 +48,16 @@ export default function Navbar() {
   }, []);
 
   const handleLogout = useCallback(() => {
+    // Clear all global state
     dispatch(logout());
+    dispatch(clearUser());
+
     // Clear both localStorage and sessionStorage
     localStorage.removeItem("authToken");
     localStorage.removeItem("rememberedEmail");
     localStorage.removeItem("rememberMe");
     sessionStorage.removeItem("authToken");
+
     navigate("/");
     setUserDropdownOpen(false);
   }, [dispatch, navigate]);

@@ -19,7 +19,6 @@ export default function LoginPage() {
 
   const dispatch = useDispatch();
   const { navigate } = useLocalizedNavigation();
-  const flow = useSelector((state: RootState) => state.flow);
 
   // Load saved credentials on component mount
   useEffect(() => {

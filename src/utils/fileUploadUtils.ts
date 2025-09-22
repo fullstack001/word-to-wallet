@@ -90,7 +90,9 @@ export class FileUploadManager {
       formData.append("type", type);
 
       // Get auth token
-      const token = localStorage.getItem("authToken");
+      const token =
+        localStorage.getItem("authToken") ||
+        sessionStorage.getItem("authToken");
       if (!token) {
         return { success: false, error: "Authentication token not found" };
       }

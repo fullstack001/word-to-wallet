@@ -4,8 +4,6 @@ import { useParams, useRouter } from "next/navigation";
 import { useSelector, useDispatch } from "react-redux";
 import { useLocalizedNavigation } from "@/utils/navigation";
 import { RootState } from "@/store/store";
-import { logout } from "@/store/slices/authSlice";
-import { clearUser } from "@/store/slices/userSlice";
 import { deleteCourse, toggleCoursePublishedStatus } from "@/utils/apiUtils";
 import AdminSidebar from "../../../../../components/admin/AdminSidebar";
 import AdminHeader from "../../../../../components/admin/AdminHeader";
@@ -36,13 +34,6 @@ export default function CourseDetailPage() {
       return;
     }
   }, [isLoggedIn, user.isAdmin, navigate]);
-
-  const handleLogout = () => {
-    dispatch(logout());
-    dispatch(clearUser());
-    localStorage.removeItem("authToken");
-    navigate("/login");
-  };
 
   const handleEdit = () => {
     navigate(`/admin/courses/${courseId}/edit`);
@@ -90,7 +81,6 @@ export default function CourseDetailPage() {
     <div className="min-h-screen bg-gray-50">
       <AdminHeader
         user={user}
-        onLogout={handleLogout}
         onMobileMenuToggle={() => setMobileMenuOpen(!mobileMenuOpen)}
         mobileMenuOpen={mobileMenuOpen}
       />

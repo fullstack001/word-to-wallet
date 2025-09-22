@@ -3,8 +3,6 @@ import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useLocalizedNavigation } from "@/utils/navigation";
 import { RootState } from "@/store/store";
-import { logout } from "@/store/slices/authSlice";
-import { clearUser } from "@/store/slices/userSlice";
 import AdminSidebar from "../../../../components/admin/AdminSidebar";
 import AdminHeader from "../../../../components/admin/AdminHeader";
 import { getSubjects, getCourses } from "@/utils/apiUtils";
@@ -109,17 +107,6 @@ export default function AdminDashboard() {
     }
   };
 
-  const handleLogout = () => {
-    dispatch(logout());
-    dispatch(clearUser());
-    // Clear both localStorage and sessionStorage
-    localStorage.removeItem("authToken");
-    localStorage.removeItem("rememberedEmail");
-    localStorage.removeItem("rememberMe");
-    sessionStorage.removeItem("authToken");
-    navigate("/login");
-  };
-
   // Show loading or redirect if not admin
   if (!isLoggedIn || !user.isAdmin) {
     return (
@@ -136,7 +123,6 @@ export default function AdminDashboard() {
     <div className="min-h-screen bg-gray-50">
       <AdminHeader
         user={user}
-        onLogout={handleLogout}
         onMobileMenuToggle={() => setMobileMenuOpen(!mobileMenuOpen)}
         mobileMenuOpen={mobileMenuOpen}
       />
