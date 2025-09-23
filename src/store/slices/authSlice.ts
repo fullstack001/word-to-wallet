@@ -4,9 +4,21 @@ interface AuthState {
   isLoggedIn: boolean;
 }
 
-const initialState: AuthState = {
-  isLoggedIn: false,
+// Initialize auth state from localStorage if available
+const getInitialAuthState = (): AuthState => {
+  if (typeof window !== "undefined") {
+    const localToken = localStorage.getItem("authToken");
+    const sessionToken = sessionStorage.getItem("authToken");
+    return {
+      isLoggedIn: !!(localToken || sessionToken),
+    };
+  }
+  return {
+    isLoggedIn: false,
+  };
 };
+
+const initialState: AuthState = getInitialAuthState();
 
 const authSlice = createSlice({
   name: "auth",

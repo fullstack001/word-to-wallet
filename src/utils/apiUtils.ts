@@ -11,14 +11,16 @@ export interface User {
 }
 
 export interface Subscription {
-  subscriptionId: string;
+  stripeCustomerId?: string;
+  stripeSubscriptionId?: string;
+  status: string;
   plan: string;
-  subscriptionType: string;
-  subscribedDate: string;
-  expiryDate: string;
-  status?: string;
   trialStart?: string;
   trialEnd?: string;
+  currentPeriodStart?: string;
+  currentPeriodEnd?: string;
+  cancelAtPeriodEnd?: boolean;
+  canceledAt?: string;
 }
 
 export interface AuthResponse {
@@ -117,15 +119,16 @@ export const loginUser = async (
       },
       subscription: user.subscription
         ? {
-            subscriptionId: user.subscription.stripeSubscriptionId,
-            plan: user.subscription.plan,
-            subscriptionType: user.subscription.status,
-            subscribedDate: user.subscription.trialStart,
-            expiryDate:
-              user.subscription.trialEnd || user.subscription.currentPeriodEnd,
+            stripeCustomerId: user.subscription.stripeCustomerId,
+            stripeSubscriptionId: user.subscription.stripeSubscriptionId,
             status: user.subscription.status,
+            plan: user.subscription.plan,
             trialStart: user.subscription.trialStart,
             trialEnd: user.subscription.trialEnd,
+            currentPeriodStart: user.subscription.currentPeriodStart,
+            currentPeriodEnd: user.subscription.currentPeriodEnd,
+            cancelAtPeriodEnd: user.subscription.cancelAtPeriodEnd,
+            canceledAt: user.subscription.canceledAt,
           }
         : undefined,
     };
@@ -1074,6 +1077,52 @@ export const createSetupIntent = async (): Promise<any> => {
     const axiosError = error as AxiosError<{ message?: string }>;
     const errorMessage =
       axiosError.response?.data?.message || "Failed to create setup intent";
+    throw new Error(errorMessage);
+  }
+};
+
+// Fetch current user data with subscription
+export const getCurrentUser = async (): Promise<AuthResponse> => {
+  try {
+    const token = getAuthToken();
+    const response = await api.get("/auth/me", {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    const { data } = response.data;
+    const { user } = data;
+
+    return {
+      token: token || "",
+      user: {
+        id: user.id,
+        email: user.email,
+        name: user.fullName,
+        cardnumber: "",
+        avatar: "",
+        isAdmin: user.role === "admin",
+      },
+      subscription: user.subscription
+        ? {
+            stripeCustomerId: user.subscription.stripeCustomerId,
+            stripeSubscriptionId: user.subscription.stripeSubscriptionId,
+            status: user.subscription.status,
+            plan: user.subscription.plan,
+            trialStart: user.subscription.trialStart,
+            trialEnd: user.subscription.trialEnd,
+            currentPeriodStart: user.subscription.currentPeriodStart,
+            currentPeriodEnd: user.subscription.currentPeriodEnd,
+            cancelAtPeriodEnd: user.subscription.cancelAtPeriodEnd,
+            canceledAt: user.subscription.canceledAt,
+          }
+        : undefined,
+    };
+  } catch (error) {
+    const axiosError = error as AxiosError<{ message?: string }>;
+    const errorMessage =
+      axiosError.response?.data?.message || "Failed to fetch user data";
     throw new Error(errorMessage);
   }
 };

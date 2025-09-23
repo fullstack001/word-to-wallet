@@ -2,7 +2,7 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { setUser } from "@/store/slices/userSlice";
-import { login } from "@/store/slices/authSlice";
+import { login, initializeAuth } from "@/store/slices/authSlice";
 import axios from "axios";
 
 export default function PersistLogin() {
@@ -19,19 +19,23 @@ export default function PersistLogin() {
         if (oldToken) {
           const API_BASE_URL =
             process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
-          const response = await axios.get(`${API_BASE_URL}/auth/profile`, {
-            headers: {
-              "Content-Type": "application/json",
-              Authorization: `Bearer ${oldToken}`,
-            },
-          });
 
-          // Extract data from the backend response structure
-          const { data } = response.data;
+          // First, try to get user profile
+          const profileResponse = await axios.get(
+            `${API_BASE_URL}/auth/profile`,
+            {
+              headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${oldToken}`,
+              },
+            }
+          );
+
+          // Extract user data from the backend response structure
+          const { data } = profileResponse.data;
           const { user } = data;
 
           // Transform to match frontend expected structure
-          const token = oldToken; // Use the existing token
           const transformedUser = {
             id: user.id,
             email: user.email,
@@ -40,22 +44,76 @@ export default function PersistLogin() {
             avatar: "", // Not provided by backend
             isAdmin: user.role === "admin",
           };
-          const subscription = undefined; // Not provided by profile endpoint
+
+          // Try to get subscription data from dashboard endpoint
+          let subscription: any = null;
+          try {
+            const dashboardResponse = await axios.get(
+              `${API_BASE_URL}/dashboard`,
+              {
+                headers: {
+                  Authorization: `Bearer ${oldToken}`,
+                },
+              }
+            );
+
+            if (dashboardResponse.data?.data?.subscription) {
+              subscription = {
+                stripeCustomerId:
+                  dashboardResponse.data.data.subscription.stripeCustomerId,
+                stripeSubscriptionId:
+                  dashboardResponse.data.data.subscription.stripeSubscriptionId,
+                status: dashboardResponse.data.data.subscription.status,
+                plan: dashboardResponse.data.data.subscription.plan,
+                trialStart: dashboardResponse.data.data.subscription.trialStart,
+                trialEnd: dashboardResponse.data.data.subscription.trialEnd,
+                currentPeriodStart:
+                  dashboardResponse.data.data.subscription.currentPeriodStart,
+                currentPeriodEnd:
+                  dashboardResponse.data.data.subscription.currentPeriodEnd,
+                cancelAtPeriodEnd:
+                  dashboardResponse.data.data.subscription.cancelAtPeriodEnd,
+                canceledAt: dashboardResponse.data.data.subscription.canceledAt,
+              };
+            }
+          } catch (subscriptionError) {
+            console.log(
+              "Could not fetch subscription data:",
+              subscriptionError
+            );
+            // Continue without subscription data
+          }
+
+          // Store user and subscription data in localStorage for persistence
+          const userData = {
+            ...transformedUser,
+            subscription: subscription,
+          };
+
+          localStorage.setItem("userData", JSON.stringify(userData));
 
           // Store token in the same storage type it was found in
           if (localToken) {
-            localStorage.setItem("authToken", token);
+            localStorage.setItem("authToken", oldToken);
           } else if (sessionToken) {
-            sessionStorage.setItem("authToken", token);
+            sessionStorage.setItem("authToken", oldToken);
           }
 
-          dispatch(
-            setUser({
-              ...transformedUser,
-              subscription: subscription || null,
-            })
-          );
+          dispatch(setUser(userData));
           dispatch(login());
+        } else {
+          // No token found, try to restore from localStorage
+          const savedUserData = localStorage.getItem("userData");
+          if (savedUserData) {
+            try {
+              const userData = JSON.parse(savedUserData);
+              dispatch(setUser(userData));
+              dispatch(login());
+            } catch (parseError) {
+              console.log("Could not parse saved user data:", parseError);
+              localStorage.removeItem("userData");
+            }
+          }
         }
       } catch (error) {
         console.error("Token validation failed:", error);
@@ -63,6 +121,7 @@ export default function PersistLogin() {
         localStorage.removeItem("authToken");
         localStorage.removeItem("rememberedEmail");
         localStorage.removeItem("rememberMe");
+        localStorage.removeItem("userData");
         sessionStorage.removeItem("authToken");
       }
     };

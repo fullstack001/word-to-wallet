@@ -2,6 +2,12 @@
 import { useState, useEffect } from "react";
 import { Course, getCourseById } from "@/utils/apiUtils";
 import EpubReader from "./EpubReader";
+import { useLocalizedNavigation } from "@/utils/navigation";
+import {
+  HomeIcon,
+  ChevronRightIcon,
+  ArrowLeftIcon,
+} from "@heroicons/react/24/outline";
 
 interface CourseViewProps {
   courseId: string;
@@ -18,6 +24,7 @@ export default function CourseView({
   onDelete,
   onTogglePublished,
 }: CourseViewProps) {
+  const { navigate } = useLocalizedNavigation();
   const [course, setCourse] = useState<Course | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -54,27 +61,43 @@ export default function CourseView({
     });
   };
 
+  const handleBackToCourses = () => {
+    navigate("/dashboard/course");
+  };
+
+  const handleBackToDashboard = () => {
+    navigate("/dashboard");
+  };
+
   if (loading) {
     return (
-      <div className="flex items-center justify-center py-12">
-        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
-        <span className="ml-2 text-gray-600">Loading course...</span>
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center py-12 px-4">
+        <div className="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-4">
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
+          <span className="text-gray-600 text-center sm:text-left">
+            Loading course...
+          </span>
+        </div>
       </div>
     );
   }
 
   if (error) {
     return (
-      <div className="bg-red-50 border border-red-200 text-red-600 px-4 py-3 rounded-md">
-        {error}
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center py-12 px-4">
+        <div className="bg-red-50 border border-red-200 text-red-600 px-4 py-3 rounded-md max-w-md w-full text-center">
+          {error}
+        </div>
       </div>
     );
   }
 
   if (!course) {
     return (
-      <div className="text-center py-12">
-        <p className="text-gray-500">Course not found</p>
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center py-12 px-4">
+        <div className="text-center">
+          <p className="text-gray-500 text-lg">Course not found</p>
+        </div>
       </div>
     );
   }
@@ -116,17 +139,54 @@ export default function CourseView({
   const bookContents = prepareBookContents();
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-gray-50">
+      {/* Breadcrumb Navigation */}
+      <div className="bg-white border-b border-gray-200">
+        <div className="px-4 sm:px-6 lg:px-8 py-4">
+          <nav className="flex items-center space-x-2 text-sm">
+            <button
+              onClick={handleBackToDashboard}
+              className="flex items-center space-x-1 text-gray-600 hover:text-purple-600 transition-colors"
+            >
+              <HomeIcon className="w-4 h-4" />
+              <span>Dashboard</span>
+            </button>
+            <ChevronRightIcon className="w-4 h-4 text-gray-400" />
+            <button
+              onClick={handleBackToCourses}
+              className="text-gray-600 hover:text-purple-600 transition-colors"
+            >
+              Course
+            </button>
+            <ChevronRightIcon className="w-4 h-4 text-gray-400" />
+            <span className="text-gray-900 font-medium truncate">
+              {course?.title || "Loading..."}
+            </span>
+          </nav>
+        </div>
+      </div>
+
       {/* Header Section */}
       <div className="bg-white shadow-sm border-b border-gray-200">
-        <div className="px-6 py-8">
-          <div className="flex items-start justify-between">
-            <div className="flex-1">
-              <div className="flex items-center space-x-3 mb-4">
-                <h1 className="text-3xl font-bold text-gray-900">
+        <div className="px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+          <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6">
+            <div className="flex-1 min-w-0">
+              {/* Back Button */}
+              <div className="mb-4">
+                <button
+                  onClick={handleBackToCourses}
+                  className="flex items-center space-x-2 px-4 py-2 text-gray-600 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-colors"
+                >
+                  <ArrowLeftIcon className="w-5 h-5" />
+                  <span className="font-medium">Back to Courses</span>
+                </button>
+              </div>
+
+              <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-3 mb-4">
+                <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 break-words">
                   {course.title}
                 </h1>
-                <div className="flex space-x-2">
+                <div className="flex flex-wrap gap-2 mt-2 sm:mt-0">
                   <span
                     className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
                       course.isActive
@@ -147,7 +207,9 @@ export default function CourseView({
                   </span>
                 </div>
               </div>
-              <p className="text-lg text-gray-600 mb-4">{course.description}</p>
+              <p className="text-base sm:text-lg text-gray-600 mb-4">
+                {course.description}
+              </p>
 
               {/* Google Links */}
               {(course.googleDocLink || course.googleClassroomLink) && (
@@ -155,16 +217,16 @@ export default function CourseView({
                   <h3 className="text-sm font-medium text-gray-700 mb-2">
                     External Resources
                   </h3>
-                  <div className="flex flex-wrap gap-3">
+                  <div className="flex flex-col sm:flex-row flex-wrap gap-3">
                     {course.googleDocLink && (
                       <a
                         href={course.googleDocLink}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center px-3 py-2 border border-gray-300 shadow-sm text-sm leading-4 font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                        className="inline-flex items-center justify-center sm:justify-start px-3 py-2 border border-gray-300 shadow-sm text-sm leading-4 font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors"
                       >
                         <svg
-                          className="w-4 h-4 mr-2"
+                          className="w-4 h-4 mr-2 flex-shrink-0"
                           viewBox="0 0 24 24"
                           fill="currentColor"
                         >
@@ -174,7 +236,7 @@ export default function CourseView({
                           <line x1="16" y1="17" x2="8" y2="17" />
                           <polyline points="10,9 9,9 8,9" />
                         </svg>
-                        Google Doc
+                        <span className="truncate">Google Doc</span>
                       </a>
                     )}
                     {course.googleClassroomLink && (
@@ -182,47 +244,49 @@ export default function CourseView({
                         href={course.googleClassroomLink}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center px-3 py-2 border border-gray-300 shadow-sm text-sm leading-4 font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                        className="inline-flex items-center justify-center sm:justify-start px-3 py-2 border border-gray-300 shadow-sm text-sm leading-4 font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors"
                       >
                         <svg
-                          className="w-4 h-4 mr-2"
+                          className="w-4 h-4 mr-2 flex-shrink-0"
                           viewBox="0 0 24 24"
                           fill="currentColor"
                         >
                           <path d="M1 3h22v18H1V3zm2 2v14h18V5H3zm2 2h14v2H5V7zm0 4h14v2H5v-2zm0 4h10v2H5v-2z" />
                         </svg>
-                        Google Classroom
+                        <span className="truncate">Google Classroom</span>
                       </a>
                     )}
                   </div>
                 </div>
               )}
 
-              <div className="flex items-center text-sm text-gray-500 space-x-4">
-                <span>
-                  Subject:{" "}
-                  {typeof course.subject === "object"
-                    ? course.subject.name
-                    : "Unknown"}
-                </span>
-                <span>•</span>
-                <span>Created: {formatDate(course.createdAt)}</span>
+              <div className="flex flex-col sm:flex-row sm:items-center text-sm text-gray-500 gap-2 sm:gap-4">
+                <div className="flex flex-wrap items-center gap-2 sm:gap-4">
+                  <span>
+                    Subject:{" "}
+                    {typeof course.subject === "object"
+                      ? course.subject.name
+                      : "Unknown"}
+                  </span>
+                  <span className="hidden sm:inline">•</span>
+                  <span>Created: {formatDate(course.createdAt)}</span>
+                </div>
                 {course.updatedAt && (
-                  <>
-                    <span>•</span>
+                  <div className="flex items-center gap-2">
+                    <span className="hidden sm:inline">•</span>
                     <span>Updated: {formatDate(course.updatedAt)}</span>
-                  </>
+                  </div>
                 )}
               </div>
             </div>
 
             {/* Cover Image */}
             {course.epubCover && (
-              <div className="ml-6">
+              <div className="flex justify-center lg:justify-end lg:ml-6">
                 <img
                   src={`/api/courses/${course._id}/cover`}
                   alt="Course Cover"
-                  className="w-32 h-48 object-cover rounded-lg shadow-md"
+                  className="w-24 h-36 sm:w-32 sm:h-48 object-cover rounded-lg shadow-md"
                 />
               </div>
             )}
@@ -230,14 +294,14 @@ export default function CourseView({
 
           {/* Admin Actions */}
           {isAdmin && (
-            <div className="mt-6 flex space-x-3">
+            <div className="mt-6 flex flex-col sm:flex-row gap-3">
               {onEdit && (
                 <button
                   onClick={onEdit}
-                  className="inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50"
+                  className="inline-flex items-center justify-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors"
                 >
                   <svg
-                    className="w-4 h-4 mr-2"
+                    className="w-4 h-4 mr-2 flex-shrink-0"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -249,28 +313,28 @@ export default function CourseView({
                       d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
                     />
                   </svg>
-                  Edit Course
+                  <span>Edit Course</span>
                 </button>
               )}
               {onTogglePublished && (
                 <button
                   onClick={onTogglePublished}
-                  className={`inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md ${
+                  className={`inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors ${
                     course.isPublished
                       ? "text-yellow-700 bg-yellow-100 hover:bg-yellow-200"
                       : "text-green-700 bg-green-100 hover:bg-green-200"
                   }`}
                 >
-                  {course.isPublished ? "Unpublish" : "Publish"}
+                  <span>{course.isPublished ? "Unpublish" : "Publish"}</span>
                 </button>
               )}
               {onDelete && (
                 <button
                   onClick={onDelete}
-                  className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-red-700 bg-red-100 hover:bg-red-200"
+                  className="inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-red-700 bg-red-100 hover:bg-red-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition-colors"
                 >
                   <svg
-                    className="w-4 h-4 mr-2"
+                    className="w-4 h-4 mr-2 flex-shrink-0"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -282,7 +346,7 @@ export default function CourseView({
                       d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
                     />
                   </svg>
-                  Delete Course
+                  <span>Delete Course</span>
                 </button>
               )}
             </div>
@@ -292,22 +356,26 @@ export default function CourseView({
 
       {/* Enhanced EPUB Reader */}
       {course.epubFile ? (
-        <EpubReader
-          epubUrl={`/api/courses/${course._id}/epub`}
-          title={course.title}
-          author={
-            typeof course.subject === "object" ? course.subject.name : "Unknown"
-          }
-          audioItems={audioItems}
-          videoItems={videoItems}
-          youtubeItems={youtubeItems}
-          bookContents={bookContents}
-          bookType="created" // Enable translation features
-          onBack={() => window.history.back()}
-        />
+        <div className="w-full">
+          <EpubReader
+            epubUrl={`/api/courses/${course._id}/epub`}
+            title={course.title}
+            author={
+              typeof course.subject === "object"
+                ? course.subject.name
+                : "Unknown"
+            }
+            audioItems={audioItems}
+            videoItems={videoItems}
+            youtubeItems={youtubeItems}
+            bookContents={bookContents}
+            bookType="created" // Enable translation features
+            onBack={() => window.history.back()}
+          />
+        </div>
       ) : (
-        <div className="flex items-center justify-center py-12 bg-gray-50">
-          <div className="text-center">
+        <div className="flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-md">
             <svg
               className="mx-auto h-12 w-12 text-gray-400"
               fill="none"

@@ -4,6 +4,8 @@ import { Providers } from "../providers";
 import LanguageSetter from "./LanguageSetter";
 import GoogleTranslateWidget from "@/components/common/GoogleTranslateWidget";
 import PersistLogin from "./PersistLogin";
+import { LoadingProvider } from "@/contexts/LoadingContext";
+import GlobalLoading from "@/components/common/GlobalLoading";
 
 export default async function LocaleLayout({
   children,
@@ -18,10 +20,13 @@ export default async function LocaleLayout({
   return (
     <NextIntlClientProvider messages={messages}>
       <Providers>
-        <PersistLogin />
-        <LanguageSetter locale={locale} />
-        <GoogleTranslateWidget />
-        {children}
+        <LoadingProvider>
+          <PersistLogin />
+          <LanguageSetter locale={locale} />
+          <GoogleTranslateWidget />
+          <GlobalLoading />
+          {children}
+        </LoadingProvider>
       </Providers>
     </NextIntlClientProvider>
   );
