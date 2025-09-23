@@ -10,7 +10,11 @@ export default function CourseDetailPage() {
   const courseId = params.id as string;
 
   return (
-    <AuthGuard redirectTo="/signup" requireAuth={true}>
+    <AuthGuard
+      redirectTo="/signup"
+      requireAuth={true}
+      requireSubscription={true}
+    >
       <CourseView courseId={courseId} />
     </AuthGuard>
   );

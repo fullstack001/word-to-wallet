@@ -13,16 +13,16 @@ export interface Subject {
 
 export interface Course {
   _id: string;
-  title: string;
-  description: string;
-  subject: {
+  title?: string;
+  description?: string;
+  subject?: {
     _id: string;
     name: string;
   };
   isPublished: boolean;
   isActive: boolean;
   createdAt: string;
-  createdBy: {
+  createdBy?: {
     _id: string;
     firstName: string;
     lastName: string;

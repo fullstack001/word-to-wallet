@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useRef } from "react";
 import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 import { useSelector } from "react-redux";
@@ -41,12 +41,17 @@ export default function CoursePage() {
   const [isLoading, setIsLoading] = useState(true);
   const [isLoadingCourses, setIsLoadingCourses] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const subjectsFetched = useRef(false);
+  const coursesFetched = useRef(false);
 
   const fetchSubjectsData = useCallback(async () => {
+    if (subjectsFetched.current) return;
+
     try {
       setError(null);
       const subjectsData = await fetchSubjects();
       setSubjects(subjectsData);
+      subjectsFetched.current = true;
     } catch (error) {
       console.error("Error fetching subjects:", error);
       setError(
@@ -58,16 +63,19 @@ export default function CoursePage() {
   }, []);
 
   const fetchAllCoursesData = useCallback(async () => {
+    if (coursesFetched.current && !selectedSubject) return;
+
     setIsLoadingCourses(true);
     try {
       const coursesData = await fetchAllCourses();
       setCourses(coursesData);
+      coursesFetched.current = true;
     } catch (error) {
       console.error("Error fetching courses:", error);
     } finally {
       setIsLoadingCourses(false);
     }
-  }, []);
+  }, [selectedSubject]);
 
   const fetchCoursesBySubjectData = useCallback(async (subjectId: string) => {
     setIsLoadingCourses(true);
@@ -88,7 +96,7 @@ export default function CoursePage() {
     }
 
     fetchSubjectsData();
-  }, [isLoggedIn, navigate, fetchSubjectsData]);
+  }, [isLoggedIn, navigate]);
 
   useEffect(() => {
     if (selectedSubject) {
@@ -96,16 +104,18 @@ export default function CoursePage() {
     } else {
       fetchAllCoursesData();
     }
-  }, [selectedSubject, fetchCoursesBySubjectData, fetchAllCoursesData]);
+  }, [selectedSubject]);
 
   const handleSubjectClick = (subjectId: string) => {
     setSelectedSubject(subjectId);
     setSearchQuery("");
+    coursesFetched.current = false; // Reset courses fetch flag
   };
 
   const handleClearFilter = () => {
     setSelectedSubject(null);
     setSearchQuery("");
+    coursesFetched.current = false; // Reset courses fetch flag
   };
 
   const handleCourseClick = (courseId: string) => {
@@ -118,8 +128,8 @@ export default function CoursePage() {
 
   const filteredCourses = courses.filter(
     (course) =>
-      course.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      course.description.toLowerCase().includes(searchQuery.toLowerCase())
+      course.title?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      course.description?.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
   if (isLoading) {
@@ -358,7 +368,7 @@ export default function CoursePage() {
                           <div className="absolute top-4 right-4">
                             <div className="bg-white/90 backdrop-blur-sm rounded-full px-3 py-1">
                               <span className="text-sm font-medium text-gray-900">
-                                {course.subject.name}
+                                {course.subject?.name || "Unknown Subject"}
                               </span>
                             </div>
                           </div>
@@ -367,16 +377,16 @@ export default function CoursePage() {
                         {/* Course Info */}
                         <div className="p-6">
                           <h3 className="text-lg font-semibold text-gray-900 line-clamp-2 mb-2">
-                            {course.title}
+                            {course.title || "Untitled Course"}
                           </h3>
                           <p className="text-gray-600 text-sm line-clamp-2 mb-4">
-                            {course.description}
+                            {course.description || "No description available"}
                           </p>
                           <div className="flex items-center justify-between">
                             <div className="flex items-center space-x-2 text-sm text-gray-500">
                               <span>
-                                by {course.createdBy.firstName}{" "}
-                                {course.createdBy.lastName}
+                                by {course.createdBy?.firstName || "Unknown"}{" "}
+                                {course.createdBy?.lastName || "Author"}
                               </span>
                             </div>
                             <div className="flex items-center space-x-2">
