@@ -62,11 +62,23 @@ export default function CourseView({
   };
 
   const handleBackToCourses = () => {
-    navigate("/dashboard/course");
+    // Check if we're in admin context by looking at the current path
+    const isAdminContext = window.location.pathname.includes("/admin");
+    if (isAdminContext) {
+      navigate("/admin/courses");
+    } else {
+      navigate("/dashboard/course");
+    }
   };
 
   const handleBackToDashboard = () => {
-    navigate("/dashboard");
+    // Check if we're in admin context by looking at the current path
+    const isAdminContext = window.location.pathname.includes("/admin");
+    if (isAdminContext) {
+      navigate("/admin/dashboard");
+    } else {
+      navigate("/dashboard");
+    }
   };
 
   if (loading) {
@@ -149,14 +161,20 @@ export default function CourseView({
               className="flex items-center space-x-1 text-gray-600 hover:text-purple-600 transition-colors"
             >
               <HomeIcon className="w-4 h-4" />
-              <span>Dashboard</span>
+              <span>
+                {window.location.pathname.includes("/admin")
+                  ? "Admin Dashboard"
+                  : "Dashboard"}
+              </span>
             </button>
             <ChevronRightIcon className="w-4 h-4 text-gray-400" />
             <button
               onClick={handleBackToCourses}
               className="text-gray-600 hover:text-purple-600 transition-colors"
             >
-              Course
+              {window.location.pathname.includes("/admin")
+                ? "Admin Courses"
+                : "Course"}
             </button>
             <ChevronRightIcon className="w-4 h-4 text-gray-400" />
             <span className="text-gray-900 font-medium truncate">
@@ -178,7 +196,11 @@ export default function CourseView({
                   className="flex items-center space-x-2 px-4 py-2 text-gray-600 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-colors"
                 >
                   <ArrowLeftIcon className="w-5 h-5" />
-                  <span className="font-medium">Back to Courses</span>
+                  <span className="font-medium">
+                    {window.location.pathname.includes("/admin")
+                      ? "Back to Admin Courses"
+                      : "Back to Courses"}
+                  </span>
                 </button>
               </div>
 
