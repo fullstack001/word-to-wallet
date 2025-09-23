@@ -27,6 +27,13 @@ export default function DashboardHeader({
   subscription,
 }: DashboardHeaderProps) {
   console.log(subscription);
+  console.log(
+    Math.ceil(
+      (new Date(subscription?.trialEnd || "").getTime() -
+        new Date().getTime()) /
+        (1000 * 60 * 60 * 24)
+    )
+  );
   const getSubscriptionStatus = () => {
     if (subscription?.status === "trialing") {
       const trialEnd = subscription?.trialEnd;

@@ -130,6 +130,20 @@ export default function PaymentStep({
               </div>
             </motion.div>
           )}
+
+          {/* Login Link */}
+          <div className="mt-6 text-center">
+            <p className="text-sm text-gray-600">
+              Already have an account?{" "}
+              <button
+                type="button"
+                onClick={() => (window.location.href = "/login")}
+                className="text-purple-600 hover:text-purple-700 font-medium transition-colors"
+              >
+                Sign in here
+              </button>
+            </p>
+          </div>
         </div>
       </motion.div>
     </div>

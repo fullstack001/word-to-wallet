@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { useLocalizedNavigation } from "../../utils/navigation";
 import {
   EyeIcon,
   EyeSlashIcon,
@@ -46,7 +47,7 @@ export default function SignupForm({
 }: SignupFormProps) {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-
+  const { navigate } = useLocalizedNavigation();
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value, type, checked } = e.target;
     setFormData({
@@ -281,6 +282,20 @@ export default function SignupForm({
         >
           {isLoading ? "Creating Account..." : "Create Account"}
         </motion.button>
+
+        {/* Login Link */}
+        <div className="mt-6 text-center">
+          <p className="text-sm text-gray-600">
+            Already have an account?{" "}
+            <button
+              type="button"
+              onClick={() => navigate("/login")}
+              className="text-purple-600 hover:text-purple-700 font-medium transition-colors"
+            >
+              Sign in here
+            </button>
+          </p>
+        </div>
       </form>
     </motion.div>
   );
