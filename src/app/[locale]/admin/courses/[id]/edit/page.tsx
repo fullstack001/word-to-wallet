@@ -11,9 +11,9 @@ import {
   Course,
   Subject,
 } from "@/utils/apiUtils";
-import AdminSidebar from "../../../../../../components/admin/AdminSidebar";
-import AdminHeader from "../../../../../../components/admin/AdminHeader";
-import CourseModal from "../../../../../../components/admin/CourseModal";
+import AdminSidebar from "@/components/admin/AdminSidebar";
+import AdminHeader from "@/components/admin/AdminHeader";
+import CourseModal from "@/components/admin/CourseModal";
 
 export default function EditCoursePage() {
   const params = useParams();

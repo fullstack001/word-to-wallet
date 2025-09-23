@@ -3,10 +3,15 @@
 import React from "react";
 import { useParams } from "next/navigation";
 import CourseView from "@/components/CourseView";
+import AuthGuard from "@/components/auth/AuthGuard";
 
 export default function CourseDetailPage() {
   const params = useParams();
   const courseId = params.id as string;
 
-  return <CourseView courseId={courseId} />;
+  return (
+    <AuthGuard redirectTo="/signup" requireAuth={true}>
+      <CourseView courseId={courseId} />
+    </AuthGuard>
+  );
 }

@@ -5,10 +5,10 @@ import { useSelector, useDispatch } from "react-redux";
 import { useLocalizedNavigation } from "@/utils/navigation";
 import { RootState } from "@/store/store";
 import { deleteCourse, toggleCoursePublishedStatus } from "@/utils/apiUtils";
-import AdminSidebar from "../../../../../components/admin/AdminSidebar";
-import AdminHeader from "../../../../../components/admin/AdminHeader";
-import CourseView from "../../../../../components/CourseView";
-import { BackButton } from "../../../../../components/common";
+import AdminSidebar from "@/components/admin/AdminSidebar";
+import AdminHeader from "@/components/admin/AdminHeader";
+import CourseView from "@/components/CourseView";
+import { BackButton } from "@/components/common";
 
 export default function CourseDetailPage() {
   const params = useParams();

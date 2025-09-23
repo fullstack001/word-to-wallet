@@ -3,11 +3,11 @@ import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useLocalizedNavigation } from "@/utils/navigation";
 import { RootState } from "@/store/store";
-import AdminSidebar from "../../../../components/admin/AdminSidebar";
-import AdminHeader from "../../../../components/admin/AdminHeader";
-import CourseModal from "../../../../components/admin/CourseModal";
-import Breadcrumb from "../../../../components/admin/Breadcrumb";
-import { BackButton } from "../../../../components/common";
+import AdminSidebar from "@/components/admin/AdminSidebar";
+import AdminHeader from "@/components/admin/AdminHeader";
+import CourseModal from "@/components/admin/CourseModal";
+import Breadcrumb from "@/components/admin/Breadcrumb";
+import { BackButton } from "@/components/common";
 import {
   Course,
   Subject,

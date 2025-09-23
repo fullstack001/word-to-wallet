@@ -32,7 +32,7 @@ export default function Navbar() {
 
   // Navigation items
   const navigationItems = [
-    { label: "Course", path: "/course" },
+    { label: "Course", path: "/dashboard/course" },
     { label: "Contact Us", path: "/contact" },
     { label: "Blogs", path: "/blogs" },
     // { label: "Start with Free", path: "/start-free" },
