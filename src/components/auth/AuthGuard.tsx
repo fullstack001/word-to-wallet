@@ -19,6 +19,7 @@ export default function AuthGuard({
 }: AuthGuardProps) {
   const { navigate } = useLocalizedNavigation();
   const isLoggedIn = useSelector((state: RootState) => state.auth.isLoggedIn);
+  const user = useSelector((state: RootState) => state.user);
   const [isRedirecting, setIsRedirecting] = React.useState(false);
 
   useEffect(() => {
@@ -29,9 +30,11 @@ export default function AuthGuard({
     } else if (!requireAuth && isLoggedIn) {
       // User is authenticated but shouldn't be (e.g., on login/signup pages)
       setIsRedirecting(true);
-      navigate("/dashboard");
+      // Redirect admin users to admin dashboard, regular users to dashboard
+      const redirectPath = user?.isAdmin ? "/admin/dashboard" : "/dashboard";
+      navigate(redirectPath);
     }
-  }, [isLoggedIn, navigate, redirectTo, requireAuth]);
+  }, [isLoggedIn, navigate, redirectTo, requireAuth, user?.isAdmin]);
 
   // Show loading while redirecting
   if (isRedirecting) {
