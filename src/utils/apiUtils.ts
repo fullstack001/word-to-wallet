@@ -416,16 +416,18 @@ export const createCheckoutSession = async (
 };
 
 export const cancelSubscription = async (
-  subscriptionId: string,
-  email: string
-): Promise<void> => {
+  immediately: boolean = false
+): Promise<any> => {
   try {
-    await api.post("/subscription/cancel-subscription", {
-      subscriptionId,
-      email,
+    const response = await api.post("/subscriptions/cancel", {
+      immediately,
     });
+    return response.data;
   } catch (error) {
-    throw new Error("Failed to cancel subscription", { cause: error });
+    const axiosError = error as AxiosError<{ message?: string }>;
+    const errorMessage =
+      axiosError.response?.data?.message || "Failed to cancel subscription";
+    throw new Error(errorMessage);
   }
 };
 
@@ -1041,7 +1043,7 @@ export const createTrialSubscription = async (): Promise<any> => {
 
 export const createSubscription = async (
   paymentMethodId: string,
-  plan: string = "basic"
+  plan: string = "pro"
 ): Promise<any> => {
   try {
     const response = await api.post("/subscriptions", {
@@ -1085,14 +1087,26 @@ export const createSetupIntent = async (): Promise<any> => {
 export const getCurrentUser = async (): Promise<AuthResponse> => {
   try {
     const token = getAuthToken();
-    const response = await api.get("/auth/me", {
+
+    // Get dashboard data which includes subscription info
+    const dashboardResponse = await api.get("/dashboard", {
       headers: {
         Authorization: `Bearer ${token}`,
       },
     });
 
-    const { data } = response.data;
-    const { user } = data;
+    const { data: dashboardData } = dashboardResponse.data;
+    const { subscription } = dashboardData;
+
+    // Get user profile data
+    const profileResponse = await api.get("/auth/profile", {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    const { data: profileData } = profileResponse.data;
+    const { user } = profileData;
 
     return {
       token: token || "",
@@ -1104,18 +1118,18 @@ export const getCurrentUser = async (): Promise<AuthResponse> => {
         avatar: "",
         isAdmin: user.role === "admin",
       },
-      subscription: user.subscription
+      subscription: subscription
         ? {
-            stripeCustomerId: user.subscription.stripeCustomerId,
-            stripeSubscriptionId: user.subscription.stripeSubscriptionId,
-            status: user.subscription.status,
-            plan: user.subscription.plan,
-            trialStart: user.subscription.trialStart,
-            trialEnd: user.subscription.trialEnd,
-            currentPeriodStart: user.subscription.currentPeriodStart,
-            currentPeriodEnd: user.subscription.currentPeriodEnd,
-            cancelAtPeriodEnd: user.subscription.cancelAtPeriodEnd,
-            canceledAt: user.subscription.canceledAt,
+            stripeCustomerId: subscription.stripeCustomerId,
+            stripeSubscriptionId: subscription.stripeSubscriptionId,
+            status: subscription.status,
+            plan: subscription.plan,
+            trialStart: subscription.trialStart,
+            trialEnd: subscription.trialEnd,
+            currentPeriodStart: subscription.currentPeriodStart,
+            currentPeriodEnd: subscription.currentPeriodEnd,
+            cancelAtPeriodEnd: subscription.cancelAtPeriodEnd,
+            canceledAt: subscription.canceledAt,
           }
         : undefined,
     };

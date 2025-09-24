@@ -1,8 +1,22 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { ClockIcon } from "@heroicons/react/24/outline";
+import { useDispatch } from "react-redux";
+import { useLocalizedNavigation } from "../../utils/navigation";
+// Subscription utilities are no longer needed as we work directly with props
+import {
+  createTrialSubscription,
+  cancelSubscription,
+} from "../../utils/apiUtils";
+import { setUser } from "../../store/slices/userSlice";
+import {
+  ClockIcon,
+  PlayIcon,
+  XMarkIcon,
+  CreditCardIcon,
+  ExclamationTriangleIcon,
+} from "@heroicons/react/24/outline";
 
 interface DashboardHeaderProps {
   userName: string;
@@ -26,28 +40,265 @@ export default function DashboardHeader({
   userEmail,
   subscription,
 }: DashboardHeaderProps) {
-  console.log(subscription);
-  console.log(
-    Math.ceil(
-      (new Date(subscription?.trialEnd || "").getTime() -
-        new Date().getTime()) /
-        (1000 * 60 * 60 * 24)
-    )
-  );
+  const dispatch = useDispatch();
+  const { navigate } = useLocalizedNavigation();
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  // Use subscription data from props directly
+
+  const handleStartTrial = async () => {
+    setIsLoading(true);
+    setError(null);
+
+    try {
+      const response = await createTrialSubscription();
+      // Update user state with new subscription
+      dispatch(
+        setUser({
+          id: "",
+          name: userName,
+          email: userEmail,
+          cardnumber: "",
+          avatar: "",
+          isAdmin: false,
+          subscription: response.data.subscription,
+        })
+      );
+      console.log("Trial started successfully");
+    } catch (error) {
+      console.error("Failed to start trial:", error);
+      setError("Failed to start trial. Please try again.");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleSubscribe = () => {
+    navigate("/signup");
+  };
+
+  const handleCancelSubscription = async () => {
+    // For trial users without payment method, just end the trial
+    if (!subscription?.stripeSubscriptionId) {
+      setIsLoading(true);
+      setError(null);
+
+      try {
+        // End trial without payment method
+        const response = await cancelSubscription(false);
+        dispatch(
+          setUser({
+            id: "",
+            name: userName,
+            email: userEmail,
+            cardnumber: "",
+            avatar: "",
+            isAdmin: false,
+            subscription: {
+              ...subscription,
+              plan: subscription?.plan || "pro",
+              status: response.data.subscription.status,
+              cancelAtPeriodEnd: response.data.subscription.cancelAtPeriodEnd,
+            },
+          })
+        );
+        console.log("Trial ended successfully");
+      } catch (error) {
+        console.error("Failed to end trial:", error);
+        setError("Failed to end trial. Please try again.");
+      } finally {
+        setIsLoading(false);
+      }
+      return;
+    }
+
+    // For users with payment method, cancel subscription
+    setIsLoading(true);
+    setError(null);
+
+    try {
+      const response = await cancelSubscription(false);
+      dispatch(
+        setUser({
+          id: "",
+          name: userName,
+          email: userEmail,
+          cardnumber: "",
+          avatar: "",
+          isAdmin: false,
+          subscription: {
+            ...subscription,
+            plan: subscription?.plan,
+            status: response.data.subscription.status,
+            cancelAtPeriodEnd: response.data.subscription.cancelAtPeriodEnd,
+          },
+        })
+      );
+      console.log("Subscription canceled successfully");
+    } catch (error) {
+      console.error("Failed to cancel subscription:", error);
+      setError("Failed to cancel subscription. Please try again.");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const getSubscriptionState = () => {
+    if (!subscription) return "no-subscription";
+    if (subscription.status === "trialing") {
+      // Check if trial is still active
+      if (
+        subscription.trialEnd &&
+        new Date(subscription.trialEnd) > new Date()
+      ) {
+        return "trial";
+      } else {
+        return "trial-expired";
+      }
+    }
+    if (subscription.status === "active") return "active";
+    return "no-subscription";
+  };
+
   const getSubscriptionStatus = () => {
-    if (subscription?.status === "trialing") {
-      const trialEnd = subscription?.trialEnd;
-      const daysRemaining = trialEnd
-        ? Math.ceil(
-            (new Date(trialEnd).getTime() - new Date().getTime()) /
+    const state = getSubscriptionState();
+    switch (state) {
+      case "no-subscription":
+        return "No Subscription";
+      case "trial":
+        if (subscription?.trialEnd) {
+          const daysRemaining = Math.ceil(
+            (new Date(subscription.trialEnd).getTime() - new Date().getTime()) /
               (1000 * 60 * 60 * 24)
-          )
-        : 0;
-      return `Trial: ${daysRemaining} days remaining`;
-    } else if (subscription?.status === "active") {
-      return "Active Subscription";
-    } else {
-      return "No Subscription";
+          );
+          return `Trial: ${Math.max(0, daysRemaining)} days remaining`;
+        }
+        return "Trial Active";
+      case "trial-expired":
+        return "Trial Expired";
+      case "active":
+        return "Active Subscription";
+      default:
+        return "No Subscription";
+    }
+  };
+
+  const renderActionButton = () => {
+    const state = getSubscriptionState();
+
+    switch (state) {
+      case "no-subscription":
+        return (
+          <div className="flex flex-col lg:flex-row items-center justify-center gap-6">
+            <div className="text-center lg:text-left">
+              <h3 className="text-white text-lg font-semibold mb-1">
+                Try Word2Wallet Pro
+              </h3>
+              <p className="text-white text-lg font-bold mb-2">
+                <span className="bg-yellow-400 text-yellow-900 px-2 py-1 rounded-full text-sm font-bold mr-2">
+                  FREE
+                </span>
+                7 days free
+              </p>
+              <div className="text-white/80 text-sm">
+                Then $20.00 per month starting{" "}
+                <span className="font-semibold text-white">
+                  {new Date(
+                    Date.now() + 7 * 24 * 60 * 60 * 1000
+                  ).toLocaleDateString("en-US", {
+                    month: "long",
+                    day: "numeric",
+                    year: "numeric",
+                  })}
+                </span>
+              </div>
+              <div className="text-white/60 text-xs mt-1">
+                Cancel anytime during trial
+              </div>
+            </div>
+
+            <button
+              onClick={handleStartTrial}
+              disabled={isLoading}
+              className="group relative inline-flex items-center px-8 py-4 bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-xl font-semibold hover:from-green-600 hover:to-emerald-700 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg hover:shadow-xl transform hover:scale-105 disabled:transform-none"
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-green-400 to-emerald-500 rounded-xl opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+              <PlayIcon className="w-5 h-5 mr-3 relative z-10" />
+              <span className="relative z-10">
+                {isLoading ? "Starting Your Trial..." : "Start Free Trial"}
+              </span>
+            </button>
+          </div>
+        );
+
+      case "trial":
+        return (
+          <div className="flex flex-col items-center space-y-3">
+            <div className="text-center">
+              <p className="text-white/90 text-sm mb-2">
+                Enjoying your trial? Continue with full access
+              </p>
+            </div>
+            <div className="flex flex-col sm:flex-row gap-3">
+              <button
+                onClick={handleSubscribe}
+                className="group relative inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-500 to-indigo-600 text-white rounded-lg font-semibold hover:from-blue-600 hover:to-indigo-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+              >
+                <CreditCardIcon className="w-5 h-5 mr-2" />
+                Subscribe Now
+              </button>
+              <button
+                onClick={handleCancelSubscription}
+                disabled={isLoading}
+                className="inline-flex items-center px-4 py-3 bg-white/20 backdrop-blur-sm text-white rounded-lg font-medium hover:bg-white/30 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed border border-white/30"
+              >
+                <XMarkIcon className="w-4 h-4 mr-2" />
+                {isLoading ? "Canceling..." : "End Trial"}
+              </button>
+            </div>
+          </div>
+        );
+
+      case "trial-expired":
+        return (
+          <div className="flex flex-col items-center space-y-3">
+            <div className="text-center">
+              <p className="text-white/90 text-sm mb-2">
+                Your trial has ended. Continue with full access
+              </p>
+            </div>
+            <button
+              onClick={handleSubscribe}
+              className="group relative inline-flex items-center px-8 py-4 bg-gradient-to-r from-orange-500 to-red-600 text-white rounded-xl font-semibold hover:from-orange-600 hover:to-red-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+            >
+              <CreditCardIcon className="w-5 h-5 mr-3" />
+              Upgrade to Continue
+            </button>
+          </div>
+        );
+
+      case "active":
+        return (
+          <div className="flex flex-col items-center space-y-3">
+            <div className="text-center">
+              <p className="text-white/90 text-sm mb-2">
+                Manage your subscription
+              </p>
+            </div>
+            <button
+              onClick={handleCancelSubscription}
+              disabled={isLoading}
+              className="inline-flex items-center px-6 py-3 bg-white/20 backdrop-blur-sm text-white rounded-lg font-medium hover:bg-white/30 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed border border-white/30"
+            >
+              <XMarkIcon className="w-4 h-4 mr-2" />
+              {isLoading ? "Canceling..." : "Cancel Subscription"}
+            </button>
+          </div>
+        );
+
+      default:
+        return null;
     }
   };
 
@@ -61,17 +312,33 @@ export default function DashboardHeader({
             transition={{ duration: 0.6 }}
             className="text-white"
           >
-            <h1 className="text-4xl font-bold my-4 mt-12">
-              Welcome back, {userName || userEmail}!
-            </h1>
-            <p className="text-xl text-purple-100 mb-6">Your dashboard</p>
+            <div className="flex flex-col lg:flex-row items-center justify-center gap-6 my-4 mt-12">
+              <h1 className="text-4xl font-bold text-white">
+                Welcome back, {userName || userEmail}!
+              </h1>
 
-            {/* Subscription Status */}
-            <div className="inline-flex items-center bg-white/20 backdrop-blur-sm rounded-full px-6 py-3">
-              <ClockIcon className="w-5 h-5 text-white mr-2" />
-              <span className="text-white font-medium">
-                {getSubscriptionStatus()}
-              </span>
+              {/* Subscription Status Banner */}
+              <div className="inline-flex items-center bg-white/20 backdrop-blur-sm rounded-full px-6 py-3 border border-white/30">
+                <ClockIcon className="w-5 h-5 text-white mr-2" />
+                <span className="text-white font-medium">
+                  {getSubscriptionStatus()}
+                </span>
+              </div>
+            </div>
+
+            {/* Subscription Actions */}
+            <div className="flex flex-col items-center space-y-4">
+              {/* Action Buttons */}
+              {renderActionButton() && (
+                <div className="mt-4">{renderActionButton()}</div>
+              )}
+
+              {/* Error Message */}
+              {error && (
+                <div className="mt-4 p-3 bg-red-500/20 backdrop-blur-sm rounded-lg border border-red-300/30">
+                  <p className="text-red-100 text-sm">{error}</p>
+                </div>
+              )}
             </div>
           </motion.div>
         </div>

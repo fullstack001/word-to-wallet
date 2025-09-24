@@ -38,10 +38,44 @@ export const hasValidSubscription = (user: User | null): boolean => {
   // Check if subscription is active or trialing
   const isActiveSubscription = status === "active" || status === "trialing";
 
-  // Check if plan is at least basic
-  const hasBasicPlan = plan === "basic" || plan === "premium";
+  // Check if plan is at least pro
+  const hasProPlan = plan === "pro" || plan === "premium";
 
-  return isActiveSubscription && hasBasicPlan;
+  return isActiveSubscription && hasProPlan;
+};
+
+/**
+ * Check if user has an active paid subscription (not trial)
+ * @param user - User object with subscription data
+ * @returns boolean - true if user has active paid subscription
+ */
+export const hasActivePaidSubscription = (user: User | null): boolean => {
+  if (!user?.subscription) return false;
+  return user.subscription.status === "active";
+};
+
+/**
+ * Check if user has no subscription at all
+ * @param user - User object with subscription data
+ * @returns boolean - true if user has no subscription
+ */
+export const hasNoSubscription = (user: User | null): boolean => {
+  return !user?.subscription;
+};
+
+/**
+ * Check if user's trial has expired
+ * @param user - User object with subscription data
+ * @returns boolean - true if trial has expired
+ */
+export const isTrialExpired = (user: User | null): boolean => {
+  if (!user?.subscription || user.subscription.status !== "trialing")
+    return false;
+
+  const { trialEnd } = user.subscription;
+  if (!trialEnd) return false;
+
+  return new Date(trialEnd) <= new Date();
 };
 
 /**

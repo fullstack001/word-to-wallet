@@ -57,6 +57,10 @@ export default function CoursesPage() {
   });
   const [togglingCourseId, setTogglingCourseId] = useState<string | null>(null);
 
+  // Subject deletion warning state
+  const [showDeleteWarning, setShowDeleteWarning] = useState(false);
+  const [subjectToDelete, setSubjectToDelete] = useState<Subject | null>(null);
+
   useEffect(() => {
     // Check if user is logged in and is admin
     if (!isLoggedIn) {
@@ -409,17 +413,46 @@ export default function CoursesPage() {
   };
 
   const handleDeleteSubject = async (subjectId: string) => {
-    try {
-      if (
-        window.confirm(
-          "Are you sure you want to delete this subject? This will also delete all courses in this subject."
-        )
-      ) {
+    // Find the subject to delete
+    const subject = subjects.find((s) => s._id === subjectId);
+    if (!subject) return;
+
+    // Count courses in this subject
+    const coursesInSubject = courses.filter((course) => {
+      const courseSubjectId =
+        typeof course.subject === "string"
+          ? course.subject
+          : course.subject._id;
+      return courseSubjectId === subjectId;
+    });
+    const courseCount = coursesInSubject.length;
+
+    // If subject has courses, show warning and STOP - no deletion
+    if (courseCount > 0) {
+      setSubjectToDelete(subject);
+      setShowDeleteWarning(true);
+
+      // Auto-dismiss after 4 seconds
+      setTimeout(() => {
+        setShowDeleteWarning(false);
+        setSubjectToDelete(null);
+      }, 4000);
+
+      return; // STOP HERE - no deletion
+    }
+
+    // Only if subject has NO courses, proceed with deletion
+    if (
+      window.confirm(
+        `Are you sure you want to delete "${subject.name}"? This action cannot be undone.`
+      )
+    ) {
+      try {
         await deleteSubject(subjectId);
-        await fetchData(); // Refresh subjects and courses
+        await fetchData();
+      } catch (error: any) {
+        console.error("Error deleting subject:", error.message);
       }
-    } catch (error: any) {
-      console.error("Error deleting subject:", error.message);
     }
   };
 
@@ -1206,6 +1239,91 @@ export default function CoursesPage() {
                   </button>
                 </div>
               </form>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Subject Deletion Warning */}
+      {subjectToDelete && (
+        <div className="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full z-50">
+          <div className="relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-md bg-white">
+            <div className="mt-3">
+              <div className="flex items-center justify-between mb-4">
+                <h3 className="text-lg font-medium text-red-600">
+                  Cannot Delete Subject
+                </h3>
+                <button
+                  onClick={() => {
+                    setShowDeleteWarning(false);
+                    setSubjectToDelete(null);
+                  }}
+                  className="text-gray-400 hover:text-gray-600"
+                >
+                  <svg
+                    className="w-6 h-6"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  </svg>
+                </button>
+              </div>
+
+              <div className="text-center">
+                <div className="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-red-100 mb-4">
+                  <svg
+                    className="h-6 w-6 text-red-600"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"
+                    />
+                  </svg>
+                </div>
+
+                <p className="text-sm text-gray-600 mb-4">
+                  Cannot delete <strong>"{subjectToDelete.name}"</strong>{" "}
+                  because it contains{" "}
+                  {
+                    courses.filter((course) => {
+                      // course.subject can be string or Subject
+                      const subjectId =
+                        typeof course.subject === "string"
+                          ? course.subject
+                          : course.subject._id;
+                      return subjectId === subjectToDelete._id;
+                    }).length
+                  }{" "}
+                  course
+                  {courses.filter((course) => {
+                    const subjectId =
+                      typeof course.subject === "string"
+                        ? course.subject
+                        : course.subject._id;
+                    return subjectId === subjectToDelete._id;
+                  }).length !== 1
+                    ? "s"
+                    : ""}
+                  .
+                </p>
+
+                <p className="text-xs text-gray-500">
+                  Please delete or move all courses from this subject before
+                  deleting it.
+                </p>
+              </div>
             </div>
           </div>
         </div>

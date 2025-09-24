@@ -12,6 +12,7 @@ import FeaturesSection from "../../../components/dashboard/FeaturesSection";
 import QuickActions from "../../../components/dashboard/QuickActions";
 import DashboardLoading from "../../../components/dashboard/DashboardLoading";
 import DashboardError from "../../../components/dashboard/DashboardError";
+import SubscriptionActions from "../../../components/subscription/SubscriptionActions";
 import { useDashboardData } from "../../../hooks/useDashboardData";
 
 export default function DashboardPage() {
@@ -80,28 +81,10 @@ export default function DashboardPage() {
             campaigns, and grow your author business.
           </p>
 
-          {/* Trial User Upgrade Prompt */}
-          {user.subscription?.status === "trialing" && (
-            <div className="mb-6 bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-xl p-6">
-              <div className="flex items-center justify-between">
-                <div>
-                  <h3 className="text-lg font-semibold text-blue-900 mb-2">
-                    Unlock All Features
-                  </h3>
-                  <p className="text-blue-700 text-sm">
-                    Upgrade to access book library, ARC campaigns, direct sales,
-                    and marketing tools.
-                  </p>
-                </div>
-                <button
-                  onClick={() => navigate("/signup")}
-                  className="px-6 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors"
-                >
-                  Upgrade Now
-                </button>
-              </div>
-            </div>
-          )}
+          {/* Subscription Actions */}
+          {/* <div className="mb-8">
+            <SubscriptionActions user={user} />
+          </div> */}
 
           <FeaturesSection
             onNavigateToCourses={handleNavigateToCourses}

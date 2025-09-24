@@ -8,6 +8,9 @@ import {
   EyeSlashIcon,
   ExclamationTriangleIcon,
 } from "@heroicons/react/24/outline";
+import { EmailField, PasswordField } from "../forms/FormField";
+import FormField from "../forms/FormField";
+import ValidatedForm from "../forms/ValidatedForm";
 
 interface FormData {
   email: string;
@@ -32,7 +35,7 @@ interface SignupFormProps {
   formData: FormData;
   setFormData: (data: FormData) => void;
   errors: FormErrors;
-  setErrors: (errors: FormErrors) => void;
+  setErrors: (field: string, error: string) => void;
   isLoading: boolean;
   onSubmit: (e: React.FormEvent) => void;
 }
@@ -48,8 +51,13 @@ export default function SignupForm({
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const { navigate } = useLocalizedNavigation();
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value, type, checked } = e.target;
+  const handleInputChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) => {
+    const { name, value, type } = e.target;
+    const checked = (e.target as HTMLInputElement).checked;
     setFormData({
       ...formData,
       [name]: type === "checkbox" ? checked : value,
@@ -57,10 +65,7 @@ export default function SignupForm({
 
     // Clear error when user starts typing
     if (errors[name as keyof FormErrors]) {
-      setErrors({
-        ...errors,
-        [name]: undefined,
-      });
+      setErrors(name, "");
     }
   };
 
@@ -91,159 +96,104 @@ export default function SignupForm({
         </motion.div>
       )}
 
-      <form onSubmit={handleSubmit} className="space-y-6">
+      <ValidatedForm
+        onSubmit={handleSubmit}
+        validation={{
+          data: formData,
+          errors: errors as { [key: string]: string },
+          isValid: Object.keys(errors).length === 0,
+          setData: setFormData,
+          setField: () => {},
+          setError: (field: string, error: string) => setErrors(field, error),
+          clearError: () => {},
+          clearAllErrors: () => {},
+          validate: () => ({ isValid: true, errors: {} }),
+          validateField: () => null,
+          reset: () => {},
+          handleChange: handleInputChange,
+          handleBlur: () => {},
+        }}
+        showGeneralError={true}
+        generalError={errors.general}
+        loading={isLoading}
+        className="space-y-6"
+      >
         {/* Name Fields */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <div>
-            <label
-              htmlFor="firstName"
-              className="block text-sm font-medium text-gray-700 mb-2"
-            >
-              First Name
-            </label>
-            <input
-              type="text"
-              id="firstName"
-              name="firstName"
-              value={formData.firstName}
-              onChange={handleInputChange}
-              className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-colors ${
-                errors.firstName
-                  ? "border-red-300 bg-red-50"
-                  : "border-gray-300"
-              }`}
-              placeholder="Enter your first name"
-            />
-            {errors.firstName && (
-              <p className="mt-1 text-sm text-red-600">{errors.firstName}</p>
-            )}
-          </div>
+          <FormField
+            name="firstName"
+            label="First Name"
+            value={formData.firstName}
+            onChange={handleInputChange}
+            error={errors.firstName}
+            placeholder="Enter your first name"
+            required
+            inputClassName="px-4 py-3 border rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-colors"
+          />
 
-          <div>
-            <label
-              htmlFor="lastName"
-              className="block text-sm font-medium text-gray-700 mb-2"
-            >
-              Last Name
-            </label>
-            <input
-              type="text"
-              id="lastName"
-              name="lastName"
-              value={formData.lastName}
-              onChange={handleInputChange}
-              className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-colors ${
-                errors.lastName ? "border-red-300 bg-red-50" : "border-gray-300"
-              }`}
-              placeholder="Enter your last name"
-            />
-            {errors.lastName && (
-              <p className="mt-1 text-sm text-red-600">{errors.lastName}</p>
-            )}
-          </div>
+          <FormField
+            name="lastName"
+            label="Last Name"
+            value={formData.lastName}
+            onChange={handleInputChange}
+            error={errors.lastName}
+            placeholder="Enter your last name"
+            required
+            inputClassName="px-4 py-3 border rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-colors"
+          />
         </div>
 
         {/* Email Field */}
-        <div>
-          <label
-            htmlFor="email"
-            className="block text-sm font-medium text-gray-700 mb-2"
-          >
-            Email Address
-          </label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value={formData.email}
-            onChange={handleInputChange}
-            className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-colors ${
-              errors.email ? "border-red-300 bg-red-50" : "border-gray-300"
-            }`}
-            placeholder="Enter your email address"
-          />
-          {errors.email && (
-            <p className="mt-1 text-sm text-red-600">{errors.email}</p>
-          )}
-        </div>
+        <EmailField
+          name="email"
+          label="Email Address"
+          value={formData.email}
+          onChange={handleInputChange}
+          error={errors.email}
+          placeholder="Enter your email address"
+          required
+          inputClassName="px-4 py-3 border rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-colors"
+        />
 
         {/* Password Field */}
-        <div>
-          <label
-            htmlFor="password"
-            className="block text-sm font-medium text-gray-700 mb-2"
-          >
-            Password
-          </label>
-          <div className="relative">
-            <input
-              type={showPassword ? "text" : "password"}
-              id="password"
-              name="password"
-              value={formData.password}
-              onChange={handleInputChange}
-              className={`w-full px-4 py-3 pr-12 border rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-colors ${
-                errors.password ? "border-red-300 bg-red-50" : "border-gray-300"
-              }`}
-              placeholder="Create a strong password"
-            />
-            <button
-              type="button"
-              onClick={() => setShowPassword(!showPassword)}
-              className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
-            >
-              {showPassword ? (
-                <EyeSlashIcon className="w-5 h-5" />
-              ) : (
-                <EyeIcon className="w-5 h-5" />
-              )}
-            </button>
-          </div>
-          {errors.password && (
-            <p className="mt-1 text-sm text-red-600">{errors.password}</p>
-          )}
-        </div>
+        <PasswordField
+          name="password"
+          label="Password"
+          value={formData.password}
+          onChange={handleInputChange}
+          error={errors.password}
+          placeholder="Create a strong password"
+          required
+          rightIcon={
+            showPassword ? (
+              <EyeSlashIcon className="w-5 h-5" />
+            ) : (
+              <EyeIcon className="w-5 h-5" />
+            )
+          }
+          onRightIconClick={() => setShowPassword(!showPassword)}
+          inputClassName="px-4 py-3 pr-12 border rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-colors"
+        />
 
         {/* Confirm Password Field */}
-        <div>
-          <label
-            htmlFor="confirmPassword"
-            className="block text-sm font-medium text-gray-700 mb-2"
-          >
-            Confirm Password
-          </label>
-          <div className="relative">
-            <input
-              type={showConfirmPassword ? "text" : "password"}
-              id="confirmPassword"
-              name="confirmPassword"
-              value={formData.confirmPassword}
-              onChange={handleInputChange}
-              className={`w-full px-4 py-3 pr-12 border rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-colors ${
-                errors.confirmPassword
-                  ? "border-red-300 bg-red-50"
-                  : "border-gray-300"
-              }`}
-              placeholder="Confirm your password"
-            />
-            <button
-              type="button"
-              onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-              className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
-            >
-              {showConfirmPassword ? (
-                <EyeSlashIcon className="w-5 h-5" />
-              ) : (
-                <EyeIcon className="w-5 h-5" />
-              )}
-            </button>
-          </div>
-          {errors.confirmPassword && (
-            <p className="mt-1 text-sm text-red-600">
-              {errors.confirmPassword}
-            </p>
-          )}
-        </div>
+        <PasswordField
+          name="confirmPassword"
+          label="Confirm Password"
+          value={formData.confirmPassword}
+          onChange={handleInputChange}
+          error={errors.confirmPassword}
+          placeholder="Confirm your password"
+          required
+          rightIcon={
+            showConfirmPassword ? (
+              <EyeSlashIcon className="w-5 h-5" />
+            ) : (
+              <EyeIcon className="w-5 h-5" />
+            )
+          }
+          onRightIconClick={() => setShowConfirmPassword(!showConfirmPassword)}
+          inputClassName="px-4 py-3 pr-12 border rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-colors"
+        />
 
         {/* Terms and Conditions */}
         <div className="flex items-start space-x-3">
@@ -296,7 +246,7 @@ export default function SignupForm({
             </button>
           </p>
         </div>
-      </form>
+      </ValidatedForm>
     </motion.div>
   );
 }

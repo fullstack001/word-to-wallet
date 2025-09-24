@@ -40,9 +40,15 @@ export default function FeaturesSection({
   onNavigateToAchievements,
   subscription,
 }: FeaturesSectionProps) {
-  // Check if user has active subscription (not trial)
+  console.log(subscription);
+  // Check subscription status
   const hasActiveSubscription = subscription?.status === "active";
   const isTrialUser = subscription?.status === "trialing";
+  const hasNoSubscription = !subscription;
+  const isTrialExpired =
+    subscription?.status === "trialing" &&
+    subscription.trialEnd &&
+    new Date(subscription.trialEnd) <= new Date();
 
   const allFeatures = [
     {
@@ -51,7 +57,7 @@ export default function FeaturesSection({
       icon: BookOpenIcon,
       color: "purple",
       onClick: onNavigateToCourses,
-      status: "active",
+      status: hasActiveSubscription || isTrialUser ? "active" : "locked",
       features: ["Course Progress", "Learning Materials", "Achievements"],
       availableFor: ["trial", "paid"],
     },
@@ -61,9 +67,9 @@ export default function FeaturesSection({
       icon: AcademicCapIcon,
       color: "green",
       onClick: () => {},
-      status: hasActiveSubscription ? "active" : "locked",
+      status: hasActiveSubscription || isTrialUser ? "active" : "locked",
       features: ["Book Upload", "Metadata Management", "File Storage"],
-      availableFor: ["paid"],
+      availableFor: ["trial", "paid"],
     },
     {
       title: "ARC Campaigns",
@@ -71,9 +77,9 @@ export default function FeaturesSection({
       icon: ChartBarIcon,
       color: "yellow",
       onClick: () => {},
-      status: hasActiveSubscription ? "active" : "locked",
+      status: hasActiveSubscription || isTrialUser ? "active" : "locked",
       features: ["Campaign Creation", "Download Codes", "Analytics"],
-      availableFor: ["paid"],
+      availableFor: ["trial", "paid"],
     },
     {
       title: "Direct Sales",
@@ -81,9 +87,9 @@ export default function FeaturesSection({
       icon: TrophyIcon,
       color: "indigo",
       onClick: () => {},
-      status: hasActiveSubscription ? "active" : "locked",
+      status: hasActiveSubscription || isTrialUser ? "active" : "locked",
       features: ["Sales Links", "Order Management", "Revenue Tracking"],
-      availableFor: ["paid"],
+      availableFor: ["trial", "paid"],
     },
     {
       title: "Marketing Tools",
@@ -91,9 +97,9 @@ export default function FeaturesSection({
       icon: UserIcon,
       color: "pink",
       onClick: () => {},
-      status: hasActiveSubscription ? "active" : "locked",
+      status: hasActiveSubscription || isTrialUser ? "active" : "locked",
       features: ["Email Campaigns", "Social Media", "AI Copy Assistant"],
-      availableFor: ["paid"],
+      availableFor: ["trial", "paid"],
     },
   ];
 
@@ -101,12 +107,16 @@ export default function FeaturesSection({
   const features = allFeatures.map((feature) => {
     let featureStatus = feature.status;
 
-    // Course feature is always active for trial users
-    if (feature.title === "Learning Dashboard" && isTrialUser) {
+    // If no subscription, ALL features are locked
+    if (hasNoSubscription) {
+      featureStatus = "locked";
+    }
+    // All features are available for trial users and active subscribers
+    else if (isTrialUser || hasActiveSubscription) {
       featureStatus = "active";
     }
-    // Override status based on subscription for locked features
-    else if (feature.availableFor.includes("paid") && !hasActiveSubscription) {
+    // If trial expired, show locked status
+    else if (isTrialExpired) {
       featureStatus = "locked";
     }
 
@@ -179,13 +189,7 @@ export default function FeaturesSection({
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: index * 0.1 }}
             whileHover={feature.status !== "locked" ? { y: -4 } : {}}
-            onClick={
-              feature.status !== "locked"
-                ? feature.onClick
-                : feature.title === "Learning Dashboard" && isTrialUser
-                ? feature.onClick
-                : undefined
-            }
+            onClick={feature.status !== "locked" ? feature.onClick : undefined}
           >
             <div className="flex items-start space-x-4">
               <div className="relative">
@@ -229,14 +233,14 @@ export default function FeaturesSection({
                 <div className="flex items-center text-sm font-medium text-gray-500 hover:text-gray-700 transition-colors">
                   <span>
                     {feature.status === "locked"
-                      ? "Upgrade to Unlock"
+                      ? hasNoSubscription
+                        ? "Start Free Trial to Unlock"
+                        : "Upgrade to Unlock"
                       : feature.status === "active"
                       ? "Start Now"
                       : "Learn More"}
                   </span>
-                  {(feature.status !== "locked" ||
-                    (feature.title === "Learning Dashboard" &&
-                      isTrialUser)) && (
+                  {feature.status !== "locked" && (
                     <ArrowRightIcon className="w-4 h-4 ml-1" />
                   )}
                 </div>

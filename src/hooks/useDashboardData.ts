@@ -113,15 +113,16 @@ export function useDashboardData(): UseDashboardDataReturn {
           dispatch(
             setUser({
               subscription: {
-                subscriptionId: subscription.status,
-                plan: subscription.plan,
-                subscriptionType: subscription.status,
-                subscribedDate: subscription.trialStart,
-                expiryDate:
-                  subscription.trialEnd || subscription.currentPeriodEnd,
+                stripeCustomerId: subscription.stripeCustomerId,
+                stripeSubscriptionId: subscription.stripeSubscriptionId,
                 status: subscription.status,
+                plan: subscription.plan,
                 trialStart: subscription.trialStart,
                 trialEnd: subscription.trialEnd,
+                currentPeriodStart: subscription.currentPeriodStart,
+                currentPeriodEnd: subscription.currentPeriodEnd,
+                cancelAtPeriodEnd: subscription.cancelAtPeriodEnd,
+                canceledAt: subscription.canceledAt,
               },
             })
           );

@@ -6,6 +6,7 @@ import {
   UserIcon,
   CogIcon,
   ArrowRightOnRectangleIcon,
+  HomeIcon,
 } from "@heroicons/react/24/outline";
 import type { NavbarProps } from "./types";
 
@@ -48,6 +49,17 @@ export function UserDropdown({
             transition={{ duration: 0.2 }}
             className="absolute right-0 mt-2 w-48 bg-white/90 backdrop-blur-sm rounded-2xl shadow-2xl border border-white/50 py-2 z-50"
           >
+            <button
+              onClick={() => {
+                navigate("/dashboard");
+                onCloseUserDropdown();
+              }}
+              className="w-full px-4 py-3 text-left text-gray-700 hover:bg-purple-50 transition-colors duration-200 flex items-center space-x-3"
+            >
+              <HomeIcon className="w-5 h-5" />
+              <span>Dashboard</span>
+            </button>
+
             <button
               onClick={() => {
                 navigate("/account");
