@@ -32,6 +32,9 @@ export const api = {
     const token = localStorage.getItem("authToken");
     if (token) {
       defaultHeaders.Authorization = `Bearer ${token}`;
+      console.log("Auth token found and added to request headers");
+    } else {
+      console.log("No auth token found in localStorage");
     }
 
     const config: RequestInit = {

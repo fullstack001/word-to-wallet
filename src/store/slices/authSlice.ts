@@ -20,10 +20,9 @@ const authSlice = createSlice({
       state.isLoggedIn = false;
     },
     initializeAuth(state) {
-      // Check both localStorage and sessionStorage for auth token
-      const localToken = localStorage.getItem("authToken");
-      const sessionToken = sessionStorage.getItem("authToken");
-      state.isLoggedIn = !!(localToken || sessionToken);
+      // Check localStorage for auth token
+      const token = localStorage.getItem("authToken");
+      state.isLoggedIn = !!token;
     },
   },
 });

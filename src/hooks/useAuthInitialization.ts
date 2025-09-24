@@ -11,16 +11,12 @@ export function useAuthInitialization() {
   useEffect(() => {
     const initializeAuth = async () => {
       try {
-        // Check both localStorage and sessionStorage for auth token
-        const localToken = localStorage.getItem("authToken");
-        const sessionToken = sessionStorage.getItem("authToken");
-        const oldToken = localToken || sessionToken;
+        // Check localStorage for auth token
+        const token = localStorage.getItem("authToken");
 
-        console.log("Auth initialization - Token found:", !!oldToken);
-        console.log("Local token:", !!localToken);
-        console.log("Session token:", !!sessionToken);
+        console.log("Auth initialization - Token found:", !!token);
 
-        if (oldToken) {
+        if (token) {
           const API_BASE_URL =
             process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
 
@@ -30,7 +26,7 @@ export function useAuthInitialization() {
             {
               headers: {
                 "Content-Type": "application/json",
-                Authorization: `Bearer ${oldToken}`,
+                Authorization: `Bearer ${token}`,
               },
             }
           );
@@ -56,7 +52,7 @@ export function useAuthInitialization() {
               `${API_BASE_URL}/dashboard`,
               {
                 headers: {
-                  Authorization: `Bearer ${oldToken}`,
+                  Authorization: `Bearer ${token}`,
                 },
               }
             );
@@ -96,12 +92,8 @@ export function useAuthInitialization() {
 
           localStorage.setItem("userData", JSON.stringify(userData));
 
-          // Store token in the same storage type it was found in
-          if (localToken) {
-            localStorage.setItem("authToken", oldToken);
-          } else if (sessionToken) {
-            sessionStorage.setItem("authToken", oldToken);
-          }
+          // Store token in localStorage
+          localStorage.setItem("authToken", token);
 
           console.log("Dispatching user data:", userData);
           dispatch(setUser(userData));

@@ -90,13 +90,14 @@ export default function LoginPage() {
       );
       dispatch(login());
 
-      // Store the token based on remember me preference
+      // Always store the token in localStorage
+      localStorage.setItem("authToken", token);
+
+      // Store additional data based on remember me preference
       if (validation.data.rememberMe) {
-        localStorage.setItem("authToken", token);
         localStorage.setItem("rememberedEmail", validation.data.email);
         localStorage.setItem("rememberMe", "true");
       } else {
-        sessionStorage.setItem("authToken", token);
         // Clear any previously saved credentials
         localStorage.removeItem("rememberedEmail");
         localStorage.removeItem("rememberMe");

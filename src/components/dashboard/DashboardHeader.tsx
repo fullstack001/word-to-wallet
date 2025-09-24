@@ -5,10 +5,7 @@ import { motion } from "framer-motion";
 import { useDispatch } from "react-redux";
 import { useLocalizedNavigation } from "../../utils/navigation";
 // Subscription utilities are no longer needed as we work directly with props
-import {
-  createTrialSubscription,
-  cancelSubscription,
-} from "../../utils/apiUtils";
+import { cancelSubscription } from "../../utils/apiUtils";
 import { setUser } from "../../store/slices/userSlice";
 import {
   ClockIcon,
@@ -42,81 +39,18 @@ export default function DashboardHeader({
 }: DashboardHeaderProps) {
   const dispatch = useDispatch();
   const { navigate } = useLocalizedNavigation();
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
 
   // Use subscription data from props directly
 
-  const handleStartTrial = async () => {
-    setIsLoading(true);
-    setError(null);
-
-    try {
-      const response = await createTrialSubscription();
-      // Update user state with new subscription
-      dispatch(
-        setUser({
-          id: "",
-          name: userName,
-          email: userEmail,
-          cardnumber: "",
-          avatar: "",
-          isAdmin: false,
-          subscription: response.data.subscription,
-        })
-      );
-      console.log("Trial started successfully");
-    } catch (error) {
-      console.error("Failed to start trial:", error);
-      setError("Failed to start trial. Please try again.");
-    } finally {
-      setIsLoading(false);
-    }
+  const handleStartTrial = () => {
+    navigate("/checkout");
   };
 
   const handleSubscribe = () => {
-    navigate("/signup");
+    navigate("/checkout");
   };
 
   const handleCancelSubscription = async () => {
-    // For trial users without payment method, just end the trial
-    if (!subscription?.stripeSubscriptionId) {
-      setIsLoading(true);
-      setError(null);
-
-      try {
-        // End trial without payment method
-        const response = await cancelSubscription(false);
-        dispatch(
-          setUser({
-            id: "",
-            name: userName,
-            email: userEmail,
-            cardnumber: "",
-            avatar: "",
-            isAdmin: false,
-            subscription: {
-              ...subscription,
-              plan: subscription?.plan || "pro",
-              status: response.data.subscription.status,
-              cancelAtPeriodEnd: response.data.subscription.cancelAtPeriodEnd,
-            },
-          })
-        );
-        console.log("Trial ended successfully");
-      } catch (error) {
-        console.error("Failed to end trial:", error);
-        setError("Failed to end trial. Please try again.");
-      } finally {
-        setIsLoading(false);
-      }
-      return;
-    }
-
-    // For users with payment method, cancel subscription
-    setIsLoading(true);
-    setError(null);
-
     try {
       const response = await cancelSubscription(false);
       dispatch(
@@ -129,7 +63,7 @@ export default function DashboardHeader({
           isAdmin: false,
           subscription: {
             ...subscription,
-            plan: subscription?.plan,
+            plan: subscription?.plan || "pro",
             status: response.data.subscription.status,
             cancelAtPeriodEnd: response.data.subscription.cancelAtPeriodEnd,
           },
@@ -138,9 +72,6 @@ export default function DashboardHeader({
       console.log("Subscription canceled successfully");
     } catch (error) {
       console.error("Failed to cancel subscription:", error);
-      setError("Failed to cancel subscription. Please try again.");
-    } finally {
-      setIsLoading(false);
     }
   };
 
@@ -220,14 +151,11 @@ export default function DashboardHeader({
 
             <button
               onClick={handleStartTrial}
-              disabled={isLoading}
-              className="group relative inline-flex items-center px-8 py-4 bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-xl font-semibold hover:from-green-600 hover:to-emerald-700 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg hover:shadow-xl transform hover:scale-105 disabled:transform-none"
+              className="group relative inline-flex items-center px-8 py-4 bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-xl font-semibold hover:from-green-600 hover:to-emerald-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
             >
               <div className="absolute inset-0 bg-gradient-to-r from-green-400 to-emerald-500 rounded-xl opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
               <PlayIcon className="w-5 h-5 mr-3 relative z-10" />
-              <span className="relative z-10">
-                {isLoading ? "Starting Your Trial..." : "Start Free Trial"}
-              </span>
+              <span className="relative z-10">Start Free Trial</span>
             </button>
           </div>
         );
@@ -250,11 +178,10 @@ export default function DashboardHeader({
               </button>
               <button
                 onClick={handleCancelSubscription}
-                disabled={isLoading}
-                className="inline-flex items-center px-4 py-3 bg-white/20 backdrop-blur-sm text-white rounded-lg font-medium hover:bg-white/30 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed border border-white/30"
+                className="inline-flex items-center px-4 py-3 bg-white/20 backdrop-blur-sm text-white rounded-lg font-medium hover:bg-white/30 transition-all duration-300 border border-white/30"
               >
                 <XMarkIcon className="w-4 h-4 mr-2" />
-                {isLoading ? "Canceling..." : "End Trial"}
+                End Trial
               </button>
             </div>
           </div>
@@ -288,11 +215,10 @@ export default function DashboardHeader({
             </div>
             <button
               onClick={handleCancelSubscription}
-              disabled={isLoading}
-              className="inline-flex items-center px-6 py-3 bg-white/20 backdrop-blur-sm text-white rounded-lg font-medium hover:bg-white/30 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed border border-white/30"
+              className="inline-flex items-center px-6 py-3 bg-white/20 backdrop-blur-sm text-white rounded-lg font-medium hover:bg-white/30 transition-all duration-300 border border-white/30"
             >
               <XMarkIcon className="w-4 h-4 mr-2" />
-              {isLoading ? "Canceling..." : "Cancel Subscription"}
+              Cancel Subscription
             </button>
           </div>
         );
@@ -331,13 +257,6 @@ export default function DashboardHeader({
               {/* Action Buttons */}
               {renderActionButton() && (
                 <div className="mt-4">{renderActionButton()}</div>
-              )}
-
-              {/* Error Message */}
-              {error && (
-                <div className="mt-4 p-3 bg-red-500/20 backdrop-blur-sm rounded-lg border border-red-300/30">
-                  <p className="text-red-100 text-sm">{error}</p>
-                </div>
               )}
             </div>
           </motion.div>

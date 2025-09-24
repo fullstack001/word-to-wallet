@@ -27,17 +27,24 @@ interface StripePaymentFormProps {
   onPaymentSuccess: (paymentMethodId: string) => void;
   onPaymentError: (error: string) => void;
   isLoading: boolean;
+  user?: any;
 }
 
 const PaymentForm: React.FC<StripePaymentFormProps> = ({
   onPaymentSuccess,
   onPaymentError,
   isLoading,
+  user,
 }) => {
   const stripe = useStripe();
   const elements = useElements();
   const [isProcessing, setIsProcessing] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [cardholderName, setCardholderName] = useState(
+    user?.firstName && user?.lastName
+      ? `${user.firstName} ${user.lastName}`
+      : ""
+  );
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
@@ -63,7 +70,7 @@ const PaymentForm: React.FC<StripePaymentFormProps> = ({
           type: "card",
           card: cardNumberElement,
           billing_details: {
-            // You can add billing details here if needed
+            name: cardholderName,
           },
         });
 
@@ -143,6 +150,20 @@ const PaymentForm: React.FC<StripePaymentFormProps> = ({
                 <CardCvcElement options={cardElementOptions} />
               </div>
             </div>
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">
+              Cardholder Name *
+            </label>
+            <input
+              type="text"
+              required
+              value={cardholderName}
+              onChange={(e) => setCardholderName(e.target.value)}
+              className="w-full border border-gray-300 rounded-lg p-3 bg-white focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors"
+              placeholder="John Doe"
+            />
           </div>
 
           {error && (
