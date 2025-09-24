@@ -9,6 +9,7 @@ import { RootState } from "../store/store";
 import { logout } from "../store/slices/authSlice";
 import { clearUser } from "../store/slices/userSlice";
 import { useLocalizedNavigation } from "../utils/navigation";
+import { useAuthInitialization } from "../hooks/useAuthInitialization";
 import { MobileNavigation } from "./navbar/MobileNavigation";
 import { UserDropdown } from "./navbar/UserDropdown";
 import { AuthButton } from "./navbar/AuthButton";
@@ -29,6 +30,9 @@ export default function Navbar() {
   const user = useSelector((state: RootState) => state.user);
   const t = useTranslations();
   const { navigate } = useLocalizedNavigation();
+
+  // Initialize auth state on client side
+  useAuthInitialization();
 
   // Navigation items
   const navigationItems = [

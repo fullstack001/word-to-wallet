@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useLocalizedNavigation } from "@/utils/navigation";
 import { RootState } from "@/store/store";
+import { useAuthInitialization } from "@/hooks/useAuthInitialization";
 import AdminSidebar from "@/components/admin/AdminSidebar";
 import AdminHeader from "@/components/admin/AdminHeader";
 import CourseModal from "@/components/admin/CourseModal";
@@ -27,6 +28,9 @@ export default function CoursesPage() {
   const { navigate } = useLocalizedNavigation();
   const isLoggedIn = useSelector((state: RootState) => state.auth.isLoggedIn);
   const user = useSelector((state: RootState) => state.user);
+
+  // Initialize auth state on client side
+  const { isInitializing } = useAuthInitialization();
 
   const [courses, setCourses] = useState<Course[]>([]);
   const [subjects, setSubjects] = useState<Subject[]>([]);
@@ -430,6 +434,17 @@ export default function CoursesPage() {
   };
 
   // Show loading or redirect if not admin
+  if (isInitializing) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-blue-600 mx-auto"></div>
+          <p className="mt-4 text-gray-600">Initializing authentication...</p>
+        </div>
+      </div>
+    );
+  }
+
   if (!isLoggedIn || !user.isAdmin) {
     return (
       <div className="min-h-screen flex items-center justify-center">

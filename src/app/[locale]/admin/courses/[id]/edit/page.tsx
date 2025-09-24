@@ -4,6 +4,7 @@ import { useParams, useRouter } from "next/navigation";
 import { useSelector, useDispatch } from "react-redux";
 import { useLocalizedNavigation } from "@/utils/navigation";
 import { RootState } from "@/store/store";
+import { useAuthInitialization } from "@/hooks/useAuthInitialization";
 import {
   getCourseById,
   getSubjects,
@@ -22,6 +23,9 @@ export default function EditCoursePage() {
   const { navigate } = useLocalizedNavigation();
   const isLoggedIn = useSelector((state: RootState) => state.auth.isLoggedIn);
   const user = useSelector((state: RootState) => state.user);
+
+  // Initialize auth state on client side
+  useAuthInitialization();
 
   const [course, setCourse] = useState<Course | null>(null);
   const [subjects, setSubjects] = useState<Subject[]>([]);

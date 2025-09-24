@@ -1,10 +1,10 @@
 "use client";
 import React, { useEffect, useState, useRef, useCallback } from "react";
 import { useRouter } from "next/navigation";
-import axios from "axios";
 import { ReactReader } from "react-reader";
 import { debounce } from "lodash";
 import { languageData } from "@/data/languageData";
+import { translateHtml } from "@/utils/translationApi";
 
 interface MultimediaItem {
   _id: string;
@@ -93,6 +93,14 @@ const EpubReader: React.FC<EpubReaderProps> = ({
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  // Set initial content when bookContents are available
+  useEffect(() => {
+    if (bookContents.length > 0 && !originalContent) {
+      // Set the first chapter content as initial content
+      setOriginalContent(bookContents[0]?.content || "");
+    }
+  }, [bookContents, originalContent]);
+
   const injectCustomStyles = () => {
     if (renditionRef.current) {
       renditionRef.current.themes.default({
@@ -106,24 +114,100 @@ const EpubReader: React.FC<EpubReaderProps> = ({
   };
 
   const translateContent = async (content: string) => {
+    console.log("Translating content:", content);
     setTranslating(true);
     try {
-      const response = await axios.post("/api/translate/eBook", {
-        text: content,
+      const response = await translateHtml({
+        htmlContent: content,
         targetLanguage: language,
       });
-      setTranslatedText(response.data.translatedText);
-    } catch (error) {
+
+      let translatedHtml =
+        response.data.translatedHtml || "Translation failed. Please try again.";
+
+      // Remove markdown code block wrappers if present
+      translatedHtml = translatedHtml
+        .replace(/^```html\s*/g, "")
+        .replace(/^```\s*/g, "")
+        .replace(/\s*```$/g, "")
+        .replace(/^`/g, "")
+        .replace(/`$/g, "")
+        .trim();
+
+      setTranslatedText(translatedHtml);
+    } catch (error: any) {
       console.error("Error translating content:", error);
+
+      // Handle specific error types
+      if (error.response?.status === 408) {
+        setTranslatedText(
+          "Translation timed out. The content might be too large. Please try with smaller content."
+        );
+      } else if (
+        error.response?.status === 400 &&
+        error.response?.data?.message?.includes("too large")
+      ) {
+        setTranslatedText(
+          "Content too large. Please reduce the content size and try again."
+        );
+      } else if (error.response?.status === 429) {
+        setTranslatedText(
+          "Translation service is busy. Please try again in a few moments."
+        );
+      } else {
+        setTranslatedText("Translation failed. Please try again.");
+      }
     } finally {
       setTranslating(false);
     }
   };
 
-  const handleTranslate = () => {
+  const getCurrentPageContent = async () => {
+    if (renditionRef.current && bookContents.length > 0) {
+      try {
+        const currentLocation = renditionRef.current.location?.start?.cfi;
+        if (currentLocation) {
+          const range = await renditionRef.current.getRange(currentLocation);
+          if (range && range.commonAncestorContainer) {
+            const uri = range.commonAncestorContainer.baseURI;
+            const match = uri.match(/chapter(\d+)\.xhtml/);
+            if (match) {
+              const pageNumber = parseInt(match[1], 10);
+              const pageContent = bookContents[pageNumber];
+              if (pageContent) {
+                return pageContent.content;
+              }
+            }
+          }
+        }
+      } catch (error) {
+        console.error("Error getting current page content:", error);
+      }
+    }
+    return null;
+  };
+
+  const handleTranslate = async () => {
     setTranslatedText("Please be patient. Translations take time.");
-    if (originalContent) {
-      translateContent(originalContent);
+    console.log("Original content:", originalContent);
+
+    let contentToTranslate = originalContent;
+
+    // If no original content is set, try to get it from the current location
+    if (!contentToTranslate) {
+      const currentContent = await getCurrentPageContent();
+      if (currentContent) {
+        contentToTranslate = currentContent;
+        setOriginalContent(currentContent);
+      }
+    }
+
+    if (contentToTranslate) {
+      translateContent(contentToTranslate);
+    } else {
+      setTranslatedText(
+        "No content available to translate. Please navigate through the book first or use the 'Reset Content' button."
+      );
     }
   };
 
@@ -237,34 +321,76 @@ const EpubReader: React.FC<EpubReaderProps> = ({
 
           {bookType === "created" && (
             <div className="mt-4">
-              <select
-                className="bg-gray-700 text-white py-2 px-4 rounded-lg mb-2"
-                value={language}
-                onChange={(e) => setLanguage(e.target.value)}
-              >
-                {languageData.map((lang) => (
-                  <option key={lang.code} value={lang.code}>
-                    {lang.name}
-                  </option>
-                ))}
-              </select>
-              <button
-                onClick={handleTranslate}
-                className="bg-blue-500 text-white py-2 px-4 ml-2 rounded-lg"
-              >
-                Translate
-              </button>
+              <div className="flex items-center gap-2 mb-2">
+                <select
+                  className="bg-gray-700 text-white py-2 px-4 rounded-lg"
+                  value={language}
+                  onChange={(e) => setLanguage(e.target.value)}
+                >
+                  {languageData.map((lang) => (
+                    <option key={lang.code} value={lang.code}>
+                      {lang.name}
+                    </option>
+                  ))}
+                </select>
+                <button
+                  onClick={handleTranslate}
+                  className="bg-blue-500 text-white py-2 px-4 rounded-lg"
+                >
+                  Translate
+                </button>
+                <button
+                  onClick={() => {
+                    if (bookContents.length > 0) {
+                      setOriginalContent(bookContents[0]?.content || "");
+                      setTranslatedText("");
+                    }
+                  }}
+                  className="bg-gray-500 text-white py-2 px-4 rounded-lg"
+                >
+                  Reset Content
+                </button>
+              </div>
+              <div className="text-sm text-gray-300 mb-2">
+                Content Status:{" "}
+                {originalContent
+                  ? `Loaded (${originalContent.length} chars)`
+                  : "No content loaded"}
+                {originalContent && originalContent.length > 30000 && (
+                  <span className="text-yellow-400 ml-2">
+                    ⚠️ Large content - translation may take longer
+                  </span>
+                )}
+                {originalContent && originalContent.length > 50000 && (
+                  <span className="text-red-400 ml-2">
+                    ❌ Content too large for translation
+                  </span>
+                )}
+              </div>
               <div className="flex mt-4 bg-gray-700 p-4 rounded-lg">
                 {translating && (
                   <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-white mr-2"></div>
                 )}
-                <div
-                  className="items-center"
-                  style={{ maxHeight: "400px", overflowY: "auto" }}
-                  dangerouslySetInnerHTML={{
-                    __html: translatedText || "No translation available.",
-                  }}
-                />
+
+                {/* Translated Content */}
+                {translatedText && (
+                  <div className="bg-gray-700 p-4 rounded-lg">
+                    <div
+                      className="prose prose-invert max-w-none"
+                      style={{ maxHeight: "400px", overflowY: "auto" }}
+                      dangerouslySetInnerHTML={{
+                        __html: translatedText,
+                      }}
+                    />
+                  </div>
+                )}
+
+                {!translatedText && !translating && (
+                  <div className="bg-gray-700 p-4 rounded-lg text-gray-300">
+                    No translation available. Click "Translate" to translate the
+                    content.
+                  </div>
+                )}
               </div>
             </div>
           )}

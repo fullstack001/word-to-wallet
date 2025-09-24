@@ -1,12 +1,12 @@
-"use client";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { setUser } from "@/store/slices/userSlice";
-import { login, initializeAuth } from "@/store/slices/authSlice";
+import { initializeAuth, login } from "../store/slices/authSlice";
+import { setUser } from "../store/slices/userSlice";
 import axios from "axios";
 
-export default function PersistLogin() {
+export function useAuthInitialization() {
   const dispatch = useDispatch();
+  const [isInitializing, setIsInitializing] = useState(true);
 
   useEffect(() => {
     const initializeAuth = async () => {
@@ -15,6 +15,10 @@ export default function PersistLogin() {
         const localToken = localStorage.getItem("authToken");
         const sessionToken = sessionStorage.getItem("authToken");
         const oldToken = localToken || sessionToken;
+
+        console.log("Auth initialization - Token found:", !!oldToken);
+        console.log("Local token:", !!localToken);
+        console.log("Session token:", !!sessionToken);
 
         if (oldToken) {
           const API_BASE_URL =
@@ -99,20 +103,43 @@ export default function PersistLogin() {
             sessionStorage.setItem("authToken", oldToken);
           }
 
+          console.log("Dispatching user data:", userData);
           dispatch(setUser(userData));
           dispatch(login());
+          console.log("Auth initialization completed successfully");
+          setIsInitializing(false);
         } else {
           // No token found, try to restore from localStorage
+          console.log("No token found, checking for saved user data");
           const savedUserData = localStorage.getItem("userData");
           if (savedUserData) {
             try {
               const userData = JSON.parse(savedUserData);
-              dispatch(setUser(userData));
-              dispatch(login());
+              console.log(
+                "User data found but no token - clearing user data to prevent inconsistent state"
+              );
+              // Clear user data since there's no token to authenticate API calls
+              localStorage.removeItem("userData");
+              dispatch(
+                setUser({
+                  id: "",
+                  name: "",
+                  email: "",
+                  cardnumber: "",
+                  avatar: "",
+                  isAdmin: false,
+                  subscription: null,
+                })
+              );
+              setIsInitializing(false);
             } catch (parseError) {
               console.log("Could not parse saved user data:", parseError);
               localStorage.removeItem("userData");
+              setIsInitializing(false);
             }
+          } else {
+            console.log("No saved user data found");
+            setIsInitializing(false);
           }
         }
       } catch (error) {
@@ -123,11 +150,12 @@ export default function PersistLogin() {
         localStorage.removeItem("rememberMe");
         localStorage.removeItem("userData");
         sessionStorage.removeItem("authToken");
+        setIsInitializing(false);
       }
     };
 
     initializeAuth();
   }, [dispatch]);
 
-  return null;
+  return { isInitializing };
 }

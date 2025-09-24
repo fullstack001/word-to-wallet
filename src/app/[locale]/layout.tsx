@@ -3,7 +3,6 @@ import { getMessages } from "next-intl/server";
 import { Providers } from "../providers";
 import LanguageSetter from "./LanguageSetter";
 import GoogleTranslateWidget from "@/components/common/GoogleTranslateWidget";
-import PersistLogin from "./PersistLogin";
 import { LoadingProvider } from "@/contexts/LoadingContext";
 import GlobalLoading from "@/components/common/GlobalLoading";
 
@@ -21,7 +20,6 @@ export default async function LocaleLayout({
     <NextIntlClientProvider messages={messages}>
       <Providers>
         <LoadingProvider>
-          <PersistLogin />
           <LanguageSetter locale={locale} />
           <GoogleTranslateWidget />
           <GlobalLoading />

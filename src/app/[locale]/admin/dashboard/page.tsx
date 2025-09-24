@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useLocalizedNavigation } from "@/utils/navigation";
 import { RootState } from "@/store/store";
+import { useAuthInitialization } from "@/hooks/useAuthInitialization";
 import AdminSidebar from "../../../../components/admin/AdminSidebar";
 import AdminHeader from "../../../../components/admin/AdminHeader";
 import { getSubjects, getCourses } from "@/utils/apiUtils";
@@ -20,6 +21,9 @@ export default function AdminDashboard() {
   const isLoggedIn = useSelector((state: RootState) => state.auth.isLoggedIn);
   const user = useSelector((state: RootState) => state.user);
 
+  // Initialize auth state on client side
+  const { isInitializing } = useAuthInitialization();
+
   const [stats, setStats] = useState<DashboardStats>({
     totalSubjects: 0,
     totalCourses: 0,
@@ -32,16 +36,36 @@ export default function AdminDashboard() {
   const [lastFetchTime, setLastFetchTime] = useState<number>(0);
 
   useEffect(() => {
+    console.log(
+      "Admin dashboard useEffect - isLoggedIn:",
+      isLoggedIn,
+      "user.isAdmin:",
+      user.isAdmin,
+      "isInitializing:",
+      isInitializing
+    );
+
+    // Wait for auth initialization to complete
+    if (isInitializing) {
+      console.log("Auth initialization in progress, waiting...");
+      return;
+    }
+
     // Check if user is logged in and is admin
     if (!isLoggedIn) {
+      console.log("User not logged in, redirecting to login");
       navigate("/login");
       return;
     }
     if (!user.isAdmin) {
+      console.log("User is not admin, redirecting to home");
       navigate("/");
       return;
     }
 
+    console.log(
+      "Auth initialization complete, attempting to fetch dashboard stats"
+    );
     // Only fetch if data is older than 30 seconds to avoid rate limiting
     const now = Date.now();
     if (now - lastFetchTime > 30000) {
@@ -49,12 +73,19 @@ export default function AdminDashboard() {
     } else {
       setLoading(false);
     }
-  }, [isLoggedIn, user.isAdmin, navigate, lastFetchTime]);
+  }, [isLoggedIn, user.isAdmin, isInitializing, navigate, lastFetchTime]);
 
   const fetchDashboardStats = async (retryCount = 0) => {
     try {
       setLoading(true);
       setError("");
+
+      console.log("Fetching dashboard stats - User:", user);
+      console.log(
+        "Auth token available:",
+        !!localStorage.getItem("authToken") ||
+          !!sessionStorage.getItem("authToken")
+      );
 
       // Add delay between requests to avoid rate limiting
       if (retryCount > 0) {
@@ -108,6 +139,17 @@ export default function AdminDashboard() {
   };
 
   // Show loading or redirect if not admin
+  if (isInitializing) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-blue-600 mx-auto"></div>
+          <p className="mt-4 text-gray-600">Initializing authentication...</p>
+        </div>
+      </div>
+    );
+  }
+
   if (!isLoggedIn || !user.isAdmin) {
     return (
       <div className="min-h-screen flex items-center justify-center">

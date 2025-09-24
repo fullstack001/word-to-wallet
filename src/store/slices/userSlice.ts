@@ -21,31 +21,16 @@ interface UserState {
   } | null;
 }
 
-// Initialize user state from localStorage if available
-const getInitialUserState = (): UserState => {
-  if (typeof window !== "undefined") {
-    const savedUserData = localStorage.getItem("userData");
-    if (savedUserData) {
-      try {
-        return JSON.parse(savedUserData);
-      } catch (error) {
-        console.log("Could not parse saved user data:", error);
-        localStorage.removeItem("userData");
-      }
-    }
-  }
-  return {
-    id: "",
-    name: "", // Initialize name
-    email: "",
-    cardnumber: "", // Initialize cardnumber
-    avatar: "",
-    isAdmin: false,
-    subscription: null,
-  };
+// Initialize user state - always start with empty state to prevent hydration mismatch
+const initialState: UserState = {
+  id: "",
+  name: "",
+  email: "",
+  cardnumber: "",
+  avatar: "",
+  isAdmin: false,
+  subscription: null,
 };
-
-const initialState: UserState = getInitialUserState();
 
 const userSlice = createSlice({
   name: "user",
