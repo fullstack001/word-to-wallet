@@ -15,6 +15,7 @@ export default function LoginPage() {
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const [rememberMe, setRememberMe] = useState(false);
 
   const dispatch = useDispatch();
   const { navigate } = useLocalizedNavigation();
@@ -25,25 +26,10 @@ export default function LoginPage() {
     initialData: {
       email: "",
       password: "",
-      rememberMe: false,
     },
     validateOnChange: true,
     validateOnBlur: true,
   });
-
-  // Load saved credentials on component mount
-  useEffect(() => {
-    const savedEmail = localStorage.getItem("rememberedEmail");
-    const savedRememberMe = localStorage.getItem("rememberMe") === "true";
-
-    if (savedEmail && savedRememberMe) {
-      validation.setData({
-        email: savedEmail,
-        password: "",
-        rememberMe: true,
-      });
-    }
-  }, [validation]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -92,16 +78,6 @@ export default function LoginPage() {
 
       // Always store the token in localStorage
       localStorage.setItem("authToken", token);
-
-      // Store additional data based on remember me preference
-      if (validation.data.rememberMe) {
-        localStorage.setItem("rememberedEmail", validation.data.email);
-        localStorage.setItem("rememberMe", "true");
-      } else {
-        // Clear any previously saved credentials
-        localStorage.removeItem("rememberedEmail");
-        localStorage.removeItem("rememberMe");
-      }
 
       // Check subscription status and redirect appropriately
       if (user.isAdmin) {
@@ -249,8 +225,8 @@ export default function LoginPage() {
                   id="rememberMe"
                   name="rememberMe"
                   type="checkbox"
-                  checked={validation.data.rememberMe}
-                  onChange={validation.handleChange}
+                  checked={rememberMe}
+                  onChange={(e) => setRememberMe(e.target.checked)}
                   className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded transition-colors duration-200"
                 />
                 <label
