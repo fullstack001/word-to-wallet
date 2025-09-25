@@ -308,7 +308,7 @@ export default function CourseView({
                 <img
                   src={`/api/courses/${course._id}/cover`}
                   alt="Course Cover"
-                  className="w-24 h-36 sm:w-32 sm:h-48 object-cover rounded-lg shadow-md"
+                  className=" w-auto h-auto object-cover rounded-lg shadow-md"
                 />
               </div>
             )}

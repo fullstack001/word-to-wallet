@@ -1,59 +1,60 @@
 "use client";
 
 import React, { useState } from "react";
-import { motion } from "framer-motion";
-import { useDispatch } from "react-redux";
-import { useLocalizedNavigation } from "../../utils/navigation";
-// Subscription utilities are no longer needed as we work directly with props
+import { useTranslations } from "next-intl";
+import { useSelector, useDispatch } from "react-redux";
+import { useLocalizedNavigation } from "../../../utils/navigation";
+import { RootState } from "../../../store/store";
+import { setUser } from "../../../store/slices/userSlice";
+import Navbar from "../../../components/Navbar";
+import Footer from "../../../components/Footer";
+import CancellationModal from "../../../components/subscription/CancellationModal";
 import {
   cancelSubscription,
   upgradeSubscriptionDirect,
-} from "../../utils/apiUtils";
-import { setUser } from "../../store/slices/userSlice";
-import CancellationModal from "../subscription/CancellationModal";
+  changePassword,
+} from "../../../utils/apiUtils";
 import {
   ClockIcon,
   PlayIcon,
   XMarkIcon,
   CreditCardIcon,
   ExclamationTriangleIcon,
+  UserIcon,
+  EnvelopeIcon,
+  CalendarIcon,
+  KeyIcon,
 } from "@heroicons/react/24/outline";
+import ChangePasswordModal from "../../../components/account/ChangePasswordModal";
 
-interface DashboardHeaderProps {
-  userName: string;
-  userEmail: string;
-  subscription?: {
-    stripeCustomerId?: string;
-    stripeSubscriptionId?: string;
-    status: string;
-    plan: string;
-    trialStart?: string;
-    trialEnd?: string;
-    currentPeriodStart?: string;
-    currentPeriodEnd?: string;
-    cancelAtPeriodEnd?: boolean;
-    canceledAt?: string;
-  } | null;
-}
-
-export default function DashboardHeader({
-  userName,
-  userEmail,
-  subscription,
-}: DashboardHeaderProps) {
-  const dispatch = useDispatch();
+export default function AccountPage() {
+  const t = useTranslations();
   const { navigate } = useLocalizedNavigation();
+  const dispatch = useDispatch();
+
+  const isLoggedIn = useSelector((state: RootState) => state.auth.isLoggedIn);
+  const user = useSelector((state: RootState) => state.user);
+
   const [showCancelModal, setShowCancelModal] = useState(false);
   const [isCanceling, setIsCanceling] = useState(false);
+  const [showChangePasswordModal, setShowChangePasswordModal] = useState(false);
 
-  // Use subscription data from props directly
+  // Redirect if not logged in
+  React.useEffect(() => {
+    if (!isLoggedIn) {
+      navigate("/login");
+    }
+  }, [isLoggedIn, navigate]);
+
+  if (!isLoggedIn) {
+    return null;
+  }
 
   const handleStartTrial = () => {
     navigate("/checkout");
   };
 
   const handleSubscribe = async () => {
-    // For non-trial users, go to checkout
     navigate("/checkout");
   };
 
@@ -66,8 +67,8 @@ export default function DashboardHeader({
       dispatch(
         setUser({
           id: "",
-          name: userName,
-          email: userEmail,
+          name: user.name,
+          email: user.email,
           cardnumber: "",
           avatar: "",
           isAdmin: false,
@@ -106,12 +107,12 @@ export default function DashboardHeader({
       dispatch(
         setUser({
           id: "",
-          name: userName,
-          email: userEmail,
+          name: user.name,
+          email: user.email,
           cardnumber: "",
           avatar: "",
           isAdmin: false,
-          subscription: response.data.subscription, // This will be null when subscription is canceled
+          subscription: response.data.subscription,
         })
       );
       console.log("Subscription canceled successfully");
@@ -123,30 +124,44 @@ export default function DashboardHeader({
     }
   };
 
+  const handleChangePassword = async (
+    currentPassword: string,
+    newPassword: string
+  ) => {
+    try {
+      await changePassword(currentPassword, newPassword);
+      console.log("Password changed successfully");
+    } catch (error) {
+      console.error("Failed to change password:", error);
+      throw error; // Re-throw to let the modal handle the error
+    }
+  };
+
   const getSubscriptionState = () => {
-    if (!subscription) return "no-subscription";
-    if (subscription.cancelAtPeriodEnd) {
+    if (!user.subscription) return "no-subscription";
+    if (user.subscription.cancelAtPeriodEnd) {
       return "canceled";
     }
-    if (subscription.status === "trialing") {
-      // Check if trial is still active
+    if (user.subscription.status === "trialing") {
       if (
-        subscription.trialEnd &&
-        new Date(subscription.trialEnd) > new Date()
+        user.subscription.trialEnd &&
+        new Date(user.subscription.trialEnd) > new Date()
       ) {
         return "trial";
       } else {
         return "trial-expired";
       }
     }
-    if (subscription.status === "active") {
-      // Check if subscription is canceled but still active
-      if (subscription.cancelAtPeriodEnd) {
+    if (user.subscription.status === "active") {
+      if (user.subscription.cancelAtPeriodEnd) {
         return "canceled-but-active";
       }
       return "active";
     }
-    if (subscription.status === "canceled" || subscription.plan === "free") {
+    if (
+      user.subscription.status === "canceled" ||
+      user.subscription.plan === "free"
+    ) {
       return "canceled";
     }
     return "no-subscription";
@@ -158,9 +173,10 @@ export default function DashboardHeader({
       case "no-subscription":
         return "No Subscription";
       case "trial":
-        if (subscription?.trialEnd) {
+        if (user.subscription?.trialEnd) {
           const daysRemaining = Math.ceil(
-            (new Date(subscription.trialEnd).getTime() - new Date().getTime()) /
+            (new Date(user.subscription.trialEnd).getTime() -
+              new Date().getTime()) /
               (1000 * 60 * 60 * 24)
           );
           return `Trial: ${Math.max(0, daysRemaining)} days remaining`;
@@ -171,8 +187,8 @@ export default function DashboardHeader({
       case "active":
         return "Pro";
       case "canceled-but-active":
-        if (subscription?.currentPeriodEnd) {
-          const endDate = new Date(subscription.currentPeriodEnd);
+        if (user.subscription?.currentPeriodEnd) {
+          const endDate = new Date(user.subscription.currentPeriodEnd);
           const daysRemaining = Math.ceil(
             (endDate.getTime() - new Date().getTime()) / (1000 * 60 * 60 * 24)
           );
@@ -322,18 +338,16 @@ export default function DashboardHeader({
   };
 
   return (
-    <div className="pt-20 pb-8 bg-gradient-to-r from-purple-600 to-blue-600">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-white"
-          >
+    <div className="min-h-screen bg-gray-50">
+      <Navbar />
+
+      {/* Account Header */}
+      <div className="pt-20 pb-8 bg-gradient-to-r from-purple-600 to-blue-600">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
             <div className="flex flex-col lg:flex-row items-center justify-center gap-6 my-4 mt-12">
               <h1 className="text-4xl font-bold text-white">
-                Welcome back, {userName || userEmail}!
+                Account Settings
               </h1>
 
               {/* Subscription Status Banner */}
@@ -352,9 +366,131 @@ export default function DashboardHeader({
                 <div className="mt-4">{renderActionButton()}</div>
               )}
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
+
+      {/* Account Content */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          {/* User Information */}
+          <div className="bg-white rounded-xl shadow-lg p-6">
+            <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+              <UserIcon className="w-6 h-6 mr-3 text-purple-600" />
+              Personal Information
+            </h2>
+
+            <div className="space-y-4">
+              <div className="flex items-center space-x-3">
+                <UserIcon className="w-5 h-5 text-gray-400" />
+                <div>
+                  <p className="text-sm text-gray-500">Name</p>
+                  <p className="text-lg font-medium text-gray-900">
+                    {user.name || "Not provided"}
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-center space-x-3">
+                <EnvelopeIcon className="w-5 h-5 text-gray-400" />
+                <div>
+                  <p className="text-sm text-gray-500">Email</p>
+                  <p className="text-lg font-medium text-gray-900">
+                    {user.email}
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-center space-x-3">
+                <CalendarIcon className="w-5 h-5 text-gray-400" />
+                <div>
+                  <p className="text-sm text-gray-500">Account Type</p>
+                  <p className="text-lg font-medium text-gray-900">
+                    {user.isAdmin ? "Administrator" : "Standard User"}
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Change Password Button */}
+            <div className="mt-6 pt-6 border-t border-gray-200">
+              <button
+                onClick={() => setShowChangePasswordModal(true)}
+                className="inline-flex items-center px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg font-medium transition-colors duration-200"
+              >
+                <KeyIcon className="w-4 h-4 mr-2" />
+                Change Password
+              </button>
+            </div>
+          </div>
+
+          {/* Subscription Details */}
+          <div className="bg-white rounded-xl shadow-lg p-6">
+            <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+              <CreditCardIcon className="w-6 h-6 mr-3 text-purple-600" />
+              Subscription Details
+            </h2>
+
+            <div className="space-y-4">
+              <div className="flex items-center space-x-3">
+                <ClockIcon className="w-5 h-5 text-gray-400" />
+                <div>
+                  <p className="text-sm text-gray-500">Status</p>
+                  <p className="text-lg font-medium text-gray-900">
+                    {getSubscriptionStatus()}
+                  </p>
+                </div>
+              </div>
+
+              {user.subscription?.currentPeriodEnd && (
+                <div className="flex items-center space-x-3">
+                  <CalendarIcon className="w-5 h-5 text-gray-400" />
+                  <div>
+                    <p className="text-sm text-gray-500">Next Billing Date</p>
+                    <p className="text-lg font-medium text-gray-900">
+                      {new Date(
+                        user.subscription.currentPeriodEnd
+                      ).toLocaleDateString("en-US", {
+                        month: "long",
+                        day: "numeric",
+                        year: "numeric",
+                      })}
+                    </p>
+                  </div>
+                </div>
+              )}
+
+              {user.subscription?.trialEnd &&
+                getSubscriptionState() === "trial" && (
+                  <div className="flex items-center space-x-3">
+                    <ExclamationTriangleIcon className="w-5 h-5 text-yellow-500" />
+                    <div>
+                      <p className="text-sm text-gray-500">Trial Ends</p>
+                      <p className="text-lg font-medium text-gray-900">
+                        {new Date(
+                          user.subscription.trialEnd
+                        ).toLocaleDateString("en-US", {
+                          month: "long",
+                          day: "numeric",
+                          year: "numeric",
+                        })}
+                      </p>
+                    </div>
+                  </div>
+                )}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <Footer />
+
+      {/* Change Password Modal */}
+      <ChangePasswordModal
+        isOpen={showChangePasswordModal}
+        onClose={() => setShowChangePasswordModal(false)}
+        onPasswordChange={handleChangePassword}
+      />
 
       {/* Cancellation Modal */}
       <CancellationModal

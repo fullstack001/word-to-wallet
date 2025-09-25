@@ -416,12 +416,25 @@ export const createCheckoutSession = async (
 };
 
 export const cancelSubscription = async (
-  immediately: boolean = false
+  immediately: boolean = false,
+  reason?: string,
+  feedback?: string
 ): Promise<any> => {
   try {
-    const response = await api.post("/subscriptions/cancel", {
-      immediately,
-    });
+    const token = getAuthToken();
+    const response = await api.post(
+      "/subscriptions/cancel",
+      {
+        immediately,
+        reason,
+        feedback,
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
     return response.data;
   } catch (error) {
     const axiosError = error as AxiosError<{ message?: string }>;
@@ -1030,7 +1043,16 @@ export const base64ToBlob = (base64Data: string): Blob => {
 // Subscription API functions
 export const createTrialSubscription = async (): Promise<any> => {
   try {
-    const response = await api.post("/subscriptions/trial");
+    const token = getAuthToken();
+    const response = await api.post(
+      "/subscriptions/trial",
+      {},
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
     return response.data;
   } catch (error) {
     const axiosError = error as AxiosError<{ message?: string }>;
@@ -1046,10 +1068,19 @@ export const createSubscription = async (
   plan: string = "pro"
 ): Promise<any> => {
   try {
-    const response = await api.post("/subscriptions", {
-      paymentMethodId,
-      plan,
-    });
+    const token = getAuthToken();
+    const response = await api.post(
+      "/subscriptions",
+      {
+        paymentMethodId,
+        plan,
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
     return response.data;
   } catch (error) {
     const axiosError = error as AxiosError<{ message?: string }>;
@@ -1061,7 +1092,12 @@ export const createSubscription = async (
 
 export const getSubscription = async (): Promise<any> => {
   try {
-    const response = await api.get("/subscriptions");
+    const token = getAuthToken();
+    const response = await api.get("/subscriptions", {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
     return response.data;
   } catch (error) {
     const axiosError = error as AxiosError<{ message?: string }>;
@@ -1073,12 +1109,74 @@ export const getSubscription = async (): Promise<any> => {
 
 export const createSetupIntent = async (): Promise<any> => {
   try {
-    const response = await api.post("/subscriptions/setup-intent");
+    const token = getAuthToken();
+    const response = await api.post(
+      "/subscriptions/setup-intent",
+      {},
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
     return response.data;
   } catch (error) {
     const axiosError = error as AxiosError<{ message?: string }>;
     const errorMessage =
       axiosError.response?.data?.message || "Failed to create setup intent";
+    throw new Error(errorMessage);
+  }
+};
+
+export const upgradeTrialSubscription = async (
+  plan: string = "pro"
+): Promise<any> => {
+  try {
+    const token = getAuthToken();
+    const response = await api.post(
+      "/subscriptions/upgrade-trial",
+      {
+        plan,
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+    return response.data;
+  } catch (error) {
+    const axiosError = error as AxiosError<{ message?: string }>;
+    const errorMessage =
+      axiosError.response?.data?.message ||
+      "Failed to upgrade trial subscription";
+    throw new Error(errorMessage);
+  }
+};
+
+export const upgradeSubscriptionDirect = async (
+  paymentMethodId: string,
+  plan: string = "pro"
+): Promise<any> => {
+  try {
+    const token = getAuthToken();
+    const response = await api.post(
+      "/subscriptions/upgrade-direct",
+      {
+        paymentMethodId,
+        plan,
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+    return response.data;
+  } catch (error) {
+    const axiosError = error as AxiosError<{ message?: string }>;
+    const errorMessage =
+      axiosError.response?.data?.message || "Failed to upgrade subscription";
     throw new Error(errorMessage);
   }
 };
@@ -1137,6 +1235,37 @@ export const getCurrentUser = async (): Promise<AuthResponse> => {
     const axiosError = error as AxiosError<{ message?: string }>;
     const errorMessage =
       axiosError.response?.data?.message || "Failed to fetch user data";
+    throw new Error(errorMessage);
+  }
+};
+
+// Change password function
+export const changePassword = async (
+  currentPassword: string,
+  newPassword: string
+): Promise<void> => {
+  try {
+    const token = localStorage.getItem("authToken");
+    if (!token) {
+      throw new Error("No authentication token found");
+    }
+
+    await api.put(
+      "/auth/change-password",
+      {
+        currentPassword,
+        newPassword,
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+  } catch (error) {
+    const axiosError = error as AxiosError<{ message?: string }>;
+    const errorMessage =
+      axiosError.response?.data?.message || "Failed to change password";
     throw new Error(errorMessage);
   }
 };

@@ -45,7 +45,7 @@ export default function CheckoutPage({ params }: CheckoutPageProps) {
     setError(null);
 
     try {
-      if (checkoutType === "trial") {
+      if (checkoutType === "trial" && !user?.subscription?.cancelAtPeriodEnd) {
         // Create trial subscription with payment method
         const response = await api.post("/subscriptions/trial", {
           paymentMethodId,
@@ -59,8 +59,8 @@ export default function CheckoutPage({ params }: CheckoutPageProps) {
           })
         );
       } else {
-        // Upgrade trial to paid subscription
-        const response = await api.post("/subscriptions/upgrade", {
+        // Direct subscription upgrade (no trial required)
+        const response = await api.post("/subscriptions/upgrade-direct", {
           paymentMethodId,
           plan: "pro",
         });
@@ -186,12 +186,14 @@ export default function CheckoutPage({ params }: CheckoutPageProps) {
           >
             <div className="text-center mb-6">
               <h2 className="text-2xl font-bold text-gray-900 mb-2">
-                {checkoutType === "trial"
+                {checkoutType === "trial" &&
+                !user?.subscription?.cancelAtPeriodEnd
                   ? "Complete Your Trial Setup"
                   : "Complete Your Upgrade"}
               </h2>
               <p className="text-gray-600">
-                {checkoutType === "trial"
+                {checkoutType === "trial" &&
+                !user?.subscription?.cancelAtPeriodEnd
                   ? "Add your payment method to start your free trial"
                   : "Add your payment method to continue with full access"}
               </p>
