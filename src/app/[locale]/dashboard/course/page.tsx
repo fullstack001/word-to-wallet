@@ -385,8 +385,8 @@ export default function CoursePage() {
                           <div className="flex items-center justify-between">
                             <div className="flex items-center space-x-2 text-sm text-gray-500">
                               <span>
-                                by {course.createdBy?.firstName || "Unknown"}{" "}
-                                {course.createdBy?.lastName || "Author"}
+                                by {course.createdBy?.firstName || "James"}{" "}
+                                {course.createdBy?.lastName || "Musgrave"}
                               </span>
                             </div>
                             <div className="flex items-center space-x-2">
