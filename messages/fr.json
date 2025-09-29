@@ -333,5 +333,128 @@
       "title": "Planifier une Réunion",
       "description": "Besoin d'aide directe ? Planifiez une réunion personnalisée avec notre équipe pour discuter de vos besoins et obtenir des conseils d'experts."
     }
+  },
+  "auction": {
+    "title": "Enchères",
+    "subtitle": "Découvrez et participez aux enchères en direct",
+    "myAuctions": "Mes Enchères",
+    "createAuction": "Créer une Enchère",
+    "browseAll": "Parcourir Toutes les Enchères",
+    "manageAuctions": "Gérez et suivez vos listes d'enchères",
+    "createNewAuction": "Créer une Nouvelle Enchère",
+    "noAuctionsFound": "Aucune enchère trouvée",
+    "createFirstAuction": "Créez Votre Première Enchère",
+    "filters": {
+      "allAuctions": "Toutes les Enchères",
+      "scheduled": "Programmées",
+      "active": "Actives",
+      "sold": "Vendues",
+      "ended": "Terminées"
+    },
+    "status": {
+      "scheduled": "Programmée",
+      "active": "Active",
+      "sold": "Vendue",
+      "soldBuyNow": "Vendue (Achat Immédiat)",
+      "soldOffer": "Vendue (Offre)",
+      "ended": "Terminée",
+      "endedNoSale": "Terminée (Pas de Vente)",
+      "cancelled": "Annulée"
+    },
+    "create": {
+      "title": "Créer une Nouvelle Enchère",
+      "form": {
+        "title": "Titre de l'Enchère",
+        "titlePlaceholder": "Entrez le titre de l'enchère",
+        "description": "Description",
+        "descriptionPlaceholder": "Décrivez votre article d'enchère",
+        "currency": "Devise",
+        "startingPrice": "Prix de Départ",
+        "startingPricePlaceholder": "0.00",
+        "reservePrice": "Prix de Réserve (Optionnel)",
+        "reservePricePlaceholder": "Prix minimum pour vendre",
+        "reservePriceHelp": "Le prix minimum que vous êtes prêt à accepter. S'il n'est pas atteint, l'enchère ne sera pas vendue.",
+        "buyNowPrice": "Prix d'Achat Immédiat (Optionnel)",
+        "buyNowPricePlaceholder": "Prix d'achat instantané",
+        "buyNowPriceHelp": "Permet aux acheteurs d'acheter immédiatement à ce prix.",
+        "startTime": "Heure de Début",
+        "endTime": "Heure de Fin",
+        "extendSeconds": "Extension Anti-Sniping (secondes)",
+        "extendSecondsPlaceholder": "30",
+        "extendSecondsHelp": "Prolonge l'enchère de ces secondes lorsqu'une offre est placée dans la dernière minute.",
+        "minIncrement": "Incrément Minimum d'Offre",
+        "minIncrementPlaceholder": "1.00",
+        "createButton": "Créer l'Enchère",
+        "cancelButton": "Annuler"
+      },
+      "validation": {
+        "titleRequired": "Le titre, la description, le prix de départ, l'heure de début et l'heure de fin sont requis",
+        "startingPriceRequired": "Le prix de départ doit être supérieur à 0",
+        "reservePriceInvalid": "Le prix de réserve doit être supérieur au prix de départ",
+        "buyNowPriceInvalid": "Le prix d'achat immédiat doit être supérieur au prix de départ",
+        "reservePriceTooHigh": "Le prix de réserve ne peut pas être supérieur au prix d'achat immédiat",
+        "endTimeInvalid": "L'heure de fin doit être après l'heure de début",
+        "startTimeInvalid": "L'heure de début doit être dans le futur"
+      }
+    },
+    "list": {
+      "startingPrice": "Prix de Départ:",
+      "currentBid": "Offre Actuelle:",
+      "buyNow": "Achat Immédiat:",
+      "starts": "Commence:",
+      "ends": "Se termine:",
+      "timeLeft": "Temps Restant:",
+      "ended": "Terminée",
+      "by": "par",
+      "viewAuction": "Voir l'Enchère",
+      "page": "Page",
+      "of": "de",
+      "previous": "Précédent",
+      "next": "Suivant"
+    },
+    "view": {
+      "placeBid": "Faire une Offre",
+      "buyNow": "Achat Immédiat",
+      "makeOffer": "Faire une Offre",
+      "bidAmount": "Montant de l'Offre",
+      "minimumBid": "Offre minimum:",
+      "yourBid": "Votre offre",
+      "bidButton": "Faire une Offre",
+      "offerAmount": "Montant de l'Offre",
+      "offerButton": "Faire une Offre",
+      "bidHistory": "Historique des Offres",
+      "offers": "Offres",
+      "noBids": "Aucune offre pour le moment",
+      "noOffers": "Aucune offre pour le moment",
+      "timeRemaining": "Temps Restant",
+      "days": "j",
+      "hours": "h",
+      "minutes": "m",
+      "seconds": "s",
+      "reserveNotMet": "Réserve non atteinte",
+      "reserveMet": "Réserve atteinte",
+      "online": "en ligne",
+      "bidders": "enchérisseurs"
+    },
+    "bidding": {
+      "bidPlaced": "Offre placée avec succès",
+      "bidFailed": "Échec du placement de l'offre",
+      "bidTooLow": "Le montant de l'offre est trop bas",
+      "auctionEnded": "L'enchère est terminée",
+      "auctionNotActive": "L'enchère n'accepte pas d'offres",
+      "buyNowSuccess": "Enchère achetée avec succès",
+      "buyNowFailed": "Échec de l'achat de l'enchère",
+      "offerCreated": "Offre créée avec succès",
+      "offerFailed": "Échec de la création de l'offre",
+      "offerAccepted": "Offre acceptée",
+      "offerDeclined": "Offre refusée"
+    },
+    "currency": {
+      "USD": "USD - Dollar Américain",
+      "EUR": "EUR - Euro",
+      "GBP": "GBP - Livre Sterling",
+      "CAD": "CAD - Dollar Canadien",
+      "AUD": "AUD - Dollar Australien"
+    }
   }
 }

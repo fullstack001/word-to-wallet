@@ -333,5 +333,128 @@
       "title": "Programar una Reunión",
       "description": "¿Necesitas ayuda directa? Programa una reunión personalizada con nuestro equipo para discutir tus necesidades y obtener orientación experta."
     }
+  },
+  "auction": {
+    "title": "Subastas",
+    "subtitle": "Descubre y participa en subastas en vivo",
+    "myAuctions": "Mis Subastas",
+    "createAuction": "Crear Subasta",
+    "browseAll": "Explorar Todas las Subastas",
+    "manageAuctions": "Gestiona y rastrea tus listados de subastas",
+    "createNewAuction": "Crear Nueva Subasta",
+    "noAuctionsFound": "No se encontraron subastas",
+    "createFirstAuction": "Crea Tu Primera Subasta",
+    "filters": {
+      "allAuctions": "Todas las Subastas",
+      "scheduled": "Programadas",
+      "active": "Activas",
+      "sold": "Vendidas",
+      "ended": "Finalizadas"
+    },
+    "status": {
+      "scheduled": "Programada",
+      "active": "Activa",
+      "sold": "Vendida",
+      "soldBuyNow": "Vendida (Compra Ahora)",
+      "soldOffer": "Vendida (Oferta)",
+      "ended": "Finalizada",
+      "endedNoSale": "Finalizada (Sin Venta)",
+      "cancelled": "Cancelada"
+    },
+    "create": {
+      "title": "Crear Nueva Subasta",
+      "form": {
+        "title": "Título de la Subasta",
+        "titlePlaceholder": "Ingresa el título de la subasta",
+        "description": "Descripción",
+        "descriptionPlaceholder": "Describe tu artículo de subasta",
+        "currency": "Moneda",
+        "startingPrice": "Precio Inicial",
+        "startingPricePlaceholder": "0.00",
+        "reservePrice": "Precio de Reserva (Opcional)",
+        "reservePricePlaceholder": "Precio mínimo para vender",
+        "reservePriceHelp": "El precio mínimo que estás dispuesto a aceptar. Si no se alcanza, la subasta no se venderá.",
+        "buyNowPrice": "Precio de Compra Inmediata (Opcional)",
+        "buyNowPricePlaceholder": "Precio de compra instantánea",
+        "buyNowPriceHelp": "Permite a los compradores comprar inmediatamente a este precio.",
+        "startTime": "Hora de Inicio",
+        "endTime": "Hora de Finalización",
+        "extendSeconds": "Extensión Anti-Sniping (segundos)",
+        "extendSecondsPlaceholder": "30",
+        "extendSecondsHelp": "Extiende la subasta por estos segundos cuando se coloca una oferta en el último minuto.",
+        "minIncrement": "Incremento Mínimo de Oferta",
+        "minIncrementPlaceholder": "1.00",
+        "createButton": "Crear Subasta",
+        "cancelButton": "Cancelar"
+      },
+      "validation": {
+        "titleRequired": "El título, descripción, precio inicial, hora de inicio y hora de finalización son requeridos",
+        "startingPriceRequired": "El precio inicial debe ser mayor que 0",
+        "reservePriceInvalid": "El precio de reserva debe ser mayor que el precio inicial",
+        "buyNowPriceInvalid": "El precio de compra inmediata debe ser mayor que el precio inicial",
+        "reservePriceTooHigh": "El precio de reserva no puede ser mayor que el precio de compra inmediata",
+        "endTimeInvalid": "La hora de finalización debe ser después de la hora de inicio",
+        "startTimeInvalid": "La hora de inicio debe ser en el futuro"
+      }
+    },
+    "list": {
+      "startingPrice": "Precio Inicial:",
+      "currentBid": "Oferta Actual:",
+      "buyNow": "Compra Ahora:",
+      "starts": "Inicia:",
+      "ends": "Finaliza:",
+      "timeLeft": "Tiempo Restante:",
+      "ended": "Finalizada",
+      "by": "por",
+      "viewAuction": "Ver Subasta",
+      "page": "Página",
+      "of": "de",
+      "previous": "Anterior",
+      "next": "Siguiente"
+    },
+    "view": {
+      "placeBid": "Hacer Oferta",
+      "buyNow": "Compra Ahora",
+      "makeOffer": "Hacer Oferta",
+      "bidAmount": "Cantidad de Oferta",
+      "minimumBid": "Oferta mínima:",
+      "yourBid": "Tu oferta",
+      "bidButton": "Hacer Oferta",
+      "offerAmount": "Cantidad de Oferta",
+      "offerButton": "Hacer Oferta",
+      "bidHistory": "Historial de Ofertas",
+      "offers": "Ofertas",
+      "noBids": "Aún no hay ofertas",
+      "noOffers": "Aún no hay ofertas",
+      "timeRemaining": "Tiempo Restante",
+      "days": "d",
+      "hours": "h",
+      "minutes": "m",
+      "seconds": "s",
+      "reserveNotMet": "Reserva no alcanzada",
+      "reserveMet": "Reserva alcanzada",
+      "online": "en línea",
+      "bidders": "postores"
+    },
+    "bidding": {
+      "bidPlaced": "Oferta colocada exitosamente",
+      "bidFailed": "Error al colocar la oferta",
+      "bidTooLow": "La cantidad de la oferta es muy baja",
+      "auctionEnded": "La subasta ha finalizado",
+      "auctionNotActive": "La subasta no está aceptando ofertas",
+      "buyNowSuccess": "Subasta comprada exitosamente",
+      "buyNowFailed": "Error al comprar la subasta",
+      "offerCreated": "Oferta creada exitosamente",
+      "offerFailed": "Error al crear la oferta",
+      "offerAccepted": "Oferta aceptada",
+      "offerDeclined": "Oferta rechazada"
+    },
+    "currency": {
+      "USD": "USD - Dólar Estadounidense",
+      "EUR": "EUR - Euro",
+      "GBP": "GBP - Libra Esterlina",
+      "CAD": "CAD - Dólar Canadiense",
+      "AUD": "AUD - Dólar Australiano"
+    }
   }
 }

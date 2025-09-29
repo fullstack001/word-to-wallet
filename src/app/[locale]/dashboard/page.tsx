@@ -53,6 +53,18 @@ export default function DashboardPage() {
     navigate("/achievements");
   };
 
+  const handleNavigateToAuctions = () => {
+    navigate("/auctions");
+  };
+
+  const handleNavigateToMyAuctions = () => {
+    navigate("/auctions/my");
+  };
+
+  const handleNavigateToCreateAuction = () => {
+    navigate("/auctions/create");
+  };
+
   if (isLoading) {
     return <DashboardLoading />;
   }
@@ -91,6 +103,9 @@ export default function DashboardPage() {
             onNavigateToProfile={handleNavigateToProfile}
             onNavigateToSchedule={handleNavigateToSchedule}
             onNavigateToAchievements={handleNavigateToAchievements}
+            onNavigateToAuctions={handleNavigateToAuctions}
+            onNavigateToMyAuctions={handleNavigateToMyAuctions}
+            onNavigateToCreateAuction={handleNavigateToCreateAuction}
             subscription={user.subscription}
           />
         </div>
@@ -101,6 +116,8 @@ export default function DashboardPage() {
             onViewProfile={handleNavigateToProfile}
             onViewSchedule={handleNavigateToSchedule}
             onViewAchievements={handleNavigateToAchievements}
+            onViewAuctions={handleNavigateToAuctions}
+            onCreateAuction={handleNavigateToCreateAuction}
           />
         </div>
 

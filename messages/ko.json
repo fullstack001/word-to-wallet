@@ -321,5 +321,128 @@
       "title": "미팅 예약",
       "description": "직접적인 도움이 필요하신가요? 저희 팀과 개인 맞춤 미팅을 예약하여 귀하의 요구사항을 논의하고 전문가의 가이드를 받아보세요."
     }
+  },
+  "auction": {
+    "title": "경매",
+    "subtitle": "라이브 경매를 발견하고 참여하세요",
+    "myAuctions": "내 경매",
+    "createAuction": "경매 생성",
+    "browseAll": "모든 경매 둘러보기",
+    "manageAuctions": "경매 목록을 관리하고 추적하세요",
+    "createNewAuction": "새 경매 생성",
+    "noAuctionsFound": "경매를 찾을 수 없습니다",
+    "createFirstAuction": "첫 번째 경매를 생성하세요",
+    "filters": {
+      "allAuctions": "모든 경매",
+      "scheduled": "예정된",
+      "active": "진행 중",
+      "sold": "판매됨",
+      "ended": "종료됨"
+    },
+    "status": {
+      "scheduled": "예정됨",
+      "active": "진행 중",
+      "sold": "판매됨",
+      "soldBuyNow": "판매됨 (즉시 구매)",
+      "soldOffer": "판매됨 (제안)",
+      "ended": "종료됨",
+      "endedNoSale": "종료됨 (판매 없음)",
+      "cancelled": "취소됨"
+    },
+    "create": {
+      "title": "새 경매 생성",
+      "form": {
+        "title": "경매 제목",
+        "titlePlaceholder": "경매 제목을 입력하세요",
+        "description": "설명",
+        "descriptionPlaceholder": "경매 아이템을 설명하세요",
+        "currency": "통화",
+        "startingPrice": "시작 가격",
+        "startingPricePlaceholder": "0.00",
+        "reservePrice": "예약 가격 (선택사항)",
+        "reservePricePlaceholder": "판매할 최소 가격",
+        "reservePriceHelp": "수락할 최소 가격입니다. 달성되지 않으면 경매가 판매되지 않습니다.",
+        "buyNowPrice": "즉시 구매 가격 (선택사항)",
+        "buyNowPricePlaceholder": "즉시 구매 가격",
+        "buyNowPriceHelp": "구매자가 이 가격으로 즉시 구매할 수 있도록 합니다.",
+        "startTime": "시작 시간",
+        "endTime": "종료 시간",
+        "extendSeconds": "스나이핑 방지 연장 (초)",
+        "extendSecondsPlaceholder": "30",
+        "extendSecondsHelp": "마지막 분에 입찰이 있을 때 경매를 이만큼 연장합니다.",
+        "minIncrement": "최소 입찰 증가액",
+        "minIncrementPlaceholder": "1.00",
+        "createButton": "경매 생성",
+        "cancelButton": "취소"
+      },
+      "validation": {
+        "titleRequired": "제목, 설명, 시작 가격, 시작 시간, 종료 시간이 필요합니다",
+        "startingPriceRequired": "시작 가격은 0보다 커야 합니다",
+        "reservePriceInvalid": "예약 가격은 시작 가격보다 커야 합니다",
+        "buyNowPriceInvalid": "즉시 구매 가격은 시작 가격보다 커야 합니다",
+        "reservePriceTooHigh": "예약 가격은 즉시 구매 가격보다 클 수 없습니다",
+        "endTimeInvalid": "종료 시간은 시작 시간 이후여야 합니다",
+        "startTimeInvalid": "시작 시간은 미래여야 합니다"
+      }
+    },
+    "list": {
+      "startingPrice": "시작 가격:",
+      "currentBid": "현재 입찰:",
+      "buyNow": "즉시 구매:",
+      "starts": "시작:",
+      "ends": "종료:",
+      "timeLeft": "남은 시간:",
+      "ended": "종료됨",
+      "by": "작성자",
+      "viewAuction": "경매 보기",
+      "page": "페이지",
+      "of": "중",
+      "previous": "이전",
+      "next": "다음"
+    },
+    "view": {
+      "placeBid": "입찰하기",
+      "buyNow": "즉시 구매",
+      "makeOffer": "제안하기",
+      "bidAmount": "입찰 금액",
+      "minimumBid": "최소 입찰:",
+      "yourBid": "귀하의 입찰",
+      "bidButton": "입찰하기",
+      "offerAmount": "제안 금액",
+      "offerButton": "제안하기",
+      "bidHistory": "입찰 기록",
+      "offers": "제안",
+      "noBids": "아직 입찰이 없습니다",
+      "noOffers": "아직 제안이 없습니다",
+      "timeRemaining": "남은 시간",
+      "days": "일",
+      "hours": "시간",
+      "minutes": "분",
+      "seconds": "초",
+      "reserveNotMet": "예약 가격 미달",
+      "reserveMet": "예약 가격 달성",
+      "online": "온라인",
+      "bidders": "입찰자"
+    },
+    "bidding": {
+      "bidPlaced": "입찰이 성공적으로 제출되었습니다",
+      "bidFailed": "입찰 제출에 실패했습니다",
+      "bidTooLow": "입찰 금액이 너무 낮습니다",
+      "auctionEnded": "경매가 종료되었습니다",
+      "auctionNotActive": "경매가 입찰을 받지 않습니다",
+      "buyNowSuccess": "경매가 성공적으로 구매되었습니다",
+      "buyNowFailed": "경매 구매에 실패했습니다",
+      "offerCreated": "제안이 성공적으로 생성되었습니다",
+      "offerFailed": "제안 생성에 실패했습니다",
+      "offerAccepted": "제안이 수락되었습니다",
+      "offerDeclined": "제안이 거절되었습니다"
+    },
+    "currency": {
+      "USD": "USD - 미국 달러",
+      "EUR": "EUR - 유로",
+      "GBP": "GBP - 영국 파운드",
+      "CAD": "CAD - 캐나다 달러",
+      "AUD": "AUD - 호주 달러"
+    }
   }
 }

@@ -192,4 +192,127 @@ export interface TranslationMessages {
       review: string;
     };
   };
+  auction: {
+    title: string;
+    subtitle: string;
+    myAuctions: string;
+    createAuction: string;
+    browseAll: string;
+    manageAuctions: string;
+    createNewAuction: string;
+    noAuctionsFound: string;
+    createFirstAuction: string;
+    filters: {
+      allAuctions: string;
+      scheduled: string;
+      active: string;
+      sold: string;
+      ended: string;
+    };
+    status: {
+      scheduled: string;
+      active: string;
+      sold: string;
+      soldBuyNow: string;
+      soldOffer: string;
+      ended: string;
+      endedNoSale: string;
+      cancelled: string;
+    };
+    create: {
+      title: string;
+      form: {
+        title: string;
+        titlePlaceholder: string;
+        description: string;
+        descriptionPlaceholder: string;
+        currency: string;
+        startingPrice: string;
+        startingPricePlaceholder: string;
+        reservePrice: string;
+        reservePricePlaceholder: string;
+        reservePriceHelp: string;
+        buyNowPrice: string;
+        buyNowPricePlaceholder: string;
+        buyNowPriceHelp: string;
+        startTime: string;
+        endTime: string;
+        extendSeconds: string;
+        extendSecondsPlaceholder: string;
+        extendSecondsHelp: string;
+        minIncrement: string;
+        minIncrementPlaceholder: string;
+        createButton: string;
+        cancelButton: string;
+      };
+      validation: {
+        titleRequired: string;
+        startingPriceRequired: string;
+        reservePriceInvalid: string;
+        buyNowPriceInvalid: string;
+        reservePriceTooHigh: string;
+        endTimeInvalid: string;
+        startTimeInvalid: string;
+      };
+    };
+    list: {
+      startingPrice: string;
+      currentBid: string;
+      buyNow: string;
+      starts: string;
+      ends: string;
+      timeLeft: string;
+      ended: string;
+      by: string;
+      viewAuction: string;
+      page: string;
+      of: string;
+      previous: string;
+      next: string;
+    };
+    view: {
+      placeBid: string;
+      buyNow: string;
+      makeOffer: string;
+      bidAmount: string;
+      minimumBid: string;
+      yourBid: string;
+      bidButton: string;
+      offerAmount: string;
+      offerButton: string;
+      bidHistory: string;
+      offers: string;
+      noBids: string;
+      noOffers: string;
+      timeRemaining: string;
+      days: string;
+      hours: string;
+      minutes: string;
+      seconds: string;
+      reserveNotMet: string;
+      reserveMet: string;
+      online: string;
+      bidders: string;
+    };
+    bidding: {
+      bidPlaced: string;
+      bidFailed: string;
+      bidTooLow: string;
+      auctionEnded: string;
+      auctionNotActive: string;
+      buyNowSuccess: string;
+      buyNowFailed: string;
+      offerCreated: string;
+      offerFailed: string;
+      offerAccepted: string;
+      offerDeclined: string;
+    };
+    currency: {
+      USD: string;
+      EUR: string;
+      GBP: string;
+      CAD: string;
+      AUD: string;
+    };
+  };
 }

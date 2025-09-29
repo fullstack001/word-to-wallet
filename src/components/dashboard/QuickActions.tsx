@@ -7,6 +7,8 @@ import {
   UserIcon,
   CalendarIcon,
   TrophyIcon,
+  CurrencyDollarIcon,
+  PlusIcon,
 } from "@heroicons/react/24/outline";
 
 interface QuickActionsProps {
@@ -14,6 +16,8 @@ interface QuickActionsProps {
   onViewProfile: () => void;
   onViewSchedule: () => void;
   onViewAchievements: () => void;
+  onViewAuctions: () => void;
+  onCreateAuction: () => void;
 }
 
 export default function QuickActions({
@@ -21,6 +25,8 @@ export default function QuickActions({
   onViewProfile,
   onViewSchedule,
   onViewAchievements,
+  onViewAuctions,
+  onCreateAuction,
 }: QuickActionsProps) {
   const actions = [
     {
@@ -51,6 +57,20 @@ export default function QuickActions({
       color: "yellow",
       onClick: onViewAchievements,
     },
+    {
+      title: "Browse Auctions",
+      description: "Discover and bid on live auctions",
+      icon: CurrencyDollarIcon,
+      color: "red",
+      onClick: onViewAuctions,
+    },
+    {
+      title: "Create Auction",
+      description: "List your items for auction",
+      icon: PlusIcon,
+      color: "green",
+      onClick: onCreateAuction,
+    },
   ];
 
   const getColorClasses = (color: string) => {
@@ -59,6 +79,7 @@ export default function QuickActions({
       blue: "bg-blue-100 text-blue-600 hover:bg-blue-200",
       green: "bg-green-100 text-green-600 hover:bg-green-200",
       yellow: "bg-yellow-100 text-yellow-600 hover:bg-yellow-200",
+      red: "bg-red-100 text-red-600 hover:bg-red-200",
     };
     return colorMap[color as keyof typeof colorMap] || colorMap.purple;
   };

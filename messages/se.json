@@ -325,5 +325,128 @@
       "title": "Boka ett Möte",
       "description": "Behöver du direkt hjälp? Boka ett personligt möte med vårt team för att diskutera dina behov och få expertvägledning."
     }
+  },
+  "auction": {
+    "title": "Auktioner",
+    "subtitle": "Upptäck och delta i liveauktioner",
+    "myAuctions": "Mina Auktioner",
+    "createAuction": "Skapa Auktion",
+    "browseAll": "Bläddra Alla Auktioner",
+    "manageAuctions": "Hantera och spåra dina auktionslistor",
+    "createNewAuction": "Skapa Ny Auktion",
+    "noAuctionsFound": "Inga auktioner hittades",
+    "createFirstAuction": "Skapa Din Första Auktion",
+    "filters": {
+      "allAuctions": "Alla Auktioner",
+      "scheduled": "Schemalagda",
+      "active": "Aktiva",
+      "sold": "Sålda",
+      "ended": "Avslutade"
+    },
+    "status": {
+      "scheduled": "Schemalagd",
+      "active": "Aktiv",
+      "sold": "Såld",
+      "soldBuyNow": "Såld (Köp Nu)",
+      "soldOffer": "Såld (Erbjudande)",
+      "ended": "Avslutad",
+      "endedNoSale": "Avslutad (Ingen Försäljning)",
+      "cancelled": "Inställd"
+    },
+    "create": {
+      "title": "Skapa Ny Auktion",
+      "form": {
+        "title": "Auktionstitel",
+        "titlePlaceholder": "Ange auktionstitel",
+        "description": "Beskrivning",
+        "descriptionPlaceholder": "Beskriv din auktionsartikel",
+        "currency": "Valuta",
+        "startingPrice": "Startpris",
+        "startingPricePlaceholder": "0.00",
+        "reservePrice": "Reservpris (Valfritt)",
+        "reservePricePlaceholder": "Minsta pris att sälja för",
+        "reservePriceHelp": "Det lägsta pris du är villig att acceptera. Om det inte uppnås kommer auktionen inte att säljas.",
+        "buyNowPrice": "Köp Nu-pris (Valfritt)",
+        "buyNowPricePlaceholder": "Omedelbart köppris",
+        "buyNowPriceHelp": "Låt köpare köpa omedelbart till detta pris.",
+        "startTime": "Starttid",
+        "endTime": "Sluttid",
+        "extendSeconds": "Anti-Sniping Förlängning (sekunder)",
+        "extendSecondsPlaceholder": "30",
+        "extendSecondsHelp": "Förläng auktionen med så många sekunder när bud läggs under den sista minuten.",
+        "minIncrement": "Minsta Budökning",
+        "minIncrementPlaceholder": "1.00",
+        "createButton": "Skapa Auktion",
+        "cancelButton": "Avbryt"
+      },
+      "validation": {
+        "titleRequired": "Titel, beskrivning, startpris, starttid och sluttid krävs",
+        "startingPriceRequired": "Startpriset måste vara större än 0",
+        "reservePriceInvalid": "Reservpriset måste vara större än startpriset",
+        "buyNowPriceInvalid": "Köp Nu-priset måste vara större än startpriset",
+        "reservePriceTooHigh": "Reservpriset kan inte vara högre än Köp Nu-priset",
+        "endTimeInvalid": "Sluttiden måste vara efter starttiden",
+        "startTimeInvalid": "Starttiden måste vara i framtiden"
+      }
+    },
+    "list": {
+      "startingPrice": "Startpris:",
+      "currentBid": "Aktuellt Bud:",
+      "buyNow": "Köp Nu:",
+      "starts": "Startar:",
+      "ends": "Slutar:",
+      "timeLeft": "Tid Kvar:",
+      "ended": "Avslutad",
+      "by": "av",
+      "viewAuction": "Visa Auktion",
+      "page": "Sida",
+      "of": "av",
+      "previous": "Föregående",
+      "next": "Nästa"
+    },
+    "view": {
+      "placeBid": "Lägg Bud",
+      "buyNow": "Köp Nu",
+      "makeOffer": "Gör Erbjudande",
+      "bidAmount": "Budbelopp",
+      "minimumBid": "Minsta bud:",
+      "yourBid": "Ditt bud",
+      "bidButton": "Lägg Bud",
+      "offerAmount": "Erbjudandebelopp",
+      "offerButton": "Gör Erbjudande",
+      "bidHistory": "Budhistorik",
+      "offers": "Erbjudanden",
+      "noBids": "Inga bud än",
+      "noOffers": "Inga erbjudanden än",
+      "timeRemaining": "Tid Kvar",
+      "days": "d",
+      "hours": "h",
+      "minutes": "m",
+      "seconds": "s",
+      "reserveNotMet": "Reserv inte uppnått",
+      "reserveMet": "Reserv uppnått",
+      "online": "online",
+      "bidders": "budgivare"
+    },
+    "bidding": {
+      "bidPlaced": "Bud placerat framgångsrikt",
+      "bidFailed": "Misslyckades att placera bud",
+      "bidTooLow": "Budbeloppet är för lågt",
+      "auctionEnded": "Auktionen har avslutats",
+      "auctionNotActive": "Auktionen accepterar inte bud",
+      "buyNowSuccess": "Auktion köpt framgångsrikt",
+      "buyNowFailed": "Misslyckades att köpa auktion",
+      "offerCreated": "Erbjudande skapat framgångsrikt",
+      "offerFailed": "Misslyckades att skapa erbjudande",
+      "offerAccepted": "Erbjudande accepterat",
+      "offerDeclined": "Erbjudande avslaget"
+    },
+    "currency": {
+      "USD": "USD - Amerikansk Dollar",
+      "EUR": "EUR - Euro",
+      "GBP": "GBP - Brittiskt Pund",
+      "CAD": "CAD - Kanadensisk Dollar",
+      "AUD": "AUD - Australisk Dollar"
+    }
   }
 }

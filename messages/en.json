@@ -325,5 +325,128 @@
       "title": "Schedule a Meeting",
       "description": "Need direct help? Schedule a personalized meeting with our team to discuss your needs and get expert guidance."
     }
+  },
+  "auction": {
+    "title": "Auctions",
+    "subtitle": "Discover and participate in live auctions",
+    "myAuctions": "My Auctions",
+    "createAuction": "Create Auction",
+    "browseAll": "Browse All Auctions",
+    "manageAuctions": "Manage and track your auction listings",
+    "createNewAuction": "Create New Auction",
+    "noAuctionsFound": "No auctions found",
+    "createFirstAuction": "Create Your First Auction",
+    "filters": {
+      "allAuctions": "All Auctions",
+      "scheduled": "Scheduled",
+      "active": "Active",
+      "sold": "Sold",
+      "ended": "Ended"
+    },
+    "status": {
+      "scheduled": "Scheduled",
+      "active": "Active",
+      "sold": "Sold",
+      "soldBuyNow": "Sold (Buy Now)",
+      "soldOffer": "Sold (Offer)",
+      "ended": "Ended",
+      "endedNoSale": "Ended (No Sale)",
+      "cancelled": "Cancelled"
+    },
+    "create": {
+      "title": "Create New Auction",
+      "form": {
+        "title": "Auction Title",
+        "titlePlaceholder": "Enter auction title",
+        "description": "Description",
+        "descriptionPlaceholder": "Describe your auction item",
+        "currency": "Currency",
+        "startingPrice": "Starting Price",
+        "startingPricePlaceholder": "0.00",
+        "reservePrice": "Reserve Price (Optional)",
+        "reservePricePlaceholder": "Minimum price to sell",
+        "reservePriceHelp": "The minimum price you're willing to accept. If not met, the auction won't sell.",
+        "buyNowPrice": "Buy Now Price (Optional)",
+        "buyNowPricePlaceholder": "Instant purchase price",
+        "buyNowPriceHelp": "Allow buyers to purchase immediately at this price.",
+        "startTime": "Start Time",
+        "endTime": "End Time",
+        "extendSeconds": "Anti-Sniping Extension (seconds)",
+        "extendSecondsPlaceholder": "30",
+        "extendSecondsHelp": "Extend auction by this many seconds when bid is placed in the last minute.",
+        "minIncrement": "Minimum Bid Increment",
+        "minIncrementPlaceholder": "1.00",
+        "createButton": "Create Auction",
+        "cancelButton": "Cancel"
+      },
+      "validation": {
+        "titleRequired": "Title, description, starting price, start time, and end time are required",
+        "startingPriceRequired": "Starting price must be greater than 0",
+        "reservePriceInvalid": "Reserve price must be greater than starting price",
+        "buyNowPriceInvalid": "Buy now price must be greater than starting price",
+        "reservePriceTooHigh": "Reserve price cannot be higher than buy now price",
+        "endTimeInvalid": "End time must be after start time",
+        "startTimeInvalid": "Start time must be in the future"
+      }
+    },
+    "list": {
+      "startingPrice": "Starting Price:",
+      "currentBid": "Current Bid:",
+      "buyNow": "Buy Now:",
+      "starts": "Starts:",
+      "ends": "Ends:",
+      "timeLeft": "Time Left:",
+      "ended": "Ended",
+      "by": "by",
+      "viewAuction": "View Auction",
+      "page": "Page",
+      "of": "of",
+      "previous": "Previous",
+      "next": "Next"
+    },
+    "view": {
+      "placeBid": "Place Bid",
+      "buyNow": "Buy Now",
+      "makeOffer": "Make Offer",
+      "bidAmount": "Bid Amount",
+      "minimumBid": "Minimum bid:",
+      "yourBid": "Your bid",
+      "bidButton": "Place Bid",
+      "offerAmount": "Offer Amount",
+      "offerButton": "Make Offer",
+      "bidHistory": "Bid History",
+      "offers": "Offers",
+      "noBids": "No bids yet",
+      "noOffers": "No offers yet",
+      "timeRemaining": "Time Remaining",
+      "days": "d",
+      "hours": "h",
+      "minutes": "m",
+      "seconds": "s",
+      "reserveNotMet": "Reserve not met",
+      "reserveMet": "Reserve met",
+      "online": "online",
+      "bidders": "bidders"
+    },
+    "bidding": {
+      "bidPlaced": "Bid placed successfully",
+      "bidFailed": "Failed to place bid",
+      "bidTooLow": "Bid amount is too low",
+      "auctionEnded": "Auction has ended",
+      "auctionNotActive": "Auction is not accepting bids",
+      "buyNowSuccess": "Auction purchased successfully",
+      "buyNowFailed": "Failed to purchase auction",
+      "offerCreated": "Offer created successfully",
+      "offerFailed": "Failed to create offer",
+      "offerAccepted": "Offer accepted",
+      "offerDeclined": "Offer declined"
+    },
+    "currency": {
+      "USD": "USD - US Dollar",
+      "EUR": "EUR - Euro",
+      "GBP": "GBP - British Pound",
+      "CAD": "CAD - Canadian Dollar",
+      "AUD": "AUD - Australian Dollar"
+    }
   }
 }

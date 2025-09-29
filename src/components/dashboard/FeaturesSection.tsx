@@ -12,6 +12,7 @@ import {
   TrophyIcon,
   ArrowRightIcon,
   LockClosedIcon,
+  CurrencyDollarIcon,
 } from "@heroicons/react/24/outline";
 
 interface FeaturesSectionProps {
@@ -19,6 +20,9 @@ interface FeaturesSectionProps {
   onNavigateToProfile: () => void;
   onNavigateToSchedule: () => void;
   onNavigateToAchievements: () => void;
+  onNavigateToAuctions: () => void;
+  onNavigateToMyAuctions: () => void;
+  onNavigateToCreateAuction: () => void;
   subscription?: {
     stripeCustomerId?: string;
     stripeSubscriptionId?: string;
@@ -38,6 +42,9 @@ export default function FeaturesSection({
   onNavigateToProfile,
   onNavigateToSchedule,
   onNavigateToAchievements,
+  onNavigateToAuctions,
+  onNavigateToMyAuctions,
+  onNavigateToCreateAuction,
   subscription,
 }: FeaturesSectionProps) {
   console.log(subscription);
@@ -101,6 +108,16 @@ export default function FeaturesSection({
       features: ["Email Campaigns", "Social Media", "AI Copy Assistant"],
       availableFor: ["trial", "paid"],
     },
+    {
+      title: "Auction Marketplace",
+      description: "Create and participate in live auctions for your books",
+      icon: CurrencyDollarIcon,
+      color: "red",
+      onClick: onNavigateToAuctions,
+      status: hasActiveSubscription || isTrialUser ? "active" : "locked",
+      features: ["Create Auctions", "Bid on Items", "Manage Listings"],
+      availableFor: ["trial", "paid"],
+    },
   ];
 
   // Show all features with appropriate status based on subscription
@@ -134,6 +151,7 @@ export default function FeaturesSection({
       yellow: "bg-yellow-100 text-yellow-600",
       indigo: "bg-indigo-100 text-indigo-600",
       pink: "bg-pink-100 text-pink-600",
+      red: "bg-red-100 text-red-600",
     };
 
     const statusClasses = {
