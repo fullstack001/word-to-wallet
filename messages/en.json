@@ -591,6 +591,7 @@
     "title": "ARC Campaigns",
     "subtitle": "Create and manage Advanced Reader Copy campaigns",
     "createCampaign": "Create Campaign",
+    "cancel": "Cancel",
     "totalLinks": "Total Links",
     "activeLinks": "Active Links",
     "expiredLinks": "Expired Links",

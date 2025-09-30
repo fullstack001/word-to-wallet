@@ -35,14 +35,17 @@ export function BookFunnelConnectModal({
     setError(null);
 
     try {
-      const response = await fetch("/api/integrations/bookfunnel", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
-        body: JSON.stringify({ apiKey: apiKey.trim() }),
-      });
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/integrations/bookfunnel`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+          },
+          body: JSON.stringify({ apiKey: apiKey.trim() }),
+        }
+      );
 
       if (response.ok) {
         onSuccess();
