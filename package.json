@@ -5,10 +5,8 @@
   "scripts": {
     "dev": "next dev -p 3065",
     "build": "next build",
-    "postbuild": "node scripts/create-uploads-dir.js",
     "start": "next start -p 3065",
     "lint": "next lint",
-    "copy-pdfjs-worker": "powershell -ExecutionPolicy Bypass -File scripts/copy-pdfjs-worker.ps1",
     "setup-env": "node scripts/setup-env.js",
     "copy-env": "node scripts/copy-env-template.js"
   },
