@@ -86,8 +86,8 @@ function CheckoutForm({
         return;
       }
 
-      if (subscription && subscription.subscriptionId) {
-        await cancelSubscription(subscription.subscriptionId, user.email);
+      if (subscription && subscription.stripeSubscriptionId) {
+        await cancelSubscription(true); // Cancel immediately
       }
 
       // Call backend to create subscription

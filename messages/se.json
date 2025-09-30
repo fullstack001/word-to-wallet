@@ -2,7 +2,8 @@
   "common": {
     "loading": "Laddar...",
     "error": "Fel",
-    "configNotFound": "Konfiguration hittades inte för hemsidan."
+    "configNotFound": "Konfiguration hittades inte för hemsidan.",
+    "home": "Hem"
   },
   "errors": {
     "oops": "Oj!",

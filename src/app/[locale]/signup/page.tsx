@@ -3,15 +3,15 @@
 import React, { useState, useEffect } from "react";
 import { useTranslations } from "next-intl";
 import { useDispatch } from "react-redux";
-import { useLocalizedNavigation } from "../../../utils/navigation";
-import { setUser } from "../../../store/slices/userSlice";
-import { login } from "../../../store/slices/authSlice";
-import api from "../../../utils/api";
-import SignupHeader from "../../../components/signup/SignupHeader";
-import SignupForm from "../../../components/signup/SignupForm";
-import SignupFeatures from "../../../components/signup/SignupFeatures";
-import { useFormValidation } from "../../../hooks/useFormValidation";
-import { VALIDATION_SCHEMAS } from "../../../utils/validation";
+import { useLocalizedNavigation } from "@/utils/navigation";
+import { setUser } from "@/store/slices/userSlice";
+import { login } from "@/store/slices/authSlice";
+import api from "@/utils/api";
+import SignupHeader from "@/components/signup/SignupHeader";
+import SignupForm from "@/components/signup/SignupForm";
+import SignupFeatures from "@/components/signup/SignupFeatures";
+import { useFormValidation } from "@/hooks/useFormValidation";
+import { VALIDATION_SCHEMAS } from "@/utils/validation";
 
 export default function SignupPage() {
   const t = useTranslations();

@@ -27,7 +27,7 @@ export default function SubjectModal({
     if (subject) {
       setFormData({
         name: subject.name,
-        description: subject.description,
+        description: subject.description || "",
       });
     }
   }, [subject]);

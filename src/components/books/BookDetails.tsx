@@ -1,6 +1,7 @@
 "use client";
 
-import { useTranslations } from "next-intl";
+import React, { useState, useRef } from "react";
+import { useTranslations, useLocale } from "next-intl";
 import {
   BookOpenIcon,
   UserIcon,
@@ -8,7 +9,10 @@ import {
   LanguageIcon,
   TagIcon,
   DocumentTextIcon,
+  GlobeAltIcon,
 } from "@heroicons/react/24/outline";
+import { useLocalizedNavigation } from "@/utils/navigation";
+import { locales, localeNames } from "@/i18n/config";
 
 interface Book {
   _id: string;
@@ -32,14 +36,71 @@ interface BookDetailsProps {
 
 export function BookDetails({ book }: BookDetailsProps) {
   const t = useTranslations("books");
+  const locale = useLocale();
+  const { switchLocale } = useLocalizedNavigation();
+  const [showLanguageDropdown, setShowLanguageDropdown] = useState(false);
+  const languageDropdownRef = useRef<HTMLDivElement>(null);
+
+  // Close language dropdown when clicking outside
+  React.useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        languageDropdownRef.current &&
+        !languageDropdownRef.current.contains(event.target as Node)
+      ) {
+        setShowLanguageDropdown(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
     <div className="bg-white overflow-hidden shadow rounded-lg">
       <div className="p-6">
-        <h3 className="text-lg font-medium text-gray-900 mb-4 flex items-center">
-          <DocumentTextIcon className="h-5 w-5 mr-2" />
-          {t("bookDetails")}
-        </h3>
+        <div className="flex items-center justify-between mb-4">
+          <h3 className="text-lg font-medium text-gray-900 flex items-center">
+            <DocumentTextIcon className="h-5 w-5 mr-2" />
+            {t("bookDetails")}
+          </h3>
+
+          {/* Language Switcher */}
+          <div className="relative" ref={languageDropdownRef}>
+            <button
+              onClick={() => setShowLanguageDropdown(!showLanguageDropdown)}
+              className="inline-flex items-center px-2 py-1 border border-gray-300 shadow-sm text-xs leading-4 font-medium rounded text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+            >
+              <GlobeAltIcon className="h-3 w-3 mr-1" />
+              {localeNames[locale as keyof typeof localeNames]}
+            </button>
+
+            {showLanguageDropdown && (
+              <div className="absolute right-0 mt-1 w-40 bg-white rounded-md shadow-lg z-10 border border-gray-200">
+                <div className="py-1">
+                  {locales.map((loc) => (
+                    <button
+                      key={loc}
+                      onClick={() => {
+                        switchLocale(loc);
+                        setShowLanguageDropdown(false);
+                      }}
+                      className={`w-full text-left px-3 py-2 text-xs hover:bg-gray-100 transition-colors ${
+                        locale === loc
+                          ? "bg-blue-50 text-blue-700 font-medium"
+                          : "text-gray-700"
+                      }`}
+                    >
+                      {localeNames[loc]}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
 
         <dl className="grid grid-cols-1 gap-x-4 gap-y-6 sm:grid-cols-2">
           <div>

@@ -2,7 +2,8 @@
   "common": {
     "loading": "Loading...",
     "error": "Error",
-    "configNotFound": "Configuration not found for home page."
+    "configNotFound": "Configuration not found for home page.",
+    "home": "Home"
   },
   "errors": {
     "oops": "Oops!",

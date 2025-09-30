@@ -16,12 +16,13 @@ import {
 import StripePaymentForm from "../../../components/payment/StripePaymentForm";
 
 interface CheckoutPageProps {
-  params: {
+  params: Promise<{
     locale: string;
-  };
+  }>;
 }
 
-export default function CheckoutPage({ params }: CheckoutPageProps) {
+export default async function CheckoutPage({ params }: CheckoutPageProps) {
+  const { locale } = await params;
   const dispatch = useDispatch();
   const { navigate } = useLocalizedNavigation();
   const user = useSelector((state: RootState) => state.user);

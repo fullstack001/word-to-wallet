@@ -1,14 +1,17 @@
 "use client";
 
-import { useState, useRef } from "react";
-import { useTranslations } from "next-intl";
+import React, { useState, useRef } from "react";
+import { useTranslations, useLocale } from "next-intl";
 import {
   XMarkIcon,
   CloudArrowUpIcon,
   DocumentIcon,
   ExclamationTriangleIcon,
   CheckCircleIcon,
+  GlobeAltIcon,
 } from "@heroicons/react/24/outline";
+import { useLocalizedNavigation } from "@/utils/navigation";
+import { locales, localeNames } from "@/i18n/config";
 
 interface BookUploadModalProps {
   onClose: () => void;
@@ -17,6 +20,9 @@ interface BookUploadModalProps {
 
 export function BookUploadModal({ onClose, onSuccess }: BookUploadModalProps) {
   const t = useTranslations("books");
+  const locale = useLocale();
+  const { switchLocale } = useLocalizedNavigation();
+
   const [formData, setFormData] = useState({
     title: "",
     author: "",
@@ -32,7 +38,9 @@ export function BookUploadModal({ onClose, onSuccess }: BookUploadModalProps) {
   const [uploading, setUploading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [dragActive, setDragActive] = useState(false);
+  const [showLanguageDropdown, setShowLanguageDropdown] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const languageDropdownRef = useRef<HTMLDivElement>(null);
 
   const handleDrag = (e: React.DragEvent) => {
     e.preventDefault();
@@ -133,6 +141,23 @@ export function BookUploadModal({ onClose, onSuccess }: BookUploadModalProps) {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
+  // Close language dropdown when clicking outside
+  React.useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        languageDropdownRef.current &&
+        !languageDropdownRef.current.contains(event.target as Node)
+      ) {
+        setShowLanguageDropdown(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   return (
     <div className="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full z-50">
       <div className="relative top-20 mx-auto p-5 border w-11/12 md:w-3/4 lg:w-1/2 shadow-lg rounded-md bg-white">
@@ -140,12 +165,48 @@ export function BookUploadModal({ onClose, onSuccess }: BookUploadModalProps) {
           <h3 className="text-lg font-medium text-gray-900">
             {t("uploadBook")}
           </h3>
-          <button
-            onClick={onClose}
-            className="text-gray-400 hover:text-gray-600"
-          >
-            <XMarkIcon className="h-6 w-6" />
-          </button>
+          <div className="flex items-center space-x-3">
+            {/* Language Switcher */}
+            <div className="relative" ref={languageDropdownRef}>
+              <button
+                onClick={() => setShowLanguageDropdown(!showLanguageDropdown)}
+                className="inline-flex items-center px-2 py-1 border border-gray-300 shadow-sm text-xs leading-4 font-medium rounded text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+              >
+                <GlobeAltIcon className="h-3 w-3 mr-1" />
+                {localeNames[locale as keyof typeof localeNames]}
+              </button>
+
+              {showLanguageDropdown && (
+                <div className="absolute right-0 mt-1 w-40 bg-white rounded-md shadow-lg z-10 border border-gray-200">
+                  <div className="py-1">
+                    {locales.map((loc) => (
+                      <button
+                        key={loc}
+                        onClick={() => {
+                          switchLocale(loc);
+                          setShowLanguageDropdown(false);
+                        }}
+                        className={`w-full text-left px-3 py-2 text-xs hover:bg-gray-100 transition-colors ${
+                          locale === loc
+                            ? "bg-blue-50 text-blue-700 font-medium"
+                            : "text-gray-700"
+                        }`}
+                      >
+                        {localeNames[loc]}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+
+            <button
+              onClick={onClose}
+              className="text-gray-400 hover:text-gray-600"
+            >
+              <XMarkIcon className="h-6 w-6" />
+            </button>
+          </div>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-6">

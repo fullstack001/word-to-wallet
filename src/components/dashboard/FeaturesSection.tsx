@@ -19,6 +19,7 @@ interface FeaturesSectionProps {
   onNavigateToCourses: () => void;
   onNavigateToProfile: () => void;
   onNavigateToSchedule: () => void;
+  onNavigateToBooks: () => void;
   onNavigateToAchievements: () => void;
   onNavigateToAuctions: () => void;
   onNavigateToMyAuctions: () => void;
@@ -41,6 +42,7 @@ export default function FeaturesSection({
   onNavigateToCourses,
   onNavigateToProfile,
   onNavigateToSchedule,
+  onNavigateToBooks,
   onNavigateToAchievements,
   onNavigateToAuctions,
   onNavigateToMyAuctions,
@@ -73,7 +75,7 @@ export default function FeaturesSection({
       description: "Upload and manage your EPUB3 books and metadata",
       icon: AcademicCapIcon,
       color: "green",
-      onClick: () => {},
+      onClick: onNavigateToBooks,
       status: hasActiveSubscription || isTrialUser ? "active" : "locked",
       features: ["Book Upload", "Metadata Management", "File Storage"],
       availableFor: ["trial", "paid"],

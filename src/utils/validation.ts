@@ -268,7 +268,7 @@ export function validateFieldRealtime(
 
   // For custom validation with form data context
   if (rule.custom && typeof rule.custom === "function") {
-    return rule.custom(value, formData);
+    return rule.custom(value);
   }
 
   return validateField(value, rule, fieldName);

@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback } from "react";
 import { useDispatch } from "react-redux";
-import { setUser } from "../store/slices/userSlice";
+import { setUser, updateSubscription } from "../store/slices/userSlice";
 
 interface Course {
   _id: string;
@@ -111,19 +111,17 @@ export function useDashboardData(): UseDashboardDataReturn {
         // Update user subscription info in Redux if available
         if (subscription) {
           dispatch(
-            setUser({
-              subscription: {
-                stripeCustomerId: subscription.stripeCustomerId,
-                stripeSubscriptionId: subscription.stripeSubscriptionId,
-                status: subscription.status,
-                plan: subscription.plan,
-                trialStart: subscription.trialStart,
-                trialEnd: subscription.trialEnd,
-                currentPeriodStart: subscription.currentPeriodStart,
-                currentPeriodEnd: subscription.currentPeriodEnd,
-                cancelAtPeriodEnd: subscription.cancelAtPeriodEnd,
-                canceledAt: subscription.canceledAt,
-              },
+            updateSubscription({
+              stripeCustomerId: subscription.stripeCustomerId,
+              stripeSubscriptionId: subscription.stripeSubscriptionId,
+              status: subscription.status,
+              plan: subscription.plan,
+              trialStart: subscription.trialStart,
+              trialEnd: subscription.trialEnd,
+              currentPeriodStart: subscription.currentPeriodStart,
+              currentPeriodEnd: subscription.currentPeriodEnd,
+              cancelAtPeriodEnd: subscription.cancelAtPeriodEnd,
+              canceledAt: subscription.canceledAt,
             })
           );
         }

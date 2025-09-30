@@ -2,7 +2,8 @@
   "common": {
     "loading": "Chargement...",
     "error": "Erreur",
-    "configNotFound": "Configuration non trouvée pour la page d'accueil."
+    "configNotFound": "Configuration non trouvée pour la page d'accueil.",
+    "home": "Accueil"
   },
   "errors": {
     "oops": "Oups !",

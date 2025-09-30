@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useTranslations } from "next-intl";
-import Link from "next/link";
+import { useLocalizedNavigation } from "@/utils/navigation";
 import {
   BookOpenIcon,
   CloudArrowUpIcon,
@@ -49,6 +49,7 @@ export function BookList({
 }: BookListProps) {
   const t = useTranslations("books");
   const [deletingId, setDeletingId] = useState<string | null>(null);
+  const { navigate } = useLocalizedNavigation();
 
   const getStatusIcon = (status: string) => {
     switch (status) {
@@ -190,12 +191,12 @@ export function BookList({
                 {/* Book Info */}
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center space-x-2">
-                    <Link
-                      href={`/books/${book._id}`}
+                    <div
+                      onClick={() => navigate(`/books/${book._id}`)}
                       className="text-sm font-medium text-gray-900 hover:text-blue-600 truncate"
                     >
                       {book.title}
-                    </Link>
+                    </div>
                     <span
                       className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${getStatusColor(
                         book.status
@@ -223,20 +224,20 @@ export function BookList({
 
               {/* Actions */}
               <div className="flex items-center space-x-2">
-                <Link
-                  href={`/books/${book._id}`}
+                <div
+                  onClick={() => navigate(`/books/${book._id}`)}
                   className="p-2 text-gray-400 hover:text-gray-600"
                   title={t("view")}
                 >
                   <EyeIcon className="h-4 w-4" />
-                </Link>
-                <Link
-                  href={`/books/${book._id}/edit`}
+                </div>
+                <div
+                  onClick={() => navigate(`/books/${book._id}/edit`)}
                   className="p-2 text-gray-400 hover:text-gray-600"
                   title={t("edit")}
                 >
                   <PencilIcon className="h-4 w-4" />
-                </Link>
+                </div>
                 <button
                   onClick={() => handleDelete(book._id)}
                   disabled={deletingId === book._id}

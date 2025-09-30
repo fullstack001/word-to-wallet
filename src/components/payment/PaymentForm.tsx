@@ -80,11 +80,11 @@ export default function PaymentForm({
             isAdmin: (user.isAdmin as boolean) || false, // Add isAdmin property
             subscription: subscription
               ? {
-                  subscriptionId: subscription.subscriptionId as string,
+                  stripeSubscriptionId: subscription.subscriptionId as string,
                   plan: subscription.plan as string,
-                  subscriptionType: subscription.subscriptionType as string,
-                  subscribedDate: subscription.subscribedDate as string,
-                  expiryDate: subscription.expiryDate as string,
+                  status: subscription.subscriptionType as string,
+                  currentPeriodStart: subscription.subscribedDate as string,
+                  currentPeriodEnd: subscription.expiryDate as string,
                 }
               : null,
           })

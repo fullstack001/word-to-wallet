@@ -2,7 +2,8 @@
   "common": {
     "loading": "Cargando...",
     "error": "Error",
-    "configNotFound": "Configuración no encontrada para la página de inicio."
+    "configNotFound": "Configuración no encontrada para la página de inicio.",
+    "home": "Inicio"
   },
   "errors": {
     "oops": "¡Ups!",

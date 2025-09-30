@@ -1,27 +1,36 @@
 "use client";
 
-import { useState } from "react";
-import { useTranslations } from "next-intl";
+import React, { useState, useRef } from "react";
+import { useTranslations, useLocale } from "next-intl";
 import {
   MagnifyingGlassIcon,
   FunnelIcon,
   XMarkIcon,
+  GlobeAltIcon,
 } from "@heroicons/react/24/outline";
+import { useLocalizedNavigation } from "@/utils/navigation";
+import { locales, localeNames } from "@/i18n/config";
+
+type BookFiltersType = {
+  search: string;
+  status: string;
+  genre: string;
+  language: string;
+  author: string;
+};
 
 interface BookFiltersProps {
-  filters: {
-    search: string;
-    status: string;
-    genre: string;
-    language: string;
-    author: string;
-  };
-  onFiltersChange: (filters: typeof BookFiltersProps.prototype.filters) => void;
+  filters: BookFiltersType;
+  onFiltersChange: (filters: BookFiltersType) => void;
 }
 
 export function BookFilters({ filters, onFiltersChange }: BookFiltersProps) {
   const t = useTranslations("books");
+  const locale = useLocale();
+  const { switchLocale } = useLocalizedNavigation();
   const [showAdvanced, setShowAdvanced] = useState(false);
+  const [showLanguageDropdown, setShowLanguageDropdown] = useState(false);
+  const languageDropdownRef = useRef<HTMLDivElement>(null);
 
   const handleFilterChange = (key: string, value: string) => {
     onFiltersChange({
@@ -42,6 +51,23 @@ export function BookFilters({ filters, onFiltersChange }: BookFiltersProps) {
 
   const hasActiveFilters = Object.values(filters).some((value) => value !== "");
 
+  // Close language dropdown when clicking outside
+  React.useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        languageDropdownRef.current &&
+        !languageDropdownRef.current.contains(event.target as Node)
+      ) {
+        setShowLanguageDropdown(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   return (
     <div className="bg-white shadow rounded-lg mb-6">
       <div className="p-6">
@@ -50,15 +76,51 @@ export function BookFilters({ filters, onFiltersChange }: BookFiltersProps) {
             <FunnelIcon className="h-5 w-5 mr-2" />
             {t("filters")}
           </h3>
-          {hasActiveFilters && (
-            <button
-              onClick={clearFilters}
-              className="text-sm text-blue-600 hover:text-blue-500 flex items-center"
-            >
-              <XMarkIcon className="h-4 w-4 mr-1" />
-              {t("clearFilters")}
-            </button>
-          )}
+          <div className="flex items-center space-x-3">
+            {/* Language Switcher */}
+            <div className="relative" ref={languageDropdownRef}>
+              <button
+                onClick={() => setShowLanguageDropdown(!showLanguageDropdown)}
+                className="inline-flex items-center px-2 py-1 border border-gray-300 shadow-sm text-xs leading-4 font-medium rounded text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+              >
+                <GlobeAltIcon className="h-3 w-3 mr-1" />
+                {localeNames[locale as keyof typeof localeNames]}
+              </button>
+
+              {showLanguageDropdown && (
+                <div className="absolute right-0 mt-1 w-40 bg-white rounded-md shadow-lg z-10 border border-gray-200">
+                  <div className="py-1">
+                    {locales.map((loc) => (
+                      <button
+                        key={loc}
+                        onClick={() => {
+                          switchLocale(loc);
+                          setShowLanguageDropdown(false);
+                        }}
+                        className={`w-full text-left px-3 py-2 text-xs hover:bg-gray-100 transition-colors ${
+                          locale === loc
+                            ? "bg-blue-50 text-blue-700 font-medium"
+                            : "text-gray-700"
+                        }`}
+                      >
+                        {localeNames[loc]}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {hasActiveFilters && (
+              <button
+                onClick={clearFilters}
+                className="text-sm text-blue-600 hover:text-blue-500 flex items-center"
+              >
+                <XMarkIcon className="h-4 w-4 mr-1" />
+                {t("clearFilters")}
+              </button>
+            )}
+          </div>
         </div>
 
         {/* Search */}

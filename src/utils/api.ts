@@ -1,7 +1,6 @@
 // API utility functions for consistent API calls
 
-const API_BASE_URL =
-  process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL;
 
 export interface ApiResponse<T = any> {
   success: boolean;
@@ -23,6 +22,7 @@ export const api = {
     options: RequestInit = {}
   ): Promise<ApiResponse<T>> {
     const url = `${API_BASE_URL}${endpoint}`;
+    console.log(url);
 
     const defaultHeaders: HeadersInit = {
       "Content-Type": "application/json",

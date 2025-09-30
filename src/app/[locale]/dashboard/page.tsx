@@ -49,6 +49,10 @@ export default function DashboardPage() {
     navigate("/schedule");
   };
 
+  const handleNavigateToBooks = () => {
+    navigate("/books");
+  };
+
   const handleNavigateToAchievements = () => {
     navigate("/achievements");
   };
@@ -102,6 +106,7 @@ export default function DashboardPage() {
             onNavigateToCourses={handleNavigateToCourses}
             onNavigateToProfile={handleNavigateToProfile}
             onNavigateToSchedule={handleNavigateToSchedule}
+            onNavigateToBooks={handleNavigateToBooks}
             onNavigateToAchievements={handleNavigateToAchievements}
             onNavigateToAuctions={handleNavigateToAuctions}
             onNavigateToMyAuctions={handleNavigateToMyAuctions}

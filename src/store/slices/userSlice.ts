@@ -50,6 +50,22 @@ const userSlice = createSlice({
         localStorage.setItem("userData", JSON.stringify(action.payload));
       }
     },
+    updateSubscription(
+      state,
+      action: PayloadAction<UserState["subscription"]>
+    ) {
+      state.subscription = action.payload;
+
+      // Update localStorage if it exists
+      if (typeof window !== "undefined") {
+        const userData = localStorage.getItem("userData");
+        if (userData) {
+          const parsedData = JSON.parse(userData);
+          parsedData.subscription = action.payload;
+          localStorage.setItem("userData", JSON.stringify(parsedData));
+        }
+      }
+    },
     clearUser(state) {
       state.id = "";
       state.name = ""; // Clear name
@@ -67,5 +83,5 @@ const userSlice = createSlice({
   },
 });
 
-export const { setUser, clearUser } = userSlice.actions;
+export const { setUser, updateSubscription, clearUser } = userSlice.actions;
 export default userSlice.reducer;
