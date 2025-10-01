@@ -9,7 +9,7 @@ export async function GET(
   try {
     const { id, type, filename } = await params;
     const backendUrl =
-      process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
+      process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:5000/api";
 
     const response = await fetch(
       `${backendUrl}/courses/${id}/multimedia/${type}/${filename}`,

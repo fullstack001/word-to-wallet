@@ -72,7 +72,7 @@ export default function BookDetailPage() {
       setLoading(true);
       const response = await fetch(
         `${
-          process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api"
+          process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:5000/api"
         }/books/${bookId}`,
         {
           headers: {
@@ -99,7 +99,7 @@ export default function BookDetailPage() {
     try {
       const response = await fetch(
         `${
-          process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api"
+          process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:5000/api"
         }/books/${bookId}/status`,
         {
           headers: {
@@ -135,7 +135,7 @@ export default function BookDetailPage() {
     try {
       const response = await fetch(
         `${
-          process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api"
+          process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:5000/api"
         }/books/${bookId}`,
         {
           method: "DELETE",
@@ -160,7 +160,7 @@ export default function BookDetailPage() {
     try {
       const response = await fetch(
         `${
-          process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api"
+          process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:5000/api"
         }/books/${bookId}/download`,
         {
           headers: {

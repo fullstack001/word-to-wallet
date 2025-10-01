@@ -35,7 +35,7 @@ export default function IntegrationsPage() {
       setLoading(true);
       const response = await fetch(
         `${
-          process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api"
+          process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:5000/api"
         }/integrations`,
         {
           headers: {
@@ -69,7 +69,7 @@ export default function IntegrationsPage() {
     try {
       const response = await fetch(
         `${
-          process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api"
+          process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:5000/api"
         }/integrations/${integrationId}/test`,
         {
           method: "POST",
@@ -94,7 +94,7 @@ export default function IntegrationsPage() {
     try {
       const response = await fetch(
         `${
-          process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api"
+          process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:5000/api"
         }/integrations/${integrationId}/sync`,
         {
           method: "POST",
@@ -120,7 +120,7 @@ export default function IntegrationsPage() {
     try {
       const response = await fetch(
         `${
-          process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api"
+          process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:5000/api"
         }/integrations/${integrationId}/disconnect`,
         {
           method: "PATCH",
