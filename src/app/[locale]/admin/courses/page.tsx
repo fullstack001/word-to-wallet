@@ -146,16 +146,10 @@ export default function CoursesPage() {
       };
 
       const newCourse = await createCourse(courseData);
-      console.log("Course created:", newCourse);
-      console.log("New course subject:", newCourse.subject);
-      console.log("Selected subject ID:", selectedSubject?._id);
-      console.log("Current view:", currentView);
-
       // Update local state immediately for better UX
       setCourses((prevCourses) => {
         console.log("Previous courses count:", prevCourses.length);
         const updatedCourses = [...prevCourses, newCourse];
-        console.log("Updated courses count:", updatedCourses.length);
         return updatedCourses;
       });
 

@@ -94,15 +94,7 @@ export default function CourseDetailPage() {
           mobileMenuOpen={mobileMenuOpen}
           onMobileMenuClose={() => setMobileMenuOpen(false)}
         />
-
         <main className="flex-1 p-8">
-          {/* Enhanced Back Button */}
-          <div className="mb-6">
-            <BackButton onClick={() => navigate("/admin/courses")}>
-              Back to Courses
-            </BackButton>
-          </div>
-
           {error && (
             <div className="mb-4 bg-red-50 border border-red-200 text-red-600 px-4 py-3 rounded-md">
               {error}
