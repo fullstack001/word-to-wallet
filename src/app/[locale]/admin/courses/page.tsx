@@ -41,6 +41,7 @@ export default function CoursesPage() {
   const [searchTerm, setSearchTerm] = useState("");
   const [filterPublished, setFilterPublished] = useState<boolean | null>(null);
   const [filterSubject, setFilterSubject] = useState<string>("all");
+  const [creatingCourse, setCreatingCourse] = useState(false);
 
   // New state for subject/course view management
   const [currentView, setCurrentView] = useState<"subjects" | "courses">(
@@ -130,6 +131,7 @@ export default function CoursesPage() {
     googleClassroomLink?: string;
   }) => {
     try {
+      setCreatingCourse(true);
       // Convert the data to the new format
       const courseData = {
         title: data.title,
@@ -186,7 +188,9 @@ export default function CoursesPage() {
 
       await fetchData(); // Refresh data to ensure consistency
       setShowModal(false);
+      setCreatingCourse(false);
     } catch (error: any) {
+      setCreatingCourse(false);
       console.error("Error creating course:", error.message);
     }
   };
@@ -208,6 +212,7 @@ export default function CoursesPage() {
   }) => {
     try {
       if (!editingCourse) return;
+      setCreatingCourse(true);
 
       // Convert the data to the update format
       const updateData = {
@@ -254,6 +259,7 @@ export default function CoursesPage() {
       setShowModal(false);
       setEditingCourse(null);
     } catch (error: any) {
+      setCreatingCourse(false);
       console.error("Error updating course:", error.message);
     }
   };
@@ -1134,6 +1140,7 @@ export default function CoursesPage() {
           selectedSubject={selectedSubject}
           onSubmit={editingCourse ? handleUpdateCourse : handleCreateCourse}
           onClose={closeModal}
+          loading={creatingCourse}
         />
       )}
 

@@ -44,8 +44,9 @@ export default function CourseModal({
   onSubmit,
   onClose,
   error,
-  loading = false,
+  loading,
 }: CourseModalProps) {
+  console.log("loading", loading);
   const [formData, setFormData] = useState({
     title: "",
     description: "",
@@ -75,6 +76,44 @@ export default function CourseModal({
   }>({
     audio: [],
     video: [],
+  });
+
+  // Upload progress states
+  const [uploadProgress, setUploadProgress] = useState<{
+    epubCover: {
+      isUploading: boolean;
+      progress: number;
+      status: "pending" | "uploading" | "completed" | "error";
+      error?: string;
+    };
+    multimedia: {
+      isUploading: boolean;
+      audio: {
+        [key: string]: {
+          progress: number;
+          status: "pending" | "uploading" | "completed" | "error";
+          error?: string;
+        };
+      };
+      video: {
+        [key: string]: {
+          progress: number;
+          status: "pending" | "uploading" | "completed" | "error";
+          error?: string;
+        };
+      };
+    };
+  }>({
+    epubCover: {
+      isUploading: false,
+      progress: 0,
+      status: "pending",
+    },
+    multimedia: {
+      isUploading: false,
+      audio: {},
+      video: {},
+    },
   });
 
   useEffect(() => {
@@ -238,6 +277,50 @@ export default function CourseModal({
     );
   };
 
+  // Upload progress handlers
+  const updateEpubCoverProgress = (
+    progress: number,
+    status: "pending" | "uploading" | "completed" | "error",
+    error?: string
+  ) => {
+    setUploadProgress((prev) => ({
+      ...prev,
+      epubCover: {
+        isUploading: status === "uploading",
+        progress,
+        status,
+        error,
+      },
+    }));
+  };
+
+  const updateMultimediaProgress = (
+    type: "audio" | "video",
+    fileId: string,
+    progress: number,
+    status: "pending" | "uploading" | "completed" | "error",
+    error?: string
+  ) => {
+    setUploadProgress((prev) => ({
+      ...prev,
+      multimedia: {
+        ...prev.multimedia,
+        isUploading:
+          status === "uploading" ||
+          Object.values(prev.multimedia.audio).some(
+            (f) => f.status === "uploading"
+          ) ||
+          Object.values(prev.multimedia.video).some(
+            (f) => f.status === "uploading"
+          ),
+        [type]: {
+          ...prev.multimedia[type],
+          [fileId]: { progress, status, error },
+        },
+      },
+    }));
+  };
+
   return (
     <div className="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full z-50">
       <div className="relative top-10 mx-auto p-5 border w-full max-w-6xl shadow-lg rounded-md bg-white">
@@ -306,6 +389,8 @@ export default function CourseModal({
                 onEpubCoverChange={setEpubCoverFile}
                 existingCoverImage={existingCoverImage}
                 onRemoveExistingCover={handleRemoveExistingCover}
+                uploadProgress={uploadProgress.epubCover}
+                onUpdateProgress={updateEpubCoverProgress}
               />
             </div>
 
@@ -327,6 +412,8 @@ export default function CourseModal({
               onVideoChange={(files) =>
                 setMultimediaContent((prev) => ({ ...prev, video: files }))
               }
+              uploadProgress={uploadProgress.multimedia}
+              onUpdateProgress={updateMultimediaProgress}
             />
 
             <div className="flex justify-end space-x-3 pt-4">
@@ -339,14 +426,22 @@ export default function CourseModal({
               </button>
               <button
                 type="submit"
-                disabled={loading}
+                disabled={
+                  loading ||
+                  uploadProgress.epubCover.isUploading ||
+                  uploadProgress.multimedia.isUploading
+                }
                 className={`px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 ${
-                  loading
+                  loading ||
+                  uploadProgress.epubCover.isUploading ||
+                  uploadProgress.multimedia.isUploading
                     ? "bg-blue-400 cursor-not-allowed"
                     : "bg-blue-600 hover:bg-blue-700"
                 }`}
               >
-                {loading ? (
+                {loading ||
+                uploadProgress.epubCover.isUploading ||
+                uploadProgress.multimedia.isUploading ? (
                   <div className="flex items-center">
                     <svg
                       className="animate-spin -ml-1 mr-2 h-4 w-4 text-white"
@@ -367,7 +462,12 @@ export default function CourseModal({
                         d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
                       ></path>
                     </svg>
-                    {course ? "Updating..." : "Creating..."}
+                    {uploadProgress.epubCover.isUploading ||
+                    uploadProgress.multimedia.isUploading
+                      ? "Uploading files..."
+                      : course
+                      ? "Updating..."
+                      : "Creating..."}
                   </div>
                 ) : course ? (
                   "Update Course"

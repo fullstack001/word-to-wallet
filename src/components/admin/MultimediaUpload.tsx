@@ -2,6 +2,7 @@
 import { useState, useRef, useCallback } from "react";
 import { MediaFile } from "@/utils/apiUtils";
 import { FileUploadManager } from "@/utils/fileUploadUtils";
+import UploadProgress from "../common/UploadProgress";
 
 interface MultimediaUploadProps {
   type: "image" | "audio" | "video";
@@ -9,6 +10,19 @@ interface MultimediaUploadProps {
   onFilesChange: (files: MediaFile[]) => void;
   maxFiles?: number;
   className?: string;
+  uploadProgress?: {
+    [key: string]: {
+      progress: number;
+      status: "pending" | "uploading" | "completed" | "error";
+      error?: string;
+    };
+  };
+  onUpdateProgress?: (
+    fileId: string,
+    progress: number,
+    status: "pending" | "uploading" | "completed" | "error",
+    error?: string
+  ) => void;
 }
 
 export default function MultimediaUpload({
@@ -17,6 +31,8 @@ export default function MultimediaUpload({
   onFilesChange,
   maxFiles = 10,
   className = "",
+  uploadProgress,
+  onUpdateProgress,
 }: MultimediaUploadProps) {
   const [isDragging, setIsDragging] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -184,44 +200,64 @@ export default function MultimediaUpload({
         <div className="space-y-2">
           <h4 className="text-sm font-medium text-gray-700">Selected Files:</h4>
           <div className="space-y-2 max-h-40 overflow-y-auto">
-            {files.map((file) => (
-              <div
-                key={file.id}
-                className="flex items-center justify-between p-3 bg-gray-50 rounded-lg"
-              >
-                <div className="flex items-center space-x-3">
-                  <span className="text-lg">{getFileIcon(file.mimeType)}</span>
-                  <div>
-                    <p className="text-sm font-medium text-gray-900">
-                      {file.originalName}
-                    </p>
-                    <p className="text-xs text-gray-500">
-                      {formatFileSize(file.size)} •{" "}
-                      {new Date(file.uploadedAt).toLocaleDateString()}
-                    </p>
-                  </div>
-                </div>
-                <button
-                  type="button"
-                  onClick={() => removeFile(file.id)}
-                  className="text-red-500 hover:text-red-700 p-1"
-                >
-                  <svg
-                    className="w-4 h-4"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M6 18L18 6M6 6l12 12"
+            {files.map((file) => {
+              const fileProgress = uploadProgress?.[file.id];
+
+              if (fileProgress) {
+                return (
+                  <div key={file.id} className="space-y-2">
+                    <UploadProgress
+                      fileName={file.originalName}
+                      progress={fileProgress.progress}
+                      status={fileProgress.status}
+                      error={fileProgress.error}
+                      size={file.size}
                     />
-                  </svg>
-                </button>
-              </div>
-            ))}
+                  </div>
+                );
+              }
+
+              return (
+                <div
+                  key={file.id}
+                  className="flex items-center justify-between p-3 bg-gray-50 rounded-lg"
+                >
+                  <div className="flex items-center space-x-3">
+                    <span className="text-lg">
+                      {getFileIcon(file.mimeType)}
+                    </span>
+                    <div>
+                      <p className="text-sm font-medium text-gray-900">
+                        {file.originalName}
+                      </p>
+                      <p className="text-xs text-gray-500">
+                        {formatFileSize(file.size)} •{" "}
+                        {new Date(file.uploadedAt).toLocaleDateString()}
+                      </p>
+                    </div>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => removeFile(file.id)}
+                    className="text-red-500 hover:text-red-700 p-1"
+                  >
+                    <svg
+                      className="w-4 h-4"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M6 18L18 6M6 6l12 12"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              );
+            })}
           </div>
         </div>
       )}

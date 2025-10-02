@@ -1,11 +1,23 @@
 "use client";
 import { useState } from "react";
+import UploadProgress from "../../common/UploadProgress";
 
 interface FilesMediaFormProps {
   epubCoverFile: File | null;
   onEpubCoverChange: (file: File | null) => void;
   existingCoverImage?: string | null;
   onRemoveExistingCover?: () => void;
+  uploadProgress?: {
+    isUploading: boolean;
+    progress: number;
+    status: "pending" | "uploading" | "completed" | "error";
+    error?: string;
+  };
+  onUpdateProgress?: (
+    progress: number,
+    status: "pending" | "uploading" | "completed" | "error",
+    error?: string
+  ) => void;
 }
 
 export default function FilesMediaForm({
@@ -13,6 +25,8 @@ export default function FilesMediaForm({
   onEpubCoverChange,
   existingCoverImage,
   onRemoveExistingCover,
+  uploadProgress,
+  onUpdateProgress,
 }: FilesMediaFormProps) {
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
 
@@ -112,8 +126,21 @@ export default function FilesMediaForm({
           </div>
         )}
 
+        {/* Upload Progress */}
+        {epubCoverFile && uploadProgress && (
+          <div className="mt-3">
+            <UploadProgress
+              fileName={epubCoverFile.name}
+              progress={uploadProgress.progress}
+              status={uploadProgress.status}
+              error={uploadProgress.error}
+              size={epubCoverFile.size}
+            />
+          </div>
+        )}
+
         {/* File Info */}
-        {epubCoverFile && !previewUrl && (
+        {epubCoverFile && !previewUrl && !uploadProgress && (
           <div className="p-3 bg-blue-50 border border-blue-200 rounded-md">
             <p className="text-sm text-blue-800">
               <span className="font-medium">Selected:</span>{" "}

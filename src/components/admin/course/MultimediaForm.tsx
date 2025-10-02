@@ -9,12 +9,38 @@ interface MultimediaFormProps {
   };
   onAudioChange: (files: MediaFile[]) => void;
   onVideoChange: (files: MediaFile[]) => void;
+  uploadProgress?: {
+    isUploading: boolean;
+    audio: {
+      [key: string]: {
+        progress: number;
+        status: "pending" | "uploading" | "completed" | "error";
+        error?: string;
+      };
+    };
+    video: {
+      [key: string]: {
+        progress: number;
+        status: "pending" | "uploading" | "completed" | "error";
+        error?: string;
+      };
+    };
+  };
+  onUpdateProgress?: (
+    type: "audio" | "video",
+    fileId: string,
+    progress: number,
+    status: "pending" | "uploading" | "completed" | "error",
+    error?: string
+  ) => void;
 }
 
 export default function MultimediaForm({
   multimediaContent,
   onAudioChange,
   onVideoChange,
+  uploadProgress,
+  onUpdateProgress,
 }: MultimediaFormProps) {
   return (
     <div className="space-y-6">
@@ -28,6 +54,10 @@ export default function MultimediaForm({
           files={multimediaContent.audio}
           onFilesChange={onAudioChange}
           maxFiles={10}
+          uploadProgress={uploadProgress?.audio}
+          onUpdateProgress={(fileId, progress, status, error) =>
+            onUpdateProgress?.("audio", fileId, progress, status, error)
+          }
         />
 
         <MultimediaUpload
@@ -35,6 +65,10 @@ export default function MultimediaForm({
           files={multimediaContent.video}
           onFilesChange={onVideoChange}
           maxFiles={5}
+          uploadProgress={uploadProgress?.video}
+          onUpdateProgress={(fileId, progress, status, error) =>
+            onUpdateProgress?.("video", fileId, progress, status, error)
+          }
         />
       </div>
     </div>
