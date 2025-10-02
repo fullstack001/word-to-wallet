@@ -45,13 +45,7 @@ apiClient.interceptors.response.use(
 );
 
 export const auctionApi = {
-  // Demo login
-  demoLogin: async (): Promise<
-    AuctionApiResponse<{ token: string; user: any }>
-  > => {
-    const response = await apiClient.post("/demo/login");
-    return response.data;
-  },
+  // Demo login removed
 
   // Get auction snapshot
   getSnapshot: async (auctionId: string): Promise<AuctionSnapshot> => {

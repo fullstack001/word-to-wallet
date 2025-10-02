@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useCallback, useRef } from "react";
+import Link from "next/link";
 import { useSelector, useDispatch } from "react-redux";
 import { useWebSocket } from "@/hooks/useWebSocket";
 import { auctionApi } from "@/services/auctionApi";
@@ -168,21 +169,7 @@ const AuctionView: React.FC<AuctionViewProps> = ({ auctionId }) => {
     return () => clearInterval(interval);
   }, [isConnected, fetchAuctionSnapshot]);
 
-  // Handle authentication
-  const handleDemoLogin = async () => {
-    try {
-      const response = await auctionApi.demoLogin();
-      if (response.success && response.data) {
-        if (typeof window !== "undefined") {
-          localStorage.setItem("authToken", response.data.token);
-        }
-        dispatch(login());
-        setError(null);
-      }
-    } catch (err: any) {
-      setError(err.response?.data?.message || "Failed to login");
-    }
-  };
+  // Demo login removed
 
   if (loading) {
     return (
@@ -254,12 +241,12 @@ const AuctionView: React.FC<AuctionViewProps> = ({ auctionId }) => {
                 You need to be logged in to participate in this auction.
               </p>
               <div className="mt-2">
-                <button
-                  onClick={handleDemoLogin}
-                  className="bg-yellow-400 hover:bg-yellow-500 text-yellow-800 font-medium py-2 px-4 rounded-md text-sm"
+                <Link
+                  href="/login"
+                  className="bg-yellow-400 hover:bg-yellow-500 text-yellow-800 font-medium py-2 px-4 rounded-md text-sm inline-block"
                 >
-                  Demo Login
-                </button>
+                  Login
+                </Link>
               </div>
             </div>
           </div>
