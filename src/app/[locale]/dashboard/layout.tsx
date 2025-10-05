@@ -9,7 +9,7 @@ interface DashboardLayoutProps {
 
 export default function DashboardLayout({ children }: DashboardLayoutProps) {
   return (
-    <AuthGuard redirectTo="/signup" requireAuth={true}>
+    <AuthGuard redirectTo="/login" requireAuth={true}>
       {children}
     </AuthGuard>
   );

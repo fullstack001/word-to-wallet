@@ -4,8 +4,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { useLocalizedNavigation } from "@/utils/navigation";
 import { RootState } from "@/store/store";
 import { useAuthInitialization } from "@/hooks/useAuthInitialization";
-import AdminSidebar from "../../../../components/admin/AdminSidebar";
-import AdminHeader from "../../../../components/admin/AdminHeader";
+import AdminSidebar from "@/components/admin/AdminSidebar";
+import AdminHeader from "@/components/admin/AdminHeader";
 import { getSubjects, getCourses } from "@/utils/apiUtils";
 
 interface DashboardStats {

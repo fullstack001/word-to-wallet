@@ -20,6 +20,18 @@ module.exports = withNextIntl({
         port: "5000",
         pathname: "/api/courses/**/cover",
       },
+      {
+        protocol: "http",
+        hostname: "127.0.0.1",
+        port: "5000",
+        pathname: "/api/books/**/cover",
+      },
+      {
+        protocol: "http",
+        hostname: "localhost",
+        port: "5000",
+        pathname: "/api/books/**/cover",
+      },
     ],
   },
   // Ensure uploads directory exists in production

@@ -75,9 +75,11 @@ const api = axios.create({
 const getAuthToken = (): string | null => {
   if (typeof window !== "undefined") {
     // Check both localStorage and sessionStorage for auth token
-    const localToken = localStorage.getItem("authToken");
-    const sessionToken = sessionStorage.getItem("authToken");
-    return localToken || sessionToken;
+    const autoToken = localStorage.getItem("autoToken");
+    const localToken = localStorage.getItem("authToken"); // Keep for backward compatibility
+    const sessionAutoToken = sessionStorage.getItem("autoToken");
+    const sessionToken = sessionStorage.getItem("authToken"); // Keep for backward compatibility
+    return autoToken || localToken || sessionAutoToken || sessionToken;
   }
   return null;
 };
@@ -1245,7 +1247,7 @@ export const changePassword = async (
   newPassword: string
 ): Promise<void> => {
   try {
-    const token = localStorage.getItem("authToken");
+    const token = getAuthToken();
     if (!token) {
       throw new Error("No authentication token found");
     }

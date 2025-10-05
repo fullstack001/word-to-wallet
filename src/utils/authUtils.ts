@@ -2,14 +2,16 @@
 
 export const clearAllAuthData = () => {
   // Clear localStorage
-  localStorage.removeItem("authToken");
+  localStorage.removeItem("autoToken");
+  localStorage.removeItem("authToken"); // Keep for backward compatibility
   localStorage.removeItem("refreshToken");
   localStorage.removeItem("rememberedEmail");
   localStorage.removeItem("rememberMe");
   localStorage.removeItem("userData");
 
   // Clear sessionStorage
-  sessionStorage.removeItem("authToken");
+  sessionStorage.removeItem("autoToken");
+  sessionStorage.removeItem("authToken"); // Keep for backward compatibility
   sessionStorage.removeItem("refreshToken");
 };
 
@@ -33,7 +35,10 @@ export const getUserData = () => {
 
 export const getAuthToken = () => {
   return (
-    localStorage.getItem("authToken") || sessionStorage.getItem("authToken")
+    localStorage.getItem("autoToken") ||
+    localStorage.getItem("authToken") || // Keep for backward compatibility
+    sessionStorage.getItem("autoToken") ||
+    sessionStorage.getItem("authToken") // Keep for backward compatibility
   );
 };
 

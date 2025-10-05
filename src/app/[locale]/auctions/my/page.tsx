@@ -2,12 +2,12 @@
 
 import React, { useState } from "react";
 import { useTranslations } from "next-intl";
-import { useLocalizedNavigation } from "../../../../utils/navigation";
-import AuthGuard from "../../../../components/auth/AuthGuard";
-import Navbar from "../../../../components/Navbar";
-import Footer from "../../../../components/Footer";
-import AuctionList from "../../../../components/auction/AuctionList";
-import { AuctionStatus } from "../../../../types/auction";
+import { useLocalizedNavigation } from "@/utils/navigation";
+import AuthGuard from "@/components/auth/AuthGuard";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import AuctionList from "@/components/auction/AuctionList";
+import { AuctionStatus } from "@/types/auction";
 import { ArrowLeftIcon } from "@heroicons/react/24/outline";
 
 const MyAuctionsPage: React.FC = () => {

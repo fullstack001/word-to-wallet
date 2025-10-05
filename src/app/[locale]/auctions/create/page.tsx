@@ -1,11 +1,11 @@
 "use client";
 
 import React from "react";
-import { useLocalizedNavigation } from "../../../../utils/navigation";
-import AuthGuard from "../../../../components/auth/AuthGuard";
-import Navbar from "../../../../components/Navbar";
-import Footer from "../../../../components/Footer";
-import CreateAuctionForm from "../../../../components/auction/CreateAuctionForm";
+import { useLocalizedNavigation } from "@/utils/navigation";
+import AuthGuard from "@/components/auth/AuthGuard";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import CreateAuctionForm from "@/components/auction/CreateAuctionForm";
 import { ArrowLeftIcon } from "@heroicons/react/24/outline";
 
 const CreateAuctionPage: React.FC = () => {

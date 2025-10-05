@@ -9,6 +9,8 @@ import {
   TrophyIcon,
   CurrencyDollarIcon,
   PlusIcon,
+  CogIcon,
+  TruckIcon,
 } from "@heroicons/react/24/outline";
 
 interface QuickActionsProps {
@@ -18,6 +20,8 @@ interface QuickActionsProps {
   onViewAchievements: () => void;
   onViewAuctions: () => void;
   onCreateAuction: () => void;
+  onViewIntegrations: () => void;
+  onViewDelivery: () => void;
 }
 
 export default function QuickActions({
@@ -27,6 +31,8 @@ export default function QuickActions({
   onViewAchievements,
   onViewAuctions,
   onCreateAuction,
+  onViewIntegrations,
+  onViewDelivery,
 }: QuickActionsProps) {
   const actions = [
     {
@@ -70,6 +76,20 @@ export default function QuickActions({
       icon: PlusIcon,
       color: "green",
       onClick: onCreateAuction,
+    },
+    {
+      title: "Integrations",
+      description: "Connect your favorite tools",
+      icon: CogIcon,
+      color: "blue",
+      onClick: onViewIntegrations,
+    },
+    {
+      title: "Book Delivery",
+      description: "Upload and distribute your books",
+      icon: TruckIcon,
+      color: "green",
+      onClick: onViewDelivery,
     },
   ];
 

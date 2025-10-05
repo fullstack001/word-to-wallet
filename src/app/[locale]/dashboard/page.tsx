@@ -69,6 +69,14 @@ export default function DashboardPage() {
     navigate("/auctions/create");
   };
 
+  const handleNavigateToIntegrations = () => {
+    navigate("/integrations");
+  };
+
+  const handleNavigateToDelivery = () => {
+    navigate("/delivery");
+  };
+
   if (isLoading) {
     return <DashboardLoading />;
   }
@@ -111,6 +119,8 @@ export default function DashboardPage() {
             onNavigateToAuctions={handleNavigateToAuctions}
             onNavigateToMyAuctions={handleNavigateToMyAuctions}
             onNavigateToCreateAuction={handleNavigateToCreateAuction}
+            onNavigateToIntegrations={handleNavigateToIntegrations}
+            onNavigateToDelivery={handleNavigateToDelivery}
             subscription={user.subscription}
           />
         </div>
@@ -123,6 +133,8 @@ export default function DashboardPage() {
             onViewAchievements={handleNavigateToAchievements}
             onViewAuctions={handleNavigateToAuctions}
             onCreateAuction={handleNavigateToCreateAuction}
+            onViewIntegrations={handleNavigateToIntegrations}
+            onViewDelivery={handleNavigateToDelivery}
           />
         </div>
 

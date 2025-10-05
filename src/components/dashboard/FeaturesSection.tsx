@@ -13,6 +13,8 @@ import {
   ArrowRightIcon,
   LockClosedIcon,
   CurrencyDollarIcon,
+  CogIcon,
+  TruckIcon,
 } from "@heroicons/react/24/outline";
 
 interface FeaturesSectionProps {
@@ -24,6 +26,8 @@ interface FeaturesSectionProps {
   onNavigateToAuctions: () => void;
   onNavigateToMyAuctions: () => void;
   onNavigateToCreateAuction: () => void;
+  onNavigateToIntegrations: () => void;
+  onNavigateToDelivery: () => void;
   subscription?: {
     stripeCustomerId?: string;
     stripeSubscriptionId?: string;
@@ -47,6 +51,8 @@ export default function FeaturesSection({
   onNavigateToAuctions,
   onNavigateToMyAuctions,
   onNavigateToCreateAuction,
+  onNavigateToIntegrations,
+  onNavigateToDelivery,
   subscription,
 }: FeaturesSectionProps) {
   console.log(subscription);
@@ -71,23 +77,14 @@ export default function FeaturesSection({
       availableFor: ["trial", "paid"],
     },
     {
-      title: "Book Library",
-      description: "Upload and manage your EPUB3 books and metadata",
-      icon: AcademicCapIcon,
+      title: "Digital Book Delivery",
+      description:
+        "Upload, distribute, and track your digital books with landing pages",
+      icon: TruckIcon,
       color: "green",
-      onClick: onNavigateToBooks,
+      onClick: onNavigateToDelivery,
       status: hasActiveSubscription || isTrialUser ? "active" : "locked",
-      features: ["Book Upload", "Metadata Management", "File Storage"],
-      availableFor: ["trial", "paid"],
-    },
-    {
-      title: "ARC Campaigns",
-      description: "Create and manage Advanced Reader Copy campaigns",
-      icon: ChartBarIcon,
-      color: "yellow",
-      onClick: () => {},
-      status: hasActiveSubscription || isTrialUser ? "active" : "locked",
-      features: ["Campaign Creation", "Download Codes", "Analytics"],
+      features: ["Book Upload", "Landing Pages", "Analytics", "Email Capture"],
       availableFor: ["trial", "paid"],
     },
     {
@@ -118,6 +115,17 @@ export default function FeaturesSection({
       onClick: onNavigateToAuctions,
       status: hasActiveSubscription || isTrialUser ? "active" : "locked",
       features: ["Create Auctions", "Bid on Items", "Manage Listings"],
+      availableFor: ["trial", "paid"],
+    },
+    {
+      title: "Integrations",
+      description:
+        "Connect your favorite tools for seamless workflow automation",
+      icon: CogIcon,
+      color: "blue",
+      onClick: onNavigateToIntegrations,
+      status: hasActiveSubscription || isTrialUser ? "active" : "locked",
+      features: ["Email Marketing", "Payment Gateways", "Workflow Automation"],
       availableFor: ["trial", "paid"],
     },
   ];
