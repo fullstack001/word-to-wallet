@@ -290,8 +290,8 @@ export default function BookDeliveryDashboard() {
           </div>
         </div>
 
-        {/* Quick Actions */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+        {/* Quick Actions  - Will change in the future*/}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
           <button
             onClick={() => navigate("/delivery/book")}
             className="bg-white p-6 rounded-lg shadow-sm border border-gray-200 hover:shadow-md transition-shadow text-left"
@@ -326,8 +326,9 @@ export default function BookDeliveryDashboard() {
             </p>
           </button>
 
-          <button
-            onClick={() => navigate("/delivery/link-generator")}
+          {/* <button
+            // onClick={() => navigate("/delivery/link-generator")}
+            onClick={() => alert("Coming soon")}
             className="bg-white p-6 rounded-lg shadow-sm border border-gray-200 hover:shadow-md transition-shadow text-left"
           >
             <div className="flex items-center mb-4">
@@ -341,10 +342,11 @@ export default function BookDeliveryDashboard() {
             <p className="text-gray-600">
               Create secure delivery links with access controls
             </p>
-          </button>
+          </button> */}
 
           <button
-            onClick={() => navigate("/delivery/analytics")}
+            // onClick={() => navigate("/delivery/analytics")}
+            onClick={() => alert("Coming soon")}
             className="bg-white p-6 rounded-lg shadow-sm border border-gray-200 hover:shadow-md transition-shadow text-left"
           >
             <div className="flex items-center mb-4">
@@ -411,7 +413,8 @@ export default function BookDeliveryDashboard() {
         {/* Additional Actions */}
         <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
           <button
-            onClick={() => navigate("/delivery/email-captures")}
+            // onClick={() => navigate("/delivery/email-captures")}
+            onClick={() => alert("Coming soon")}
             className="bg-white p-6 rounded-lg shadow-sm border border-gray-200 hover:shadow-md transition-shadow text-left"
           >
             <div className="flex items-center mb-4">
@@ -428,7 +431,8 @@ export default function BookDeliveryDashboard() {
           </button>
 
           <button
-            onClick={() => navigate("/integrations")}
+            // onClick={() => navigate("/integrations")}
+            onClick={() => alert("Coming soon")}
             className="bg-white p-6 rounded-lg shadow-sm border border-gray-200 hover:shadow-md transition-shadow text-left"
           >
             <div className="flex items-center mb-4">

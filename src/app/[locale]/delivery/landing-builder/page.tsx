@@ -8,6 +8,8 @@ import { RootState } from "@/store/store";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import LandingPageBuilder from "@/components/LandingPageBuilder";
+import LandingPageBuilderForm from "@/components/LandingPageBuilderForm";
+import { landingPageApi, LandingPage } from "@/services/landingPageApi";
 import {
   ArrowLeft,
   Globe,
@@ -20,25 +22,6 @@ import {
   CheckCircle,
 } from "lucide-react";
 
-interface LandingPage {
-  id: string;
-  title: string;
-  bookTitle: string;
-  status: "draft" | "published" | "archived";
-  views: number;
-  conversions: number;
-  createdAt: string;
-  updatedAt: string;
-  previewUrl?: string;
-  publicUrl?: string;
-}
-
-interface Book {
-  _id: string;
-  title: string;
-  author: string;
-}
-
 export default function LandingPageBuilderPage() {
   const t = useTranslations();
   const { navigate } = useLocalizedNavigation();
@@ -50,80 +33,17 @@ export default function LandingPageBuilderPage() {
   const [showBuilder, setShowBuilder] = useState(false);
   const [editingPage, setEditingPage] = useState<LandingPage | null>(null);
   const [copiedUrl, setCopiedUrl] = useState<string | null>(null);
-  const [selectedBook, setSelectedBook] = useState<string>("");
-  const [landingPageType, setLandingPageType] =
-    useState<string>("email_signup");
-  const [emailSignupOption, setEmailSignupOption] =
-    useState<string>("required");
-  const [books, setBooks] = useState<Book[]>([]);
+  console.log(landingPages);
 
   const fetchLandingPages = useCallback(async () => {
     try {
       setLoading(true);
-      // Mock data for now - replace with actual API calls
-      setLandingPages([
-        {
-          id: "1",
-          title: "Digital Marketing Mastery",
-          bookTitle: "The Complete Guide to Digital Marketing",
-          status: "published",
-          views: 1234,
-          conversions: 89,
-          createdAt: "2024-01-10T10:30:00Z",
-          updatedAt: "2024-01-15T14:20:00Z",
-          previewUrl: "/preview/landing/1",
-          publicUrl: "/landing/digital-marketing-mastery",
-        },
-        {
-          id: "2",
-          title: "SEO Secrets Revealed",
-          bookTitle: "Advanced SEO Techniques",
-          status: "draft",
-          views: 0,
-          conversions: 0,
-          createdAt: "2024-01-14T15:45:00Z",
-          updatedAt: "2024-01-16T09:15:00Z",
-          previewUrl: "/preview/landing/2",
-        },
-        {
-          id: "3",
-          title: "Content Marketing Playbook",
-          bookTitle: "Content Marketing Mastery",
-          status: "published",
-          views: 856,
-          conversions: 67,
-          createdAt: "2024-01-12T11:20:00Z",
-          updatedAt: "2024-01-16T16:30:00Z",
-          previewUrl: "/preview/landing/3",
-          publicUrl: "/landing/content-marketing-playbook",
-        },
-      ]);
+      const response = await landingPageApi.getLandingPages();
+      setLandingPages(response.landingPages);
     } catch (error) {
       console.error("Failed to fetch landing pages:", error);
     } finally {
       setLoading(false);
-    }
-  }, []);
-
-  const fetchBooks = useCallback(async () => {
-    try {
-      const token = localStorage.getItem("authToken");
-      if (!token) return;
-
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/books`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
-
-      if (response.ok) {
-        const data = await response.json();
-        if (data.success) {
-          setBooks(data.data.books || []);
-        }
-      }
-    } catch (error) {
-      console.error("Failed to fetch books:", error);
     }
   }, []);
 
@@ -134,39 +54,38 @@ export default function LandingPageBuilderPage() {
     }
 
     fetchLandingPages();
-    fetchBooks();
-  }, [isLoggedIn, fetchLandingPages, fetchBooks]);
+  }, [isLoggedIn, fetchLandingPages]);
 
-  const handlePageCreated = (pageData: any) => {
-    const newPage: LandingPage = {
-      id: Date.now().toString(),
-      title: pageData.title,
-      bookTitle: pageData.bookTitle,
-      status: "draft",
-      views: 0,
-      conversions: 0,
-      createdAt: new Date().toISOString(),
-      updatedAt: new Date().toISOString(),
-      previewUrl: `/preview/landing/${Date.now()}`,
-    };
-    setLandingPages([newPage, ...landingPages]);
-    setShowBuilder(false);
+  const handlePageCreated = async (pageData: any) => {
+    try {
+      const newPage = await landingPageApi.createLandingPage(pageData);
+      setLandingPages([newPage, ...landingPages]);
+      setShowBuilder(false);
+    } catch (error) {
+      console.error("Failed to create landing page:", error);
+      alert("Failed to create landing page. Please try again.");
+    }
   };
 
-  const handlePageUpdated = (pageData: any) => {
-    setLandingPages(
-      landingPages.map((page) =>
-        page.id === editingPage?.id
-          ? {
-              ...page,
-              ...pageData,
-              updatedAt: new Date().toISOString(),
-            }
-          : page
-      )
-    );
-    setShowBuilder(false);
-    setEditingPage(null);
+  const handlePageUpdated = async (pageData: any) => {
+    if (!editingPage) return;
+
+    try {
+      const updatedPage = await landingPageApi.updateLandingPage(
+        editingPage.id,
+        pageData
+      );
+      setLandingPages(
+        landingPages.map((page) =>
+          page.id === editingPage.id ? updatedPage : page
+        )
+      );
+      setShowBuilder(false);
+      setEditingPage(null);
+    } catch (error) {
+      console.error("Failed to update landing page:", error);
+      alert("Failed to update landing page. Please try again.");
+    }
   };
 
   const handleEditPage = (page: LandingPage) => {
@@ -177,33 +96,42 @@ export default function LandingPageBuilderPage() {
   const handleDeletePage = async (pageId: string) => {
     if (window.confirm("Are you sure you want to delete this landing page?")) {
       try {
-        // API call to delete page
+        await landingPageApi.deleteLandingPage(pageId);
         setLandingPages(landingPages.filter((page) => page.id !== pageId));
       } catch (error) {
         console.error("Failed to delete landing page:", error);
+        alert("Failed to delete landing page. Please try again.");
       }
     }
   };
 
   const handlePublishPage = async (pageId: string) => {
     try {
-      // API call to publish page
+      const updatedPage = await landingPageApi.updateLandingPageStatus(
+        pageId,
+        true
+      );
       setLandingPages(
-        landingPages.map((page) =>
-          page.id === pageId
-            ? {
-                ...page,
-                status: "published" as const,
-                publicUrl: `/landing/${page.title
-                  .toLowerCase()
-                  .replace(/\s+/g, "-")}`,
-                updatedAt: new Date().toISOString(),
-              }
-            : page
-        )
+        landingPages.map((page) => (page.id === pageId ? updatedPage : page))
       );
     } catch (error) {
       console.error("Failed to publish landing page:", error);
+      alert("Failed to publish landing page. Please try again.");
+    }
+  };
+
+  const handleUnpublishPage = async (pageId: string) => {
+    try {
+      const updatedPage = await landingPageApi.updateLandingPageStatus(
+        pageId,
+        false
+      );
+      setLandingPages(
+        landingPages.map((page) => (page.id === pageId ? updatedPage : page))
+      );
+    } catch (error) {
+      console.error("Failed to unpublish landing page:", error);
+      alert("Failed to unpublish landing page. Please try again.");
     }
   };
 
@@ -217,17 +145,14 @@ export default function LandingPageBuilderPage() {
     }
   };
 
-  const getStatusColor = (status: string) => {
-    switch (status) {
-      case "published":
-        return "text-green-600 bg-green-50";
-      case "draft":
-        return "text-yellow-600 bg-yellow-50";
-      case "archived":
-        return "text-gray-600 bg-gray-50";
-      default:
-        return "text-gray-600 bg-gray-50";
-    }
+  const getStatusColor = (isActive: boolean) => {
+    return isActive
+      ? "text-green-600 bg-green-50"
+      : "text-yellow-600 bg-yellow-50";
+  };
+
+  const getStatusText = (isActive: boolean) => {
+    return isActive ? "Published" : "Draft";
   };
 
   const formatDate = (dateString: string) => {
@@ -241,6 +166,10 @@ export default function LandingPageBuilderPage() {
   const getConversionRate = (views: number, conversions: number) => {
     if (views === 0) return "0%";
     return `${((conversions / views) * 100).toFixed(1)}%`;
+  };
+
+  const getPublicUrl = (page: LandingPage) => {
+    return `/landing/${page.slug}`;
   };
 
   if (loading) {
@@ -262,235 +191,13 @@ export default function LandingPageBuilderPage() {
     return (
       <div className="min-h-screen">
         <Navbar />
-        <div className="max-w-4xl mx-auto px-4 py-8 mt-32">
-          <div className="mb-8">
-            <button
-              onClick={() => {
-                setShowBuilder(false);
-                setEditingPage(null);
-                setSelectedBook("");
-                setLandingPageType("email_signup");
-                setEmailSignupOption("required");
-              }}
-              className="flex items-center space-x-2 text-gray-600 hover:text-gray-900 mb-4"
-            >
-              <ArrowLeft className="w-4 h-4" />
-              <span>Back to Landing Pages</span>
-            </button>
-            <h1 className="text-3xl font-bold text-gray-900 mb-2">
-              Landing Page Builder
-            </h1>
-            <p className="text-gray-600">
-              Create a new download page for your book
-            </p>
-          </div>
-
-          {/* Book Selection */}
-          <div className="bg-white rounded-lg shadow-sm border p-6 mb-6">
-            <h2 className="text-lg font-semibold text-gray-900 mb-4">
-              Which book do you want to create a new download page for?
-            </h2>
-            <select
-              value={selectedBook}
-              onChange={(e) => setSelectedBook(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-            >
-              <option value="">Select a book...</option>
-              {books.map((book) => (
-                <option key={book._id} value={book._id}>
-                  {book.title} by {book.author}
-                </option>
-              ))}
-            </select>
-          </div>
-
-          {/* Landing Page Type Selection */}
-          <div className="bg-white rounded-lg shadow-sm border p-6 mb-6">
-            <h2 className="text-lg font-semibold text-gray-900 mb-4">
-              What kind of landing page do you want to create?
-            </h2>
-
-            <div className="space-y-4">
-              {/* Email Signup Page */}
-              <div className="border border-gray-200 rounded-lg p-4">
-                <label className="flex items-start space-x-3 cursor-pointer">
-                  <input
-                    type="radio"
-                    name="landingPageType"
-                    value="email_signup"
-                    checked={landingPageType === "email_signup"}
-                    onChange={(e) => setLandingPageType(e.target.value)}
-                    className="mt-1"
-                  />
-                  <div className="flex-1">
-                    <div className="font-medium text-gray-900">
-                      An email signup page to collect new readers
-                    </div>
-                    <div className="text-sm text-gray-600 mt-1">
-                      Word2Wallet will collect the reader's email address before
-                      they can receive their book.
-                    </div>
-
-                    {landingPageType === "email_signup" && (
-                      <div className="mt-4 pl-6">
-                        <div className="text-sm font-medium text-gray-700 mb-2">
-                          Do you want to <strong>require</strong> the reader to
-                          join your mailing list, or should the reader have the{" "}
-                          <strong>option</strong> of joining?
-                        </div>
-                        <div className="space-y-2">
-                          <label className="flex items-center space-x-2">
-                            <input
-                              type="radio"
-                              name="emailSignupOption"
-                              value="required"
-                              checked={emailSignupOption === "required"}
-                              onChange={(e) =>
-                                setEmailSignupOption(e.target.value)
-                              }
-                            />
-                            <span className="text-sm">
-                              The reader is required to join my list in order to
-                              receive the book
-                            </span>
-                          </label>
-                          <label className="flex items-center space-x-2">
-                            <input
-                              type="radio"
-                              name="emailSignupOption"
-                              value="optional"
-                              checked={emailSignupOption === "optional"}
-                              onChange={(e) =>
-                                setEmailSignupOption(e.target.value)
-                              }
-                            />
-                            <span className="text-sm">
-                              The reader has the option to join my list and will
-                              still receive the book
-                            </span>
-                          </label>
-                          <label className="flex items-center space-x-2">
-                            <input
-                              type="radio"
-                              name="emailSignupOption"
-                              value="data_collection"
-                              checked={emailSignupOption === "data_collection"}
-                              onChange={(e) =>
-                                setEmailSignupOption(e.target.value)
-                              }
-                            />
-                            <span className="text-sm">
-                              The reader can download the book and is not
-                              signing up for a list (for data collection only)
-                            </span>
-                          </label>
-                        </div>
-                      </div>
-                    )}
-                  </div>
-                </label>
-              </div>
-
-              {/* Simple Download Page */}
-              <div className="border border-gray-200 rounded-lg p-4">
-                <label className="flex items-start space-x-3 cursor-pointer">
-                  <input
-                    type="radio"
-                    name="landingPageType"
-                    value="simple_download"
-                    checked={landingPageType === "simple_download"}
-                    onChange={(e) => setLandingPageType(e.target.value)}
-                    className="mt-1"
-                  />
-                  <div className="flex-1">
-                    <div className="font-medium text-gray-900">
-                      A simple download page without email collection
-                    </div>
-                    <div className="text-sm text-gray-600 mt-1">
-                      Readers will be allowed to download without having to
-                      enter their email address at all. This means that you
-                      won't be able to track who is downloading, but it is the
-                      simplest way to distribute a book to readers.
-                    </div>
-                  </div>
-                </label>
-              </div>
-
-              {/* Universal Book Link */}
-              <div className="border border-gray-200 rounded-lg p-4">
-                <label className="flex items-start space-x-3 cursor-pointer">
-                  <input
-                    type="radio"
-                    name="landingPageType"
-                    value="universal_link"
-                    checked={landingPageType === "universal_link"}
-                    onChange={(e) => setLandingPageType(e.target.value)}
-                    className="mt-1"
-                  />
-                  <div className="flex-1">
-                    <div className="font-medium text-gray-900">
-                      A universal book link where readers can choose from a list
-                      of formats and bookstores online to buy your book
-                    </div>
-                    <div className="text-sm text-gray-600 mt-1">
-                      Readers will be redirected to a bookstore or to your own
-                      store or website in order to get their book. Word2Wallet
-                      does not deliver any files with this kind of page, we're
-                      only hosting the landing page and then directing the
-                      reader where to go.
-                    </div>
-                  </div>
-                </label>
-              </div>
-
-              {/* Restricted Landing Page */}
-              <div className="border border-gray-200 rounded-lg p-4">
-                <label className="flex items-start space-x-3 cursor-pointer">
-                  <input
-                    type="radio"
-                    name="landingPageType"
-                    value="restricted"
-                    checked={landingPageType === "restricted"}
-                    onChange={(e) => setLandingPageType(e.target.value)}
-                    className="mt-1"
-                  />
-                  <div className="flex-1">
-                    <div className="font-medium text-gray-900">
-                      A restricted landing page for current subscribers
-                    </div>
-                    <div className="text-sm text-gray-600 mt-1">
-                      Readers will be asked to give their email address, and
-                      then Word2Wallet will confirm that they are actively
-                      subscribed to one of your integrated lists before allowing
-                      them to download the book. New readers (not already on
-                      your list) will not be able to sign up for your list or
-                      download the content.
-                    </div>
-                  </div>
-                </label>
-              </div>
-            </div>
-          </div>
-
-          {/* Create Button */}
-          <div className="flex justify-start">
-            <button
-              onClick={() => {
-                if (!selectedBook) {
-                  alert("Please select a book first");
-                  return;
-                }
-                // Navigate to the actual landing page builder with the selected options
-                navigate(
-                  `/delivery/landing-builder/create?bookId=${selectedBook}&type=${landingPageType}&emailOption=${emailSignupOption}`
-                );
-              }}
-              className="px-6 py-3 bg-orange-500 text-white rounded-lg hover:bg-orange-600 font-medium"
-            >
-              Create Landing Page
-            </button>
-          </div>
-        </div>
+        <LandingPageBuilderForm
+          onBack={() => {
+            setShowBuilder(false);
+            setEditingPage(null);
+          }}
+          className="mt-32"
+        />
         <Footer />
       </div>
     );
@@ -504,7 +211,7 @@ export default function LandingPageBuilderPage() {
         {/* Header */}
         <div className="mb-8">
           <button
-            onClick={() => navigate("/dashboard/delivery")}
+            onClick={() => navigate("/delivery")}
             className="flex items-center space-x-2 text-gray-600 hover:text-gray-900 mb-4"
           >
             <ArrowLeft className="w-4 h-4" />
@@ -570,55 +277,69 @@ export default function LandingPageBuilderPage() {
                         </h3>
                         <span
                           className={`px-2 py-1 rounded-full text-xs font-medium ${getStatusColor(
-                            page.status
+                            page.isActive
                           )}`}
                         >
-                          {page.status.charAt(0).toUpperCase() +
-                            page.status.slice(1)}
+                          {getStatusText(page.isActive)}
                         </span>
                       </div>
-                      <p className="text-gray-600 mb-2">{page.bookTitle}</p>
+                      <p className="text-gray-600 mb-2">
+                        {typeof page.book === "object"
+                          ? page.book.title
+                          : "Book not found"}
+                      </p>
                       <div className="flex items-center space-x-6 text-sm text-gray-500">
                         <div className="flex items-center space-x-1">
                           <Eye className="w-4 h-4" />
-                          <span>{page.views.toLocaleString()} views</span>
+                          <span>
+                            {page.analytics.totalViews.toLocaleString()} views
+                          </span>
                         </div>
                         <div className="flex items-center space-x-1">
                           <CheckCircle className="w-4 h-4" />
                           <span>
-                            {page.conversions} conversions (
-                            {getConversionRate(page.views, page.conversions)})
+                            {page.analytics.totalConversions} conversions (
+                            {getConversionRate(
+                              page.analytics.totalViews,
+                              page.analytics.totalConversions
+                            )}
+                            )
                           </span>
                         </div>
                         <span>Updated {formatDate(page.updatedAt)}</span>
                       </div>
                     </div>
                     <div className="flex items-center space-x-2">
-                      {page.previewUrl && (
+                      <button
+                        onClick={() =>
+                          window.open(
+                            `${process.env.NEXT_PUBLIC_LANDINGPAGE_VIEW_URL}/${page.id}`,
+                            "_blank"
+                          )
+                        }
+                        className="p-2 text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded"
+                        title="Preview"
+                      >
+                        <Eye className="w-4 h-4" />
+                      </button>
+                      {page.isActive && (
                         <button
-                          onClick={() => window.open(page.previewUrl, "_blank")}
-                          className="p-2 text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded"
-                          title="Preview"
-                        >
-                          <Eye className="w-4 h-4" />
-                        </button>
-                      )}
-                      {page.publicUrl && (
-                        <button
-                          onClick={() => handleCopyUrl(page.publicUrl!)}
+                          onClick={() => handleCopyUrl(getPublicUrl(page))}
                           className="p-2 text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded"
                           title="Copy Public URL"
                         >
-                          {copiedUrl === page.publicUrl ? (
+                          {copiedUrl === getPublicUrl(page) ? (
                             <CheckCircle className="w-4 h-4 text-green-600" />
                           ) : (
                             <Copy className="w-4 h-4" />
                           )}
                         </button>
                       )}
-                      {page.publicUrl && (
+                      {page.isActive && (
                         <button
-                          onClick={() => window.open(page.publicUrl, "_blank")}
+                          onClick={() =>
+                            window.open(getPublicUrl(page), "_blank")
+                          }
                           className="p-2 text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded"
                           title="View Public Page"
                         >
@@ -632,12 +353,19 @@ export default function LandingPageBuilderPage() {
                       >
                         <Edit className="w-4 h-4" />
                       </button>
-                      {page.status === "draft" && (
+                      {!page.isActive ? (
                         <button
                           onClick={() => handlePublishPage(page.id)}
                           className="px-3 py-1 text-sm bg-green-600 text-white rounded hover:bg-green-700"
                         >
                           Publish
+                        </button>
+                      ) : (
+                        <button
+                          onClick={() => handleUnpublishPage(page.id)}
+                          className="px-3 py-1 text-sm bg-yellow-600 text-white rounded hover:bg-yellow-700"
+                        >
+                          Unpublish
                         </button>
                       )}
                       <button
@@ -664,17 +392,25 @@ export default function LandingPageBuilderPage() {
             <div>
               <h4 className="font-medium mb-1">Design Best Practices</h4>
               <ul className="list-disc list-inside space-y-1">
-                <li>Use compelling headlines and clear value propositions</li>
-                <li>Include social proof and testimonials</li>
-                <li>Make the download button prominent and clear</li>
+                <li key="design-1">
+                  Use compelling headlines and clear value propositions
+                </li>
+                <li key="design-2">Include social proof and testimonials</li>
+                <li key="design-3">
+                  Make the download button prominent and clear
+                </li>
               </ul>
             </div>
             <div>
               <h4 className="font-medium mb-1">Conversion Optimization</h4>
               <ul className="list-disc list-inside space-y-1">
-                <li>Keep forms simple and minimize required fields</li>
-                <li>Use email capture strategically</li>
-                <li>Test different headlines and call-to-action buttons</li>
+                <li key="conversion-1">
+                  Keep forms simple and minimize required fields
+                </li>
+                <li key="conversion-2">Use email capture strategically</li>
+                <li key="conversion-3">
+                  Test different headlines and call-to-action buttons
+                </li>
               </ul>
             </div>
           </div>

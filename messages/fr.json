@@ -25,7 +25,7 @@
     },
     "q2": {
       "q": "Puis-je encore publier sur les marchés ?",
-      "a": "Oui—connectez vos comptes Draft2Digital ou BookFunnel et transférez quand vous voulez une distribution plus large."
+      "a": "Oui—connectez vos comptes Draft2Digital ou WordToWallet et transférez quand vous voulez une distribution plus large."
     },
     "q3": {
       "q": "Le cours est-il vraiment gratuit ?",
@@ -107,7 +107,7 @@
         "features": []
       },
       "byoa": {
-        "title": "BYOA: D2D et BookFunnel",
+        "title": "BYOA: D2D et WordToWallet",
         "description": "Exportez des packages prêts pour les marchés ou livrez des ARCs avec des liens—intégrez quand vous voulez une distribution plus large.",
         "features": []
       }
@@ -127,7 +127,7 @@
       },
       "step3": {
         "title": "Vendez et développez",
-        "description": "Lancez vos produits et laissez BookFunnel gérer la livraison pendant que vous vous concentrez sur l'écriture."
+        "description": "Lancez vos produits et laissez WordToWallet gérer la livraison pendant que vous vous concentrez sur l'écriture."
       }
     },
     "cta": "Commencer maintenant"
@@ -174,7 +174,7 @@
       },
       "sales": {
         "title": "Vendez directement",
-        "description": "Connectez votre boutique ; BookFunnel livre les fichiers directement aux acheteurs.",
+        "description": "Connectez votre boutique ; WordToWallet livre les fichiers directement aux acheteurs.",
         "features": [
           "Ventes directes",
           "Livraison de fichiers",

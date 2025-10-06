@@ -9,15 +9,15 @@ import {
   InformationCircleIcon,
 } from "@heroicons/react/24/outline";
 
-interface BookFunnelConnectModalProps {
+interface WordToWalletConnectModalProps {
   onClose: () => void;
   onSuccess: () => void;
 }
 
-export function BookFunnelConnectModal({
+export function WordToWalletConnectModal({
   onClose,
   onSuccess,
-}: BookFunnelConnectModalProps) {
+}: WordToWalletConnectModalProps) {
   const t = useTranslations("integrations");
   const [apiKey, setApiKey] = useState("");
   const [connecting, setConnecting] = useState(false);
@@ -36,7 +36,7 @@ export function BookFunnelConnectModal({
 
     try {
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/integrations/bookfunnel`,
+        `${process.env.NEXT_PUBLIC_API_URL}/integrations/WordToWallet`,
         {
           method: "POST",
           headers: {
@@ -71,10 +71,10 @@ export function BookFunnelConnectModal({
             </div>
             <div>
               <h3 className="text-lg font-medium text-gray-900">
-                {t("connectBookFunnel")}
+                {t("connectWordToWallet")}
               </h3>
               <p className="text-sm text-gray-500">
-                {t("connectBookFunnelDescription")}
+                {t("connectWordToWalletDescription")}
               </p>
             </div>
           </div>

@@ -25,7 +25,7 @@
     },
     "q2": {
       "q": "Kan jag fortfarande publicera på marknadsplatser?",
-      "a": "Ja—anslut dina Draft2Digital eller BookFunnel-konton och överlämna när du vill ha bredare distribution."
+      "a": "Ja—anslut dina Draft2Digital eller WordToWallet-konton och överlämna när du vill ha bredare distribution."
     },
     "q3": {
       "q": "Är kursen verkligen gratis?",
@@ -107,7 +107,7 @@
         "features": []
       },
       "byoa": {
-        "title": "BYOA: D2D och BookFunnel",
+        "title": "BYOA: D2D och WordToWallet",
         "description": "Exportera marknadsplats-redo paket eller leverera ARCs med länkar—integrera när du vill ha bredare distribution.",
         "features": []
       }
@@ -127,7 +127,7 @@
       },
       "step3": {
         "title": "Sälj och skala",
-        "description": "Lansera dina produkter och låt BookFunnel hantera leveransen medan du fokuserar på att skriva."
+        "description": "Lansera dina produkter och låt WordToWallet hantera leveransen medan du fokuserar på att skriva."
       }
     },
     "cta": "Kom igång nu"
@@ -170,7 +170,7 @@
       },
       "sales": {
         "title": "Sälj direkt",
-        "description": "Anslut din butik; BookFunnel levererar filer direkt till köpare.",
+        "description": "Anslut din butik; WordToWallet levererar filer direkt till köpare.",
         "features": ["Direktförsäljning", "Filleverans", "Kundhantering"]
       }
     }

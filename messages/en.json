@@ -25,7 +25,7 @@
     },
     "q2": {
       "q": "Can I still publish to marketplaces?",
-      "a": "Yes—connect your Draft2Digital or BookFunnel accounts and hand off when you want wider distribution."
+      "a": "Yes—connect your Draft2Digital or WordToWallet accounts and hand off when you want wider distribution."
     },
     "q3": {
       "q": "Is the course really free?",
@@ -107,7 +107,7 @@
         "features": []
       },
       "byoa": {
-        "title": "BYOA: D2D & BookFunnel",
+        "title": "BYOA: D2D & WordToWallet",
         "description": "Export marketplace-ready packages or deliver ARCs with links—integrate when you want wider distribution.",
         "features": []
       }
@@ -127,7 +127,7 @@
       },
       "step3": {
         "title": "Sell & Scale",
-        "description": "Launch your products and let BookFunnel handle delivery while you focus on writing."
+        "description": "Launch your products and let WordToWallet handle delivery while you focus on writing."
       }
     },
     "cta": "Get Started Now"
@@ -170,7 +170,7 @@
       },
       "sales": {
         "title": "Sell Direct",
-        "description": "Connect your store; BookFunnel delivers files directly to buyers.",
+        "description": "Connect your store; WordToWallet delivers files directly to buyers.",
         "features": ["Direct sales", "File delivery", "Customer management"]
       }
     }
@@ -550,18 +550,18 @@
     "subtitle": "Connect your accounts to external services",
     "connectIntegration": "Connect Integration",
     "loading": "Loading...",
-    "connectBookFunnel": "Connect BookFunnel",
-    "connectBookFunnelDescription": "Connect your BookFunnel account to create ARC campaigns",
+    "connectWordToWallet": "Connect WordToWallet",
+    "connectWordToWalletDescription": "Connect your WordToWallet account to create ARC campaigns",
     "apiKey": "API Key",
-    "apiKeyPlaceholder": "Enter your BookFunnel API key",
+    "apiKeyPlaceholder": "Enter your WordToWallet API key",
     "apiKeyHelp": "Your API key will be encrypted and stored securely",
     "howToGetApiKey": "How to get your API key:",
-    "step1": "Log in to your BookFunnel account",
+    "step1": "Log in to your WordToWallet account",
     "step2": "Go to Settings > API Keys",
     "step3": "Generate a new API key",
     "step4": "Copy and paste it here",
     "features": "Features",
-    "feature1": "Upload books to BookFunnel",
+    "feature1": "Upload books to WordToWallet",
     "feature2": "Create ARC campaigns",
     "feature3": "Generate download codes",
     "feature4": "Track download analytics",
@@ -569,9 +569,9 @@
     "connecting": "Connecting...",
     "cancel": "Cancel",
     "apiKeyRequired": "API key is required",
-    "connectionFailed": "Failed to connect to BookFunnel",
+    "connectionFailed": "Failed to connect to WordToWallet",
     "availableIntegrations": "Available Integrations",
-    "bookfunnelDescription": "Create and manage ARC campaigns for your books",
+    "WordToWalletDescription": "Create and manage ARC campaigns for your books",
     "amazonKdpDescription": "Publish directly to Amazon Kindle Direct Publishing",
     "draft2digitalDescription": "Distribute to multiple ebook retailers",
     "smashwordsDescription": "Publish to Smashwords marketplace",

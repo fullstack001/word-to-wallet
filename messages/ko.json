@@ -25,7 +25,7 @@
     },
     "q2": {
       "q": "여전히 마켓플레이스에 게시할 수 있나요?",
-      "a": "네—Draft2Digital 또는 BookFunnel 계정을 연결하고 더 넓은 배포를 원할 때 전달하세요."
+      "a": "네—Draft2Digital 또는 WordToWallet 계정을 연결하고 더 넓은 배포를 원할 때 전달하세요."
     },
     "q3": {
       "q": "코스가 정말 무료인가요?",
@@ -107,7 +107,7 @@
         "features": []
       },
       "byoa": {
-        "title": "BYOA: D2D 및 BookFunnel",
+        "title": "BYOA: D2D 및 WordToWallet",
         "description": "마켓플레이스 준비 패키지를 내보내거나 링크가 있는 ARC를 전달하세요—더 넓은 배포를 원할 때 통합하세요.",
         "features": []
       }
@@ -127,7 +127,7 @@
       },
       "step3": {
         "title": "판매 및 확장",
-        "description": "제품을 출시하고 BookFunnel이 배송을 처리하는 동안 글쓰기에 집중하세요."
+        "description": "제품을 출시하고 WordToWallet이 배송을 처리하는 동안 글쓰기에 집중하세요."
       }
     },
     "cta": "지금 시작하기"
@@ -166,7 +166,7 @@
       },
       "sales": {
         "title": "직접 판매",
-        "description": "스토어를 연결하세요; BookFunnel이 구매자에게 파일을 직접 전달합니다.",
+        "description": "스토어를 연결하세요; WordToWallet이 구매자에게 파일을 직접 전달합니다.",
         "features": ["직접 판매", "파일 전달", "고객 관리"]
       }
     }

@@ -815,13 +815,27 @@ export default function BookManagementPage({
                     <h1 className="text-2xl font-bold text-gray-900">
                       {book.title}
                     </h1>
-                    <button
-                      onClick={() => setShowEditModal(true)}
-                      className="flex items-center space-x-2 px-3 py-1.5 bg-blue-600 text-white rounded-md hover:bg-blue-700 text-sm"
-                    >
-                      <Edit className="w-4 h-4" />
-                      <span>Edit</span>
-                    </button>
+                    <div className="flex items-center space-x-2">
+                      <button
+                        onClick={() => {
+                          const readerUrl =
+                            process.env.NEXT_PUBLIC_READER_URL ||
+                            "http://localhost:3002";
+                          window.open(`${readerUrl}/${book._id}`, "_blank");
+                        }}
+                        className="flex items-center space-x-2 px-3 py-1.5 bg-green-600 text-white rounded-md hover:bg-green-700 text-sm"
+                      >
+                        <Cloud className="w-4 h-4" />
+                        <span>View on Cloud</span>
+                      </button>
+                      <button
+                        onClick={() => setShowEditModal(true)}
+                        className="flex items-center space-x-2 px-3 py-1.5 bg-blue-600 text-white rounded-md hover:bg-blue-700 text-sm"
+                      >
+                        <Edit className="w-4 h-4" />
+                        <span>Edit</span>
+                      </button>
+                    </div>
                   </div>
                   <p className="text-lg text-gray-600 mb-3">{book.author}</p>
                   <div
@@ -879,7 +893,7 @@ export default function BookManagementPage({
                   <div className="flex items-center space-x-2">
                     <div className="w-5 h-5 bg-gray-200 rounded"></div>
                     <span className="text-sm text-gray-700">
-                      Readers can read in the BookFunnel app
+                      Readers can read in the WordToWallet app
                     </span>
                   </div>
                 </div>
