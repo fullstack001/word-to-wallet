@@ -95,6 +95,7 @@ export default function LinkGeneratorPage() {
           url: "https://word2wallet.com/delivery/def456",
           shortUrl: "https://w2w.link/def456",
           accessType: "anonymous",
+          currentDownloads: 89,
           isActive: true,
           createdAt: "2024-01-14T15:45:00Z",
           lastAccessed: "2024-01-16T09:15:00Z",
@@ -329,14 +330,14 @@ export default function LinkGeneratorPage() {
                 : "Create a secure delivery link for your book"}
             </p>
           </div>
-          <LinkGenerator
+          {/* <LinkGenerator
             initialData={editingLink}
             onGenerate={editingLink ? handleLinkUpdated : handleLinkCreated}
             onCancel={() => {
               setShowGenerator(false);
               setEditingLink(null);
             }}
-          />
+          /> */}
         </div>
         <Footer />
       </div>

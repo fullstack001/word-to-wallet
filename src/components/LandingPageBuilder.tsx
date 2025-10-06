@@ -21,6 +21,7 @@ interface LandingPageBuilderProps {
   onSave?: (landingPage: any) => void;
   onPreview?: (landingPage: any) => void;
   initialData?: any;
+  onClose?: () => void;
 }
 
 interface DesignSettings {

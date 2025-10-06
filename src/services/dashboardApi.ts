@@ -59,7 +59,7 @@ export const dashboardApi = {
       const response = await api.get("/subscriptions");
       return response.data;
     } catch (error) {
-      return null;
+      return undefined;
     }
   },
 
@@ -69,7 +69,7 @@ export const dashboardApi = {
       const response = await api.get("/analytics");
       return response.data.overview;
     } catch (error) {
-      return null;
+      return undefined;
     }
   },
 

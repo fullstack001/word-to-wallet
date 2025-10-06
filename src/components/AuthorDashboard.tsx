@@ -18,7 +18,7 @@ import {
   Music,
   Globe,
 } from "lucide-react";
-import UploadWizard from "./UploadWizard";
+import BookCreationWizard from "./BookCreationWizard";
 import LandingPageBuilder from "./LandingPageBuilder";
 import LinkGenerator from "./LinkGenerator";
 import AnalyticsDashboard from "./AnalyticsDashboard";
@@ -672,8 +672,11 @@ const AuthorDashboard: React.FC<AuthorDashboardProps> = ({ userId }) => {
 
         {/* Modals */}
         {showUploadWizard && (
-          <UploadWizard
-            onUploadComplete={handleBookUpload}
+          <BookCreationWizard
+            onComplete={() => {
+              setShowUploadWizard(false);
+              setActiveTab("books");
+            }}
             onClose={() => setShowUploadWizard(false)}
           />
         )}

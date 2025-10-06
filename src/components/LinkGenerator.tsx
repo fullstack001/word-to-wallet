@@ -21,6 +21,7 @@ interface LinkGeneratorProps {
   bookId: string;
   onLinkCreated?: (link: any) => void;
   initialData?: any;
+  onClose?: () => void;
 }
 
 interface LinkSettings {
