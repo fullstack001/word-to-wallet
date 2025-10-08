@@ -5,7 +5,7 @@ export interface User {
   email: string;
   name?: string;
   id: string;
-  cardnumber?: string; // Add cardnumber property
+  cardnumber?: string;
   avatar?: string;
   isAdmin: boolean;
 }
@@ -74,24 +74,14 @@ const api = axios.create({
 // Helper function to get auth token
 const getAuthToken = (): string | null => {
   if (typeof window !== "undefined") {
-    // Check both localStorage and sessionStorage for auth token
     const autoToken = localStorage.getItem("autoToken");
-    const localToken = localStorage.getItem("authToken"); // Keep for backward compatibility
+    const localToken = localStorage.getItem("authToken");
     const sessionAutoToken = sessionStorage.getItem("autoToken");
-    const sessionToken = sessionStorage.getItem("authToken"); // Keep for backward compatibility
+    const sessionToken = sessionStorage.getItem("authToken");
     return autoToken || localToken || sessionAutoToken || sessionToken;
   }
   return null;
 };
-
-// Helper function to get auth headers
-// const getAuthHeaders = (): Record<string, string> => {
-//   const token = getAuthToken();
-//   return {
-//     'Content-Type': 'application/json',
-//     ...(token && { Authorization: `Bearer ${token}` }),
-//   };
-// };
 
 // Authentication API functions
 export const loginUser = async (
@@ -104,19 +94,17 @@ export const loginUser = async (
       password,
     });
 
-    // Extract data from the backend response structure
     const { data } = response.data;
     const { user, tokens } = data;
 
-    // Transform to match frontend AuthResponse interface
     return {
       token: tokens.accessToken,
       user: {
         id: user.id,
         email: user.email,
         name: user.fullName,
-        cardnumber: "", // Not provided by backend
-        avatar: "", // Not provided by backend
+        cardnumber: "",
+        avatar: "",
         isAdmin: user.role === "admin",
       },
       subscription: user.subscription
@@ -156,15 +144,10 @@ export const registerEmail = async (email: string): Promise<AuthResponse> => {
     const status = axiosError.response?.status;
 
     if (status === 409) {
-      // Email already exists with subscription
-      const errorMessage = "409";
-      throw new Error(errorMessage);
+      throw new Error("409");
     } else if (status === 400) {
-      // Bad request - email already exists without subscription
-      const errorMessage = "400";
-      throw new Error(errorMessage);
+      throw new Error("400");
     } else {
-      // Other errors
       const errorMessage =
         axiosError.response?.data?.msg ||
         axiosError.response?.data?.message ||
@@ -309,7 +292,6 @@ export const convertFile = async (
     const formData = new FormData();
     formData.append("files", file);
 
-    // Add additional data if provided
     if (additionalData) {
       Object.entries(additionalData).forEach(([key, value]) => {
         formData.append(key, value);
@@ -384,7 +366,6 @@ export const compressPdf = async (
   const response = await convertFile("/pdf/compress_pdf", file, undefined, {
     level: compressionLevel,
   });
-  // Extract just the filename from the response object
   return (response as any).file;
 };
 
@@ -467,7 +448,7 @@ export const createStripeSubscription = async (
 };
 
 export const getSavedPdfUrl = (base64Data: string): string => {
-  return base64Data; // base64 data can be used directly as URL
+  return base64Data;
 };
 
 // Admin API Types
@@ -490,7 +471,7 @@ export interface MediaFile {
   path: string;
   url: string;
   uploadedAt: string;
-  file?: File; // Optional File object for local files before upload
+  file?: File;
 }
 
 export interface MultimediaContent {
@@ -729,35 +710,64 @@ export const getCourseById = async (id: string): Promise<Course> => {
   }
 };
 
-// Content Generation API functions
-export interface GenerateContentRequest {
-  title: string;
-  description: string;
+/* -----------------------------------------------------------------------------
+   CONTENT GENERATION — UPDATED FOR TWO MODES
+----------------------------------------------------------------------------- */
+export type GenerateContentMode = "RAW_XHTML" | "STRICT_NATIVE_BLOCKS";
+
+export interface RawXHTMLRequest {
+  mode: "RAW_XHTML";
+  html: string;
+}
+
+export interface StrictNativeBlocksRequest {
+  mode: "STRICT_NATIVE_BLOCKS";
+  strict?: boolean; // backend defaults true
+  instructions?: string; // your promo recipe etc.
+  title?: string;
+  description?: string;
   courseTitle?: string;
   subjectName?: string;
 }
 
-export interface GenerateContentResponse {
-  success: boolean;
-  message: string;
-  data: {
-    content: string;
-    usage?: {
-      prompt_tokens: number;
-      completion_tokens: number;
-      total_tokens: number;
-    };
+export type GenerateContentRequest =
+  | RawXHTMLRequest
+  | StrictNativeBlocksRequest;
+
+export interface StrictBlocksResponse {
+  mode: "STRICT_NATIVE_BLOCKS";
+  blocks: Array<any>;
+  html: string;
+  usage?: {
+    prompt_tokens: number;
+    completion_tokens: number;
+    total_tokens: number;
   };
 }
 
+export interface RawXHTMLResponse {
+  mode: "RAW_XHTML";
+  content: string;
+}
+
+export type GenerateContentResponseData =
+  | StrictBlocksResponse
+  | RawXHTMLResponse;
+
+export interface GenerateContentResponse {
+  success: boolean;
+  message: string;
+  data: GenerateContentResponseData;
+}
+
 export const generateChapterContent = async (
-  data: GenerateContentRequest
+  payload: GenerateContentRequest
 ): Promise<GenerateContentResponse> => {
   try {
     const token = getAuthToken();
     const response: AxiosResponse<GenerateContentResponse> =
       await rateLimitedRequest(() =>
-        api.post("/content-generation/generate-chapter-content", data, {
+        api.post("/content-generation/generate-chapter-content", payload, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -804,10 +814,7 @@ export const createCourse = async (data: CreateCourseData): Promise<Course> => {
   try {
     const token = getAuthToken();
 
-    // Create FormData for file uploads
     const formData = new FormData();
-
-    // Add text fields
     formData.append("title", data.title);
     if (data.description) formData.append("description", data.description);
     formData.append("subject", data.subject);
@@ -819,19 +826,16 @@ export const createCourse = async (data: CreateCourseData): Promise<Course> => {
     if (data.googleClassroomLink)
       formData.append("googleClassroomLink", data.googleClassroomLink);
 
-    // Add cover image if present
     if (data.cover) {
       formData.append("cover", data.cover);
     }
 
-    // Add audio files if present
     if (data.audio && data.audio.length > 0) {
       data.audio.forEach((file) => {
         formData.append("audio", file);
       });
     }
 
-    // Add video files if present
     if (data.video && data.video.length > 0) {
       data.video.forEach((file) => {
         formData.append("video", file);
@@ -865,17 +869,14 @@ export const updateCourse = async (
   try {
     const token = getAuthToken();
 
-    // Check if we have files to upload
     const hasFiles =
       data.epubCover ||
       (data.audio && data.audio.length > 0) ||
       (data.video && data.video.length > 0);
 
     if (hasFiles) {
-      // Use FormData for file uploads
       const formData = new FormData();
 
-      // Add text fields
       if (data.title) formData.append("title", data.title);
       if (data.description) formData.append("description", data.description);
       if (data.subject) formData.append("subject", data.subject);
@@ -895,19 +896,16 @@ export const updateCourse = async (
       if (data.googleClassroomLink !== undefined)
         formData.append("googleClassroomLink", data.googleClassroomLink || "");
 
-      // Add cover image if present
       if (data.epubCover) {
         formData.append("epubCover", data.epubCover);
       }
 
-      // Add audio files if present
       if (data.audio && data.audio.length > 0) {
         data.audio.forEach((file) => {
           formData.append("audio", file);
         });
       }
 
-      // Add video files if present
       if (data.video && data.video.length > 0) {
         data.video.forEach((file) => {
           formData.append("video", file);
@@ -923,7 +921,6 @@ export const updateCourse = async (
         });
       return response.data.data;
     } else {
-      // Use JSON for text-only updates
       const response: AxiosResponse<{ success: boolean; data: Course }> =
         await api.put(`/courses/${id}`, data, {
           headers: {
@@ -971,8 +968,6 @@ export const toggleCoursePublishedStatus = async (
           },
         }
       );
-    console.log("API Response:", response.data);
-    console.log("Returned course data:", response.data.data);
     return response.data.data;
   } catch (error) {
     const axiosError = error as AxiosError<{ message?: string }>;
@@ -1188,7 +1183,6 @@ export const getCurrentUser = async (): Promise<AuthResponse> => {
   try {
     const token = getAuthToken();
 
-    // Get dashboard data which includes subscription info
     const dashboardResponse = await api.get("/dashboard", {
       headers: {
         Authorization: `Bearer ${token}`,
@@ -1198,7 +1192,6 @@ export const getCurrentUser = async (): Promise<AuthResponse> => {
     const { data: dashboardData } = dashboardResponse.data;
     const { subscription } = dashboardData;
 
-    // Get user profile data
     const profileResponse = await api.get("/auth/profile", {
       headers: {
         Authorization: `Bearer ${token}`,
