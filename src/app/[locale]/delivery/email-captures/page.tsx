@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { useTranslations } from "next-intl";
 import { useSelector } from "react-redux";
 import { useLocalizedNavigation } from "@/utils/navigation";
@@ -24,7 +24,13 @@ import {
   RefreshCw,
   Plus,
 } from "lucide-react";
+import {
+  emailCaptureApi,
+  EmailCapture as BackendEmailCapture,
+  EmailCaptureStatus,
+} from "@/services/emailCaptureApi";
 
+// Frontend display interface
 interface EmailCapture {
   id: string;
   email: string;
@@ -34,9 +40,10 @@ interface EmailCapture {
   sourceType: "landing_page" | "delivery_link" | "manual";
   sourceId?: string;
   sourceTitle?: string;
-  status: "active" | "unsubscribed" | "bounced";
+  status: "new" | "contacted" | "converted" | "bounced";
   tags: string[];
   notes?: string;
+  subscribedToNewsletter: boolean;
   createdAt: string;
   lastActivity?: string;
   country?: string;
@@ -61,6 +68,95 @@ export default function EmailCapturesPage() {
   );
   const [showEditModal, setShowEditModal] = useState(false);
 
+  // Transform backend data to frontend format
+  const transformEmailCapture = (
+    backendCapture: BackendEmailCapture
+  ): EmailCapture => {
+    // Determine source type based on IDs
+    let sourceType: "landing_page" | "delivery_link" | "manual" = "manual";
+    let sourceTitle = "";
+    let sourceId = "";
+
+    // Handle populated fields
+    const bookData =
+      typeof backendCapture.bookId === "object"
+        ? backendCapture.bookId
+        : undefined;
+    const landingPageData =
+      typeof backendCapture.landingPageId === "object"
+        ? backendCapture.landingPageId
+        : undefined;
+    const deliveryLinkData =
+      typeof backendCapture.deliveryLinkId === "object"
+        ? backendCapture.deliveryLinkId
+        : undefined;
+
+    if (backendCapture.landingPageId) {
+      sourceType = "landing_page";
+      sourceId =
+        landingPageData?._id || (backendCapture.landingPageId as string);
+      sourceTitle = landingPageData?.title || bookData?.title || "Landing Page";
+    } else if (backendCapture.deliveryLinkId) {
+      sourceType = "delivery_link";
+      sourceId =
+        deliveryLinkData?._id || (backendCapture.deliveryLinkId as string);
+      sourceTitle =
+        deliveryLinkData?.title || bookData?.title || "Delivery Link";
+    } else {
+      sourceTitle = "Manual Import";
+    }
+
+    // Get device from user agent
+    const device = backendCapture.metadata?.userAgent
+      ? backendCapture.metadata.userAgent.includes("Mobile")
+        ? "Mobile"
+        : backendCapture.metadata.userAgent.includes("Tablet")
+        ? "Tablet"
+        : "Desktop"
+      : undefined;
+
+    return {
+      id: backendCapture._id,
+      email: backendCapture.email,
+      firstName: backendCapture.firstName,
+      lastName: backendCapture.lastName,
+      source: backendCapture.source,
+      sourceType,
+      sourceId,
+      sourceTitle,
+      status: backendCapture.status,
+      tags: backendCapture.tags || [],
+      notes: backendCapture.notes,
+      subscribedToNewsletter: backendCapture.subscribedToNewsletter,
+      createdAt: backendCapture.createdAt,
+      lastActivity: backendCapture.updatedAt,
+      country: backendCapture.metadata?.country,
+      device,
+    };
+  };
+
+  const fetchEmailCaptures = useCallback(async () => {
+    try {
+      setLoading(true);
+      const response = await emailCaptureApi.getEmailCaptures({
+        page: 1,
+        limit: 1000, // Get all for now
+        sortBy: "createdAt",
+        sortOrder: "desc",
+      });
+
+      const transformedCaptures = response.emailCaptures.map(
+        transformEmailCapture
+      );
+      setEmailCaptures(transformedCaptures);
+    } catch (error) {
+      console.error("Failed to fetch email captures:", error);
+      setEmailCaptures([]);
+    } finally {
+      setLoading(false);
+    }
+  }, []);
+
   useEffect(() => {
     if (!isLoggedIn) {
       navigate("/login");
@@ -68,100 +164,7 @@ export default function EmailCapturesPage() {
     }
 
     fetchEmailCaptures();
-  }, [isLoggedIn, navigate]);
-
-  const fetchEmailCaptures = async () => {
-    try {
-      setLoading(true);
-      // Mock data for now - replace with actual API calls
-      setEmailCaptures([
-        {
-          id: "1",
-          email: "john.doe@example.com",
-          firstName: "John",
-          lastName: "Doe",
-          source: "Digital Marketing Mastery Landing Page",
-          sourceType: "landing_page",
-          sourceId: "1",
-          sourceTitle: "Digital Marketing Mastery",
-          status: "active",
-          tags: ["marketing", "premium"],
-          notes: "Interested in advanced marketing strategies",
-          createdAt: "2024-01-15T10:30:00Z",
-          lastActivity: "2024-01-16T14:20:00Z",
-          country: "United States",
-          device: "Desktop",
-        },
-        {
-          id: "2",
-          email: "jane.smith@example.com",
-          firstName: "Jane",
-          lastName: "Smith",
-          source: "SEO Techniques Delivery Link",
-          sourceType: "delivery_link",
-          sourceId: "2",
-          sourceTitle: "SEO Techniques - Public Access",
-          status: "active",
-          tags: ["seo", "free"],
-          createdAt: "2024-01-14T15:45:00Z",
-          lastActivity: "2024-01-16T09:15:00Z",
-          country: "United Kingdom",
-          device: "Mobile",
-        },
-        {
-          id: "3",
-          email: "mike.wilson@example.com",
-          firstName: "Mike",
-          lastName: "Wilson",
-          source: "Content Marketing Playbook Landing Page",
-          sourceType: "landing_page",
-          sourceId: "3",
-          sourceTitle: "Content Marketing Playbook",
-          status: "active",
-          tags: ["content", "marketing"],
-          notes: "Content creator looking for growth strategies",
-          createdAt: "2024-01-12T11:20:00Z",
-          lastActivity: "2024-01-15T16:30:00Z",
-          country: "Canada",
-          device: "Tablet",
-        },
-        {
-          id: "4",
-          email: "sarah.jones@example.com",
-          firstName: "Sarah",
-          lastName: "Jones",
-          source: "Manual Import",
-          sourceType: "manual",
-          status: "unsubscribed",
-          tags: ["imported"],
-          createdAt: "2024-01-10T09:00:00Z",
-          lastActivity: "2024-01-12T10:15:00Z",
-          country: "Australia",
-          device: "Desktop",
-        },
-        {
-          id: "5",
-          email: "bob.brown@example.com",
-          firstName: "Bob",
-          lastName: "Brown",
-          source: "Social Media Strategy Delivery Link",
-          sourceType: "delivery_link",
-          sourceId: "4",
-          sourceTitle: "Social Media Strategy - Expired",
-          status: "bounced",
-          tags: ["social", "expired"],
-          createdAt: "2024-01-08T14:30:00Z",
-          lastActivity: "2024-01-09T11:45:00Z",
-          country: "Germany",
-          device: "Mobile",
-        },
-      ]);
-    } catch (error) {
-      console.error("Failed to fetch email captures:", error);
-    } finally {
-      setLoading(false);
-    }
-  };
+  }, [isLoggedIn, navigate, fetchEmailCaptures]);
 
   const handleSelectCapture = (captureId: string) => {
     setSelectedCaptures((prev) =>
@@ -183,28 +186,34 @@ export default function EmailCapturesPage() {
     if (selectedCaptures.length === 0) return;
 
     try {
-      // API call for bulk action
-      console.log(`Bulk ${action} for captures:`, selectedCaptures);
-
-      // Update local state based on action
       if (action === "delete") {
-        setEmailCaptures(
-          emailCaptures.filter(
-            (capture) => !selectedCaptures.includes(capture.id)
-          )
+        // Delete selected captures
+        await Promise.all(
+          selectedCaptures.map((id) => emailCaptureApi.deleteEmailCapture(id))
         );
+        // Refresh list
+        await fetchEmailCaptures();
       } else if (action === "tag") {
-        // Handle tagging
-        console.log("Add tags to selected captures");
+        // Handle tagging - could open a modal for tag selection
+        const tags = prompt("Enter tags (comma-separated):");
+        if (tags) {
+          const tagArray = tags.split(",").map((t) => t.trim());
+          await emailCaptureApi.addTagsToEmailCaptures(
+            selectedCaptures,
+            tagArray
+          );
+          await fetchEmailCaptures();
+        }
       } else if (action === "export") {
-        // Handle export
-        console.log("Export selected captures");
+        // Export selected captures
+        console.log("Export selected captures - implement download logic");
       }
 
       setSelectedCaptures([]);
       setShowBulkActions(false);
     } catch (error) {
       console.error(`Failed to perform bulk ${action}:`, error);
+      alert(`Failed to ${action} email captures. Please try again.`);
     }
   };
 
@@ -215,43 +224,66 @@ export default function EmailCapturesPage() {
 
   const handleUpdateCapture = async (updatedCapture: EmailCapture) => {
     try {
-      // API call to update capture
-      setEmailCaptures(
-        emailCaptures.map((capture) =>
-          capture.id === updatedCapture.id ? updatedCapture : capture
-        )
-      );
+      await emailCaptureApi.updateEmailCapture(updatedCapture.id, {
+        firstName: updatedCapture.firstName,
+        lastName: updatedCapture.lastName,
+        status: updatedCapture.status as EmailCaptureStatus,
+        tags: updatedCapture.tags,
+        notes: updatedCapture.notes,
+      });
+      await fetchEmailCaptures();
       setShowEditModal(false);
       setEditingCapture(null);
     } catch (error) {
       console.error("Failed to update email capture:", error);
+      alert("Failed to update email capture. Please try again.");
     }
   };
 
   const handleDeleteCapture = async (captureId: string) => {
     if (window.confirm("Are you sure you want to delete this email capture?")) {
       try {
-        // API call to delete capture
-        setEmailCaptures(
-          emailCaptures.filter((capture) => capture.id !== captureId)
-        );
+        await emailCaptureApi.deleteEmailCapture(captureId);
+        await fetchEmailCaptures();
       } catch (error) {
         console.error("Failed to delete email capture:", error);
+        alert("Failed to delete email capture. Please try again.");
       }
     }
   };
 
-  const handleExportAll = () => {
-    // Implement export functionality
-    console.log("Exporting all email captures...");
+  const handleExportAll = async () => {
+    try {
+      // Export as CSV
+      const blob = (await emailCaptureApi.exportEmailCaptures({
+        format: "csv",
+      })) as Blob;
+
+      // Create a download link
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `email-captures-${
+        new Date().toISOString().split("T")[0]
+      }.csv`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      window.URL.revokeObjectURL(url);
+    } catch (error) {
+      console.error("Failed to export email captures:", error);
+      alert("Failed to export email captures. Please try again.");
+    }
   };
 
   const getStatusColor = (status: string) => {
     switch (status) {
-      case "active":
+      case "new":
+        return "text-blue-600 bg-blue-50";
+      case "contacted":
+        return "text-purple-600 bg-purple-50";
+      case "converted":
         return "text-green-600 bg-green-50";
-      case "unsubscribed":
-        return "text-yellow-600 bg-yellow-50";
       case "bounced":
         return "text-red-600 bg-red-50";
       default:
@@ -261,10 +293,12 @@ export default function EmailCapturesPage() {
 
   const getStatusIcon = (status: string) => {
     switch (status) {
-      case "active":
+      case "new":
+        return <Mail className="w-4 h-4" />;
+      case "contacted":
+        return <Mail className="w-4 h-4" />;
+      case "converted":
         return <CheckCircle className="w-4 h-4" />;
-      case "unsubscribed":
-        return <XCircle className="w-4 h-4" />;
       case "bounced":
         return <XCircle className="w-4 h-4" />;
       default:
@@ -312,7 +346,7 @@ export default function EmailCapturesPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gray-50">
+      <div className="min-h-screen ">
         <Navbar />
         <div className="max-w-7xl mx-auto px-4 py-8">
           <div className="animate-pulse">
@@ -326,14 +360,14 @@ export default function EmailCapturesPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen ">
       <Navbar />
 
-      <div className="max-w-7xl mx-auto px-4 py-8">
+      <div className="max-w-7xl mx-auto px-4 py-8 mt-32">
         {/* Header */}
         <div className="mb-8">
           <button
-            onClick={() => navigate("/dashboard/delivery")}
+            onClick={() => navigate("/delivery")}
             className="flex items-center space-x-2 text-gray-600 hover:text-gray-900 mb-4"
           >
             <ArrowLeft className="w-4 h-4" />
@@ -356,13 +390,13 @@ export default function EmailCapturesPage() {
                 <Download className="w-4 h-4" />
                 <span>Export All</span>
               </button>
-              <button
+              {/* <button
                 onClick={() => navigate("/integrations")}
                 className="flex items-center space-x-2 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700"
               >
                 <ExternalLink className="w-4 h-4" />
                 <span>Sync to Email Marketing</span>
-              </button>
+              </button> */}
             </div>
           </div>
         </div>
@@ -387,13 +421,13 @@ export default function EmailCapturesPage() {
 
           <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
             <div className="flex items-center">
-              <div className="p-2 bg-green-100 rounded-lg">
-                <CheckCircle className="w-6 h-6 text-green-600" />
+              <div className="p-2 bg-purple-100 rounded-lg">
+                <Mail className="w-6 h-6 text-purple-600" />
               </div>
               <div className="ml-4">
-                <p className="text-sm font-medium text-gray-600">Active</p>
+                <p className="text-sm font-medium text-gray-600">Contacted</p>
                 <p className="text-2xl font-bold text-gray-900">
-                  {emailCaptures.filter((c) => c.status === "active").length}
+                  {emailCaptures.filter((c) => c.status === "contacted").length}
                 </p>
               </div>
             </div>
@@ -401,18 +435,13 @@ export default function EmailCapturesPage() {
 
           <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
             <div className="flex items-center">
-              <div className="p-2 bg-yellow-100 rounded-lg">
-                <XCircle className="w-6 h-6 text-yellow-600" />
+              <div className="p-2 bg-green-100 rounded-lg">
+                <CheckCircle className="w-6 h-6 text-green-600" />
               </div>
               <div className="ml-4">
-                <p className="text-sm font-medium text-gray-600">
-                  Unsubscribed
-                </p>
+                <p className="text-sm font-medium text-gray-600">Converted</p>
                 <p className="text-2xl font-bold text-gray-900">
-                  {
-                    emailCaptures.filter((c) => c.status === "unsubscribed")
-                      .length
-                  }
+                  {emailCaptures.filter((c) => c.status === "converted").length}
                 </p>
               </div>
             </div>
@@ -456,8 +485,9 @@ export default function EmailCapturesPage() {
                   className="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                 >
                   <option value="all">All Status</option>
-                  <option value="active">Active</option>
-                  <option value="unsubscribed">Unsubscribed</option>
+                  <option value="new">New</option>
+                  <option value="contacted">Contacted</option>
+                  <option value="converted">Converted</option>
                   <option value="bounced">Bounced</option>
                 </select>
                 <select
@@ -564,7 +594,7 @@ export default function EmailCapturesPage() {
                         className="rounded border-gray-300"
                       />
                       <div className="flex-1">
-                        <div className="flex items-center space-x-3 mb-2">
+                        <div className="flex items-center space-x-3 mb-2 flex-wrap gap-y-2">
                           <h3 className="font-medium text-gray-900">
                             {capture.firstName && capture.lastName
                               ? `${capture.firstName} ${capture.lastName}`
@@ -585,6 +615,15 @@ export default function EmailCapturesPage() {
                           >
                             {capture.sourceType.replace("_", " ")}
                           </span>
+                          {capture.subscribedToNewsletter && (
+                            <span
+                              className="px-2 py-1 rounded-full text-xs font-medium flex items-center space-x-1 text-indigo-600 bg-indigo-50"
+                              title="Subscribed to newsletter"
+                            >
+                              <Mail className="w-3 h-3" />
+                              <span>Newsletter</span>
+                            </span>
+                          )}
                         </div>
                         <p className="text-sm text-gray-600 mb-1">
                           {capture.email}
