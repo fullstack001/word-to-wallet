@@ -76,6 +76,9 @@ export default function DashboardPage() {
   const handleNavigateToDelivery = () => {
     navigate("/delivery");
   };
+  const handleNavigateToSaleLinks = () => {
+    navigate("/sale-links");
+  };
 
   if (isLoading) {
     return <DashboardLoading />;
@@ -115,6 +118,7 @@ export default function DashboardPage() {
             onNavigateToProfile={handleNavigateToProfile}
             onNavigateToSchedule={handleNavigateToSchedule}
             onNavigateToBooks={handleNavigateToBooks}
+            onNavigateToSaleLinks={handleNavigateToSaleLinks}
             onNavigateToAchievements={handleNavigateToAchievements}
             onNavigateToAuctions={handleNavigateToAuctions}
             onNavigateToMyAuctions={handleNavigateToMyAuctions}
@@ -135,6 +139,7 @@ export default function DashboardPage() {
             onCreateAuction={handleNavigateToCreateAuction}
             onViewIntegrations={handleNavigateToIntegrations}
             onViewDelivery={handleNavigateToDelivery}
+            onViewSaleLinks={handleNavigateToSaleLinks}
           />
         </div>
 

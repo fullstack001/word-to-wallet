@@ -80,7 +80,7 @@ const BookCreationWizard: React.FC<BookCreationWizardProps> = ({
         ...bookData,
         language: "en",
         ebookType: creationType === "audio" ? "audio" : "doc",
-        category: creationType === "audio" ? "audio" : "book",
+        category: creationType === "audio" ? "audio" : "doc",
       });
 
       // Redirect to the manage book page

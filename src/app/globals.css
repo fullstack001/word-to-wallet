@@ -10,7 +10,7 @@ body {
 :root {
   font-family: "Poppins", sans-serif;
   font-weight: 500;
-  
+
   /* PSPDFKit Toolbar Customization */
   --PSPDFKit-ToolbarResponsiveGroup--primary-background: #f8fafc; /* Light gray background */
   --PSPDFKit-ToolbarResponsiveGroup--secondary-background: #e2e8f0; /* Slightly darker for secondary toolbar */

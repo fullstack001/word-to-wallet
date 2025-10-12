@@ -11,6 +11,7 @@ import {
   PlusIcon,
   CogIcon,
   TruckIcon,
+  LinkIcon,
 } from "@heroicons/react/24/outline";
 
 interface QuickActionsProps {
@@ -22,6 +23,7 @@ interface QuickActionsProps {
   onCreateAuction: () => void;
   onViewIntegrations: () => void;
   onViewDelivery: () => void;
+  onViewSaleLinks: () => void;
 }
 
 export default function QuickActions({
@@ -33,6 +35,7 @@ export default function QuickActions({
   onCreateAuction,
   onViewIntegrations,
   onViewDelivery,
+  onViewSaleLinks,
 }: QuickActionsProps) {
   const actions = [
     {
@@ -77,19 +80,26 @@ export default function QuickActions({
       color: "green",
       onClick: onCreateAuction,
     },
+    // {
+    //   title: "Integrations",
+    //   description: "Connect your favorite tools",
+    //   icon: CogIcon,
+    //   color: "blue",
+    //   onClick: onViewIntegrations,
+    // },
+    // {
+    //   title: "Book Delivery",
+    //   description: "Upload and distribute your books",
+    //   icon: TruckIcon,
+    //   color: "green",
+    //   onClick: onViewDelivery,
+    // },
     {
-      title: "Integrations",
-      description: "Connect your favorite tools",
-      icon: CogIcon,
-      color: "blue",
-      onClick: onViewIntegrations,
-    },
-    {
-      title: "Book Delivery",
-      description: "Upload and distribute your books",
-      icon: TruckIcon,
-      color: "green",
-      onClick: onViewDelivery,
+      title: "Sale Links",
+      description: "Create and manage your sale links",
+      icon: LinkIcon,
+      color: "indigo",
+      onClick: onViewSaleLinks,
     },
   ];
 

@@ -28,6 +28,7 @@ interface FeaturesSectionProps {
   onNavigateToCreateAuction: () => void;
   onNavigateToIntegrations: () => void;
   onNavigateToDelivery: () => void;
+  onNavigateToSaleLinks: () => void;
   subscription?: {
     stripeCustomerId?: string;
     stripeSubscriptionId?: string;
@@ -53,6 +54,7 @@ export default function FeaturesSection({
   onNavigateToCreateAuction,
   onNavigateToIntegrations,
   onNavigateToDelivery,
+  onNavigateToSaleLinks,
   subscription,
 }: FeaturesSectionProps) {
   console.log(subscription);
@@ -92,7 +94,7 @@ export default function FeaturesSection({
       description: "Generate sales links and manage direct book sales",
       icon: TrophyIcon,
       color: "indigo",
-      onClick: () => {},
+      onClick: onNavigateToSaleLinks,
       status: hasActiveSubscription || isTrialUser ? "active" : "locked",
       features: ["Sales Links", "Order Management", "Revenue Tracking"],
       availableFor: ["trial", "paid"],
@@ -117,17 +119,17 @@ export default function FeaturesSection({
       features: ["Create Auctions", "Bid on Items", "Manage Listings"],
       availableFor: ["trial", "paid"],
     },
-    {
-      title: "Integrations",
-      description:
-        "Connect your favorite tools for seamless workflow automation",
-      icon: CogIcon,
-      color: "blue",
-      onClick: onNavigateToIntegrations,
-      status: hasActiveSubscription || isTrialUser ? "active" : "locked",
-      features: ["Email Marketing", "Payment Gateways", "Workflow Automation"],
-      availableFor: ["trial", "paid"],
-    },
+    // {
+    //   title: "Integrations",
+    //   description:
+    //     "Connect your favorite tools for seamless workflow automation",
+    //   icon: CogIcon,
+    //   color: "blue",
+    //   onClick: onNavigateToIntegrations,
+    //   status: hasActiveSubscription || isTrialUser ? "active" : "locked",
+    //   features: ["Email Marketing", "Payment Gateways", "Workflow Automation"],
+    //   availableFor: ["trial", "paid"],
+    // },
   ];
 
   // Show all features with appropriate status based on subscription

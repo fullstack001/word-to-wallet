@@ -182,7 +182,7 @@ export default function BookDeliveryDashboard() {
     <div className="min-h-screen ">
       <Navbar />
 
-      <div className="max-w-7xl mx-auto px-4 py-8 mt-32">
+      <div className="max-w-7xl min-h-screen mx-auto px-4 py-8 mt-32">
         {/* Header */}
         <div className="mb-8">
           <div className="flex items-center justify-between">
