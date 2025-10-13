@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "next/navigation";
 import { api } from "@/services/api";
+import Image from "next/image";
 
 interface BookData {
   _id: string;
@@ -47,20 +48,16 @@ export default function PublicBookPage() {
     }
   }, [slug]);
 
+  console.log("Delivery link:", deliveryLink);
   const fetchDeliveryLink = async () => {
     setIsLoading(true);
     setError(null);
     try {
       // Fetch delivery link by slug
       const response = await api.get(`/delivery-links/slug/${slug}`);
-      const link = response.data.deliveryLink;
+      const link = response.data;
 
-      // Check if this is a sale link
-      if (link.saleSettings?.enabled) {
-        setDeliveryLink(link);
-      } else {
-        setError("This is not a sale page");
-      }
+      setDeliveryLink(link);
     } catch (err: any) {
       setError(err.response?.data?.message || "Failed to load sale page");
     } finally {
@@ -114,13 +111,15 @@ export default function PublicBookPage() {
               <div className="md:w-2/5 bg-gradient-to-br from-gray-100 to-gray-200 p-12 flex items-center justify-center">
                 <div className="relative w-full max-w-sm">
                   <div className="aspect-[2/3] relative shadow-2xl rounded-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
-                    <img
+                    <Image
                       src={`${process.env.NEXT_PUBLIC_API_URL}/books/${book._id}/cover`}
                       alt={book.title}
-                      className="w-full h-full object-cover"
                       onError={(e) => {
                         e.currentTarget.style.display = "none";
                       }}
+                      width={128}
+                      height={0}
+                      className="w-full h-full object-cover"
                     />
                   </div>
                 </div>

@@ -32,6 +32,15 @@ export default function EditBookModal({
       newErrors.title = "Title must be at least 3 characters";
     }
 
+    if (
+      description &&
+      description.trim().length > 0 &&
+      description.trim().length < 10
+    ) {
+      newErrors.description = "Description must be at least 10 characters";
+    }
+
+    // Validate chapters
     const validChapters = chapters.filter(
       (chapter) =>
         chapter.title.trim() &&
@@ -112,6 +121,7 @@ export default function EditBookModal({
 
   const toggleFormat = (format: string) => {
     if (selectedFormats.includes(format)) {
+      // Don't allow deselecting all formats
       if (selectedFormats.length > 1) {
         setSelectedFormats(selectedFormats.filter((f) => f !== format));
       }
@@ -121,8 +131,8 @@ export default function EditBookModal({
   };
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4 overflow-y-auto">
-      <div className="bg-white rounded-xl shadow-2xl max-w-4xl w-full my-8">
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-start justify-center z-50 overflow-y-auto">
+      <div className="bg-white rounded-xl shadow-2xl max-w-7xl w-full my-8 mx-4">
         {/* Header */}
         <div className="border-b border-gray-200 p-6">
           <div className="flex items-center justify-between">
@@ -150,13 +160,6 @@ export default function EditBookModal({
 
         {/* Form */}
         <form onSubmit={handleSubmit} className="p-6 space-y-6">
-          {/* Error Message */}
-          {error && (
-            <div className="bg-red-50 border border-red-200 rounded-lg p-4">
-              <p className="text-sm text-red-700">{error}</p>
-            </div>
-          )}
-
           {/* Book Title */}
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -264,19 +267,19 @@ export default function EditBookModal({
           </div>
 
           {/* Action Buttons */}
-          <div className="flex justify-end gap-3 pt-4 border-t border-gray-200">
+          <div className="flex items-center justify-end space-x-4 pt-6 border-t border-gray-200">
             <button
               type="button"
               onClick={onClose}
               disabled={loading}
-              className="px-6 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors"
+              className="px-6 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors"
             >
               Cancel
             </button>
             <button
               type="submit"
               disabled={loading}
-              className={`px-6 py-2 rounded-lg font-medium text-white transition-colors ${
+              className={`px-6 py-3 rounded-lg font-medium text-white transition-colors ${
                 loading
                   ? "bg-gray-400 cursor-not-allowed"
                   : "bg-blue-600 hover:bg-blue-700"
@@ -310,6 +313,13 @@ export default function EditBookModal({
               )}
             </button>
           </div>
+
+          {/* Error Message */}
+          {error && (
+            <div className="bg-red-50 border border-red-200 rounded-lg p-4">
+              <p className="text-sm text-red-700">{error}</p>
+            </div>
+          )}
         </form>
       </div>
     </div>

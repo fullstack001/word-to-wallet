@@ -5,6 +5,9 @@ import { useSelector } from "react-redux";
 import { RootState } from "@/store/store";
 import { api } from "@/services/api";
 import { useRouter } from "next/navigation";
+import { useLocalizedNavigation } from "../../../utils/navigation";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 interface Book {
   _id: string;
@@ -40,6 +43,7 @@ interface SaleLink {
 export default function SaleLinksPage() {
   const user = useSelector((state: RootState) => state.user);
   const router = useRouter();
+  const { navigate } = useLocalizedNavigation();
 
   const [books, setBooks] = useState<Book[]>([]);
   const [saleLinks, setSaleLinks] = useState<SaleLink[]>([]);
@@ -269,7 +273,7 @@ export default function SaleLinksPage() {
   };
 
   const getSaleUrl = (slug: string) => {
-    return `${window.location.origin}/book/${slug}`;
+    return `${window.location.origin}/en/book/${slug}`;
   };
 
   const copyToClipboard = (text: string) => {
@@ -280,505 +284,539 @@ export default function SaleLinksPage() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
-      </div>
+      <>
+        <Navbar />
+        <div className="min-h-screen  flex items-center justify-center pt-32">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+        </div>
+        <Footer />
+      </>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="mb-8 flex justify-between items-center">
-          <div>
-            <h1 className="text-3xl font-bold text-gray-900">
-              Book Sale Links
-            </h1>
-            <p className="mt-2 text-gray-600">
-              Create sale pages with your own PayPal and Stripe payment links
-            </p>
-          </div>
-          <button
-            onClick={() => {
-              resetForm();
-              setError(null);
-              setSuccess(null);
-              setShowCreateModal(true);
-            }}
-            className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
-          >
-            + Create Sale Link
-          </button>
-        </div>
-
-        {/* Success Message - Only show when not in modal */}
-        {success && !showCreateModal && !showEditModal && (
-          <div className="mb-6 bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded-lg">
-            {success}
-          </div>
-        )}
-
-        {/* Sale Links List */}
-        {saleLinks.length === 0 ? (
-          <div className="bg-white rounded-lg shadow-md p-12 text-center">
-            <div className="text-gray-400 text-6xl mb-4">📚</div>
-            <h3 className="text-xl font-semibold text-gray-900 mb-2">
-              No Sale Links Yet
-            </h3>
-            <p className="text-gray-600 mb-6">
-              Create your first sale link to start selling your books
-            </p>
-            <button
-              onClick={() => {
-                resetForm();
-                setError(null);
-                setSuccess(null);
-                setShowCreateModal(true);
-              }}
-              className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
-            >
-              Create Your First Sale Link
-            </button>
-          </div>
-        ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {saleLinks.map((link) => (
-              <div
-                key={link._id}
-                className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
+    <>
+      <Navbar />
+      <div className="min-h-screen  py-8 pt-32">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Header */}
+          <div className="mb-8 flex justify-between items-center">
+            <div>
+              <h1 className="text-3xl font-bold text-gray-900">
+                Book Sale Links
+              </h1>
+              <p className="mt-2 text-gray-600">
+                Create sale pages with your own PayPal and Stripe payment links
+              </p>
+            </div>
+            <div className="flex gap-3">
+              <button
+                onClick={() => navigate("/dashboard")}
+                className="bg-gray-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-gray-700 transition-colors"
               >
-                <div className="p-6">
-                  <div className="flex justify-between items-start mb-4">
-                    <h3 className="text-lg font-semibold text-gray-900 flex-1">
-                      {link.title}
-                    </h3>
-                    <span
-                      className={`px-2 py-1 text-xs rounded ${
-                        link.isActive
-                          ? "bg-green-100 text-green-800"
-                          : "bg-gray-100 text-gray-800"
-                      }`}
-                    >
-                      {link.isActive ? "Active" : "Inactive"}
-                    </span>
-                  </div>
+                ← Dashboard
+              </button>
+              <button
+                onClick={() => {
+                  resetForm();
+                  setError(null);
+                  setSuccess(null);
+                  setShowCreateModal(true);
+                }}
+                className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+              >
+                + Create Sale Link
+              </button>
+            </div>
+          </div>
 
-                  {link.description && (
-                    <p className="text-sm text-gray-600 mb-4 line-clamp-2">
-                      {link.description}
-                    </p>
-                  )}
+          {/* Success Message - Only show when not in modal */}
+          {success && !showCreateModal && !showEditModal && (
+            <div className="mb-6 bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded-lg">
+              {success}
+            </div>
+          )}
 
-                  <div className="space-y-2 mb-4">
-                    <div className="text-sm">
-                      <span className="text-gray-600">Price:</span>
-                      <span className="font-semibold ml-2">
-                        {link.saleSettings?.currency}{" "}
-                        {link.saleSettings?.price?.toFixed(2)}
+          {/* Sale Links List */}
+          {saleLinks.length === 0 ? (
+            <div className="bg-white rounded-lg shadow-md p-12 text-center">
+              <div className="text-gray-400 text-6xl mb-4">📚</div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                No Sale Links Yet
+              </h3>
+              <p className="text-gray-600 mb-6">
+                Create your first sale link to start selling your books
+              </p>
+              <button
+                onClick={() => {
+                  resetForm();
+                  setError(null);
+                  setSuccess(null);
+                  setShowCreateModal(true);
+                }}
+                className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+              >
+                Create Your First Sale Link
+              </button>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {saleLinks.map((link) => (
+                <div
+                  key={link._id}
+                  className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
+                >
+                  <div className="p-6">
+                    <div className="flex justify-between items-start mb-4">
+                      <h3 className="text-lg font-semibold text-gray-900 flex-1">
+                        {link.title}
+                      </h3>
+                      <span
+                        className={`px-2 py-1 text-xs rounded ${
+                          link.isActive
+                            ? "bg-green-100 text-green-800"
+                            : "bg-gray-100 text-gray-800"
+                        }`}
+                      >
+                        {link.isActive ? "Active" : "Inactive"}
                       </span>
                     </div>
-                    <div className="text-sm">
-                      <span className="text-gray-600">Views:</span>
-                      <span className="font-semibold ml-2">
-                        {link.analytics.totalViews}
-                      </span>
-                    </div>
-                    <div className="flex gap-2 mt-2">
-                      {link.saleSettings?.paypalLink && (
-                        <span className="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">
-                          💳 PayPal
-                        </span>
-                      )}
-                      {link.saleSettings?.stripeLink && (
-                        <span className="inline-block bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded">
-                          💳 Stripe
-                        </span>
-                      )}
-                    </div>
-                  </div>
 
-                  <div className="flex items-center gap-2 mb-4 p-2 bg-gray-50 rounded">
-                    <input
-                      type="text"
-                      value={getSaleUrl(link.slug)}
-                      readOnly
-                      className="flex-1 text-xs bg-transparent border-none focus:outline-none"
-                    />
-                    <button
-                      onClick={() => copyToClipboard(getSaleUrl(link.slug))}
-                      className="text-blue-600 hover:text-blue-700 text-xs"
-                    >
-                      Copy
-                    </button>
-                  </div>
+                    {link.description && (
+                      <p className="text-sm text-gray-600 mb-4 line-clamp-2">
+                        {link.description}
+                      </p>
+                    )}
 
-                  <div className="flex gap-2">
-                    <a
-                      href={getSaleUrl(link.slug)}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex-1 text-center bg-gray-100 text-gray-700 py-2 rounded hover:bg-gray-200 transition-colors text-sm"
-                    >
-                      View
-                    </a>
-                    <button
-                      onClick={() => handleEditClick(link)}
-                      className="flex-1 bg-blue-100 text-blue-700 py-2 rounded hover:bg-blue-200 transition-colors text-sm"
-                    >
-                      Edit
-                    </button>
-                    <button
-                      onClick={() => handleDeleteLink(link._id)}
-                      className="bg-red-100 text-red-700 px-4 py-2 rounded hover:bg-red-200 transition-colors text-sm"
-                    >
-                      Delete
-                    </button>
+                    <div className="space-y-2 mb-4">
+                      <div className="text-sm">
+                        <span className="text-gray-600">Price:</span>
+                        <span className="font-semibold ml-2">
+                          {link.saleSettings?.currency}{" "}
+                          {link.saleSettings?.price?.toFixed(2)}
+                        </span>
+                      </div>
+                      <div className="text-sm">
+                        <span className="text-gray-600">Views:</span>
+                        <span className="font-semibold ml-2">
+                          {link.analytics.totalViews}
+                        </span>
+                      </div>
+                      <div className="flex gap-2 mt-2">
+                        {link.saleSettings?.paypalLink && (
+                          <span className="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">
+                            💳 PayPal
+                          </span>
+                        )}
+                        {link.saleSettings?.stripeLink && (
+                          <span className="inline-block bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded">
+                            💳 Stripe
+                          </span>
+                        )}
+                      </div>
+                    </div>
+
+                    <div className="flex items-center gap-2 mb-4 p-2 bg-gray-50 rounded">
+                      <input
+                        type="text"
+                        value={getSaleUrl(link.slug)}
+                        readOnly
+                        className="flex-1 text-xs bg-transparent border-none focus:outline-none"
+                      />
+                      <button
+                        onClick={() => copyToClipboard(getSaleUrl(link.slug))}
+                        className="text-blue-600 hover:text-blue-700 text-xs"
+                      >
+                        Copy
+                      </button>
+                    </div>
+
+                    <div className="flex gap-2">
+                      <a
+                        href={getSaleUrl(link.slug)}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex-1 text-center bg-gray-100 text-gray-700 py-2 rounded hover:bg-gray-200 transition-colors text-sm"
+                      >
+                        View
+                      </a>
+                      <button
+                        onClick={() => handleEditClick(link)}
+                        className="flex-1 bg-blue-100 text-blue-700 py-2 rounded hover:bg-blue-200 transition-colors text-sm"
+                      >
+                        Edit
+                      </button>
+                      <button
+                        onClick={() => handleDeleteLink(link._id)}
+                        className="bg-red-100 text-red-700 px-4 py-2 rounded hover:bg-red-200 transition-colors text-sm"
+                      >
+                        Delete
+                      </button>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
-          </div>
-        )}
+              ))}
+            </div>
+          )}
 
-        {/* Create Modal */}
-        {showCreateModal && (
-          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-            <div className="bg-white rounded-lg shadow-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
-              <div className="p-6">
-                <h2 className="text-2xl font-bold text-gray-900 mb-6">
-                  Create Sale Link
-                </h2>
+          {/* Create Modal */}
+          {showCreateModal && (
+            <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+              <div className="bg-white rounded-lg shadow-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+                <div className="p-6">
+                  <h2 className="text-2xl font-bold text-gray-900 mb-6">
+                    Create Sale Link
+                  </h2>
 
-                {/* Error Message in Modal */}
-                {error && showCreateModal && (
-                  <div className="mb-4 bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg">
-                    {error}
-                  </div>
-                )}
+                  {/* Error Message in Modal */}
+                  {error && showCreateModal && (
+                    <div className="mb-4 bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg">
+                      {error}
+                    </div>
+                  )}
 
-                <form onSubmit={handleCreateSaleLink} className="space-y-4">
-                  {/* Book Selection */}
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Select Book *
-                    </label>
-                    <select
-                      value={formData.bookId}
-                      onChange={(e) =>
-                        setFormData({ ...formData, bookId: e.target.value })
-                      }
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
-                      required
-                    >
-                      <option value="">-- Select a book --</option>
-                      {books.map((book) => (
-                        <option key={book._id} value={book._id}>
-                          {book.title} by {book.author}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-
-                  {/* Title */}
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Link Title *
-                    </label>
-                    <input
-                      type="text"
-                      value={formData.title}
-                      onChange={(e) =>
-                        setFormData({ ...formData, title: e.target.value })
-                      }
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
-                      placeholder="e.g., Buy My Awesome Book"
-                      required
-                    />
-                  </div>
-
-                  {/* Description */}
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Description (Optional)
-                    </label>
-                    <textarea
-                      value={formData.description}
-                      onChange={(e) =>
-                        setFormData({
-                          ...formData,
-                          description: e.target.value,
-                        })
-                      }
-                      rows={3}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
-                      placeholder="Short description"
-                    />
-                  </div>
-
-                  {/* Price and Currency */}
-                  <div className="grid grid-cols-2 gap-4">
+                  <form onSubmit={handleCreateSaleLink} className="space-y-4">
+                    {/* Book Selection */}
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Currency *
+                        Select Book *
                       </label>
                       <select
-                        value={formData.currency}
+                        value={formData.bookId}
                         onChange={(e) =>
-                          setFormData({ ...formData, currency: e.target.value })
+                          setFormData({ ...formData, bookId: e.target.value })
                         }
                         className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                        required
                       >
-                        <option value="USD">USD</option>
-                        <option value="EUR">EUR</option>
-                        <option value="GBP">GBP</option>
-                        <option value="CAD">CAD</option>
-                        <option value="AUD">AUD</option>
+                        <option value="">-- Select a book --</option>
+                        {books.map((book) => (
+                          <option key={book._id} value={book._id}>
+                            {book.title} by {book.author}
+                          </option>
+                        ))}
                       </select>
                     </div>
+
+                    {/* Title */}
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Price *
+                        Link Title *
                       </label>
                       <input
-                        type="number"
-                        step="0.01"
-                        min="0"
-                        value={formData.price}
+                        type="text"
+                        value={formData.title}
                         onChange={(e) =>
-                          setFormData({ ...formData, price: e.target.value })
+                          setFormData({ ...formData, title: e.target.value })
                         }
                         className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
-                        placeholder="9.99"
+                        placeholder="e.g., Buy My Awesome Book"
                         required
                       />
                     </div>
-                  </div>
 
-                  {/* Payment Links Section Header */}
-                  <div className="border-t border-gray-200 pt-4">
-                    <h3 className="text-sm font-semibold text-gray-900 mb-2">
-                      Payment Links (At least one required) *
-                    </h3>
-                    <p className="text-xs text-gray-500 mb-4">
-                      Add your own PayPal or Stripe payment links
-                    </p>
-                  </div>
-
-                  {/* PayPal Link */}
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      PayPal Buy Link
-                    </label>
-                    <input
-                      type="url"
-                      value={formData.paypalLink}
-                      onChange={(e) =>
-                        setFormData({ ...formData, paypalLink: e.target.value })
-                      }
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
-                      placeholder="https://www.paypal.com/paypalme/yourusername"
-                    />
-                    <p className="mt-1 text-xs text-gray-500">
-                      Your PayPal.me link or PayPal buy button URL
-                    </p>
-                  </div>
-
-                  {/* Stripe Link */}
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Stripe Payment Link
-                    </label>
-                    <input
-                      type="url"
-                      value={formData.stripeLink}
-                      onChange={(e) =>
-                        setFormData({ ...formData, stripeLink: e.target.value })
-                      }
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
-                      placeholder="https://buy.stripe.com/..."
-                    />
-                    <p className="mt-1 text-xs text-gray-500">
-                      Your Stripe Payment Link URL
-                    </p>
-                  </div>
-
-                  {/* Buttons */}
-                  <div className="flex gap-4 pt-4">
-                    <button
-                      type="button"
-                      onClick={() => {
-                        setShowCreateModal(false);
-                        resetForm();
-                      }}
-                      className="flex-1 bg-gray-200 text-gray-700 py-2 rounded-lg hover:bg-gray-300 transition-colors"
-                    >
-                      Cancel
-                    </button>
-                    <button
-                      type="submit"
-                      className="flex-1 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors"
-                    >
-                      Create Sale Link
-                    </button>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
-        )}
-
-        {/* Edit Modal */}
-        {showEditModal && selectedLink && (
-          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-            <div className="bg-white rounded-lg shadow-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
-              <div className="p-6">
-                <h2 className="text-2xl font-bold text-gray-900 mb-6">
-                  Edit Sale Link
-                </h2>
-
-                {/* Error Message in Modal */}
-                {error && showEditModal && (
-                  <div className="mb-4 bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg">
-                    {error}
-                  </div>
-                )}
-
-                <form onSubmit={handleUpdateSaleLink} className="space-y-4">
-                  {/* Similar form fields as create */}
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Link Title *
-                    </label>
-                    <input
-                      type="text"
-                      value={formData.title}
-                      onChange={(e) =>
-                        setFormData({ ...formData, title: e.target.value })
-                      }
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
-                      required
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Description
-                    </label>
-                    <textarea
-                      value={formData.description}
-                      onChange={(e) =>
-                        setFormData({
-                          ...formData,
-                          description: e.target.value,
-                        })
-                      }
-                      rows={3}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
-                    />
-                  </div>
-
-                  <div className="grid grid-cols-2 gap-4">
+                    {/* Description */}
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Currency *
+                        Description (Optional)
                       </label>
-                      <select
-                        value={formData.currency}
+                      <textarea
+                        value={formData.description}
                         onChange={(e) =>
-                          setFormData({ ...formData, currency: e.target.value })
+                          setFormData({
+                            ...formData,
+                            description: e.target.value,
+                          })
                         }
+                        rows={3}
                         className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
-                      >
-                        <option value="USD">USD</option>
-                        <option value="EUR">EUR</option>
-                        <option value="GBP">GBP</option>
-                        <option value="CAD">CAD</option>
-                        <option value="AUD">AUD</option>
-                      </select>
+                        placeholder="Short description"
+                      />
                     </div>
+
+                    {/* Price and Currency */}
+                    <div className="grid grid-cols-2 gap-4">
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                          Currency *
+                        </label>
+                        <select
+                          value={formData.currency}
+                          onChange={(e) =>
+                            setFormData({
+                              ...formData,
+                              currency: e.target.value,
+                            })
+                          }
+                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                        >
+                          <option value="USD">USD</option>
+                          <option value="EUR">EUR</option>
+                          <option value="GBP">GBP</option>
+                          <option value="CAD">CAD</option>
+                          <option value="AUD">AUD</option>
+                        </select>
+                      </div>
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                          Price *
+                        </label>
+                        <input
+                          type="number"
+                          step="0.01"
+                          min="0"
+                          value={formData.price}
+                          onChange={(e) =>
+                            setFormData({ ...formData, price: e.target.value })
+                          }
+                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                          placeholder="9.99"
+                          required
+                        />
+                      </div>
+                    </div>
+
+                    {/* Payment Links Section Header */}
+                    <div className="border-t border-gray-200 pt-4">
+                      <h3 className="text-sm font-semibold text-gray-900 mb-2">
+                        Payment Links (At least one required) *
+                      </h3>
+                      <p className="text-xs text-gray-500 mb-4">
+                        Add your own PayPal or Stripe payment links
+                      </p>
+                    </div>
+
+                    {/* PayPal Link */}
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Price *
+                        PayPal Buy Link
                       </label>
                       <input
-                        type="number"
-                        step="0.01"
-                        min="0"
-                        value={formData.price}
+                        type="url"
+                        value={formData.paypalLink}
                         onChange={(e) =>
-                          setFormData({ ...formData, price: e.target.value })
+                          setFormData({
+                            ...formData,
+                            paypalLink: e.target.value,
+                          })
+                        }
+                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                        placeholder="https://www.paypal.com/paypalme/yourusername"
+                      />
+                      <p className="mt-1 text-xs text-gray-500">
+                        Your PayPal.me link or PayPal buy button URL
+                      </p>
+                    </div>
+
+                    {/* Stripe Link */}
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Stripe Payment Link
+                      </label>
+                      <input
+                        type="url"
+                        value={formData.stripeLink}
+                        onChange={(e) =>
+                          setFormData({
+                            ...formData,
+                            stripeLink: e.target.value,
+                          })
+                        }
+                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                        placeholder="https://buy.stripe.com/..."
+                      />
+                      <p className="mt-1 text-xs text-gray-500">
+                        Your Stripe Payment Link URL
+                      </p>
+                    </div>
+
+                    {/* Buttons */}
+                    <div className="flex gap-4 pt-4">
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setShowCreateModal(false);
+                          resetForm();
+                        }}
+                        className="flex-1 bg-gray-200 text-gray-700 py-2 rounded-lg hover:bg-gray-300 transition-colors"
+                      >
+                        Cancel
+                      </button>
+                      <button
+                        type="submit"
+                        className="flex-1 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors"
+                      >
+                        Create Sale Link
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* Edit Modal */}
+          {showEditModal && selectedLink && (
+            <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+              <div className="bg-white rounded-lg shadow-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+                <div className="p-6">
+                  <h2 className="text-2xl font-bold text-gray-900 mb-6">
+                    Edit Sale Link
+                  </h2>
+
+                  {/* Error Message in Modal */}
+                  {error && showEditModal && (
+                    <div className="mb-4 bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg">
+                      {error}
+                    </div>
+                  )}
+
+                  <form onSubmit={handleUpdateSaleLink} className="space-y-4">
+                    {/* Similar form fields as create */}
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Link Title *
+                      </label>
+                      <input
+                        type="text"
+                        value={formData.title}
+                        onChange={(e) =>
+                          setFormData({ ...formData, title: e.target.value })
                         }
                         className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
                         required
                       />
                     </div>
-                  </div>
 
-                  {/* Payment Links Section Header */}
-                  <div className="border-t border-gray-200 pt-4">
-                    <h3 className="text-sm font-semibold text-gray-900 mb-2">
-                      Payment Links (At least one required) *
-                    </h3>
-                    <p className="text-xs text-gray-500 mb-4">
-                      Add your own PayPal or Stripe payment links
-                    </p>
-                  </div>
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Description
+                      </label>
+                      <textarea
+                        value={formData.description}
+                        onChange={(e) =>
+                          setFormData({
+                            ...formData,
+                            description: e.target.value,
+                          })
+                        }
+                        rows={3}
+                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                      />
+                    </div>
 
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      PayPal Buy Link
-                    </label>
-                    <input
-                      type="url"
-                      value={formData.paypalLink}
-                      onChange={(e) =>
-                        setFormData({ ...formData, paypalLink: e.target.value })
-                      }
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
-                      placeholder="https://www.paypal.com/paypalme/yourusername"
-                    />
-                  </div>
+                    <div className="grid grid-cols-2 gap-4">
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                          Currency *
+                        </label>
+                        <select
+                          value={formData.currency}
+                          onChange={(e) =>
+                            setFormData({
+                              ...formData,
+                              currency: e.target.value,
+                            })
+                          }
+                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                        >
+                          <option value="USD">USD</option>
+                          <option value="EUR">EUR</option>
+                          <option value="GBP">GBP</option>
+                          <option value="CAD">CAD</option>
+                          <option value="AUD">AUD</option>
+                        </select>
+                      </div>
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                          Price *
+                        </label>
+                        <input
+                          type="number"
+                          step="0.01"
+                          min="0"
+                          value={formData.price}
+                          onChange={(e) =>
+                            setFormData({ ...formData, price: e.target.value })
+                          }
+                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                          required
+                        />
+                      </div>
+                    </div>
 
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Stripe Payment Link
-                    </label>
-                    <input
-                      type="url"
-                      value={formData.stripeLink}
-                      onChange={(e) =>
-                        setFormData({ ...formData, stripeLink: e.target.value })
-                      }
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
-                      placeholder="https://buy.stripe.com/..."
-                    />
-                  </div>
+                    {/* Payment Links Section Header */}
+                    <div className="border-t border-gray-200 pt-4">
+                      <h3 className="text-sm font-semibold text-gray-900 mb-2">
+                        Payment Links (At least one required) *
+                      </h3>
+                      <p className="text-xs text-gray-500 mb-4">
+                        Add your own PayPal or Stripe payment links
+                      </p>
+                    </div>
 
-                  <div className="flex gap-4 pt-4">
-                    <button
-                      type="button"
-                      onClick={() => {
-                        setShowEditModal(false);
-                        resetForm();
-                      }}
-                      className="flex-1 bg-gray-200 text-gray-700 py-2 rounded-lg hover:bg-gray-300 transition-colors"
-                    >
-                      Cancel
-                    </button>
-                    <button
-                      type="submit"
-                      className="flex-1 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors"
-                    >
-                      Update Sale Link
-                    </button>
-                  </div>
-                </form>
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        PayPal Buy Link
+                      </label>
+                      <input
+                        type="url"
+                        value={formData.paypalLink}
+                        onChange={(e) =>
+                          setFormData({
+                            ...formData,
+                            paypalLink: e.target.value,
+                          })
+                        }
+                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                        placeholder="https://www.paypal.com/paypalme/yourusername"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Stripe Payment Link
+                      </label>
+                      <input
+                        type="url"
+                        value={formData.stripeLink}
+                        onChange={(e) =>
+                          setFormData({
+                            ...formData,
+                            stripeLink: e.target.value,
+                          })
+                        }
+                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                        placeholder="https://buy.stripe.com/..."
+                      />
+                    </div>
+
+                    <div className="flex gap-4 pt-4">
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setShowEditModal(false);
+                          resetForm();
+                        }}
+                        className="flex-1 bg-gray-200 text-gray-700 py-2 rounded-lg hover:bg-gray-300 transition-colors"
+                      >
+                        Cancel
+                      </button>
+                      <button
+                        type="submit"
+                        className="flex-1 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors"
+                      >
+                        Update Sale Link
+                      </button>
+                    </div>
+                  </form>
+                </div>
               </div>
             </div>
-          </div>
-        )}
+          )}
+        </div>
       </div>
-    </div>
+      <Footer />
+    </>
   );
 }
