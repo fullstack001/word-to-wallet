@@ -315,7 +315,7 @@ export default function PublicBookPage() {
       {/* Footer */}
       <div className="mt-12 py-6 border-t border-gray-200 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm text-gray-500">
-          <p>© 2024 All rights reserved</p>
+          <p>© 2025 All rights reserved</p>
         </div>
       </div>
     </div>

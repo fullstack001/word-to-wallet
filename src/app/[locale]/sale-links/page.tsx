@@ -53,6 +53,7 @@ export default function SaleLinksPage() {
   const [showCreateModal, setShowCreateModal] = useState(false);
   const [showEditModal, setShowEditModal] = useState(false);
   const [selectedLink, setSelectedLink] = useState<SaleLink | null>(null);
+  const [showHelpModal, setShowHelpModal] = useState(false);
 
   // Form state
   const [formData, setFormData] = useState({
@@ -578,11 +579,46 @@ export default function SaleLinksPage() {
 
                     {/* Payment Links Section Header */}
                     <div className="border-t border-gray-200 pt-4">
-                      <h3 className="text-sm font-semibold text-gray-900 mb-2">
-                        Payment Links (At least one required) *
-                      </h3>
-                      <p className="text-xs text-gray-500 mb-4">
-                        Add your own PayPal or Stripe payment links
+                      <div className="flex items-center gap-2 mb-2">
+                        <h3 className="text-sm font-semibold text-gray-900">
+                          Payment Links (At least one required) *
+                        </h3>
+                        <div className="relative">
+                          <button
+                            type="button"
+                            onClick={() => setShowHelpModal(true)}
+                            className="relative bg-gradient-to-r from-blue-500 to-purple-600 text-white p-1.5 rounded-full hover:from-blue-600 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all duration-300 shadow-lg hover:shadow-xl animate-pulse"
+                            title="IMPORTANT: Click here for setup instructions!"
+                          >
+                            <svg
+                              className="w-4 h-4"
+                              fill="none"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth="2.5"
+                              viewBox="0 0 24 24"
+                              stroke="currentColor"
+                            >
+                              <path d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                          </button>
+                          <span className="absolute -top-1 -right-1 flex h-3 w-3">
+                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                            <span className="relative inline-flex rounded-full h-3 w-3 bg-red-500"></span>
+                          </span>
+                        </div>
+                      </div>
+                      <p className="text-xs mb-4">
+                        <span className="text-gray-700 font-medium">
+                          ⚠️ Important:
+                        </span>{" "}
+                        <span className="text-red-600 font-semibold">
+                          Click the ? button above
+                        </span>{" "}
+                        <span className="text-gray-600">
+                          to learn how to configure return URLs in
+                          PayPal/Stripe!
+                        </span>
                       </p>
                     </div>
 
@@ -815,6 +851,249 @@ export default function SaleLinksPage() {
             </div>
           )}
         </div>
+
+        {/* Help Modal */}
+        {showHelpModal && (
+          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+            <div className="bg-white rounded-lg max-w-3xl w-full max-h-[90vh] overflow-y-auto">
+              <div className="sticky top-0 bg-white border-b border-gray-200 p-6 flex justify-between items-start">
+                <div>
+                  <h2 className="text-2xl font-bold text-gray-900 mb-2">
+                    How to Set Up Payment Links
+                  </h2>
+                  <p className="text-gray-600">
+                    Configure your PayPal and Stripe return URLs correctly
+                  </p>
+                </div>
+                <button
+                  onClick={() => setShowHelpModal(false)}
+                  className="text-gray-400 hover:text-gray-600"
+                >
+                  <svg
+                    className="w-6 h-6"
+                    fill="none"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path d="M6 18L18 6M6 6l12 12"></path>
+                  </svg>
+                </button>
+              </div>
+
+              <div className="p-6 space-y-6">
+                {/* Important Notice */}
+                <div className="bg-yellow-50 border-l-4 border-yellow-400 p-4">
+                  <div className="flex">
+                    <div className="flex-shrink-0">
+                      <svg
+                        className="h-5 w-5 text-yellow-400"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                    </div>
+                    <div className="ml-3">
+                      <h3 className="text-sm font-medium text-yellow-800">
+                        Critical: Configure Return URLs
+                      </h3>
+                      <div className="mt-2 text-sm text-yellow-700">
+                        <p>
+                          You must configure the return/success URL in PayPal
+                          and Stripe to redirect customers back to your site
+                          after payment. After creating this sale link, copy the
+                          slug and follow the instructions below.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* PayPal Setup */}
+                <div className="border border-blue-200 rounded-lg p-4">
+                  <div className="flex items-center gap-2 mb-3">
+                    <div className="text-3xl">🅿️</div>
+                    <h3 className="text-lg font-semibold text-gray-900">
+                      PayPal Setup
+                    </h3>
+                  </div>
+
+                  <div className="space-y-3 text-sm">
+                    <div>
+                      <p className="font-medium text-gray-900 mb-2">
+                        Step 1: Create Your PayPal Payment Link
+                      </p>
+                      <p className="text-gray-600">
+                        Use PayPal.me (e.g., paypal.me/yourusername/9.99) or
+                        create a PayPal button/link for the exact amount.
+                      </p>
+                    </div>
+
+                    <div>
+                      <p className="font-medium text-gray-900 mb-2">
+                        Step 2: Configure Return URL
+                      </p>
+                      <p className="text-gray-600 mb-2">
+                        If using PayPal buttons, set the return URL to:
+                      </p>
+                      <div className="bg-gray-50 p-3 rounded border border-gray-200 font-mono text-xs break-all">
+                        {process.env.NEXT_PUBLIC_BOOK_LANDING_URL ||
+                          "https://ld.wordtowallet.com"}
+                        /success/
+                        <span className="text-blue-600">[YOUR-SLUG]</span>
+                        ?provider=paypal
+                      </div>
+                      <p className="text-gray-500 mt-2 italic">
+                        Replace{" "}
+                        <span className="text-blue-600 font-medium">
+                          [YOUR-SLUG]
+                        </span>{" "}
+                        with the actual slug from your created sale link.
+                      </p>
+                    </div>
+
+                    <div>
+                      <p className="font-medium text-gray-900 mb-2">
+                        Step 3: Paste PayPal Link
+                      </p>
+                      <p className="text-gray-600">
+                        Copy your PayPal payment link and paste it in the
+                        "PayPal Buy Link" field above.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Stripe Setup */}
+                <div className="border border-purple-200 rounded-lg p-4">
+                  <div className="flex items-center gap-2 mb-3">
+                    <div className="text-3xl">💳</div>
+                    <h3 className="text-lg font-semibold text-gray-900">
+                      Stripe Setup
+                    </h3>
+                  </div>
+
+                  <div className="space-y-3 text-sm">
+                    <div>
+                      <p className="font-medium text-gray-900 mb-2">
+                        Step 1: Create Stripe Payment Link
+                      </p>
+                      <p className="text-gray-600">
+                        Go to Stripe Dashboard → Payment Links → Create payment
+                        link. Set your price and product details.
+                      </p>
+                    </div>
+
+                    <div>
+                      <p className="font-medium text-gray-900 mb-2">
+                        Step 2: Set Success URL
+                      </p>
+                      <p className="text-gray-600 mb-2">
+                        In the "After payment" section, set the success URL to:
+                      </p>
+                      <div className="bg-gray-50 p-3 rounded border border-gray-200 font-mono text-xs break-all">
+                        {process.env.NEXT_PUBLIC_BOOK_LANDING_URL ||
+                          "https://ld.wordtowallet.com"}
+                        /success/
+                        <span className="text-blue-600">[YOUR-SLUG]</span>
+                        ?provider=stripe
+                      </div>
+                      <p className="text-gray-500 mt-2 italic">
+                        Replace{" "}
+                        <span className="text-blue-600 font-medium">
+                          [YOUR-SLUG]
+                        </span>{" "}
+                        with the actual slug from your created sale link.
+                      </p>
+                    </div>
+
+                    <div>
+                      <p className="font-medium text-gray-900 mb-2">
+                        Step 3: Copy Payment Link URL
+                      </p>
+                      <p className="text-gray-600">
+                        After creating the payment link, copy the URL (starts
+                        with buy.stripe.com) and paste it in the "Stripe Payment
+                        Link" field above.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Example */}
+                <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                  <h3 className="font-semibold text-gray-900 mb-2">
+                    📋 Example
+                  </h3>
+                  <div className="space-y-2 text-sm">
+                    <p className="text-gray-700">
+                      If your sale link slug is{" "}
+                      <span className="font-mono bg-white px-2 py-1 rounded">
+                        my-awesome-book
+                      </span>
+                      :
+                    </p>
+                    <div className="space-y-1">
+                      <p className="text-gray-600 font-medium">
+                        PayPal Return URL:
+                      </p>
+                      <div className="bg-white p-2 rounded border border-blue-200 font-mono text-xs break-all">
+                        {process.env.NEXT_PUBLIC_BOOK_LANDING_URL ||
+                          "https://ld.wordtowallet.com"}
+                        /success/my-awesome-book?provider=paypal
+                      </div>
+                    </div>
+                    <div className="space-y-1 mt-3">
+                      <p className="text-gray-600 font-medium">
+                        Stripe Success URL:
+                      </p>
+                      <div className="bg-white p-2 rounded border border-blue-200 font-mono text-xs break-all">
+                        {process.env.NEXT_PUBLIC_BOOK_LANDING_URL ||
+                          "https://ld.wordtowallet.com"}
+                        /success/my-awesome-book?provider=stripe
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* What Happens Next */}
+                <div className="bg-green-50 border border-green-200 rounded-lg p-4">
+                  <h3 className="font-semibold text-gray-900 mb-2">
+                    ✅ What Happens After Payment
+                  </h3>
+                  <ol className="list-decimal list-inside space-y-2 text-sm text-gray-700">
+                    <li>Customer completes payment on PayPal/Stripe</li>
+                    <li>They're redirected to your success page</li>
+                    <li>They enter their email to receive the book</li>
+                    <li>
+                      They get instant download access (3 downloads, 30 days)
+                    </li>
+                    <li>
+                      They receive a confirmation email with download link
+                    </li>
+                  </ol>
+                </div>
+
+                {/* Close Button */}
+                <div className="flex justify-end pt-4">
+                  <button
+                    onClick={() => setShowHelpModal(false)}
+                    className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+                  >
+                    Got it!
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
       <Footer />
     </>
