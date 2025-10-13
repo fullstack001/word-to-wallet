@@ -15,6 +15,7 @@ import {
   CurrencyDollarIcon,
   CogIcon,
   TruckIcon,
+  PencilSquareIcon,
 } from "@heroicons/react/24/outline";
 
 interface FeaturesSectionProps {
@@ -29,6 +30,7 @@ interface FeaturesSectionProps {
   onNavigateToIntegrations: () => void;
   onNavigateToDelivery: () => void;
   onNavigateToSaleLinks: () => void;
+  onNavigateToWriteBook: () => void;
   subscription?: {
     stripeCustomerId?: string;
     stripeSubscriptionId?: string;
@@ -55,6 +57,7 @@ export default function FeaturesSection({
   onNavigateToIntegrations,
   onNavigateToDelivery,
   onNavigateToSaleLinks,
+  onNavigateToWriteBook,
   subscription,
 }: FeaturesSectionProps) {
   console.log(subscription);
@@ -78,6 +81,23 @@ export default function FeaturesSection({
       features: ["Course Progress", "Learning Materials", "Achievements"],
       availableFor: ["trial", "paid"],
     },
+    {
+      title: "Write Book",
+      description:
+        "Create your book with chapters and generate EPUB/PDF formats",
+      icon: PencilSquareIcon,
+      color: "blue",
+      onClick: onNavigateToWriteBook,
+      status: hasActiveSubscription || isTrialUser ? "active" : "locked",
+      features: [
+        "Chapter Editor",
+        "EPUB Generation",
+        "PDF Generation",
+        "AI Content",
+      ],
+      availableFor: ["trial", "paid"],
+    },
+
     {
       title: "Digital Book Delivery",
       description:

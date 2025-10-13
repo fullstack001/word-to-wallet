@@ -396,6 +396,7 @@ export default function CourseModal({
 
             {/* Chapters Section - Full Width */}
             <ChaptersForm
+              chapterType="Course"
               chapters={chapters}
               errors={errors}
               onAddChapter={addChapter}

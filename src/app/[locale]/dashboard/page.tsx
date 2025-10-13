@@ -80,6 +80,10 @@ export default function DashboardPage() {
     navigate("/sale-links");
   };
 
+  const handleNavigateToWriteBook = () => {
+    navigate("/write-book?tab=write");
+  };
+
   if (isLoading) {
     return <DashboardLoading />;
   }
@@ -125,6 +129,7 @@ export default function DashboardPage() {
             onNavigateToCreateAuction={handleNavigateToCreateAuction}
             onNavigateToIntegrations={handleNavigateToIntegrations}
             onNavigateToDelivery={handleNavigateToDelivery}
+            onNavigateToWriteBook={handleNavigateToWriteBook}
             subscription={user.subscription}
           />
         </div>

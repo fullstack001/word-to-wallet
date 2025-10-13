@@ -83,7 +83,7 @@ export const translateHtml = async (
       sourceLanguage: request.sourceLanguage,
     },
     {
-      timeout: 1200000, // Increase timeout to 2 minutes (120,000 ms)
+      timeout: 120000000, // Increase timeout to 2 minutes (120,000 ms)
     }
   );
   return response.data;

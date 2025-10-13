@@ -16,6 +16,7 @@ export interface Chapter {
 }
 
 interface ChaptersFormProps {
+  chapterType: string;
   chapters: Chapter[];
   errors: { [key: string]: string };
   onAddChapter: () => void;
@@ -36,6 +37,7 @@ type ChapterGenUI = {
 };
 
 export default function ChaptersForm({
+  chapterType = "Course",
   chapters,
   errors,
   onAddChapter,
@@ -220,7 +222,7 @@ export default function ChaptersForm({
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <h4 className="text-lg font-medium text-gray-900 border-b pb-2">
-          Course Chapters
+          {chapterType} Chapters
         </h4>
         <button
           type="button"

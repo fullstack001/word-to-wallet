@@ -1264,3 +1264,195 @@ export const changePassword = async (
     throw new Error(errorMessage);
   }
 };
+
+// Write Book API functions
+export interface GenerateBookData {
+  title: string;
+  description?: string;
+  chapters: Array<{
+    id: string;
+    title: string;
+    description: string;
+    content: string;
+  }>;
+  format: string[];
+}
+
+export interface GenerateBookResponse {
+  title: string;
+  description?: string;
+  author: string;
+  files: {
+    epub?: { path: string; url: string };
+    pdf?: { path: string; url: string };
+  };
+}
+
+export const generateBook = async (
+  data: GenerateBookData
+): Promise<GenerateBookResponse> => {
+  try {
+    const token = getAuthToken();
+    if (!token) {
+      throw new Error("No authentication token found");
+    }
+
+    const response: AxiosResponse<{
+      success: boolean;
+      data: GenerateBookResponse;
+    }> = await api.post("/write-book/generate", data, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+    });
+
+    return response.data.data;
+  } catch (error) {
+    const axiosError = error as AxiosError<{ message?: string }>;
+    const errorMessage =
+      axiosError.response?.data?.message || "Failed to generate book";
+    throw new Error(errorMessage);
+  }
+};
+
+// Written Book Management API functions
+export interface WrittenBook {
+  _id: string;
+  userId: string;
+  title: string;
+  description?: string;
+  author: string;
+  chapters: Array<{
+    id: string;
+    title: string;
+    description: string;
+    content: string;
+  }>;
+  files: {
+    epub?: { path: string; url: string; size?: number };
+    pdf?: { path: string; url: string; size?: number };
+  };
+  format: string[];
+  status: "draft" | "published";
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface MyBooksResponse {
+  books: WrittenBook[];
+  pagination: {
+    total: number;
+    page: number;
+    limit: number;
+    totalPages: number;
+  };
+}
+
+export const getMyBooks = async (
+  page: number = 1,
+  limit: number = 10,
+  search: string = ""
+): Promise<MyBooksResponse> => {
+  try {
+    const token = getAuthToken();
+    if (!token) {
+      throw new Error("No authentication token found");
+    }
+
+    const response: AxiosResponse<{
+      success: boolean;
+      data: MyBooksResponse;
+    }> = await api.get(
+      `/write-book/my-books?page=${page}&limit=${limit}&search=${encodeURIComponent(
+        search
+      )}`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+
+    return response.data.data;
+  } catch (error) {
+    const axiosError = error as AxiosError<{ message?: string }>;
+    const errorMessage =
+      axiosError.response?.data?.message || "Failed to fetch books";
+    throw new Error(errorMessage);
+  }
+};
+
+export const getBookById = async (id: string): Promise<WrittenBook> => {
+  try {
+    const token = getAuthToken();
+    if (!token) {
+      throw new Error("No authentication token found");
+    }
+
+    const response: AxiosResponse<{
+      success: boolean;
+      data: WrittenBook;
+    }> = await api.get(`/write-book/my-books/${id}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    return response.data.data;
+  } catch (error) {
+    const axiosError = error as AxiosError<{ message?: string }>;
+    const errorMessage =
+      axiosError.response?.data?.message || "Failed to fetch book";
+    throw new Error(errorMessage);
+  }
+};
+
+export const updateBook = async (
+  id: string,
+  data: Partial<GenerateBookData>
+): Promise<WrittenBook> => {
+  try {
+    const token = getAuthToken();
+    if (!token) {
+      throw new Error("No authentication token found");
+    }
+
+    const response: AxiosResponse<{
+      success: boolean;
+      data: WrittenBook;
+    }> = await api.put(`/write-book/my-books/${id}`, data, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+    });
+
+    return response.data.data;
+  } catch (error) {
+    const axiosError = error as AxiosError<{ message?: string }>;
+    const errorMessage =
+      axiosError.response?.data?.message || "Failed to update book";
+    throw new Error(errorMessage);
+  }
+};
+
+export const deleteBook = async (id: string): Promise<void> => {
+  try {
+    const token = getAuthToken();
+    if (!token) {
+      throw new Error("No authentication token found");
+    }
+
+    await api.delete(`/write-book/my-books/${id}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+  } catch (error) {
+    const axiosError = error as AxiosError<{ message?: string }>;
+    const errorMessage =
+      axiosError.response?.data?.message || "Failed to delete book";
+    throw new Error(errorMessage);
+  }
+};
