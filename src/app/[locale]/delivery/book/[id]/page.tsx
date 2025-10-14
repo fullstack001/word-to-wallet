@@ -68,78 +68,78 @@ const CoverImageComponent: React.FC<CoverImageComponentProps> = ({
   title,
   coverImageKey,
 }) => {
-  const [imageError, setImageError] = useState(false);
-  const [imageSrc, setImageSrc] = useState<string>("");
+  // const [imageError, setImageError] = useState(false);
+  // const [imageSrc, setImageSrc] = useState<string>("");
 
-  useEffect(() => {
-    const loadImage = async () => {
-      try {
-        const url = `${process.env.NEXT_PUBLIC_API_URL}/books/${bookId}/cover`;
-        console.log("Attempting to load cover image:", url);
+  // useEffect(() => {
+  //   const loadImage = async () => {
+  //     try {
+  //       const url = `${process.env.NEXT_PUBLIC_API_URL}/books/${bookId}/cover`;
+  //       console.log("Attempting to load cover image:", url);
 
-        // Test the URL first
-        const response = await fetch(url, { method: "HEAD" });
-        console.log(
-          "Cover image HEAD response:",
-          response.status,
-          response.statusText
-        );
+  //       // Test the URL first
+  //       const response = await fetch(url, { method: "HEAD" });
+  //       console.log(
+  //         "Cover image HEAD response:",
+  //         response.status,
+  //         response.statusText
+  //       );
 
-        if (response.ok) {
-          setImageSrc(url);
-        } else {
-          console.error(
-            "Cover image HEAD failed:",
-            response.status,
-            response.statusText
-          );
-          setImageError(true);
-        }
-      } catch (error) {
-        console.error("Error loading cover image:", error);
-        setImageError(true);
-      }
-    };
+  //       if (response.ok) {
+  //         setImageSrc(url);
+  //       } else {
+  //         console.error(
+  //           "Cover image HEAD failed:",
+  //           response.status,
+  //           response.statusText
+  //         );
+  //         setImageError(true);
+  //       }
+  //     } catch (error) {
+  //       console.error("Error loading cover image:", error);
+  //       setImageError(true);
+  //     }
+  //   };
 
-    loadImage();
-  }, [bookId]);
+  //   loadImage();
+  // }, [bookId]);
 
-  if (imageError) {
-    return (
-      <div className="w-full h-full flex items-center justify-center text-center text-gray-500">
-        <div>
-          <div className="text-xs mb-1">COVER IMAGE</div>
-          <div className="text-xs">FAILED TO LOAD</div>
-        </div>
-      </div>
-    );
-  }
+  // if (imageError) {
+  //   return (
+  //     <div className="w-full h-full flex items-center justify-center text-center text-gray-500">
+  //       <div>
+  //         <div className="text-xs mb-1">COVER IMAGE</div>
+  //         <div className="text-xs">FAILED TO LOAD</div>
+  //       </div>
+  //     </div>
+  //   );
+  // }
 
-  if (!imageSrc) {
-    return (
-      <div className="w-full h-full flex items-center justify-center text-center text-gray-500">
-        <div>
-          <div className="text-xs mb-1">LOADING</div>
-          <div className="text-xs">COVER...</div>
-        </div>
-      </div>
-    );
-  }
+  // if (!imageSrc) {
+  //   return (
+  //     <div className="w-full h-full flex items-center justify-center text-center text-gray-500">
+  //       <div>
+  //         <div className="text-xs mb-1">LOADING</div>
+  //         <div className="text-xs">COVER...</div>
+  //       </div>
+  //     </div>
+  //   );
+  // }
 
   return (
     <Image
       className="w-full h-full rounded-lg object-cover"
-      src={imageSrc}
+      src={`${process.env.NEXT_PUBLIC_API_URL}/books/${bookId}/cover}`}
       alt={title}
       width={128}
       height={192}
-      onLoad={() => {
-        console.log("Cover image loaded successfully:", imageSrc);
-      }}
-      onError={() => {
-        console.error("Cover image failed to load:", imageSrc);
-        setImageError(true);
-      }}
+      // onLoad={() => {
+      //   console.log("Cover image loaded successfully:", imageSrc);
+      // }}
+      // onError={() => {
+      //   console.error("Cover image failed to load:", imageSrc);
+      //   setImageError(true);
+      // }}
     />
   );
 };
