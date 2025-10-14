@@ -68,78 +68,96 @@ const CoverImageComponent: React.FC<CoverImageComponentProps> = ({
   title,
   coverImageKey,
 }) => {
-  // const [imageError, setImageError] = useState(false);
-  // const [imageSrc, setImageSrc] = useState<string>("");
+  const [imageError, setImageError] = useState(false);
+  const [imageSrc, setImageSrc] = useState<string>("");
+  const [loading, setLoading] = useState(true);
 
-  // useEffect(() => {
-  //   const loadImage = async () => {
-  //     try {
-  //       const url = `${process.env.NEXT_PUBLIC_API_URL}/books/${bookId}/cover`;
-  //       console.log("Attempting to load cover image:", url);
+  useEffect(() => {
+    const loadImage = async () => {
+      try {
+        const url = `${process.env.NEXT_PUBLIC_API_URL}/books/${bookId}/cover`;
+        console.log("Attempting to load cover image:", url);
 
-  //       // Test the URL first
-  //       const response = await fetch(url, { method: "HEAD" });
-  //       console.log(
-  //         "Cover image HEAD response:",
-  //         response.status,
-  //         response.statusText
-  //       );
+        // Fetch the image with authentication
+        const token = localStorage.getItem("authToken");
+        const response = await fetch(url, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
 
-  //       if (response.ok) {
-  //         setImageSrc(url);
-  //       } else {
-  //         console.error(
-  //           "Cover image HEAD failed:",
-  //           response.status,
-  //           response.statusText
-  //         );
-  //         setImageError(true);
-  //       }
-  //     } catch (error) {
-  //       console.error("Error loading cover image:", error);
-  //       setImageError(true);
-  //     }
-  //   };
+        console.log(
+          "Cover image response:",
+          response.status,
+          response.statusText
+        );
 
-  //   loadImage();
-  // }, [bookId]);
+        if (response.ok) {
+          // Convert to blob and create object URL
+          const blob = await response.blob();
+          const objectUrl = URL.createObjectURL(blob);
+          setImageSrc(objectUrl);
+          setLoading(false);
+        } else {
+          console.error(
+            "Cover image load failed:",
+            response.status,
+            response.statusText
+          );
+          setImageError(true);
+          setLoading(false);
+        }
+      } catch (error) {
+        console.error("Error loading cover image:", error);
+        setImageError(true);
+        setLoading(false);
+      }
+    };
 
-  // if (imageError) {
-  //   return (
-  //     <div className="w-full h-full flex items-center justify-center text-center text-gray-500">
-  //       <div>
-  //         <div className="text-xs mb-1">COVER IMAGE</div>
-  //         <div className="text-xs">FAILED TO LOAD</div>
-  //       </div>
-  //     </div>
-  //   );
-  // }
+    loadImage();
 
-  // if (!imageSrc) {
-  //   return (
-  //     <div className="w-full h-full flex items-center justify-center text-center text-gray-500">
-  //       <div>
-  //         <div className="text-xs mb-1">LOADING</div>
-  //         <div className="text-xs">COVER...</div>
-  //       </div>
-  //     </div>
-  //   );
-  // }
+    // Cleanup function to revoke object URL
+    return () => {
+      if (imageSrc && imageSrc.startsWith("blob:")) {
+        URL.revokeObjectURL(imageSrc);
+      }
+    };
+  }, [bookId]);
+
+  if (imageError) {
+    return (
+      <div className="w-full h-full flex items-center justify-center text-center text-gray-500">
+        <div>
+          <div className="text-xs mb-1">COVER IMAGE</div>
+          <div className="text-xs">FAILED TO LOAD</div>
+        </div>
+      </div>
+    );
+  }
+
+  if (loading || !imageSrc) {
+    return (
+      <div className="w-full h-full flex items-center justify-center text-center text-gray-500">
+        <div>
+          <div className="text-xs mb-1">LOADING</div>
+          <div className="text-xs">COVER...</div>
+        </div>
+      </div>
+    );
+  }
 
   return (
-    <Image
+    <img
       className="w-full h-full rounded-lg object-cover"
-      src={`${process.env.NEXT_PUBLIC_API_URL}/books/${bookId}/cover}`}
+      src={imageSrc}
       alt={title}
-      width={128}
-      height={192}
-      // onLoad={() => {
-      //   console.log("Cover image loaded successfully:", imageSrc);
-      // }}
-      // onError={() => {
-      //   console.error("Cover image failed to load:", imageSrc);
-      //   setImageError(true);
-      // }}
+      onLoad={() => {
+        console.log("Cover image loaded successfully:", imageSrc);
+      }}
+      onError={() => {
+        console.error("Cover image failed to load:", imageSrc);
+        setImageError(true);
+      }}
     />
   );
 };
