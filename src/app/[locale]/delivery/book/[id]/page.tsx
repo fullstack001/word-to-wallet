@@ -78,13 +78,8 @@ const CoverImageComponent: React.FC<CoverImageComponentProps> = ({
         const url = `${process.env.NEXT_PUBLIC_API_URL}/books/${bookId}/cover`;
         console.log("Attempting to load cover image:", url);
 
-        // Fetch the image with authentication
-        const token = localStorage.getItem("authToken");
-        const response = await fetch(url, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
+        // Fetch the image (public endpoint, no auth required)
+        const response = await fetch(url);
 
         console.log(
           "Cover image response:",
@@ -543,14 +538,9 @@ export default function BookManagementPage({
     if (!book?.coverImageKey) return;
 
     try {
-      const token = localStorage.getItem("authToken");
+      // Public endpoint, no auth required
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/books/${book._id}/cover`,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
+        `${process.env.NEXT_PUBLIC_API_URL}/books/${book._id}/cover`
       );
 
       if (!response.ok) {
