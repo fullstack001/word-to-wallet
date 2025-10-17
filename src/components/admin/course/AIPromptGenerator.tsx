@@ -110,6 +110,7 @@ const AIPromptGenerator: React.FC<AIPromptGeneratorProps> = ({
         </div>
         <div className="flex space-x-2">
           <button
+            type="button"
             onClick={generatePrompt}
             disabled={isGenerating}
             className="flex items-center space-x-2 px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed"
@@ -118,6 +119,7 @@ const AIPromptGenerator: React.FC<AIPromptGeneratorProps> = ({
             <span>{isGenerating ? "Generating..." : "Generate Prompt"}</span>
           </button>
           <button
+            type="button"
             onClick={() => setShowCustomGPT(!showCustomGPT)}
             className="flex items-center space-x-2 px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700"
           >
@@ -125,6 +127,7 @@ const AIPromptGenerator: React.FC<AIPromptGeneratorProps> = ({
             <span>{showCustomGPT ? "Hide GPT Chat" : "GPT Chat"}</span>
           </button>
           <button
+            type="button"
             onClick={() => setShowVideoGenerator(!showVideoGenerator)}
             className="flex items-center space-x-2 px-4 py-2 bg-purple-600 text-white rounded-md hover:bg-purple-700"
           >
@@ -143,6 +146,7 @@ const AIPromptGenerator: React.FC<AIPromptGeneratorProps> = ({
         </label>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
           <button
+            type="button"
             onClick={() => setContentType("educational")}
             className={`flex items-center space-x-2 px-3 py-2 rounded-md text-sm font-medium ${
               contentType === "educational"
@@ -154,6 +158,7 @@ const AIPromptGenerator: React.FC<AIPromptGeneratorProps> = ({
             <span>Educational</span>
           </button>
           <button
+            type="button"
             onClick={() => setContentType("promotional")}
             className={`flex items-center space-x-2 px-3 py-2 rounded-md text-sm font-medium ${
               contentType === "promotional"
@@ -165,6 +170,7 @@ const AIPromptGenerator: React.FC<AIPromptGeneratorProps> = ({
             <span>Promotional</span>
           </button>
           <button
+            type="button"
             onClick={() => setContentType("tutorial")}
             className={`flex items-center space-x-2 px-3 py-2 rounded-md text-sm font-medium ${
               contentType === "tutorial"
@@ -176,6 +182,7 @@ const AIPromptGenerator: React.FC<AIPromptGeneratorProps> = ({
             <span>Tutorial</span>
           </button>
           <button
+            type="button"
             onClick={() => setContentType("auction")}
             className={`flex items-center space-x-2 px-3 py-2 rounded-md text-sm font-medium ${
               contentType === "auction"
@@ -187,6 +194,7 @@ const AIPromptGenerator: React.FC<AIPromptGeneratorProps> = ({
             <span>Auction</span>
           </button>
           <button
+            type="button"
             onClick={() => setContentType("delivery")}
             className={`flex items-center space-x-2 px-3 py-2 rounded-md text-sm font-medium ${
               contentType === "delivery"
@@ -198,6 +206,7 @@ const AIPromptGenerator: React.FC<AIPromptGeneratorProps> = ({
             <span>Delivery</span>
           </button>
           <button
+            type="button"
             onClick={() => setContentType("sales")}
             className={`flex items-center space-x-2 px-3 py-2 rounded-md text-sm font-medium ${
               contentType === "sales"
@@ -209,6 +218,7 @@ const AIPromptGenerator: React.FC<AIPromptGeneratorProps> = ({
             <span>Sales</span>
           </button>
           <button
+            type="button"
             onClick={() => setContentType("marketing")}
             className={`flex items-center space-x-2 px-3 py-2 rounded-md text-sm font-medium ${
               contentType === "marketing"
@@ -237,6 +247,7 @@ const AIPromptGenerator: React.FC<AIPromptGeneratorProps> = ({
             </h4>
             <div className="flex space-x-2">
               <button
+                type="button"
                 onClick={copyToClipboard}
                 className="flex items-center space-x-1 px-3 py-1 text-sm bg-gray-100 text-gray-700 rounded-md hover:bg-gray-200"
               >
@@ -248,6 +259,7 @@ const AIPromptGenerator: React.FC<AIPromptGeneratorProps> = ({
                 <span>{copied ? "Copied!" : "Copy"}</span>
               </button>
               <button
+                type="button"
                 onClick={usePrompt}
                 className="px-3 py-1 text-sm bg-green-600 text-white rounded-md hover:bg-green-700"
               >

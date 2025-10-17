@@ -189,6 +189,7 @@ const VideoTutorialGenerator: React.FC<VideoTutorialGeneratorProps> = ({
           </h3>
         </div>
         <button
+          type="button"
           onClick={generateVideoContent}
           className="flex items-center space-x-2 px-4 py-2 bg-purple-600 text-white rounded-md hover:bg-purple-700"
         >
@@ -202,6 +203,7 @@ const VideoTutorialGenerator: React.FC<VideoTutorialGeneratorProps> = ({
           {/* Tab Navigation */}
           <div className="flex space-x-1 bg-gray-100 p-1 rounded-lg">
             <button
+              type="button"
               onClick={() => setActiveTab("script")}
               className={`flex items-center space-x-2 px-3 py-2 rounded-md text-sm font-medium ${
                 activeTab === "script"
@@ -213,6 +215,7 @@ const VideoTutorialGenerator: React.FC<VideoTutorialGeneratorProps> = ({
               <span>Script</span>
             </button>
             <button
+              type="button"
               onClick={() => setActiveTab("storyboard")}
               className={`flex items-center space-x-2 px-3 py-2 rounded-md text-sm font-medium ${
                 activeTab === "storyboard"
@@ -235,6 +238,7 @@ const VideoTutorialGenerator: React.FC<VideoTutorialGeneratorProps> = ({
                 :
               </h4>
               <button
+                type="button"
                 onClick={() =>
                   copyToClipboard(
                     activeTab === "script" ? generatedScript : storyboard

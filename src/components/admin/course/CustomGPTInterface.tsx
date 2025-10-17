@@ -327,6 +327,7 @@ Please check your OpenAI API configuration or try again later. In the meantime, 
         </div>
         <div className="flex items-center space-x-2">
           <button
+            type="button"
             onClick={() => setMessages([messages[0]])}
             className="p-2 text-gray-400 hover:text-gray-600 rounded-md hover:bg-white/50 transition-colors"
             title="New conversation"
@@ -375,6 +376,7 @@ Please check your OpenAI API configuration or try again later. In the meantime, 
                   <div className="flex items-center justify-between mt-3 pt-2 border-t border-gray-200">
                     <ClientOnlyTimestamp timestamp={message.timestamp} />
                     <button
+                      type="button"
                       onClick={() =>
                         copyToClipboard(message.content, message.id)
                       }
@@ -427,6 +429,7 @@ Please check your OpenAI API configuration or try again later. In the meantime, 
             {suggestedPrompts.map((prompt, index) => (
               <button
                 key={index}
+                type="button"
                 onClick={() => handleSuggestedPrompt(prompt)}
                 className="text-left p-4 bg-white hover:bg-gray-50 rounded-xl border border-gray-200 text-sm text-gray-700 transition-all duration-200 hover:shadow-md hover:border-gray-300"
               >
@@ -460,6 +463,7 @@ Please check your OpenAI API configuration or try again later. In the meantime, 
               }}
             />
             <button
+              type="button"
               onClick={handleSendMessage}
               disabled={!inputValue.trim() || isLoading}
               className="absolute right-2 top-1/2 transform -translate-y-1/2 p-2 bg-blue-500 text-white rounded-xl hover:bg-blue-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors shadow-sm"
