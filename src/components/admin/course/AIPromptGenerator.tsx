@@ -280,7 +280,7 @@ const AIPromptGenerator: React.FC<AIPromptGeneratorProps> = ({
           {/* Validation Results */}
           {validation && (
             <div className="space-y-2">
-              {validation.errors.length > 0 && (
+              {/* {validation.errors.length > 0 && (
                 <div className="p-3 bg-red-50 border border-red-200 rounded-md">
                   <h5 className="text-sm font-medium text-red-800 mb-2">
                     Validation Errors:
@@ -291,7 +291,7 @@ const AIPromptGenerator: React.FC<AIPromptGeneratorProps> = ({
                     ))}
                   </ul>
                 </div>
-              )}
+              )} */}
 
               {validation.warnings.length > 0 && (
                 <div className="p-3 bg-yellow-50 border border-yellow-200 rounded-md">
