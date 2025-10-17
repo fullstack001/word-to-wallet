@@ -6,6 +6,7 @@ import {
   GenerateContentRequest,
   GenerateContentMode,
 } from "@/utils/apiUtils";
+import AIPromptGenerator from "./AIPromptGenerator";
 import "./jodit-styles.css";
 
 export interface Chapter {
@@ -368,23 +369,39 @@ export default function ChaptersForm({
 
               {/* Mode-specific inputs */}
               {ui.mode === "STRICT_NATIVE_BLOCKS" ? (
-                <div className="mt-3">
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Instructions (e.g., your promo recipe)
-                  </label>
-                  <textarea
-                    value={ui.instructions}
-                    onChange={(e) =>
-                      updateGenUI(chapter.id, { instructions: e.target.value })
-                    }
-                    rows={4}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-                    placeholder={`Paste your STRICT_NATIVE_BLOCKS prompt here.\nExample: "Build THREE promotions using ONLY native blocks in this order: 1) Heading ... 8) Button (...)"`}
-                  />
-                  <p className="text-xs text-gray-500 mt-1">
-                    Tip: Leave empty to let AI use Title/Description as
-                    guidance.
-                  </p>
+                <div className="mt-3 space-y-4">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                      Instructions (e.g., your promo recipe)
+                    </label>
+                    <textarea
+                      value={ui.instructions}
+                      onChange={(e) =>
+                        updateGenUI(chapter.id, {
+                          instructions: e.target.value,
+                        })
+                      }
+                      rows={4}
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                      placeholder={`Paste your STRICT_NATIVE_BLOCKS prompt here.\nExample: "Build THREE promotions using ONLY native blocks in this order: 1) Heading ... 8) Button (...)"`}
+                    />
+                    <p className="text-xs text-gray-500 mt-1">
+                      Tip: Leave empty to let AI use Title/Description as
+                      guidance.
+                    </p>
+                  </div>
+
+                  {/* AI Prompt Generator */}
+                  <div className="border-t pt-4">
+                    <AIPromptGenerator
+                      onPromptGenerated={(prompt) =>
+                        updateGenUI(chapter.id, { instructions: prompt })
+                      }
+                      currentInstructions={ui.instructions}
+                      chapterTitle={chapter.title}
+                      chapterDescription={chapter.description}
+                    />
+                  </div>
                 </div>
               ) : (
                 <div className="mt-3">

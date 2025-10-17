@@ -84,6 +84,10 @@ export default function DashboardPage() {
     navigate("/write-book?tab=write");
   };
 
+  const handleNavigateToGPT = () => {
+    navigate("/gpt");
+  };
+
   if (isLoading) {
     return <DashboardLoading />;
   }
@@ -130,6 +134,7 @@ export default function DashboardPage() {
             onNavigateToIntegrations={handleNavigateToIntegrations}
             onNavigateToDelivery={handleNavigateToDelivery}
             onNavigateToWriteBook={handleNavigateToWriteBook}
+            onNavigateToGPT={handleNavigateToGPT}
             subscription={user.subscription}
           />
         </div>

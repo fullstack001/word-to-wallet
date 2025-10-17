@@ -16,6 +16,7 @@ import {
   CogIcon,
   TruckIcon,
   PencilSquareIcon,
+  SparklesIcon,
 } from "@heroicons/react/24/outline";
 
 interface FeaturesSectionProps {
@@ -31,6 +32,7 @@ interface FeaturesSectionProps {
   onNavigateToDelivery: () => void;
   onNavigateToSaleLinks: () => void;
   onNavigateToWriteBook: () => void;
+  onNavigateToGPT: () => void;
   subscription?: {
     stripeCustomerId?: string;
     stripeSubscriptionId?: string;
@@ -58,6 +60,7 @@ export default function FeaturesSection({
   onNavigateToDelivery,
   onNavigateToSaleLinks,
   onNavigateToWriteBook,
+  onNavigateToGPT,
   subscription,
 }: FeaturesSectionProps) {
   console.log(subscription);
@@ -94,6 +97,22 @@ export default function FeaturesSection({
         "EPUB Generation",
         "PDF Generation",
         "AI Content",
+      ],
+      availableFor: ["trial", "paid"],
+    },
+    {
+      title: "EPUB Prompt Architect",
+      description:
+        "AI-powered assistant for creating EPUB3 content and video tutorials",
+      icon: SparklesIcon,
+      color: "emerald",
+      onClick: onNavigateToGPT,
+      status: hasActiveSubscription || isTrialUser ? "active" : "locked",
+      features: [
+        "Strict Native Blocks",
+        "Video Scripts",
+        "Storyboards",
+        "Open Source Tools",
       ],
       availableFor: ["trial", "paid"],
     },
