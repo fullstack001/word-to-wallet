@@ -165,12 +165,12 @@ const VideoTutorialGenerator: React.FC<VideoTutorialGeneratorProps> = ({
       url: "https://github.com/Picsart-AI-Research/Text2Video-Zero",
       type: "Text-to-Video",
     },
-    {
-      name: "ModelScope T2V",
-      description: "Alibaba's text-to-video model",
-      url: "https://modelscope.cn/models/damo/text-to-video-synthesis",
-      type: "Text-to-Video",
-    },
+    // {
+    //   name: "ModelScope T2V",
+    //   description: "Alibaba's text-to-video model",
+    //   url: "https://modelscope.cn/models/damo/text-to-video-synthesis",
+    //   type: "Text-to-Video",
+    // },
     {
       name: "RunwayML",
       description: "AI-powered video editing platform",
