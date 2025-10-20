@@ -138,7 +138,7 @@ export default function DashboardPage() {
             subscription={user.subscription}
           />
         </div>
-
+        {/* 
         <div className="mt-8">
           <QuickActions
             onViewCourses={handleNavigateToCourses}
@@ -151,7 +151,7 @@ export default function DashboardPage() {
             onViewDelivery={handleNavigateToDelivery}
             onViewSaleLinks={handleNavigateToSaleLinks}
           />
-        </div>
+        </div> */}
 
         {/* Help Section */}
         <div className="mt-8">
