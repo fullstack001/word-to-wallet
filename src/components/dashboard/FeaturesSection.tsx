@@ -33,6 +33,7 @@ interface FeaturesSectionProps {
   onNavigateToSaleLinks: () => void;
   onNavigateToWriteBook: () => void;
   onNavigateToGPT: () => void;
+  onNavigateToMarketing: () => void;
   subscription?: {
     stripeCustomerId?: string;
     stripeSubscriptionId?: string;
@@ -49,18 +50,12 @@ interface FeaturesSectionProps {
 
 export default function FeaturesSection({
   onNavigateToCourses,
-  onNavigateToProfile,
-  onNavigateToSchedule,
-  onNavigateToBooks,
-  onNavigateToAchievements,
   onNavigateToAuctions,
-  onNavigateToMyAuctions,
-  onNavigateToCreateAuction,
-  onNavigateToIntegrations,
   onNavigateToDelivery,
   onNavigateToSaleLinks,
   onNavigateToWriteBook,
   onNavigateToGPT,
+  onNavigateToMarketing,
   subscription,
 }: FeaturesSectionProps) {
   console.log(subscription);
@@ -143,7 +138,7 @@ export default function FeaturesSection({
       description: "Create and launch multi-channel marketing campaigns",
       icon: UserIcon,
       color: "pink",
-      onClick: () => {},
+      onClick: onNavigateToMarketing,
       status: hasActiveSubscription || isTrialUser ? "active" : "locked",
       features: ["Email Campaigns", "Social Media", "AI Copy Assistant"],
       availableFor: ["trial", "paid"],

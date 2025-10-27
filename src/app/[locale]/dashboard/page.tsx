@@ -88,6 +88,10 @@ export default function DashboardPage() {
     navigate("/gpt");
   };
 
+  const handleNavigateToMarketing = () => {
+    navigate("/mail-campaigns");
+  };
+
   if (isLoading) {
     return <DashboardLoading />;
   }
@@ -135,6 +139,7 @@ export default function DashboardPage() {
             onNavigateToDelivery={handleNavigateToDelivery}
             onNavigateToWriteBook={handleNavigateToWriteBook}
             onNavigateToGPT={handleNavigateToGPT}
+            onNavigateToMarketing={handleNavigateToMarketing}
             subscription={user.subscription}
           />
         </div>
