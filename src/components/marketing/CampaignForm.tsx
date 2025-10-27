@@ -379,7 +379,7 @@ export default function CampaignForm({
 
         <div className="inline-block transform overflow-hidden rounded-2xl bg-white text-left align-bottom shadow-2xl transition-all sm:my-8 sm:w-full sm:max-w-4xl sm:align-middle">
           <form onSubmit={handleSubmit}>
-            <div className="bg-white px-6 pt-6 pb-4 sm:p-8">
+            <div className="bg-white px-6 pt-6 pb-4 sm:p-8 max-h-[85vh] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100 hover:scrollbar-thumb-gray-400">
               {/* Header */}
               <div className="flex items-center justify-between mb-6">
                 <div>
