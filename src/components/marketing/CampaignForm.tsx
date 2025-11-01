@@ -665,7 +665,14 @@ export default function CampaignForm({
                     ) : books.length === 0 ? (
                       <div className="text-center py-8 text-gray-500">
                         <BookOpenIcon className="h-12 w-12 mx-auto mb-2" />
-                        <p>No books available. Upload some books first.</p>
+                        <p className="mb-2">
+                          No books available. Upload some books first.
+                        </p>
+                        <p className="text-sm text-gray-600 font-medium">
+                          Please create your landing page or delivery link first
+                          from the dashboard. Use: Create Book Delivery or
+                          Direct Sale.
+                        </p>
                       </div>
                     ) : (
                       <select
@@ -755,14 +762,20 @@ export default function CampaignForm({
                             Loading links...
                           </p>
                         </div>
-                      ) : bookLinks.length === 0 ? (
-                        <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
-                          <p className="text-sm text-yellow-800">
-                            No links found for this book.
-                          </p>
-                        </div>
                       ) : (
                         <div className="grid grid-cols-1 gap-3">
+                          {bookLinks.length === 1 && (
+                            <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
+                              <p className="text-sm text-yellow-800 mb-2">
+                                No links found for this book.
+                              </p>
+                              <p className="text-sm text-yellow-900 font-medium">
+                                Please create your landing page or delivery link
+                                first from the dashboard. Use: Create Book
+                                Delivery or Direct Sale.
+                              </p>
+                            </div>
+                          )}
                           {bookLinks.map((link) => (
                             <button
                               key={link._id}

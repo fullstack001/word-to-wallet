@@ -92,6 +92,10 @@ export default function DashboardPage() {
     navigate("/mail-campaigns");
   };
 
+  const handleNavigateToMedia = () => {
+    navigate("/media");
+  };
+
   if (isLoading) {
     return <DashboardLoading />;
   }
@@ -140,6 +144,7 @@ export default function DashboardPage() {
             onNavigateToWriteBook={handleNavigateToWriteBook}
             onNavigateToGPT={handleNavigateToGPT}
             onNavigateToMarketing={handleNavigateToMarketing}
+            onNavigateToMedia={handleNavigateToMedia}
             subscription={user.subscription}
           />
         </div>

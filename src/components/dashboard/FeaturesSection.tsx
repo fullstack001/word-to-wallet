@@ -17,6 +17,7 @@ import {
   TruckIcon,
   PencilSquareIcon,
   SparklesIcon,
+  PhotoIcon,
 } from "@heroicons/react/24/outline";
 
 interface FeaturesSectionProps {
@@ -34,6 +35,7 @@ interface FeaturesSectionProps {
   onNavigateToWriteBook: () => void;
   onNavigateToGPT: () => void;
   onNavigateToMarketing: () => void;
+  onNavigateToMedia: () => void;
   subscription?: {
     stripeCustomerId?: string;
     stripeSubscriptionId?: string;
@@ -56,6 +58,7 @@ export default function FeaturesSection({
   onNavigateToWriteBook,
   onNavigateToGPT,
   onNavigateToMarketing,
+  onNavigateToMedia,
   subscription,
 }: FeaturesSectionProps) {
   console.log(subscription);
@@ -153,6 +156,22 @@ export default function FeaturesSection({
       features: ["Create Auctions", "Bid on Items", "Manage Listings"],
       availableFor: ["trial", "paid"],
     },
+    {
+      title: "Media Management",
+      description:
+        "Upload, generate, and manage images, audio, and videos with AI",
+      icon: PhotoIcon,
+      color: "teal",
+      onClick: onNavigateToMedia,
+      status: hasActiveSubscription || isTrialUser ? "active" : "locked",
+      features: [
+        "Upload Media",
+        "AI Image Generation",
+        "AI Audio Generation",
+        "Public Links",
+      ],
+      availableFor: ["trial", "paid"],
+    },
     // {
     //   title: "Integrations",
     //   description:
@@ -198,6 +217,8 @@ export default function FeaturesSection({
       indigo: "bg-indigo-100 text-indigo-600",
       pink: "bg-pink-100 text-pink-600",
       red: "bg-red-100 text-red-600",
+      teal: "bg-teal-100 text-teal-600",
+      emerald: "bg-emerald-100 text-emerald-600",
     };
 
     const statusClasses = {
