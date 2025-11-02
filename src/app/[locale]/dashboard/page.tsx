@@ -179,10 +179,10 @@ export default function DashboardPage() {
                   Contact Support
                 </button>
                 <button
-                  onClick={() => navigate("/faq")}
+                  onClick={() => navigate("/blogs")}
                   className="px-6 py-3 bg-white/20 text-white rounded-lg font-medium hover:bg-white/30 transition-colors"
                 >
-                  View FAQ
+                  View Blogs
                 </button>
               </div>
             </div>

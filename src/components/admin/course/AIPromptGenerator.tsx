@@ -126,7 +126,7 @@ const AIPromptGenerator: React.FC<AIPromptGeneratorProps> = ({
             <Bot className="w-4 h-4" />
             <span>{showCustomGPT ? "Hide GPT Chat" : "GPT Chat"}</span>
           </button>
-          <button
+          {/* <button
             type="button"
             onClick={() => setShowVideoGenerator(!showVideoGenerator)}
             className="flex items-center space-x-2 px-4 py-2 bg-purple-600 text-white rounded-md hover:bg-purple-700"
@@ -135,7 +135,7 @@ const AIPromptGenerator: React.FC<AIPromptGeneratorProps> = ({
             <span>
               {showVideoGenerator ? "Hide Video Tools" : "Video Tools"}
             </span>
-          </button>
+          </button> */}
         </div>
       </div>
 
@@ -345,7 +345,7 @@ const AIPromptGenerator: React.FC<AIPromptGeneratorProps> = ({
           <li>
             Supports promotional, educational, and platform-specific content
           </li>
-          <li>Links to open-source video tools for visual walkthroughs</li>
+          {/* <li>Links to open-source video tools for visual walkthroughs</li> */}
         </ul>
       </div>
 

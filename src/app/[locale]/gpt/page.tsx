@@ -47,7 +47,7 @@ const CustomGPTPage: React.FC = () => {
         <div className="mt-8 text-center text-sm text-gray-500">
           <p>
             Powered by WordToWallet • Generate EPUB3 recipes, storyboarded
-            tutorials, and access open-source video tools
+            tutorials
           </p>
         </div>
       </div>

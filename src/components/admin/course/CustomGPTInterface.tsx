@@ -320,8 +320,7 @@ Please check your OpenAI API configuration or try again later. In the meantime, 
               EPUB Prompt Architect
             </h3>
             <p className="text-sm text-gray-600">
-              Generates EPUB3 recipes, storyboarded tutorials, and links to
-              open-source video tools
+              Generates EPUB3 recipes, storyboarded tutorials
             </p>
           </div>
         </div>

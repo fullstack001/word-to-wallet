@@ -3,19 +3,25 @@
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import { useState } from "react";
+import { useSelector } from "react-redux";
 import Image from "next/image";
 import Navbar from "../Navbar";
 import Footer from "../Footer";
+import { useLocalizedNavigation } from "@/utils/navigation";
+import { RootState } from "@/store/store";
 import {
   PhoneIcon,
   EnvelopeIcon,
   MapPinIcon,
   PaperAirplaneIcon,
   ChatBubbleLeftRightIcon,
+  ArrowRightIcon,
 } from "@heroicons/react/24/outline";
 
 export default function ContactPage() {
   const t = useTranslations("contactPage");
+  const { navigate } = useLocalizedNavigation();
+  const isLoggedIn = useSelector((state: RootState) => state.auth.isLoggedIn);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -211,6 +217,26 @@ export default function ContactPage() {
               >
                 {t("description")}
               </motion.p>
+
+              {/* Go to Dashboard Button - Only show when logged in */}
+              {isLoggedIn && (
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.7 }}
+                  className="mb-8"
+                >
+                  <motion.button
+                    onClick={() => navigate("/dashboard")}
+                    className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 px-6 rounded-xl font-semibold hover:from-blue-700 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    <span>Go to Dashboard</span>
+                    <ArrowRightIcon className="w-5 h-5" />
+                  </motion.button>
+                </motion.div>
+              )}
 
               {/* Contact Image */}
               <motion.div
