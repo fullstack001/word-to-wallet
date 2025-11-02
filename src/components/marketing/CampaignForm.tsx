@@ -37,6 +37,7 @@ interface CampaignFormData {
     unsubscribeLink: boolean;
     replyTo?: string;
   };
+  logoUrl?: string;
   scheduledAt?: string;
 }
 
@@ -81,6 +82,7 @@ export default function CampaignForm({
       trackClicks: true,
       unsubscribeLink: true,
     },
+    logoUrl: "",
     scheduledAt: "",
     ...initialData,
   });
@@ -144,6 +146,19 @@ export default function CampaignForm({
     );
 
     // Create the email template with header, logo, and content
+    const logoSection =
+      formData.logoUrl && formData.logoUrl.trim() !== ""
+        ? `<tr>
+                         <td style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 30px; text-align: center; border-radius: 8px 8px 0 0;">
+                             <img src="${formData.logoUrl}" alt="Logo" style="max-width: 200px; height: auto; display: block; margin: 0 auto;" />
+                         </td>
+                     </tr>`
+        : `<tr>
+                         <td style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 30px; text-align: center; border-radius: 8px 8px 0 0;">
+                             
+                         </td>
+                     </tr>`;
+
     const emailTemplate = `
 <!DOCTYPE html>
 <html lang="en">
@@ -157,12 +172,7 @@ export default function CampaignForm({
         <tr>
             <td style="padding: 20px 0;">
                 <table role="presentation" cellspacing="0" cellpadding="0" border="0" align="center" width="600" style="background-color: #ffffff; margin: 0 auto; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-                                         <!-- Header with Logo -->
-                     <tr>
-                         <td style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 30px; text-align: center; border-radius: 8px 8px 0 0;">
-                             <img src="https://dev.wordtowallet.com/logo.png" alt="Word2Wallet Logo" style="max-width: 200px; height: auto; display: block; margin: 0 auto;" />
-                         </td>
-                     </tr>
+                                         ${logoSection}
                     <!-- Content Area -->
                     <tr>
                         <td style="padding: 40px 30px;">
@@ -1033,6 +1043,29 @@ export default function CampaignForm({
                         </label>
                       </div>
                     </div>
+                  </div>
+
+                  <div className="bg-gray-50 rounded-lg p-5 border border-gray-200">
+                    <label
+                      htmlFor="logoUrl"
+                      className="block text-sm font-medium text-gray-700 mb-2"
+                    >
+                      Logo URL (Optional)
+                    </label>
+                    <input
+                      type="url"
+                      name="logoUrl"
+                      id="logoUrl"
+                      value={formData.logoUrl || ""}
+                      onChange={handleChange}
+                      placeholder="https://example.com/logo.png"
+                      className="mt-1 block w-full px-3 py-2 rounded-lg border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm transition-colors"
+                    />
+                    <p className="mt-2 text-xs text-gray-500 flex items-center">
+                      <InformationCircleIcon className="h-4 w-4 mr-1" />
+                      Enter a URL to display a logo in the email header. Leave
+                      empty to hide the logo.
+                    </p>
                   </div>
 
                   <div className="bg-gray-50 rounded-lg p-5 border border-gray-200">
