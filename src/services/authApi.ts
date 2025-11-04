@@ -182,13 +182,50 @@ export const authApi = {
   },
 
   // Verify email
-  verifyEmail: async (token: string): Promise<void> => {
-    await api.post("/auth/verify-email", { token });
+  verifyEmail: async (token: string): Promise<{ user: User }> => {
+    const response = await api.post("/auth/verify-email", { token });
+    return { user: response.data.user };
   },
 
   // Resend verification email
-  resendVerification: async (): Promise<void> => {
-    await api.post("/auth/resend-verification");
+  resendVerification: async (email: string): Promise<void> => {
+    await api.post("/auth/resend-verification", { email });
+  },
+
+  // Verify email with code
+  verifyCode: async (email: string, code: string): Promise<AuthResponse> => {
+    const response = await api.post("/auth/verify-code", { email, code });
+    const { user, tokens } = response.data;
+
+    // Set token in storage
+    api.setAuthToken(tokens.accessToken);
+
+    return {
+      token: tokens.accessToken,
+      user: {
+        id: user.id,
+        email: user.email,
+        fullName: user.fullName,
+        name: user.fullName,
+        role: user.role,
+        isAdmin: user.role === "admin",
+        emailVerified: user.emailVerified,
+      },
+      subscription: user.subscription
+        ? {
+            stripeCustomerId: user.subscription.stripeCustomerId,
+            stripeSubscriptionId: user.subscription.stripeSubscriptionId,
+            status: user.subscription.status,
+            plan: user.subscription.plan,
+            trialStart: user.subscription.trialStart,
+            trialEnd: user.subscription.trialEnd,
+            currentPeriodStart: user.subscription.currentPeriodStart,
+            currentPeriodEnd: user.subscription.currentPeriodEnd,
+            cancelAtPeriodEnd: user.subscription.cancelAtPeriodEnd,
+            canceledAt: user.subscription.canceledAt,
+          }
+        : undefined,
+    };
   },
 };
 

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, use } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocalizedNavigation } from "../../../utils/navigation";
 import { setUser } from "../../../store/slices/userSlice";
@@ -21,8 +21,8 @@ interface CheckoutPageProps {
   }>;
 }
 
-export default async function CheckoutPage({ params }: CheckoutPageProps) {
-  const { locale } = await params;
+export default function CheckoutPage({ params }: CheckoutPageProps) {
+  const { locale } = use(params);
   const dispatch = useDispatch();
   const { navigate } = useLocalizedNavigation();
   const user = useSelector((state: RootState) => state.user);

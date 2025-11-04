@@ -25,7 +25,7 @@ export interface ValidationResult {
  */
 export const VALIDATION_PATTERNS = {
   email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-  password: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d@$!%*?&]{6,}$/,
+  password: /^.{6,}$/,
   phone: /^\+?[\d\s\-\(\)]+$/,
   url: /^https?:\/\/.+/,
   slug: /^[a-z0-9]+(?:-[a-z0-9]+)*$/,
@@ -42,8 +42,7 @@ export const VALIDATION_MESSAGES = {
     `${field} must be no more than ${max} characters`,
   pattern: (field: string) => `Please enter a valid ${field}`,
   email: "Please enter a valid email address",
-  password:
-    "Password must be at least 6 characters and contain at least one letter and one number",
+  password: "Password must be at least 6 characters",
   passwordMatch: "Passwords do not match",
   terms: "You must accept the terms and conditions",
 } as const;

@@ -8,6 +8,7 @@ export interface User {
   cardnumber?: string;
   avatar?: string;
   isAdmin: boolean;
+  emailVerified?: boolean;
 }
 
 export interface Subscription {
@@ -106,6 +107,7 @@ export const loginUser = async (
         cardnumber: "",
         avatar: "",
         isAdmin: user.role === "admin",
+        emailVerified: user.emailVerified || false,
       },
       subscription: user.subscription
         ? {

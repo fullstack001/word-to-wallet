@@ -19,10 +19,6 @@ export default function PolicyLinks() {
       label: "Contact Us",
       path: "/contact",
     },
-    {
-      label: "Subscription Terms",
-      path: "/subscription-terms",
-    },
   ];
 
   return (
