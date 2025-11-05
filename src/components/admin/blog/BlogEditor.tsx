@@ -237,7 +237,7 @@ export default function BlogEditor({ blogId, onSave, onCancel }: BlogEditorProps
                 placeholder="Brief description of the blog post (will be auto-generated from content if left empty)"
               />
               <p className="mt-1 text-sm text-gray-500">
-                {formData.excerpt.length}/500 characters
+                {formData.excerpt?.length ?? 0}/500 characters
               </p>
             </div>
 

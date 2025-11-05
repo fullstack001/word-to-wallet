@@ -172,7 +172,7 @@ export default function CommentSection({ blogId }: CommentSectionProps) {
   };
 
   const renderComment = (comment: Comment, level = 0) => {
-    const isLiked = comment.likedBy?.includes(user?._id || "");
+    const isLiked = comment.likedBy?.includes(user?.id || "");
     const isReply = level > 0;
     const isAnonymous = !comment.user;
     const displayName = comment.user

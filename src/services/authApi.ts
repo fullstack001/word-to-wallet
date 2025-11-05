@@ -10,6 +10,7 @@ export interface User {
   avatar?: string;
   role: string;
   isAdmin: boolean;
+  emailVerified?: boolean;
 }
 
 export interface Subscription {
