@@ -19,6 +19,15 @@ const AuctionBidding: React.FC<AuctionBiddingProps> = ({
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState<string | null>(null);
+  const [shippingInfo, setShippingInfo] = useState({
+    country: "",
+    street: "",
+    city: "",
+    state: "",
+    zipCode: "",
+    phone: "",
+    email: "",
+  });
 
   const canBid = auction.status === "active" && isAuthenticated;
   const minimumBid = auction.highBid + 1; // Assuming 1 unit minimum increment
@@ -34,14 +43,40 @@ const AuctionBidding: React.FC<AuctionBiddingProps> = ({
       return;
     }
 
+    // Validate shipping information
+    if (
+      !shippingInfo.country ||
+      !shippingInfo.street ||
+      !shippingInfo.city ||
+      !shippingInfo.state ||
+      !shippingInfo.zipCode ||
+      !shippingInfo.phone ||
+      !shippingInfo.email
+    ) {
+      setError("Please fill in all shipping information fields");
+      return;
+    }
+
     setLoading(true);
     setError(null);
     setSuccess(null);
 
     try {
-      await auctionApi.placeBid(auction.id, { amount });
+      await auctionApi.placeBid(auction.id, {
+        amount,
+        shippingInfo,
+      });
       setSuccess("Bid placed successfully!");
       setBidAmount("");
+      setShippingInfo({
+        country: "",
+        street: "",
+        city: "",
+        state: "",
+        zipCode: "",
+        phone: "",
+        email: "",
+      });
       onBidPlaced();
 
       // Clear success message after 3 seconds
@@ -165,6 +200,154 @@ const AuctionBidding: React.FC<AuctionBiddingProps> = ({
               disabled={!canBid || loading}
               className="block w-full pl-12 pr-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 disabled:bg-gray-100 disabled:cursor-not-allowed"
             />
+          </div>
+        </div>
+
+        {/* Shipping Information Section */}
+        <div className="border-t border-gray-200 pt-4">
+          <h3 className="text-lg font-medium text-gray-900 mb-4">
+            Shipping Information
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label
+                htmlFor="country"
+                className="block text-sm font-medium text-gray-700 mb-2"
+              >
+                Country:
+              </label>
+              <input
+                type="text"
+                id="country"
+                value={shippingInfo.country}
+                onChange={(e) =>
+                  setShippingInfo({ ...shippingInfo, country: e.target.value })
+                }
+                disabled={!canBid || loading}
+                required
+                className="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 disabled:bg-gray-100 disabled:cursor-not-allowed"
+              />
+            </div>
+
+            <div>
+              <label
+                htmlFor="street"
+                className="block text-sm font-medium text-gray-700 mb-2"
+              >
+                Street or P.O. Box:
+              </label>
+              <input
+                type="text"
+                id="street"
+                value={shippingInfo.street}
+                onChange={(e) =>
+                  setShippingInfo({ ...shippingInfo, street: e.target.value })
+                }
+                disabled={!canBid || loading}
+                required
+                className="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 disabled:bg-gray-100 disabled:cursor-not-allowed"
+              />
+            </div>
+
+            <div>
+              <label
+                htmlFor="city"
+                className="block text-sm font-medium text-gray-700 mb-2"
+              >
+                City:
+              </label>
+              <input
+                type="text"
+                id="city"
+                value={shippingInfo.city}
+                onChange={(e) =>
+                  setShippingInfo({ ...shippingInfo, city: e.target.value })
+                }
+                disabled={!canBid || loading}
+                required
+                className="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 disabled:bg-gray-100 disabled:cursor-not-allowed"
+              />
+            </div>
+
+            <div>
+              <label
+                htmlFor="state"
+                className="block text-sm font-medium text-gray-700 mb-2"
+              >
+                State:
+              </label>
+              <input
+                type="text"
+                id="state"
+                value={shippingInfo.state}
+                onChange={(e) =>
+                  setShippingInfo({ ...shippingInfo, state: e.target.value })
+                }
+                disabled={!canBid || loading}
+                required
+                className="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 disabled:bg-gray-100 disabled:cursor-not-allowed"
+              />
+            </div>
+
+            <div>
+              <label
+                htmlFor="zipCode"
+                className="block text-sm font-medium text-gray-700 mb-2"
+              >
+                Zip Code:
+              </label>
+              <input
+                type="text"
+                id="zipCode"
+                value={shippingInfo.zipCode}
+                onChange={(e) =>
+                  setShippingInfo({ ...shippingInfo, zipCode: e.target.value })
+                }
+                disabled={!canBid || loading}
+                required
+                className="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 disabled:bg-gray-100 disabled:cursor-not-allowed"
+              />
+            </div>
+
+            <div>
+              <label
+                htmlFor="phone"
+                className="block text-sm font-medium text-gray-700 mb-2"
+              >
+                Phone:
+              </label>
+              <input
+                type="tel"
+                id="phone"
+                value={shippingInfo.phone}
+                onChange={(e) =>
+                  setShippingInfo({ ...shippingInfo, phone: e.target.value })
+                }
+                disabled={!canBid || loading}
+                required
+                className="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 disabled:bg-gray-100 disabled:cursor-not-allowed"
+              />
+            </div>
+
+            <div className="md:col-span-2">
+              <label
+                htmlFor="email"
+                className="block text-sm font-medium text-gray-700 mb-2"
+              >
+                Email:
+              </label>
+              <input
+                type="email"
+                id="email"
+                value={shippingInfo.email}
+                onChange={(e) =>
+                  setShippingInfo({ ...shippingInfo, email: e.target.value })
+                }
+                disabled={!canBid || loading}
+                required
+                className="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 disabled:bg-gray-100 disabled:cursor-not-allowed"
+              />
+            </div>
           </div>
         </div>
 

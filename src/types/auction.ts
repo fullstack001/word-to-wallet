@@ -79,6 +79,15 @@ export interface WebSocketMessage {
 
 export interface BidRequest {
   amount: number;
+  shippingInfo?: {
+    country: string;
+    street: string;
+    city: string;
+    state: string;
+    zipCode: string;
+    phone: string;
+    email: string;
+  };
 }
 
 export interface OfferRequest {
