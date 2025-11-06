@@ -6,12 +6,15 @@ import { useLocalizedNavigation } from "../../../utils/navigation";
 import { setUser } from "../../../store/slices/userSlice";
 import type { RootState } from "../../../store/store";
 import api from "../../../utils/api";
+import { CouponService } from "../../../services/couponService";
 import { motion } from "framer-motion";
 import {
   CheckIcon,
   CalendarDaysIcon,
   ArrowLeftIcon,
   ExclamationTriangleIcon,
+  TagIcon,
+  XMarkIcon,
 } from "@heroicons/react/24/outline";
 import StripePaymentForm from "../../../components/payment/StripePaymentForm";
 
@@ -31,6 +34,34 @@ export default function CheckoutPage({ params }: CheckoutPageProps) {
   const [checkoutType, setCheckoutType] = useState<"trial" | "upgrade">(
     "trial"
   );
+  const [couponCode, setCouponCode] = useState("");
+  const [couponValidating, setCouponValidating] = useState(false);
+  const [appliedCoupon, setAppliedCoupon] = useState<{
+    code: string;
+    name: string;
+    discountType: "percentage" | "fixed_amount";
+    discountValue: number;
+    currency?: string;
+  } | null>(null);
+  const [couponError, setCouponError] = useState<string | null>(null);
+
+  // Original subscription price
+  const ORIGINAL_PRICE = 19.99;
+
+  // Calculate discounted price based on coupon
+  const calculateDiscountedPrice = () => {
+    if (!appliedCoupon) return ORIGINAL_PRICE;
+
+    if (appliedCoupon.discountType === "percentage") {
+      return ORIGINAL_PRICE * (1 - appliedCoupon.discountValue / 100);
+    } else {
+      // Fixed amount discount - discountValue is in dollars (not cents for display)
+      return Math.max(0, ORIGINAL_PRICE - appliedCoupon.discountValue);
+    }
+  };
+
+  const finalPrice = calculateDiscountedPrice();
+  const discountAmount = ORIGINAL_PRICE - finalPrice;
 
   useEffect(() => {
     // Determine checkout type based on user subscription status
@@ -41,16 +72,64 @@ export default function CheckoutPage({ params }: CheckoutPageProps) {
     }
   }, [user]);
 
+  const handleValidateCoupon = async () => {
+    if (!couponCode.trim()) {
+      setCouponError("Please enter a coupon code");
+      return;
+    }
+
+    setCouponValidating(true);
+    setCouponError(null);
+
+    try {
+      const result = await CouponService.validateCoupon(couponCode.trim());
+      console.log("Coupon validation result:", result);
+      if (result.success && result.data) {
+        setAppliedCoupon({
+          code: result.data.code,
+          name: result.data.name,
+          discountType: result.data.discountType,
+          discountValue: result.data.discountValue,
+          currency: result.data.currency,
+        });
+        setCouponError(null);
+        setCouponCode(""); // Clear the input after successful validation
+      } else {
+        setCouponError(result.message || "Invalid coupon code");
+        setAppliedCoupon(null);
+      }
+    } catch (err: any) {
+      console.error("Coupon validation error:", err);
+      setCouponError(err.message || "Failed to validate coupon");
+      setAppliedCoupon(null);
+    } finally {
+      setCouponValidating(false);
+    }
+  };
+
+  const handleRemoveCoupon = () => {
+    setCouponCode("");
+    setAppliedCoupon(null);
+    setCouponError(null);
+  };
+
   const handlePaymentSuccess = async (paymentMethodId: string) => {
     setIsLoading(true);
     setError(null);
 
     try {
+      const requestBody: any = {
+        paymentMethodId,
+      };
+
+      // Add coupon code if applied
+      if (appliedCoupon) {
+        requestBody.couponCode = appliedCoupon.code;
+      }
+
       if (checkoutType === "trial" && !user?.subscription?.cancelAtPeriodEnd) {
         // Create trial subscription with payment method
-        const response = await api.post("/subscriptions/trial", {
-          paymentMethodId,
-        });
+        const response = await api.post("/subscriptions/trial", requestBody);
 
         // Update user state with new subscription
         dispatch(
@@ -62,7 +141,7 @@ export default function CheckoutPage({ params }: CheckoutPageProps) {
       } else {
         // Direct subscription upgrade (no trial required)
         const response = await api.post("/subscriptions/upgrade-direct", {
-          paymentMethodId,
+          ...requestBody,
           plan: "pro",
         });
 
@@ -211,6 +290,87 @@ export default function CheckoutPage({ params }: CheckoutPageProps) {
                 <p className="text-red-700 text-sm">{error}</p>
               </motion.div>
             )}
+
+            {/* Coupon Code Section */}
+            <div className="mb-6">
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                <TagIcon className="w-4 h-4 inline mr-2" />
+                Have a coupon code?
+              </label>
+              {!appliedCoupon ? (
+                <div className="flex space-x-2">
+                  <input
+                    type="text"
+                    value={couponCode}
+                    onChange={(e) =>
+                      setCouponCode(e.target.value.toUpperCase())
+                    }
+                    onKeyPress={(e) => {
+                      if (e.key === "Enter") {
+                        e.preventDefault();
+                        handleValidateCoupon();
+                      }
+                    }}
+                    placeholder="Enter coupon code"
+                    className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    disabled={couponValidating}
+                  />
+                  <button
+                    onClick={handleValidateCoupon}
+                    disabled={couponValidating || !couponCode.trim()}
+                    className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    {couponValidating ? "..." : "Apply"}
+                  </button>
+                </div>
+              ) : (
+                <div className="bg-green-50 border border-green-200 rounded-lg p-4">
+                  <div className="flex items-center justify-between mb-3">
+                    <div className="flex items-center space-x-2">
+                      <CheckIcon className="w-5 h-5 text-green-600" />
+                      <span className="font-semibold text-green-900">
+                        {appliedCoupon.name}
+                      </span>
+                    </div>
+                    <button
+                      onClick={handleRemoveCoupon}
+                      className="text-green-700 hover:text-green-900"
+                    >
+                      <XMarkIcon className="w-5 h-5" />
+                    </button>
+                  </div>
+                  <div className="space-y-2 pt-2 border-t border-green-200">
+                    <div className="flex justify-between text-sm">
+                      <span className="text-gray-600">Original Price:</span>
+                      <span className="text-gray-700 line-through">
+                        ${ORIGINAL_PRICE.toFixed(2)}
+                      </span>
+                    </div>
+                    <div className="flex justify-between text-sm">
+                      <span className="text-gray-600">Discount:</span>
+                      <span className="text-green-700 font-semibold">
+                        {appliedCoupon.discountType === "percentage"
+                          ? `-${appliedCoupon.discountValue}%`
+                          : `-$${appliedCoupon.discountValue.toFixed(2)}`}
+                      </span>
+                    </div>
+                    <div className="flex justify-between text-base font-bold pt-1">
+                      <span className="text-gray-900">After Trial:</span>
+                      <span className="text-green-700">
+                        ${finalPrice.toFixed(2)}
+                      </span>
+                    </div>
+                    <p className="text-xs text-gray-500 mt-2">
+                      You'll be charged ${finalPrice.toFixed(2)} after your
+                      7-day free trial ends
+                    </p>
+                  </div>
+                </div>
+              )}
+              {couponError && (
+                <p className="mt-2 text-sm text-red-600">{couponError}</p>
+              )}
+            </div>
 
             {/* Stripe Payment Form */}
             <StripePaymentForm

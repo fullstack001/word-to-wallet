@@ -47,7 +47,7 @@ export function UserDropdown({
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -10, scale: 0.95 }}
             transition={{ duration: 0.2 }}
-            className="absolute right-0 mt-2 w-48 bg-white/90 backdrop-blur-sm rounded-2xl shadow-2xl border border-white/50 py-2 z-50"
+            className="absolute right-0 mt-2 w-56 bg-white/90 backdrop-blur-sm rounded-2xl shadow-2xl border border-white/50 py-2 z-50 min-w-[200px] max-w-[calc(100vw-2rem)]"
           >
             <button
               onClick={() => {

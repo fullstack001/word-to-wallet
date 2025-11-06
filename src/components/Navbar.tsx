@@ -126,8 +126,8 @@ export default function Navbar() {
             ))}
           </nav>
 
-          {/* Desktop Authentication */}
-          <div className="hidden lg:flex items-center gap-4">
+          {/* Desktop Authentication - Hidden on mobile and tablet */}
+          <div className="flex items-center gap-4">
             {isLoggedIn ? (
               <UserDropdown {...navbarProps} />
             ) : (
@@ -139,7 +139,7 @@ export default function Navbar() {
           </div>
 
           {/* Mobile Navigation */}
-          <MobileNavigation {...navbarProps} />
+          {/* <MobileNavigation {...navbarProps} /> */}
         </div>
       </div>
     </motion.header>
