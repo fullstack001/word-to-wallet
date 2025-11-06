@@ -310,3 +310,63 @@ body {
 .custom-icon-document-editor::after {
   content: "Edit";
 }
+
+/* Blog Content Styling */
+.blog-content {
+  /* Ensure proper text rendering */
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Ensure images in blog content are responsive */
+.blog-content img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 2rem auto;
+}
+
+/* Fix for iframes and embedded content */
+.blog-content iframe,
+.blog-content embed,
+.blog-content video {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.75rem;
+  margin: 2rem auto;
+}
+
+/* Ensure tables are responsive */
+.blog-content table {
+  display: block;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+@media (min-width: 768px) {
+  .blog-content table {
+    display: table;
+    white-space: normal;
+  }
+}
+
+/* Better spacing for nested lists */
+.blog-content ul ul,
+.blog-content ol ol,
+.blog-content ul ol,
+.blog-content ol ul {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Ensure code blocks don't overflow */
+.blog-content pre {
+  word-wrap: break-word;
+  white-space: pre-wrap;
+}
+
+/* Better link styling */
+.blog-content a {
+  word-break: break-word;
+}
