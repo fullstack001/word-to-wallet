@@ -329,12 +329,54 @@ body {
 
 /* Fix for iframes and embedded content */
 .blog-content iframe,
-.blog-content embed,
-.blog-content video {
+.blog-content embed {
   max-width: 100%;
   height: auto;
   border-radius: 0.75rem;
   margin: 2rem auto;
+  display: block;
+}
+
+/* Video elements - comprehensive styling */
+.blog-content video {
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto !important;
+  display: block !important;
+  border-radius: 0.75rem;
+  margin: 2rem auto;
+  background-color: #000;
+  /* Hide fallback text by making it transparent */
+  color: transparent;
+}
+
+/* Video wrapper styling - support inline style wrappers */
+.blog-content div[style*="position:relative"],
+.blog-content div[style*="position: relative"] {
+  margin: 2rem auto;
+  display: block;
+}
+
+/* Ensure source elements inside video work */
+.blog-content video source {
+  display: block;
+}
+
+/* Video container wrapper - ensure it doesn't break layout */
+.blog-content > div:has(video),
+.blog-content div:has(> video) {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Better video player controls styling */
+.blog-content video::-webkit-media-controls {
+  display: flex !important;
+}
+
+.blog-content video::-webkit-media-controls-panel {
+  display: flex !important;
 }
 
 /* Ensure tables are responsive */
