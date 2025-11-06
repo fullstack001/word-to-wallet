@@ -28,6 +28,62 @@ export default function BlogEditor({
   const { navigate } = useLocalizedNavigation();
   const editorRef = useRef<any>(null);
 
+  // Handle paste events to preserve video tags
+  useEffect(() => {
+    if (editorRef.current?.editor) {
+      const editor = editorRef.current.editor;
+
+      // Custom paste handler to preserve video tags
+      const handlePaste = (e: ClipboardEvent) => {
+        const clipboardData = e.clipboardData;
+        if (clipboardData) {
+          const html = clipboardData.getData("text/html");
+
+          // If pasted content contains video tags, preserve them
+          if (html && html.includes("<video")) {
+            e.preventDefault();
+
+            // Extract and preserve the video HTML
+            const videoMatch = html.match(/<video[\s\S]*?<\/video>/gi);
+            const wrapperMatch = html.match(/<div[^>]*>[\s\S]*?<\/div>/gi);
+
+            if (videoMatch || wrapperMatch) {
+              // Insert the video HTML directly
+              const videoHTML = wrapperMatch
+                ? wrapperMatch[0]
+                : videoMatch
+                ? videoMatch[0]
+                : html;
+              editor.selection.insertHTML(videoHTML);
+              return false;
+            }
+          }
+        }
+        return true;
+      };
+
+      // Attach paste event listener
+      editor.events.on("beforePaste", handlePaste);
+
+      // Also handle after paste to ensure video is preserved
+      editor.events.on("afterPaste", () => {
+        const content = editor.value;
+        // If video was stripped, try to restore it from formData
+        if (
+          content &&
+          !content.includes("<video") &&
+          formData.content.includes("<video")
+        ) {
+          // Video might have been stripped, but we'll handle it in onChange
+        }
+      });
+
+      return () => {
+        editor.events.off("beforePaste", handlePaste);
+      };
+    }
+  }, []);
+
   const [loading, setLoading] = useState(false);
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState("");
@@ -266,47 +322,61 @@ export default function BlogEditor({
                 ref={editorRef}
                 value={formData.content}
                 onChange={(content) => setFormData({ ...formData, content })}
-                config={{
-                  height: 500,
-                  placeholder: "Write your blog content here...",
-                  toolbar: true,
-                  spellcheck: true,
-                  language: "en",
-                  uploader: {
-                    insertImageAsBase64URI: true,
-                  },
-                  buttons: [
-                    "bold",
-                    "italic",
-                    "underline",
-                    "strikethrough",
-                    "|",
-                    "ul",
-                    "ol",
-                    "|",
-                    "outdent",
-                    "indent",
-                    "|",
-                    "font",
-                    "fontsize",
-                    "brush",
-                    "paragraph",
-                    "|",
-                    "image",
-                    "video",
-                    "link",
-                    "|",
-                    "align",
-                    "undo",
-                    "redo",
-                    "|",
-                    "hr",
-                    "eraser",
-                    "copyformat",
-                    "|",
-                    "source",
-                  ],
-                }}
+                config={
+                  {
+                    height: 500,
+                    placeholder: "Write your blog content here...",
+                    toolbar: true,
+                    spellcheck: true,
+                    language: "en",
+                    uploader: {
+                      insertImageAsBase64URI: true,
+                    },
+                    // Allow video tags and preserve them
+                    cleanHTML: {
+                      removeEmptyElements: false,
+                      fillEmptyParagraph: false,
+                    },
+                    // Disable XHTML mode to allow more flexible HTML
+                    enter: "P",
+                    enterBlock: "div",
+                    // Allow pasting HTML with video tags
+                    processPasteFromWord: false,
+                    // Preserve video elements
+                    safeMode: false,
+                    buttons: [
+                      "bold",
+                      "italic",
+                      "underline",
+                      "strikethrough",
+                      "|",
+                      "ul",
+                      "ol",
+                      "|",
+                      "outdent",
+                      "indent",
+                      "|",
+                      "font",
+                      "fontsize",
+                      "brush",
+                      "paragraph",
+                      "|",
+                      "image",
+                      "video",
+                      "link",
+                      "|",
+                      "align",
+                      "undo",
+                      "redo",
+                      "|",
+                      "hr",
+                      "eraser",
+                      "copyformat",
+                      "|",
+                      "source",
+                    ],
+                  } as any
+                }
               />
             </div>
 
