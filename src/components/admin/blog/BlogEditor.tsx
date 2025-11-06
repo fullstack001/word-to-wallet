@@ -2,7 +2,12 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import dynamic from "next/dynamic";
-import { BlogService, Blog, CreateBlogRequest, UpdateBlogRequest } from "@/services/blogService";
+import {
+  BlogService,
+  Blog,
+  CreateBlogRequest,
+  UpdateBlogRequest,
+} from "@/services/blogService";
 import { useLocalizedNavigation } from "@/utils/navigation";
 import { X, Save, Eye, Image as ImageIcon, Tag, Loader2 } from "lucide-react";
 
@@ -15,10 +20,14 @@ interface BlogEditorProps {
   onCancel?: () => void;
 }
 
-export default function BlogEditor({ blogId, onSave, onCancel }: BlogEditorProps) {
+export default function BlogEditor({
+  blogId,
+  onSave,
+  onCancel,
+}: BlogEditorProps) {
   const { navigate } = useLocalizedNavigation();
   const editorRef = useRef<any>(null);
-  
+
   const [loading, setLoading] = useState(false);
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState("");
@@ -61,7 +70,9 @@ export default function BlogEditor({ blogId, onSave, onCancel }: BlogEditorProps
     }
   };
 
-  const handleSave = async (status: "draft" | "published" = formData.status || "draft") => {
+  const handleSave = async (
+    status: "draft" | "published" = formData.status || "draft"
+  ) => {
     if (!formData.title.trim()) {
       setError("Title is required");
       return;
@@ -83,7 +94,10 @@ export default function BlogEditor({ blogId, onSave, onCancel }: BlogEditorProps
 
       let blog: Blog;
       if (blogId) {
-        const result = await BlogService.updateBlog(blogId, data as UpdateBlogRequest);
+        const result = await BlogService.updateBlog(
+          blogId,
+          data as UpdateBlogRequest
+        );
         blog = result.data;
       } else {
         const result = await BlogService.createBlog(data);
@@ -162,7 +176,9 @@ export default function BlogEditor({ blogId, onSave, onCancel }: BlogEditorProps
 
       {previewMode ? (
         <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-8">
-          <h1 className="text-4xl font-bold mb-4">{formData.title || "Untitled"}</h1>
+          <h1 className="text-4xl font-bold mb-4">
+            {formData.title || "Untitled"}
+          </h1>
           {formData.featuredImage && (
             <img
               src={formData.featuredImage}
@@ -171,7 +187,7 @@ export default function BlogEditor({ blogId, onSave, onCancel }: BlogEditorProps
             />
           )}
           <div
-            className="prose max-w-none"
+            className="blog-content prose prose-lg prose-blue max-w-none prose-headings:font-bold prose-headings:text-gray-900 prose-headings:mt-8 prose-headings:mb-4 prose-h1:text-4xl prose-h1:font-extrabold prose-h1:leading-tight prose-h2:text-3xl prose-h2:font-bold prose-h2:mt-10 prose-h2:mb-4 prose-h3:text-2xl prose-h3:font-bold prose-h3:mt-8 prose-h3:mb-3 prose-h4:text-xl prose-h4:font-semibold prose-h4:mt-6 prose-h4:mb-2 prose-p:text-gray-700 prose-p:leading-relaxed prose-p:mb-6 prose-p:text-base prose-a:text-blue-600 prose-a:no-underline hover:prose-a:underline prose-a:font-medium prose-strong:text-gray-900 prose-strong:font-bold prose-em:text-gray-700 prose-em:italic prose-ul:list-disc prose-ul:ml-6 prose-ul:mb-6 prose-ul:space-y-2 prose-ol:list-decimal prose-ol:ml-6 prose-ol:mb-6 prose-ol:space-y-2 prose-li:text-gray-700 prose-li:leading-relaxed prose-blockquote:border-l-4 prose-blockquote:border-blue-500 prose-blockquote:pl-4 prose-blockquote:italic prose-blockquote:text-gray-600 prose-blockquote:my-6 prose-code:text-blue-600 prose-code:bg-blue-50 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm prose-code:font-mono prose-pre:bg-gray-900 prose-pre:text-gray-100 prose-pre:p-4 prose-pre:rounded-lg prose-pre:overflow-x-auto prose-pre:my-6 prose-img:rounded-xl prose-img:shadow-lg prose-img:my-8 prose-img:mx-auto prose-hr:border-gray-300 prose-hr:my-8 prose-table:w-full prose-table:my-6 prose-table:border-collapse prose-th:border prose-th:border-gray-300 prose-th:bg-gray-50 prose-th:px-4 prose-th:py-2 prose-th:text-left prose-th:font-semibold prose-td:border prose-td:border-gray-300 prose-td:px-4 prose-td:py-2 prose-figcaption:text-sm prose-figcaption:text-gray-500 prose-figcaption:italic prose-figcaption:mt-2 prose-figcaption:text-center"
             dangerouslySetInnerHTML={{ __html: formData.content }}
           />
         </div>
@@ -249,9 +265,7 @@ export default function BlogEditor({ blogId, onSave, onCancel }: BlogEditorProps
               <JoditEditor
                 ref={editorRef}
                 value={formData.content}
-                onChange={(content) =>
-                  setFormData({ ...formData, content })
-                }
+                onChange={(content) => setFormData({ ...formData, content })}
                 config={{
                   height: 500,
                   placeholder: "Write your blog content here...",
@@ -394,4 +408,3 @@ export default function BlogEditor({ blogId, onSave, onCancel }: BlogEditorProps
     </div>
   );
 }
-
