@@ -346,8 +346,18 @@ body {
   border-radius: 0.75rem;
   margin: 2rem auto;
   background-color: #000;
-  /* Hide fallback text by making it transparent */
+  /* Hide fallback text completely */
+  font-size: 0;
+  line-height: 0;
   color: transparent;
+  overflow: hidden;
+}
+
+/* Hide any text nodes inside video tags */
+.blog-content video::before,
+.blog-content video::after {
+  content: none;
+  display: none;
 }
 
 /* Video wrapper styling - support inline style wrappers */

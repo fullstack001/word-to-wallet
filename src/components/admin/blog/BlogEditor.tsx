@@ -262,52 +262,14 @@ export default function BlogEditor({
               <label className="block text-sm font-medium text-gray-700 mb-2">
                 Content *
               </label>
-              <JoditEditor
-                ref={editorRef}
-                value={formData.content}
-                onChange={(content) => setFormData({ ...formData, content })}
-                config={{
-                  height: 500,
-                  placeholder: "Write your blog content here...",
-                  toolbar: true,
-                  spellcheck: true,
-                  language: "en",
-                  uploader: {
-                    insertImageAsBase64URI: true,
-                  },
-                  buttons: [
-                    "bold",
-                    "italic",
-                    "underline",
-                    "strikethrough",
-                    "|",
-                    "ul",
-                    "ol",
-                    "|",
-                    "outdent",
-                    "indent",
-                    "|",
-                    "font",
-                    "fontsize",
-                    "brush",
-                    "paragraph",
-                    "|",
-                    "image",
-                    "video",
-                    "link",
-                    "|",
-                    "align",
-                    "undo",
-                    "redo",
-                    "|",
-                    "hr",
-                    "eraser",
-                    "copyformat",
-                    "|",
-                    "source",
-                  ],
-                }}
-              />
+              <div className="border border-gray-300 rounded-md overflow-hidden">
+                <JoditEditor
+                  ref={editorRef}
+                  value={formData.content}
+                  onBlur={(content) => setFormData({ ...formData, content })}
+                  onChange={(content) => setFormData({ ...formData, content })}
+                />
+              </div>
             </div>
 
             {/* Tags */}

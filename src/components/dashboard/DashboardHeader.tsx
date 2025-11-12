@@ -204,7 +204,7 @@ export default function DashboardHeader({
                 7 days free
               </p>
               <div className="text-white/80 text-sm">
-                Then $20.00 per month starting{" "}
+                Then $19.99 per month starting{" "}
                 <span className="font-semibold text-white">
                   {new Date(
                     Date.now() + 7 * 24 * 60 * 60 * 1000

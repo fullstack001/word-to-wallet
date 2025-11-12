@@ -55,7 +55,7 @@ function VideoModal({
           onEnded={onClose}
         >
           <source
-            src="/assets/videos/Word to Wallet Promo.mp4"
+            src="https://api.wordtowallet.com/uploads/media-1762920496365-691825230.mp4"
             type="video/mp4"
           />
           Your browser does not support the video tag.
