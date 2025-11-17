@@ -3,7 +3,86 @@
     "loading": "Φόρτωση...",
     "error": "Σφάλμα",
     "configNotFound": "Δεν βρέθηκε διαμόρφωση για την αρχική σελίδα.",
-    "home": "Αρχική"
+    "home": "Αρχική",
+    "goToDashboard": "Μετάβαση στον Πίνακα Ελέγχου",
+    "backToDashboard": "Επιστροφή στον Πίνακα Ελέγχου",
+    "allCourses": "Όλα τα Μαθήματα",
+    "browseCourses": "Περιήγηση Μαθημάτων",
+    "errorLoadingCourses": "Σφάλμα Φόρτωσης Μαθημάτων",
+    "backToBlogs": "Επιστροφή στα Blog",
+    "accountSettings": "Ρυθμίσεις Λογαριασμού",
+    "accountType": "Τύπος Λογαριασμού",
+    "administrator": "Διαχειριστής",
+    "standardUser": "Τυπικός Χρήστης",
+    "notProvided": "Δεν παρέχεται",
+    "tryAgain": "Δοκίμασε Ξανά",
+    "blogNotFound": "Το Blog δεν βρέθηκε",
+    "browseSubjects": "Περιήγηση Θεμάτων",
+    "selectSubject": "Επιλέξτε ένα θέμα για να δείτε τα μαθήματά του",
+    "exploreCourses": "Εξερευνήστε μαθήματα σε",
+    "personalInformation": "Προσωπικές Πληροφορίες",
+    "name": "Όνομα",
+    "email": "Ηλεκτρονικό Ταχυδρομείο",
+    "subjects": "Θέματα",
+    "noSubjectsFound": "Δεν βρέθηκαν θέματα",
+    "unknownSubject": "Άγνωστο Θέμα",
+    "untitledCourse": "Μάθημα Χωρίς Τίτλο",
+    "searchCourses": "Αναζήτηση μαθημάτων...",
+    "loadingCourses": "Φόρτωση μαθημάτων...",
+    "courses": "μαθήματα",
+    "of": "από",
+    "inThisSubject": "σε αυτό το θέμα",
+    "exploreAllAvailableCourses": "Εξερευνήστε όλα τα διαθέσιμα μαθήματα",
+    "noCoursesFound": "Δεν βρέθηκαν μαθήματα",
+    "noCoursesInSubject": "Χωρίς μαθήματα σε",
+    "noCoursesAvailable": "Δεν υπάρχουν διαθέσιμα μαθήματα",
+    "noCoursesInSubjectDesc": "Αυτό το θέμα δεν έχει ακόμη δημοσιευμένα μαθήματα",
+    "noCoursesAvailableDesc": "Προς το παρόν δεν υπάρχουν διαθέσιμα δημοσιευμένα μαθήματα",
+    "viewAllCourses": "Προβολή Όλων των Μαθημάτων",
+    "refresh": "Ανανέωση",
+    "availableCourses": "Διαθέσιμα Μαθήματα",
+    "coursesAvailableToStart": "μαθήματα διαθέσιμα για έναρξη μάθησης",
+    "filteredBySubject": "(φιλτραρισμένα κατά θέμα)",
+    "viewAll": "Προβολή Όλων",
+    "filterBySubject": "Φιλτράρισμα κατά Θέμα:",
+    "clearFilter": "Εκκαθάριση Φίλτρου",
+    "noCoursesFoundForSubject": "Δεν βρέθηκαν μαθήματα για αυτό το θέμα",
+    "noCoursesFoundForSubjectDesc": "Δοκιμάστε να επιλέξετε ένα άλλο θέμα ή να εκκαθαρίσετε το φίλτρο για να δείτε όλα τα μαθήματα.",
+    "noCoursesAvailableDesc2": "Προς το παρόν δεν υπάρχουν διαθέσιμα δημοσιευμένα μαθήματα. Ελέγξτε αργότερα για νέο περιεχόμενο.",
+    "tryAdjustingSearch": "Δοκιμάστε να προσαρμόσετε τους όρους αναζήτησής σας",
+    "subscription": {
+      "noSubscription": "Χωρίς Συνδρομή",
+      "trialActive": "Δοκιμαστική Περίοδος Ενεργή",
+      "trialExpired": "Δοκιμαστική Περίοδος Λήξει",
+      "subscriptionCanceled": "Συνδρομή Ακυρώθηκε",
+      "trialDaysRemaining": "Δοκιμαστική περίοδος: απομένουν {days} ημέρες",
+      "canceledDaysRemaining": "Ακυρώθηκε - απομένουν {days} ημέρες",
+      "canceledActiveUntilEnd": "Ακυρώθηκε - Ενεργή μέχρι το τέλος της περιόδου",
+      "pro": "Pro"
+    },
+    "noDescriptionAvailable": "Δεν υπάρχει διαθέσιμη περιγραφή",
+    "selectSubjectToViewCourses": "Επιλέξτε ένα θέμα για να δείτε τα μαθήματά του.",
+    "manageCoursesForSubject": "Manage courses for",
+    "manageYourCourses": "Manage your courses and learning materials.",
+    "by": "by",
+    "admin": {
+      "dashboard": "Dashboard",
+      "overviewAndAnalytics": "Overview and analytics",
+      "coursesAndSubjects": "Courses & Subjects",
+      "manageCoursesAndSubjects": "Manage courses and subjects",
+      "mediaManagement": "Media Management",
+      "manageAllMediaFiles": "Manage all media files",
+      "blogs": "Blogs",
+      "createAndManageBlogPosts": "Create and manage blog posts",
+      "marketing": "Marketing",
+      "emailCampaignsSubscribers": "Email campaigns & subscribers",
+      "users": "Users",
+      "userManagement": "User management",
+      "coupons": "Coupons",
+      "manageDiscountCoupons": "Manage discount coupons",
+      "adminPanel": "Admin Panel",
+      "managementConsole": "Management Console"
+    }
   },
   "errors": {
     "oops": "Ωχ!",
@@ -33,7 +112,9 @@
     }
   },
   "footer": {
-    "selectLanguage": "Επιλέξτε γλώσσα"
+    "selectLanguage": "Επιλέξτε γλώσσα",
+    "termsOfUse": "Όροι Χρήσης",
+    "contactUs": "Επικοινωνήστε Μαζί Μας"
   },
   "auth": {
     "signIn": "Σύνδεση",
@@ -63,7 +144,18 @@
     "profileDetails": "Λεπτομέρειες προφίλ",
     "noSubscription": "Καμία συνδρομή",
     "myDocuments": "Τα έγγραφά μου",
-    "myAccount": "Ο λογαριασμός μου"
+    "myAccount": "Ο λογαριασμός μου",
+    "course": "Μάθημα",
+    "auctions": "Δημοπρασίες",
+    "contactUs": "Επικοινωνήστε Μαζί Μας",
+    "blogs": "Blog",
+    "dashboard": "Πίνακας Ελέγχου",
+    "settings": "Ρυθμίσεις",
+    "adminPanel": "Πίνακας Διαχείρισης",
+    "logout": "Αποσύνδεση",
+    "menu": "Μενού",
+    "welcomeBack": "Καλώς ήρθατε πίσω!",
+    "user": "Χρήστης"
   },
   "hero": {
     "badge": "Μέλη πρώτα · Ιδιωτικά εργαλεία · Παγκόσμια εμβέλεια",
@@ -166,12 +258,20 @@
       "audience": {
         "title": "Χτίστε το κοινό σας",
         "description": "Μαγνήτης αναγνωστών + ενσωμάτωση MailerLite χτίζει αυτόματα τη λίστα email σας.",
-        "features": ["Μαγνήτες leads", "Αυτοματοποίηση email", "Ανάλυση κοινού"]
+        "features": [
+          "Μαγνήτες leads",
+          "Αυτοματοποίηση email",
+          "Ανάλυση κοινού"
+        ]
       },
       "sales": {
         "title": "Πουλήστε άμεσα",
         "description": "Συνδέστε το κατάστημά σας· το WordToWallet παραδίδει αρχεία απευθείας στους αγοραστές.",
-        "features": ["Άμεσες πωλήσεις", "Παράδοση αρχείων", "Διαχείριση πελατών"]
+        "features": [
+          "Άμεσες πωλήσεις",
+          "Παράδοση αρχείων",
+          "Διαχείριση πελατών"
+        ]
       }
     }
   },
@@ -458,7 +558,7 @@
     }
   },
   "books": {
-    "title": "Βιβλία",
+    "title": "Τίτλος",
     "subtitle": "Διαχειριστείτε τα βιβλία EPUB σας και δημιουργήστε καμπάνιες ARC",
     "uploadBook": "Ανέβασμα βιβλίου",
     "totalBooks": "Σύνολο βιβλίων",
@@ -471,7 +571,6 @@
     "dragDropFile": "Σύρετε και αφήστε το αρχείο EPUB σας εδώ",
     "browse": "περιήγηση",
     "epubOnly": "Μόνο αρχεία EPUB",
-    "title": "Τίτλος",
     "author": "Συγγραφέας",
     "description": "Περιγραφή",
     "isbn": "ISBN",

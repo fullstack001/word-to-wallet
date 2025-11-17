@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { useParams } from "next/navigation";
+import { useTranslations } from "next-intl";
 import { BlogService, Blog, Reaction } from "@/services/blogService";
 import { useSelector } from "react-redux";
 import { RootState } from "@/store/store";
@@ -27,6 +28,7 @@ export default function BlogDetailPage() {
   const params = useParams();
   const slug = params.slug as string;
   const { navigate } = useLocalizedNavigation();
+  const t = useTranslations();
   const isLoggedIn = useSelector((state: RootState) => state.auth.isLoggedIn);
 
   const [blog, setBlog] = useState<Blog | null>(null);
@@ -162,12 +164,12 @@ export default function BlogDetailPage() {
         <Navbar />
         <div className="flex items-center justify-center min-h-[60vh]">
           <div className="text-center">
-            <p className="text-red-600 mb-4">{error || "Blog not found"}</p>
+            <p className="text-red-600 mb-4">{error || t("common.blogNotFound")}</p>
             <button
               onClick={() => navigate("/blogs")}
               className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
             >
-              Back to Blogs
+              {t("common.backToBlogs")}
             </button>
           </div>
         </div>
@@ -197,7 +199,7 @@ export default function BlogDetailPage() {
                 className="flex items-center space-x-2 px-5 py-2.5 bg-white/20 hover:bg-white/30 rounded-xl transition-all duration-200 whitespace-nowrap shadow-lg hover:shadow-xl hover:scale-105 font-semibold backdrop-blur-md border border-white/30 hover:border-white/50"
               >
                 <LayoutDashboard className="w-5 h-5" />
-                <span>Go to Dashboard</span>
+                <span>{t("common.goToDashboard")}</span>
               </button>
             )}
           </div>

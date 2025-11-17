@@ -171,7 +171,7 @@ export default function AccountPage() {
     const state = getSubscriptionState();
     switch (state) {
       case "no-subscription":
-        return "No Subscription";
+        return t("common.subscription.noSubscription");
       case "trial":
         if (user.subscription?.trialEnd) {
           const daysRemaining = Math.ceil(
@@ -179,26 +179,26 @@ export default function AccountPage() {
               new Date().getTime()) /
               (1000 * 60 * 60 * 24)
           );
-          return `Trial: ${Math.max(0, daysRemaining)} days remaining`;
+          return t("common.subscription.trialDaysRemaining", { days: Math.max(0, daysRemaining) });
         }
-        return "Trial Active";
+        return t("common.subscription.trialActive");
       case "trial-expired":
-        return "Trial Expired";
+        return t("common.subscription.trialExpired");
       case "active":
-        return "Pro";
+        return t("common.subscription.pro");
       case "canceled-but-active":
         if (user.subscription?.currentPeriodEnd) {
           const endDate = new Date(user.subscription.currentPeriodEnd);
           const daysRemaining = Math.ceil(
             (endDate.getTime() - new Date().getTime()) / (1000 * 60 * 60 * 24)
           );
-          return `Canceled - ${Math.max(0, daysRemaining)} days remaining`;
+          return t("common.subscription.canceledDaysRemaining", { days: Math.max(0, daysRemaining) });
         }
-        return "Canceled - Active until period end";
+        return t("common.subscription.canceledActiveUntilEnd");
       case "canceled":
-        return "Subscription Canceled";
+        return t("common.subscription.subscriptionCanceled");
       default:
-        return "No Subscription";
+        return t("common.subscription.noSubscription");
     }
   };
 
@@ -347,7 +347,7 @@ export default function AccountPage() {
           <div className="text-center">
             <div className="flex flex-col lg:flex-row items-center justify-center gap-6 my-4 mt-12">
               <h1 className="text-4xl font-bold text-white">
-                Account Settings
+                {t("common.accountSettings")}
               </h1>
 
               {/* Subscription Status Banner */}
@@ -377,16 +377,16 @@ export default function AccountPage() {
           <div className="bg-white rounded-xl shadow-lg p-6">
             <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
               <UserIcon className="w-6 h-6 mr-3 text-purple-600" />
-              Personal Information
+              {t("common.personalInformation")}
             </h2>
 
             <div className="space-y-4">
               <div className="flex items-center space-x-3">
                 <UserIcon className="w-5 h-5 text-gray-400" />
                 <div>
-                  <p className="text-sm text-gray-500">Name</p>
+                  <p className="text-sm text-gray-500">{t("common.name")}</p>
                   <p className="text-lg font-medium text-gray-900">
-                    {user.name || "Not provided"}
+                    {user.name || t("common.notProvided")}
                   </p>
                 </div>
               </div>
@@ -394,7 +394,7 @@ export default function AccountPage() {
               <div className="flex items-center space-x-3">
                 <EnvelopeIcon className="w-5 h-5 text-gray-400" />
                 <div>
-                  <p className="text-sm text-gray-500">Email</p>
+                  <p className="text-sm text-gray-500">{t("common.email")}</p>
                   <p className="text-lg font-medium text-gray-900">
                     {user.email}
                   </p>
@@ -404,9 +404,9 @@ export default function AccountPage() {
               <div className="flex items-center space-x-3">
                 <CalendarIcon className="w-5 h-5 text-gray-400" />
                 <div>
-                  <p className="text-sm text-gray-500">Account Type</p>
+                  <p className="text-sm text-gray-500">{t("common.accountType")}</p>
                   <p className="text-lg font-medium text-gray-900">
-                    {user.isAdmin ? "Administrator" : "Standard User"}
+                    {user.isAdmin ? t("common.administrator") : t("common.standardUser")}
                   </p>
                 </div>
               </div>

@@ -319,7 +319,7 @@ export default function ContactPage() {
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                   >
-                    <span>Go to Dashboard</span>
+                    <span>{t("common.goToDashboard")}</span>
                     <ArrowRightIcon className="w-5 h-5" />
                   </motion.button>
                 </motion.div>

@@ -3,7 +3,86 @@
     "loading": "Ładowanie...",
     "error": "Błąd",
     "configNotFound": "Nie znaleziono konfiguracji dla strony głównej.",
-    "home": "Strona główna"
+    "home": "Strona główna",
+    "goToDashboard": "Przejdź do Panelu",
+    "backToDashboard": "Wróć do Panelu",
+    "allCourses": "Wszystkie Kursy",
+    "browseCourses": "Przeglądaj Kursy",
+    "errorLoadingCourses": "Błąd Ładowania Kursów",
+    "backToBlogs": "Wróć do Blogów",
+    "accountSettings": "Ustawienia Konta",
+    "accountType": "Typ Konta",
+    "administrator": "Administrator",
+    "standardUser": "Użytkownik Standardowy",
+    "notProvided": "Nie podano",
+    "tryAgain": "Spróbuj Ponownie",
+    "blogNotFound": "Blog nie znaleziony",
+    "browseSubjects": "Przeglądaj Przedmioty",
+    "selectSubject": "Wybierz przedmiot, aby zobaczyć jego kursy",
+    "exploreCourses": "Poznaj kursy w",
+    "personalInformation": "Informacje Osobiste",
+    "name": "Imię",
+    "email": "E-mail",
+    "subjects": "Przedmioty",
+    "noSubjectsFound": "Nie znaleziono przedmiotów",
+    "unknownSubject": "Nieznany Przedmiot",
+    "untitledCourse": "Kurs bez Tytułu",
+    "searchCourses": "Szukaj kursów...",
+    "loadingCourses": "Ładowanie kursów...",
+    "courses": "kursy",
+    "of": "z",
+    "inThisSubject": "w tym przedmiocie",
+    "exploreAllAvailableCourses": "Przeglądaj wszystkie dostępne kursy",
+    "noCoursesFound": "Nie znaleziono kursów",
+    "noCoursesInSubject": "Brak kursów w",
+    "noCoursesAvailable": "Brak dostępnych kursów",
+    "noCoursesInSubjectDesc": "Ten przedmiot nie ma jeszcze opublikowanych kursów",
+    "noCoursesAvailableDesc": "Obecnie nie ma dostępnych opublikowanych kursów",
+    "viewAllCourses": "Zobacz Wszystkie Kursy",
+    "refresh": "Odśwież",
+    "availableCourses": "Dostępne Kursy",
+    "coursesAvailableToStart": "kursy dostępne do rozpoczęcia nauki",
+    "filteredBySubject": "(filtrowane według przedmiotu)",
+    "viewAll": "Zobacz Wszystko",
+    "filterBySubject": "Filtruj według Przedmiotu:",
+    "clearFilter": "Wyczyść Filtr",
+    "noCoursesFoundForSubject": "Nie znaleziono kursów dla tego przedmiotu",
+    "noCoursesFoundForSubjectDesc": "Spróbuj wybrać inny przedmiot lub wyczyść filtr, aby zobaczyć wszystkie kursy.",
+    "noCoursesAvailableDesc2": "Obecnie nie ma dostępnych opublikowanych kursów. Sprawdź później, aby zobaczyć nową zawartość.",
+    "tryAdjustingSearch": "Spróbuj dostosować swoje wyszukiwane terminy",
+    "subscription": {
+      "noSubscription": "Brak Subskrypcji",
+      "trialActive": "Okres Próbny Aktywny",
+      "trialExpired": "Okres Próbny Wygasł",
+      "subscriptionCanceled": "Subskrypcja Anulowana",
+      "trialDaysRemaining": "Okres próbny: {days} dni pozostało",
+      "canceledDaysRemaining": "Anulowane - {days} dni pozostało",
+      "canceledActiveUntilEnd": "Anulowane - Aktywne do końca okresu",
+      "pro": "Pro"
+    },
+    "noDescriptionAvailable": "Brak opisu",
+    "selectSubjectToViewCourses": "Wybierz przedmiot, aby zobaczyć jego kursy.",
+    "manageCoursesForSubject": "Manage courses for",
+    "manageYourCourses": "Manage your courses and learning materials.",
+    "by": "by",
+    "admin": {
+      "dashboard": "Dashboard",
+      "overviewAndAnalytics": "Overview and analytics",
+      "coursesAndSubjects": "Courses & Subjects",
+      "manageCoursesAndSubjects": "Manage courses and subjects",
+      "mediaManagement": "Media Management",
+      "manageAllMediaFiles": "Manage all media files",
+      "blogs": "Blogs",
+      "createAndManageBlogPosts": "Create and manage blog posts",
+      "marketing": "Marketing",
+      "emailCampaignsSubscribers": "Email campaigns & subscribers",
+      "users": "Users",
+      "userManagement": "User management",
+      "coupons": "Coupons",
+      "manageDiscountCoupons": "Manage discount coupons",
+      "adminPanel": "Admin Panel",
+      "managementConsole": "Management Console"
+    }
   },
   "errors": {
     "oops": "Ups!",
@@ -33,7 +112,9 @@
     }
   },
   "footer": {
-    "selectLanguage": "Wybierz język"
+    "selectLanguage": "Wybierz język",
+    "termsOfUse": "Warunki Użytkowania",
+    "contactUs": "Skontaktuj się z Nami"
   },
   "auth": {
     "signIn": "Zaloguj się",
@@ -63,7 +144,18 @@
     "profileDetails": "Szczegóły profilu",
     "noSubscription": "Brak subskrypcji",
     "myDocuments": "Moje dokumenty",
-    "myAccount": "Moje konto"
+    "myAccount": "Moje konto",
+    "course": "Kurs",
+    "auctions": "Aukcje",
+    "contactUs": "Skontaktuj się z Nami",
+    "blogs": "Blogi",
+    "dashboard": "Panel",
+    "settings": "Ustawienia",
+    "adminPanel": "Panel Administracyjny",
+    "logout": "Wyloguj",
+    "menu": "Menu",
+    "welcomeBack": "Witaj ponownie!",
+    "user": "Użytkownik"
   },
   "hero": {
     "badge": "Członkowie najpierw · Prywatne narzędzia · Globalny zasięg",
@@ -166,12 +258,20 @@
       "audience": {
         "title": "Zbuduj swoją publiczność",
         "description": "Magnes czytelników + integracja MailerLite automatycznie buduje Twoją listę e-mailową.",
-        "features": ["Magnesy leadów", "Automatyzacja e-maili", "Analityka odbiorców"]
+        "features": [
+          "Magnesy leadów",
+          "Automatyzacja e-maili",
+          "Analityka odbiorców"
+        ]
       },
       "sales": {
         "title": "Sprzedawaj bezpośrednio",
         "description": "Połącz swój sklep; WordToWallet dostarcza pliki bezpośrednio do kupujących.",
-        "features": ["Sprzedaż bezpośrednia", "Dostarczanie plików", "Zarządzanie klientami"]
+        "features": [
+          "Sprzedaż bezpośrednia",
+          "Dostarczanie plików",
+          "Zarządzanie klientami"
+        ]
       }
     }
   },
@@ -458,7 +558,7 @@
     }
   },
   "books": {
-    "title": "Książki",
+    "title": "Tytuł",
     "subtitle": "Zarządzaj swoimi książkami EPUB i twórz kampanie ARC",
     "uploadBook": "Prześlij książkę",
     "totalBooks": "Łączna liczba książek",
@@ -471,7 +571,6 @@
     "dragDropFile": "Przeciągnij i upuść swój plik EPUB tutaj",
     "browse": "przeglądaj",
     "epubOnly": "Tylko pliki EPUB",
-    "title": "Tytuł",
     "author": "Autor",
     "description": "Opis",
     "isbn": "ISBN",

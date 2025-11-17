@@ -3,7 +3,86 @@
     "loading": "Betöltés...",
     "error": "Hiba",
     "configNotFound": "A kezdőlap konfigurációja nem található.",
-    "home": "Kezdőlap"
+    "home": "Kezdőlap",
+    "goToDashboard": "Ugrás az Irányítópultra",
+    "backToDashboard": "Vissza az Irányítópulthoz",
+    "allCourses": "Összes Kurzus",
+    "browseCourses": "Kurzusok Böngészése",
+    "errorLoadingCourses": "Hiba a Kurzusok Betöltésekor",
+    "backToBlogs": "Vissza a Blogokhoz",
+    "accountSettings": "Fiók Beállítások",
+    "accountType": "Fiók Típusa",
+    "administrator": "Rendszergazda",
+    "standardUser": "Szabványos Felhasználó",
+    "notProvided": "Nincs megadva",
+    "tryAgain": "Próbáld Újra",
+    "blogNotFound": "Blog nem található",
+    "browseSubjects": "Tantárgyak Böngészése",
+    "selectSubject": "Válassz egy tantárgyat a kurzusok megtekintéséhez",
+    "exploreCourses": "Kurzusok felfedezése",
+    "personalInformation": "Személyes Adatok",
+    "name": "Név",
+    "email": "E-mail",
+    "subjects": "Tantárgyak",
+    "noSubjectsFound": "Nem találhatók tantárgyak",
+    "unknownSubject": "Ismeretlen Tantárgy",
+    "untitledCourse": "Cím Nélküli Kurzus",
+    "searchCourses": "Kurzusok keresése...",
+    "loadingCourses": "Kurzusok betöltése...",
+    "courses": "kurzusok",
+    "of": "a",
+    "inThisSubject": "ebben a tantárgyban",
+    "exploreAllAvailableCourses": "Fedezze fel az összes elérhető kurzust",
+    "noCoursesFound": "Nem találhatók kurzusok",
+    "noCoursesInSubject": "Nincs kurzus",
+    "noCoursesAvailable": "Nincs elérhető kurzus",
+    "noCoursesInSubjectDesc": "Ennek a tantárgynak még nincs közzétett kurzusa",
+    "noCoursesAvailableDesc": "Jelenleg nincs közzétett kurzus elérhető",
+    "viewAllCourses": "Összes Kurzus Megtekintése",
+    "refresh": "Frissítés",
+    "availableCourses": "Elérhető Kurzusok",
+    "coursesAvailableToStart": "kurzusok elérhető a tanulás megkezdéséhez",
+    "filteredBySubject": "(tantárgy szerint szűrve)",
+    "viewAll": "Összes Megtekintése",
+    "filterBySubject": "Szűrés Tantárgy Szerint:",
+    "clearFilter": "Szűrő Törlése",
+    "noCoursesFoundForSubject": "Nem találhatók kurzusok erre a tantárgyra",
+    "noCoursesFoundForSubjectDesc": "Próbáljon más tantárgyat kiválasztani vagy törölje a szűrőt, hogy lássa az összes kurzust.",
+    "noCoursesAvailableDesc2": "Jelenleg nincs közzétett kurzus elérhető. Nézzen vissza később új tartalomért.",
+    "tryAdjustingSearch": "Próbálja megállítani a keresési kifejezéseit",
+    "subscription": {
+      "noSubscription": "Nincs Előfizetés",
+      "trialActive": "Próbaidőszak Aktív",
+      "trialExpired": "Próbaidőszak Lejárt",
+      "subscriptionCanceled": "Előfizetés Törölve",
+      "trialDaysRemaining": "Próbaidőszak: {days} nap maradt",
+      "canceledDaysRemaining": "Törölve - {days} nap maradt",
+      "canceledActiveUntilEnd": "Törölve - Aktív az időszak végéig",
+      "pro": "Pro"
+    },
+    "noDescriptionAvailable": "Nincs leírás elérhető",
+    "selectSubjectToViewCourses": "Válasszon egy tantárgyat a kurzusok megtekintéséhez.",
+    "manageCoursesForSubject": "Manage courses for",
+    "manageYourCourses": "Manage your courses and learning materials.",
+    "by": "by",
+    "admin": {
+      "dashboard": "Dashboard",
+      "overviewAndAnalytics": "Overview and analytics",
+      "coursesAndSubjects": "Courses & Subjects",
+      "manageCoursesAndSubjects": "Manage courses and subjects",
+      "mediaManagement": "Media Management",
+      "manageAllMediaFiles": "Manage all media files",
+      "blogs": "Blogs",
+      "createAndManageBlogPosts": "Create and manage blog posts",
+      "marketing": "Marketing",
+      "emailCampaignsSubscribers": "Email campaigns & subscribers",
+      "users": "Users",
+      "userManagement": "User management",
+      "coupons": "Coupons",
+      "manageDiscountCoupons": "Manage discount coupons",
+      "adminPanel": "Admin Panel",
+      "managementConsole": "Management Console"
+    }
   },
   "errors": {
     "oops": "Hoppá!",
@@ -33,7 +112,9 @@
     }
   },
   "footer": {
-    "selectLanguage": "Válasszon nyelvet"
+    "selectLanguage": "Válasszon nyelvet",
+    "termsOfUse": "Felhasználási Feltételek",
+    "contactUs": "Lépj Kapcsolatba Velünk"
   },
   "auth": {
     "signIn": "Bejelentkezés",
@@ -63,7 +144,18 @@
     "profileDetails": "Profil részletek",
     "noSubscription": "Nincs előfizetés",
     "myDocuments": "Dokumentumaim",
-    "myAccount": "Fiókom"
+    "myAccount": "Fiókom",
+    "course": "Kurzus",
+    "auctions": "Árverések",
+    "contactUs": "Lépj Kapcsolatba Velünk",
+    "blogs": "Blogok",
+    "dashboard": "Irányítópult",
+    "settings": "Beállítások",
+    "adminPanel": "Adminisztrációs Panel",
+    "logout": "Kijelentkezés",
+    "menu": "Menü",
+    "welcomeBack": "Üdv újra!",
+    "user": "Felhasználó"
   },
   "hero": {
     "badge": "Tagok először · Privát eszközök · Globális elérés",
@@ -166,12 +258,20 @@
       "audience": {
         "title": "Építse fel a közönségét",
         "description": "Olvasómágnes + MailerLite integráció automatikusan építi fel e-mail listáját.",
-        "features": ["Lead mágnesek", "E-mail automatizálás", "Közönség elemzés"]
+        "features": [
+          "Lead mágnesek",
+          "E-mail automatizálás",
+          "Közönség elemzés"
+        ]
       },
       "sales": {
         "title": "Adjon el közvetlenül",
         "description": "Csatlakoztassa üzletét; a WordToWallet közvetlenül a vásárlóknak szállítja a fájlokat.",
-        "features": ["Közvetlen értékesítés", "Fájl kézbesítés", "Ügyfélkezelés"]
+        "features": [
+          "Közvetlen értékesítés",
+          "Fájl kézbesítés",
+          "Ügyfélkezelés"
+        ]
       }
     }
   },
@@ -458,7 +558,7 @@
     }
   },
   "books": {
-    "title": "Könyvek",
+    "title": "Cím",
     "subtitle": "Kezelje EPUB könyveit és hozzon létre ARC kampányokat",
     "uploadBook": "Könyv feltöltése",
     "totalBooks": "Összes könyv",
@@ -471,7 +571,6 @@
     "dragDropFile": "Húzza ide EPUB fájlját",
     "browse": "böngészés",
     "epubOnly": "Csak EPUB fájlok",
-    "title": "Cím",
     "author": "Szerző",
     "description": "Leírás",
     "isbn": "ISBN",

@@ -21,6 +21,7 @@ const AuctionList: React.FC<AuctionListProps> = ({
   limit = 10,
 }) => {
   const t = useTranslations("auction");
+  const tCommon = useTranslations("common");
   const { navigate } = useLocalizedNavigation();
   const [auctions, setAuctions] = useState<Auction[]>([]);
   const [loading, setLoading] = useState(true);
@@ -243,7 +244,7 @@ const AuctionList: React.FC<AuctionListProps> = ({
               )}
 
               <p className="text-gray-600 text-sm mb-4 line-clamp-3">
-                {auction.description || "No description available"}
+                {auction.description || tCommon("noDescriptionAvailable")}
               </p>
 
               <div className="space-y-2 mb-4">

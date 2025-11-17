@@ -3,7 +3,86 @@
     "loading": "Memuat...",
     "error": "Kesalahan",
     "configNotFound": "Konfigurasi tidak ditemukan untuk halaman beranda.",
-    "home": "Beranda"
+    "home": "Beranda",
+    "goToDashboard": "Buka Dasbor",
+    "backToDashboard": "Kembali ke Dasbor",
+    "allCourses": "Semua Kursus",
+    "browseCourses": "Jelajahi Kursus",
+    "errorLoadingCourses": "Kesalahan Memuat Kursus",
+    "backToBlogs": "Kembali ke Blog",
+    "accountSettings": "Pengaturan Akun",
+    "accountType": "Jenis Akun",
+    "administrator": "Administrator",
+    "standardUser": "Pengguna Standar",
+    "notProvided": "Tidak disediakan",
+    "tryAgain": "Coba Lagi",
+    "blogNotFound": "Blog tidak ditemukan",
+    "browseSubjects": "Jelajahi Mata Pelajaran",
+    "selectSubject": "Pilih mata pelajaran untuk melihat kursusnya",
+    "exploreCourses": "Jelajahi kursus di",
+    "personalInformation": "Informasi Pribadi",
+    "name": "Nama",
+    "email": "E-mail",
+    "subjects": "Mata Pelajaran",
+    "noSubjectsFound": "Tidak ada mata pelajaran ditemukan",
+    "unknownSubject": "Mata Pelajaran Tidak Diketahui",
+    "untitledCourse": "Kursus Tanpa Judul",
+    "searchCourses": "Cari kursus...",
+    "loadingCourses": "Memuat kursus...",
+    "courses": "kursus",
+    "of": "dari",
+    "inThisSubject": "dalam mata pelajaran ini",
+    "exploreAllAvailableCourses": "Jelajahi semua kursus yang tersedia",
+    "noCoursesFound": "Tidak ada kursus ditemukan",
+    "noCoursesInSubject": "Tidak ada kursus di",
+    "noCoursesAvailable": "Tidak ada kursus tersedia",
+    "noCoursesInSubjectDesc": "Mata pelajaran ini belum memiliki kursus yang diterbitkan",
+    "noCoursesAvailableDesc": "Saat ini tidak ada kursus yang diterbitkan tersedia",
+    "viewAllCourses": "Lihat Semua Kursus",
+    "refresh": "Muat Ulang",
+    "availableCourses": "Kursus Tersedia",
+    "coursesAvailableToStart": "kursus tersedia untuk mulai belajar",
+    "filteredBySubject": "(difilter berdasarkan mata pelajaran)",
+    "viewAll": "Lihat Semua",
+    "filterBySubject": "Filter berdasarkan Mata Pelajaran:",
+    "clearFilter": "Hapus Filter",
+    "noCoursesFoundForSubject": "Tidak ada kursus ditemukan untuk mata pelajaran ini",
+    "noCoursesFoundForSubjectDesc": "Coba pilih mata pelajaran lain atau hapus filter untuk melihat semua kursus.",
+    "noCoursesAvailableDesc2": "Saat ini tidak ada kursus yang diterbitkan tersedia. Periksa kembali nanti untuk konten baru.",
+    "tryAdjustingSearch": "Coba sesuaikan istilah pencarian Anda",
+    "subscription": {
+      "noSubscription": "Tidak Ada Langganan",
+      "trialActive": "Masa Percobaan Aktif",
+      "trialExpired": "Masa Percobaan Berakhir",
+      "subscriptionCanceled": "Langganan Dibatalkan",
+      "trialDaysRemaining": "Masa percobaan: {days} hari tersisa",
+      "canceledDaysRemaining": "Dibatalkan - {days} hari tersisa",
+      "canceledActiveUntilEnd": "Dibatalkan - Aktif hingga akhir periode",
+      "pro": "Pro"
+    },
+    "noDescriptionAvailable": "Tidak ada deskripsi tersedia",
+    "selectSubjectToViewCourses": "Pilih mata pelajaran untuk melihat kursusnya.",
+    "manageCoursesForSubject": "Manage courses for",
+    "manageYourCourses": "Manage your courses and learning materials.",
+    "by": "by",
+    "admin": {
+      "dashboard": "Dashboard",
+      "overviewAndAnalytics": "Overview and analytics",
+      "coursesAndSubjects": "Courses & Subjects",
+      "manageCoursesAndSubjects": "Manage courses and subjects",
+      "mediaManagement": "Media Management",
+      "manageAllMediaFiles": "Manage all media files",
+      "blogs": "Blogs",
+      "createAndManageBlogPosts": "Create and manage blog posts",
+      "marketing": "Marketing",
+      "emailCampaignsSubscribers": "Email campaigns & subscribers",
+      "users": "Users",
+      "userManagement": "User management",
+      "coupons": "Coupons",
+      "manageDiscountCoupons": "Manage discount coupons",
+      "adminPanel": "Admin Panel",
+      "managementConsole": "Management Console"
+    }
   },
   "errors": {
     "oops": "Ups!",
@@ -33,7 +112,9 @@
     }
   },
   "footer": {
-    "selectLanguage": "Pilih Bahasa"
+    "selectLanguage": "Pilih Bahasa",
+    "termsOfUse": "Syarat Penggunaan",
+    "contactUs": "Hubungi Kami"
   },
   "auth": {
     "signIn": "Masuk",
@@ -63,7 +144,18 @@
     "profileDetails": "Detail Profil",
     "noSubscription": "Tidak ada langganan",
     "myDocuments": "Dokumen Saya",
-    "myAccount": "Akun Saya"
+    "myAccount": "Akun Saya",
+    "course": "Kursus",
+    "auctions": "Lelang",
+    "contactUs": "Hubungi Kami",
+    "blogs": "Blog",
+    "dashboard": "Dasbor",
+    "settings": "Pengaturan",
+    "adminPanel": "Panel Admin",
+    "logout": "Keluar",
+    "menu": "Menu",
+    "welcomeBack": "Selamat datang kembali!",
+    "user": "Pengguna"
   },
   "hero": {
     "badge": "Anggota Pertama · Alat Privat · Jangkauan Global",
@@ -166,12 +258,20 @@
       "audience": {
         "title": "Buat Audiens Anda",
         "description": "Magnet pembaca + integrasi MailerLite secara otomatis membangun daftar email Anda.",
-        "features": ["Magnet prospek", "Otomasi email", "Analitik audiens"]
+        "features": [
+          "Magnet prospek",
+          "Otomasi email",
+          "Analitik audiens"
+        ]
       },
       "sales": {
         "title": "Jual Langsung",
         "description": "Hubungkan toko Anda; WordToWallet mengirimkan file langsung ke pembeli.",
-        "features": ["Penjualan langsung", "Pengiriman file", "Manajemen pelanggan"]
+        "features": [
+          "Penjualan langsung",
+          "Pengiriman file",
+          "Manajemen pelanggan"
+        ]
       }
     }
   },
@@ -458,7 +558,7 @@
     }
   },
   "books": {
-    "title": "Buku",
+    "title": "Judul",
     "subtitle": "Kelola buku EPUB Anda dan buat kampanye ARC",
     "uploadBook": "Unggah Buku",
     "totalBooks": "Total Buku",
@@ -471,7 +571,6 @@
     "dragDropFile": "Seret dan lepas file EPUB Anda di sini",
     "browse": "jelajahi",
     "epubOnly": "Hanya file EPUB",
-    "title": "Judul",
     "author": "Penulis",
     "description": "Deskripsi",
     "isbn": "ISBN",

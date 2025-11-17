@@ -3,7 +3,86 @@
     "loading": "Đang tải...",
     "error": "Lỗi",
     "configNotFound": "Không tìm thấy cấu hình cho trang chủ.",
-    "home": "Trang chủ"
+    "home": "Trang chủ",
+    "goToDashboard": "Đi đến Bảng Điều Khiển",
+    "backToDashboard": "Quay lại Bảng Điều Khiển",
+    "allCourses": "Tất cả Khóa Học",
+    "browseCourses": "Duyệt Khóa Học",
+    "errorLoadingCourses": "Lỗi Tải Khóa Học",
+    "backToBlogs": "Quay lại Blog",
+    "accountSettings": "Cài Đặt Tài Khoản",
+    "accountType": "Loại Tài Khoản",
+    "administrator": "Quản Trị Viên",
+    "standardUser": "Người Dùng Tiêu Chuẩn",
+    "notProvided": "Không được cung cấp",
+    "tryAgain": "Thử Lại",
+    "blogNotFound": "Không tìm thấy blog",
+    "browseSubjects": "Duyệt Môn Học",
+    "selectSubject": "Chọn một môn học để xem các khóa học của nó",
+    "exploreCourses": "Khám phá khóa học trong",
+    "personalInformation": "Thông Tin Cá Nhân",
+    "name": "Tên",
+    "email": "E-mail",
+    "subjects": "Môn Học",
+    "noSubjectsFound": "Không tìm thấy môn học",
+    "unknownSubject": "Môn Học Không Xác Định",
+    "untitledCourse": "Khóa Học Không Có Tiêu Đề",
+    "searchCourses": "Tìm kiếm khóa học...",
+    "loadingCourses": "Đang tải khóa học...",
+    "courses": "khóa học",
+    "of": "trong số",
+    "inThisSubject": "trong môn học này",
+    "exploreAllAvailableCourses": "Khám phá tất cả các khóa học có sẵn",
+    "noCoursesFound": "Không tìm thấy khóa học",
+    "noCoursesInSubject": "Không có khóa học trong",
+    "noCoursesAvailable": "Không có khóa học nào",
+    "noCoursesInSubjectDesc": "Môn học này chưa có khóa học nào được xuất bản",
+    "noCoursesAvailableDesc": "Hiện tại không có khóa học nào được xuất bản",
+    "viewAllCourses": "Xem Tất Cả Khóa Học",
+    "refresh": "Làm Mới",
+    "availableCourses": "Khóa Học Có Sẵn",
+    "coursesAvailableToStart": "khóa học có sẵn để bắt đầu học",
+    "filteredBySubject": "(đã lọc theo môn học)",
+    "viewAll": "Xem Tất Cả",
+    "filterBySubject": "Lọc theo Môn Học:",
+    "clearFilter": "Xóa Bộ Lọc",
+    "noCoursesFoundForSubject": "Không tìm thấy khóa học cho môn học này",
+    "noCoursesFoundForSubjectDesc": "Thử chọn môn học khác hoặc xóa bộ lọc để xem tất cả các khóa học.",
+    "noCoursesAvailableDesc2": "Hiện tại không có khóa học nào được xuất bản. Kiểm tra lại sau để xem nội dung mới.",
+    "tryAdjustingSearch": "Thử điều chỉnh các từ khóa tìm kiếm của bạn",
+    "subscription": {
+      "noSubscription": "Không Có Đăng Ký",
+      "trialActive": "Dùng Thử Đang Hoạt Động",
+      "trialExpired": "Dùng Thử Đã Hết Hạn",
+      "subscriptionCanceled": "Đăng Ký Đã Hủy",
+      "trialDaysRemaining": "Dùng thử: còn {days} ngày",
+      "canceledDaysRemaining": "Đã hủy - còn {days} ngày",
+      "canceledActiveUntilEnd": "Đã hủy - Hoạt động đến cuối kỳ",
+      "pro": "Chuyên Nghiệp"
+    },
+    "noDescriptionAvailable": "Không có mô tả",
+    "selectSubjectToViewCourses": "Chọn một môn học để xem các khóa học của nó.",
+    "manageCoursesForSubject": "Manage courses for",
+    "manageYourCourses": "Manage your courses and learning materials.",
+    "by": "by",
+    "admin": {
+      "dashboard": "Dashboard",
+      "overviewAndAnalytics": "Overview and analytics",
+      "coursesAndSubjects": "Courses & Subjects",
+      "manageCoursesAndSubjects": "Manage courses and subjects",
+      "mediaManagement": "Media Management",
+      "manageAllMediaFiles": "Manage all media files",
+      "blogs": "Blogs",
+      "createAndManageBlogPosts": "Create and manage blog posts",
+      "marketing": "Marketing",
+      "emailCampaignsSubscribers": "Email campaigns & subscribers",
+      "users": "Users",
+      "userManagement": "User management",
+      "coupons": "Coupons",
+      "manageDiscountCoupons": "Manage discount coupons",
+      "adminPanel": "Admin Panel",
+      "managementConsole": "Management Console"
+    }
   },
   "errors": {
     "oops": "Ối!",
@@ -33,7 +112,9 @@
     }
   },
   "footer": {
-    "selectLanguage": "Chọn ngôn ngữ"
+    "selectLanguage": "Chọn ngôn ngữ",
+    "termsOfUse": "Điều Khoản Sử Dụng",
+    "contactUs": "Liên Hệ Chúng Tôi"
   },
   "auth": {
     "signIn": "Đăng nhập",
@@ -63,7 +144,18 @@
     "profileDetails": "Chi tiết hồ sơ",
     "noSubscription": "Không có đăng ký",
     "myDocuments": "Tài liệu của tôi",
-    "myAccount": "Tài khoản của tôi"
+    "myAccount": "Tài khoản của tôi",
+    "course": "Khóa Học",
+    "auctions": "Đấu Giá",
+    "contactUs": "Liên Hệ Chúng Tôi",
+    "blogs": "Blog",
+    "dashboard": "Bảng Điều Khiển",
+    "settings": "Cài Đặt",
+    "adminPanel": "Bảng Quản Trị",
+    "logout": "Đăng Xuất",
+    "menu": "Menu",
+    "welcomeBack": "Chào mừng trở lại!",
+    "user": "Người Dùng"
   },
   "hero": {
     "badge": "Thành viên trước · Công cụ riêng tư · Phạm vi toàn cầu",
@@ -166,12 +258,20 @@
       "audience": {
         "title": "Xây dựng đối tượng của bạn",
         "description": "Nam châm độc giả + tích hợp MailerLite tự động xây dựng danh sách email của bạn.",
-        "features": ["Nam châm khách hàng tiềm năng", "Tự động hóa email", "Phân tích đối tượng"]
+        "features": [
+          "Nam châm khách hàng tiềm năng",
+          "Tự động hóa email",
+          "Phân tích đối tượng"
+        ]
       },
       "sales": {
         "title": "Bán trực tiếp",
         "description": "Kết nối cửa hàng của bạn; WordToWallet giao tệp trực tiếp cho người mua.",
-        "features": ["Bán hàng trực tiếp", "Giao tệp", "Quản lý khách hàng"]
+        "features": [
+          "Bán hàng trực tiếp",
+          "Giao tệp",
+          "Quản lý khách hàng"
+        ]
       }
     }
   },
@@ -458,7 +558,7 @@
     }
   },
   "books": {
-    "title": "Sách",
+    "title": "Tiêu đề",
     "subtitle": "Quản lý sách EPUB của bạn và tạo chiến dịch ARC",
     "uploadBook": "Tải sách lên",
     "totalBooks": "Tổng số sách",
@@ -471,7 +571,6 @@
     "dragDropFile": "Kéo và thả tệp EPUB của bạn vào đây",
     "browse": "duyệt",
     "epubOnly": "Chỉ tệp EPUB",
-    "title": "Tiêu đề",
     "author": "Tác giả",
     "description": "Mô tả",
     "isbn": "ISBN",

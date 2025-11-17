@@ -3,7 +3,86 @@
     "loading": "Учитавање...",
     "error": "Грешка",
     "configNotFound": "Конфигурација за почетну страницу није пронађена.",
-    "home": "Почетна"
+    "home": "Почетна",
+    "goToDashboard": "Иди на Контролну Таблу",
+    "backToDashboard": "Назад на Контролну Таблу",
+    "allCourses": "Сви Курсеви",
+    "browseCourses": "Прегледај Курсеве",
+    "errorLoadingCourses": "Грешка при Учитавању Курсева",
+    "backToBlogs": "Назад на Блогове",
+    "accountSettings": "Подешавања Налога",
+    "accountType": "Тип Налога",
+    "administrator": "Администратор",
+    "standardUser": "Стандардни Корисник",
+    "notProvided": "Није наведено",
+    "tryAgain": "Покушај Поново",
+    "blogNotFound": "Блог није пронађен",
+    "browseSubjects": "Прегледај Предмете",
+    "selectSubject": "Изаберите предмет да бисте видели његове курсеве",
+    "exploreCourses": "Истражите курсеве у",
+    "personalInformation": "Лични Подаци",
+    "name": "Име",
+    "email": "Е-пошта",
+    "subjects": "Предмети",
+    "noSubjectsFound": "Није пронађен ниједан предмет",
+    "unknownSubject": "Непознат Предмет",
+    "untitledCourse": "Курс без Назива",
+    "searchCourses": "Претражи курсеве...",
+    "loadingCourses": "Учитавање курсева...",
+    "courses": "курсеви",
+    "of": "од",
+    "inThisSubject": "у овом предмету",
+    "exploreAllAvailableCourses": "Истражите све доступне курсеве",
+    "noCoursesFound": "Није пронађен ниједан курс",
+    "noCoursesInSubject": "Нема курсева у",
+    "noCoursesAvailable": "Нема доступних курсева",
+    "noCoursesInSubjectDesc": "Овај предмет још нема објављене курсеве",
+    "noCoursesAvailableDesc": "Тренутно нема доступних објављених курсева",
+    "viewAllCourses": "Погледај Све Курсеве",
+    "refresh": "Освежи",
+    "availableCourses": "Доступни Курсеви",
+    "coursesAvailableToStart": "курсеви доступни за почетак учења",
+    "filteredBySubject": "(филтрирано по предмету)",
+    "viewAll": "Погледај Све",
+    "filterBySubject": "Филтрирај по Предмету:",
+    "clearFilter": "Обриши Филтер",
+    "noCoursesFoundForSubject": "Није пронађен ниједан курс за овај предмет",
+    "noCoursesFoundForSubjectDesc": "Покушајте да изаберете други предмет или обришите филтер да бисте видели све курсеве.",
+    "noCoursesAvailableDesc2": "Тренутно нема доступних објављених курсева. Проверите касније за нови садржај.",
+    "tryAdjustingSearch": "Покушајте да прилагодите своје претраживачке термине",
+    "subscription": {
+      "noSubscription": "Без Претплате",
+      "trialActive": "Пробни Период Активан",
+      "trialExpired": "Пробни Период Истекао",
+      "subscriptionCanceled": "Претплата Отказана",
+      "trialDaysRemaining": "Пробни период: {days} дана преостало",
+      "canceledDaysRemaining": "Отказано - {days} дана преостало",
+      "canceledActiveUntilEnd": "Отказано - Активно до краја периода",
+      "pro": "Про"
+    },
+    "noDescriptionAvailable": "Опис није доступан",
+    "selectSubjectToViewCourses": "Изаберите предмет да бисте видели његове курсеве.",
+    "manageCoursesForSubject": "Manage courses for",
+    "manageYourCourses": "Manage your courses and learning materials.",
+    "by": "by",
+    "admin": {
+      "dashboard": "Dashboard",
+      "overviewAndAnalytics": "Overview and analytics",
+      "coursesAndSubjects": "Courses & Subjects",
+      "manageCoursesAndSubjects": "Manage courses and subjects",
+      "mediaManagement": "Media Management",
+      "manageAllMediaFiles": "Manage all media files",
+      "blogs": "Blogs",
+      "createAndManageBlogPosts": "Create and manage blog posts",
+      "marketing": "Marketing",
+      "emailCampaignsSubscribers": "Email campaigns & subscribers",
+      "users": "Users",
+      "userManagement": "User management",
+      "coupons": "Coupons",
+      "manageDiscountCoupons": "Manage discount coupons",
+      "adminPanel": "Admin Panel",
+      "managementConsole": "Management Console"
+    }
   },
   "errors": {
     "oops": "Упс!",
@@ -33,7 +112,9 @@
     }
   },
   "footer": {
-    "selectLanguage": "Изабери језик"
+    "selectLanguage": "Изабери језик",
+    "termsOfUse": "Услови Коришћења",
+    "contactUs": "Контактирајте Нас"
   },
   "auth": {
     "signIn": "Пријави се",
@@ -63,7 +144,18 @@
     "profileDetails": "Детаљи профила",
     "noSubscription": "Нема претплате",
     "myDocuments": "Моји документи",
-    "myAccount": "Мој налог"
+    "myAccount": "Мој налог",
+    "course": "Курс",
+    "auctions": "Аукције",
+    "contactUs": "Контактирајте Нас",
+    "blogs": "Блогови",
+    "dashboard": "Контролна Табла",
+    "settings": "Подешавања",
+    "adminPanel": "Административни Панел",
+    "logout": "Одјава",
+    "menu": "Мени",
+    "welcomeBack": "Добродошли назад!",
+    "user": "Корисник"
   },
   "hero": {
     "badge": "Чланови први · Приватни алати · Глобални домет",
@@ -166,12 +258,20 @@
       "audience": {
         "title": "Изградите вашу публику",
         "description": "Магнет читалаца + интеграција MailerLite аутоматски гради вашу е-поштанску листу.",
-        "features": ["Магнети потенцијала", "Аутоматизација е-поште", "Аналитика публике"]
+        "features": [
+          "Магнети потенцијала",
+          "Аутоматизација е-поште",
+          "Аналитика публике"
+        ]
       },
       "sales": {
         "title": "Продајте директно",
         "description": "Повежите вашу продавницу; WordToWallet испоручује фајлове директно купцима.",
-        "features": ["Директна продаја", "Испорука фајлова", "Управљање клијентима"]
+        "features": [
+          "Директна продаја",
+          "Испорука фајлова",
+          "Управљање клијентима"
+        ]
       }
     }
   },
@@ -458,7 +558,7 @@
     }
   },
   "books": {
-    "title": "Књиге",
+    "title": "Наслов",
     "subtitle": "Управљајте вашим EPUB књигама и креирајте ARC кампање",
     "uploadBook": "Отпреми књигу",
     "totalBooks": "Укупно књига",
@@ -471,7 +571,6 @@
     "dragDropFile": "Превуците и отпустите ваш EPUB фајл овде",
     "browse": "прегледај",
     "epubOnly": "Само EPUB фајлови",
-    "title": "Наслов",
     "author": "Аутор",
     "description": "Опис",
     "isbn": "ISBN",

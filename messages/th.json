@@ -3,7 +3,86 @@
     "loading": "กำลังโหลด...",
     "error": "ข้อผิดพลาด",
     "configNotFound": "ไม่พบการตั้งค่าสำหรับหน้าหลัก",
-    "home": "หน้าแรก"
+    "home": "หน้าแรก",
+    "goToDashboard": "ไปที่แดชบอร์ด",
+    "backToDashboard": "กลับไปที่แดชบอร์ด",
+    "allCourses": "หลักสูตรทั้งหมด",
+    "browseCourses": "เรียกดูหลักสูตร",
+    "errorLoadingCourses": "ข้อผิดพลาดในการโหลดหลักสูตร",
+    "backToBlogs": "กลับไปที่บล็อก",
+    "accountSettings": "การตั้งค่าบัญชี",
+    "accountType": "ประเภทบัญชี",
+    "administrator": "ผู้ดูแลระบบ",
+    "standardUser": "ผู้ใช้มาตรฐาน",
+    "notProvided": "ไม่ได้ระบุ",
+    "tryAgain": "ลองอีกครั้ง",
+    "blogNotFound": "ไม่พบบล็อก",
+    "browseSubjects": "เรียกดูวิชา",
+    "selectSubject": "เลือกวิชาเพื่อดูหลักสูตร",
+    "exploreCourses": "สำรวจหลักสูตรใน",
+    "personalInformation": "ข้อมูลส่วนตัว",
+    "name": "ชื่อ",
+    "email": "อีเมล",
+    "subjects": "วิชา",
+    "noSubjectsFound": "ไม่พบวิชา",
+    "unknownSubject": "วิชาไม่ทราบ",
+    "untitledCourse": "หลักสูตรไม่มีชื่อ",
+    "searchCourses": "ค้นหาหลักสูตร...",
+    "loadingCourses": "กำลังโหลดหลักสูตร...",
+    "courses": "หลักสูตร",
+    "of": "จาก",
+    "inThisSubject": "ในวิชานี้",
+    "exploreAllAvailableCourses": "สำรวจหลักสูตรทั้งหมดที่มี",
+    "noCoursesFound": "ไม่พบหลักสูตร",
+    "noCoursesInSubject": "ไม่มีหลักสูตรใน",
+    "noCoursesAvailable": "ไม่มีหลักสูตรที่ใช้ได้",
+    "noCoursesInSubjectDesc": "วิชานี้ยังไม่มีหลักสูตรที่เผยแพร่",
+    "noCoursesAvailableDesc": "ขณะนี้ไม่มีหลักสูตรที่เผยแพร่ให้ใช้",
+    "viewAllCourses": "ดูหลักสูตรทั้งหมด",
+    "refresh": "รีเฟรช",
+    "availableCourses": "หลักสูตรที่มี",
+    "coursesAvailableToStart": "หลักสูตรที่มีให้เริ่มเรียนรู้",
+    "filteredBySubject": "(กรองตามวิชา)",
+    "viewAll": "ดูทั้งหมด",
+    "filterBySubject": "กรองตามวิชา:",
+    "clearFilter": "ล้างตัวกรอง",
+    "noCoursesFoundForSubject": "ไม่พบหลักสูตรสำหรับวิชานี้",
+    "noCoursesFoundForSubjectDesc": "ลองเลือกวิชาอื่นหรือล้างตัวกรองเพื่อดูหลักสูตรทั้งหมด",
+    "noCoursesAvailableDesc2": "ขณะนี้ไม่มีหลักสูตรที่เผยแพร่ให้ใช้ กลับมาดูเนื้อหาใหม่ภายหลัง",
+    "tryAdjustingSearch": "ลองปรับเงื่อนไขการค้นหาของคุณ",
+    "subscription": {
+      "noSubscription": "ไม่มีการสมัครสมาชิก",
+      "trialActive": "ทดลองใช้อยู่",
+      "trialExpired": "หมดอายุการทดลองใช้",
+      "subscriptionCanceled": "ยกเลิกการสมัครสมาชิกแล้ว",
+      "trialDaysRemaining": "ทดลองใช้: เหลือ {days} วัน",
+      "canceledDaysRemaining": "ยกเลิกแล้ว - เหลือ {days} วัน",
+      "canceledActiveUntilEnd": "ยกเลิกแล้ว - ใช้งานได้จนถึงสิ้นสุดระยะเวลา",
+      "pro": "โปร"
+    },
+    "noDescriptionAvailable": "ไม่มีคำอธิบาย",
+    "selectSubjectToViewCourses": "เลือกวิชาเพื่อดูหลักสูตร",
+    "manageCoursesForSubject": "Manage courses for",
+    "manageYourCourses": "Manage your courses and learning materials.",
+    "by": "by",
+    "admin": {
+      "dashboard": "Dashboard",
+      "overviewAndAnalytics": "Overview and analytics",
+      "coursesAndSubjects": "Courses & Subjects",
+      "manageCoursesAndSubjects": "Manage courses and subjects",
+      "mediaManagement": "Media Management",
+      "manageAllMediaFiles": "Manage all media files",
+      "blogs": "Blogs",
+      "createAndManageBlogPosts": "Create and manage blog posts",
+      "marketing": "Marketing",
+      "emailCampaignsSubscribers": "Email campaigns & subscribers",
+      "users": "Users",
+      "userManagement": "User management",
+      "coupons": "Coupons",
+      "manageDiscountCoupons": "Manage discount coupons",
+      "adminPanel": "Admin Panel",
+      "managementConsole": "Management Console"
+    }
   },
   "errors": {
     "oops": "อุ๊ปส์!",
@@ -33,7 +112,9 @@
     }
   },
   "footer": {
-    "selectLanguage": "เลือกภาษา"
+    "selectLanguage": "เลือกภาษา",
+    "termsOfUse": "ข้อกำหนดการใช้งาน",
+    "contactUs": "ติดต่อเรา"
   },
   "auth": {
     "signIn": "เข้าสู่ระบบ",
@@ -63,7 +144,18 @@
     "profileDetails": "รายละเอียดโปรไฟล์",
     "noSubscription": "ไม่มีสมาชิก",
     "myDocuments": "เอกสารของฉัน",
-    "myAccount": "บัญชีของฉัน"
+    "myAccount": "บัญชีของฉัน",
+    "course": "หลักสูตร",
+    "auctions": "การประมูล",
+    "contactUs": "ติดต่อเรา",
+    "blogs": "บล็อก",
+    "dashboard": "แดชบอร์ด",
+    "settings": "การตั้งค่า",
+    "adminPanel": "แผงผู้ดูแลระบบ",
+    "logout": "ออกจากระบบ",
+    "menu": "เมนู",
+    "welcomeBack": "ยินดีต้อนรับกลับ!",
+    "user": "ผู้ใช้"
   },
   "hero": {
     "badge": "สมาชิกก่อน · เครื่องมือส่วนตัว · ขอบเขตทั่วโลก",
@@ -166,12 +258,20 @@
       "audience": {
         "title": "สร้างผู้ชมของคุณ",
         "description": "แม่เหล็กผู้อ่าน + การรวม MailerLite สร้างรายชื่ออีเมลของคุณโดยอัตโนมัติ",
-        "features": ["แม่เหล็กลีด", "อัตโนมัติอีเมล", "การวิเคราะห์ผู้ชม"]
+        "features": [
+          "แม่เหล็กลีด",
+          "อัตโนมัติอีเมล",
+          "การวิเคราะห์ผู้ชม"
+        ]
       },
       "sales": {
         "title": "ขายโดยตรง",
         "description": "เชื่อมต่อร้านค้าของคุณ; WordToWallet ส่งไฟล์โดยตรงไปยังผู้ซื้อ",
-        "features": ["ขายโดยตรง", "การส่งไฟล์", "การจัดการลูกค้า"]
+        "features": [
+          "ขายโดยตรง",
+          "การส่งไฟล์",
+          "การจัดการลูกค้า"
+        ]
       }
     }
   },
@@ -458,7 +558,7 @@
     }
   },
   "books": {
-    "title": "หนังสือ",
+    "title": "ชื่อ",
     "subtitle": "จัดการหนังสือ EPUB ของคุณและสร้างแคมเปญ ARC",
     "uploadBook": "อัปโหลดหนังสือ",
     "totalBooks": "หนังสือทั้งหมด",
@@ -471,7 +571,6 @@
     "dragDropFile": "ลากและวางไฟล์ EPUB ของคุณที่นี่",
     "browse": "เรียกดู",
     "epubOnly": "เฉพาะไฟล์ EPUB",
-    "title": "ชื่อ",
     "author": "ผู้เขียน",
     "description": "คำอธิบาย",
     "isbn": "ISBN",

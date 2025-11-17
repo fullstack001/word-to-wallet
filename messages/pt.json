@@ -3,7 +3,86 @@
     "loading": "Carregando...",
     "error": "Erro",
     "configNotFound": "Configuração não encontrada para a página inicial.",
-    "home": "Início"
+    "home": "Início",
+    "goToDashboard": "Ir para o Painel",
+    "backToDashboard": "Voltar ao Painel",
+    "allCourses": "Todos os Cursos",
+    "browseCourses": "Navegar Cursos",
+    "errorLoadingCourses": "Erro ao Carregar Cursos",
+    "backToBlogs": "Voltar aos Blogs",
+    "accountSettings": "Configurações da Conta",
+    "accountType": "Tipo de Conta",
+    "administrator": "Administrador",
+    "standardUser": "Usuário Padrão",
+    "notProvided": "Não fornecido",
+    "tryAgain": "Tentar Novamente",
+    "blogNotFound": "Blog não encontrado",
+    "browseSubjects": "Navegar Matérias",
+    "selectSubject": "Selecione uma matéria para ver seus cursos",
+    "exploreCourses": "Explorar cursos em",
+    "personalInformation": "Informações Pessoais",
+    "name": "Nome",
+    "email": "E-mail",
+    "subjects": "Matérias",
+    "noSubjectsFound": "Nenhuma matéria encontrada",
+    "unknownSubject": "Matéria Desconhecida",
+    "untitledCourse": "Curso Sem Título",
+    "searchCourses": "Pesquisar cursos...",
+    "loadingCourses": "Carregando cursos...",
+    "courses": "cursos",
+    "of": "de",
+    "inThisSubject": "nesta matéria",
+    "exploreAllAvailableCourses": "Explorar todos os cursos disponíveis",
+    "noCoursesFound": "Nenhum curso encontrado",
+    "noCoursesInSubject": "Nenhum curso em",
+    "noCoursesAvailable": "Nenhum curso disponível",
+    "noCoursesInSubjectDesc": "Esta matéria ainda não tem cursos publicados",
+    "noCoursesAvailableDesc": "Atualmente não há cursos publicados disponíveis",
+    "viewAllCourses": "Ver Todos os Cursos",
+    "refresh": "Atualizar",
+    "availableCourses": "Cursos Disponíveis",
+    "coursesAvailableToStart": "cursos disponíveis para começar a aprender",
+    "filteredBySubject": "(filtrado por matéria)",
+    "viewAll": "Ver Tudo",
+    "filterBySubject": "Filtrar por Matéria:",
+    "clearFilter": "Limpar Filtro",
+    "noCoursesFoundForSubject": "Nenhum curso encontrado para esta matéria",
+    "noCoursesFoundForSubjectDesc": "Tente selecionar uma matéria diferente ou limpe o filtro para ver todos os cursos.",
+    "noCoursesAvailableDesc2": "Atualmente não há cursos publicados disponíveis. Volte mais tarde para novo conteúdo.",
+    "tryAdjustingSearch": "Tente ajustar seus termos de pesquisa",
+    "subscription": {
+      "noSubscription": "Sem Assinatura",
+      "trialActive": "Período de Teste Ativo",
+      "trialExpired": "Período de Teste Expirado",
+      "subscriptionCanceled": "Assinatura Cancelada",
+      "trialDaysRemaining": "Período de teste: {days} dias restantes",
+      "canceledDaysRemaining": "Cancelado - {days} dias restantes",
+      "canceledActiveUntilEnd": "Cancelado - Ativo até o fim do período",
+      "pro": "Pro"
+    },
+    "noDescriptionAvailable": "Nenhuma descrição disponível",
+    "selectSubjectToViewCourses": "Selecione uma matéria para ver seus cursos.",
+    "manageCoursesForSubject": "Manage courses for",
+    "manageYourCourses": "Manage your courses and learning materials.",
+    "by": "by",
+    "admin": {
+      "dashboard": "Dashboard",
+      "overviewAndAnalytics": "Overview and analytics",
+      "coursesAndSubjects": "Courses & Subjects",
+      "manageCoursesAndSubjects": "Manage courses and subjects",
+      "mediaManagement": "Media Management",
+      "manageAllMediaFiles": "Manage all media files",
+      "blogs": "Blogs",
+      "createAndManageBlogPosts": "Create and manage blog posts",
+      "marketing": "Marketing",
+      "emailCampaignsSubscribers": "Email campaigns & subscribers",
+      "users": "Users",
+      "userManagement": "User management",
+      "coupons": "Coupons",
+      "manageDiscountCoupons": "Manage discount coupons",
+      "adminPanel": "Admin Panel",
+      "managementConsole": "Management Console"
+    }
   },
   "errors": {
     "oops": "Ops!",
@@ -33,7 +112,9 @@
     }
   },
   "footer": {
-    "selectLanguage": "Selecionar idioma"
+    "selectLanguage": "Selecionar idioma",
+    "termsOfUse": "Termos de Uso",
+    "contactUs": "Entre em Contato"
   },
   "auth": {
     "signIn": "Entrar",
@@ -63,7 +144,18 @@
     "profileDetails": "Detalhes do perfil",
     "noSubscription": "Sem assinatura",
     "myDocuments": "Meus documentos",
-    "myAccount": "Minha conta"
+    "myAccount": "Minha conta",
+    "course": "Curso",
+    "auctions": "Leilões",
+    "contactUs": "Entre em Contato",
+    "blogs": "Blogs",
+    "dashboard": "Painel",
+    "settings": "Configurações",
+    "adminPanel": "Painel de Administração",
+    "logout": "Sair",
+    "menu": "Menu",
+    "welcomeBack": "Bem-vindo de volta!",
+    "user": "Usuário"
   },
   "hero": {
     "badge": "Membros primeiro · Ferramentas privadas · Alcance global",
@@ -166,12 +258,20 @@
       "audience": {
         "title": "Construa seu público",
         "description": "Ímã de leitores + integração MailerLite constrói automaticamente sua lista de e-mail.",
-        "features": ["Ímãs de leads", "Automação de e-mail", "Análises de público"]
+        "features": [
+          "Ímãs de leads",
+          "Automação de e-mail",
+          "Análises de público"
+        ]
       },
       "sales": {
         "title": "Venda direto",
         "description": "Conecte sua loja; o WordToWallet entrega arquivos diretamente aos compradores.",
-        "features": ["Vendas diretas", "Entrega de arquivos", "Gestão de clientes"]
+        "features": [
+          "Vendas diretas",
+          "Entrega de arquivos",
+          "Gestão de clientes"
+        ]
       }
     }
   },
@@ -458,7 +558,7 @@
     }
   },
   "books": {
-    "title": "Livros",
+    "title": "Título",
     "subtitle": "Gerencie seus livros EPUB e crie campanhas ARC",
     "uploadBook": "Enviar livro",
     "totalBooks": "Total de livros",
@@ -471,7 +571,6 @@
     "dragDropFile": "Arraste e solte seu arquivo EPUB aqui",
     "browse": "navegar",
     "epubOnly": "Apenas arquivos EPUB",
-    "title": "Título",
     "author": "Autor",
     "description": "Descrição",
     "isbn": "ISBN",

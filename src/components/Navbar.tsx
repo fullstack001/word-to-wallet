@@ -36,10 +36,10 @@ export default function Navbar() {
 
   // Navigation items
   const navigationItems = [
-    { label: "Course", path: "/dashboard/course" },
-    { label: "Auctions", path: "/auctions" },
-    { label: "Contact Us", path: "/contact" },
-    { label: "Blogs", path: "/blogs" },
+    { label: t("navbar.course"), path: "/dashboard/course" },
+    { label: t("navbar.auctions"), path: "/auctions" },
+    { label: t("navbar.contactUs"), path: "/contact" },
+    { label: t("navbar.blogs"), path: "/blogs" },
     // { label: "Start with Free", path: "/start-free" },
   ];
 

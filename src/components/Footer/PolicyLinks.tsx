@@ -12,11 +12,11 @@ export default function PolicyLinks() {
       path: "/privacy-policy",
     },
     {
-      label: "Terms of Use",
+      label: t("footer.termsOfUse"),
       path: "/terms",
     },
     {
-      label: "Contact Us",
+      label: t("footer.contactUs"),
       path: "/contact",
     },
   ];

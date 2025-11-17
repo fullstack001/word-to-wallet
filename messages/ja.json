@@ -3,7 +3,86 @@
     "loading": "読み込み中...",
     "error": "エラー",
     "configNotFound": "ホームページの設定が見つかりません。",
-    "home": "ホーム"
+    "home": "ホーム",
+    "goToDashboard": "ダッシュボードに移動",
+    "backToDashboard": "ダッシュボードに戻る",
+    "allCourses": "すべてのコース",
+    "browseCourses": "コースを閲覧",
+    "errorLoadingCourses": "コースの読み込みエラー",
+    "backToBlogs": "ブログに戻る",
+    "accountSettings": "アカウント設定",
+    "accountType": "アカウントタイプ",
+    "administrator": "管理者",
+    "standardUser": "標準ユーザー",
+    "notProvided": "提供されていません",
+    "tryAgain": "再試行",
+    "blogNotFound": "ブログが見つかりません",
+    "browseSubjects": "科目を閲覧",
+    "selectSubject": "科目を選択してコースを表示",
+    "exploreCourses": "コースを探索",
+    "personalInformation": "個人情報",
+    "name": "名前",
+    "email": "メール",
+    "subjects": "科目",
+    "noSubjectsFound": "科目が見つかりません",
+    "unknownSubject": "不明な科目",
+    "untitledCourse": "タイトルなしのコース",
+    "searchCourses": "コースを検索...",
+    "loadingCourses": "コースを読み込み中...",
+    "courses": "コース",
+    "of": "の",
+    "inThisSubject": "この科目で",
+    "exploreAllAvailableCourses": "利用可能なすべてのコースを探索",
+    "noCoursesFound": "コースが見つかりません",
+    "noCoursesInSubject": "コースなし",
+    "noCoursesAvailable": "利用可能なコースがありません",
+    "noCoursesInSubjectDesc": "この科目にはまだ公開されたコースがありません",
+    "noCoursesAvailableDesc": "現在公開されたコースはありません",
+    "viewAllCourses": "すべてのコースを表示",
+    "refresh": "更新",
+    "availableCourses": "利用可能なコース",
+    "coursesAvailableToStart": "学習を開始できるコース",
+    "filteredBySubject": "（科目でフィルタリング）",
+    "viewAll": "すべて表示",
+    "filterBySubject": "科目でフィルタ:",
+    "clearFilter": "フィルタをクリア",
+    "noCoursesFoundForSubject": "この科目のコースが見つかりません",
+    "noCoursesFoundForSubjectDesc": "別の科目を選択するか、フィルタをクリアしてすべてのコースを表示してください。",
+    "noCoursesAvailableDesc2": "現在公開されたコースはありません。後で新しいコンテンツを確認してください。",
+    "tryAdjustingSearch": "検索語を調整してみてください",
+    "subscription": {
+      "noSubscription": "サブスクリプションなし",
+      "trialActive": "トライアル有効",
+      "trialExpired": "トライアル期限切れ",
+      "subscriptionCanceled": "サブスクリプションキャンセル済み",
+      "trialDaysRemaining": "トライアル: 残り {days} 日",
+      "canceledDaysRemaining": "キャンセル済み - 残り {days} 日",
+      "canceledActiveUntilEnd": "キャンセル済み - 期間終了まで有効",
+      "pro": "プロ"
+    },
+    "noDescriptionAvailable": "説明がありません",
+    "selectSubjectToViewCourses": "科目を選択してコースを表示します。",
+    "manageCoursesForSubject": "Manage courses for",
+    "manageYourCourses": "Manage your courses and learning materials.",
+    "by": "by",
+    "admin": {
+      "dashboard": "Dashboard",
+      "overviewAndAnalytics": "Overview and analytics",
+      "coursesAndSubjects": "Courses & Subjects",
+      "manageCoursesAndSubjects": "Manage courses and subjects",
+      "mediaManagement": "Media Management",
+      "manageAllMediaFiles": "Manage all media files",
+      "blogs": "Blogs",
+      "createAndManageBlogPosts": "Create and manage blog posts",
+      "marketing": "Marketing",
+      "emailCampaignsSubscribers": "Email campaigns & subscribers",
+      "users": "Users",
+      "userManagement": "User management",
+      "coupons": "Coupons",
+      "manageDiscountCoupons": "Manage discount coupons",
+      "adminPanel": "Admin Panel",
+      "managementConsole": "Management Console"
+    }
   },
   "errors": {
     "oops": "おっと！",
@@ -33,7 +112,9 @@
     }
   },
   "footer": {
-    "selectLanguage": "言語を選択"
+    "selectLanguage": "言語を選択",
+    "termsOfUse": "利用規約",
+    "contactUs": "お問い合わせ"
   },
   "auth": {
     "signIn": "サインイン",
@@ -63,7 +144,18 @@
     "profileDetails": "プロフィール詳細",
     "noSubscription": "サブスクリプションなし",
     "myDocuments": "マイドキュメント",
-    "myAccount": "マイアカウント"
+    "myAccount": "マイアカウント",
+    "course": "コース",
+    "auctions": "オークション",
+    "contactUs": "お問い合わせ",
+    "blogs": "ブログ",
+    "dashboard": "ダッシュボード",
+    "settings": "設定",
+    "adminPanel": "管理パネル",
+    "logout": "ログアウト",
+    "menu": "メニュー",
+    "welcomeBack": "おかえりなさい！",
+    "user": "ユーザー"
   },
   "hero": {
     "badge": "メンバー優先 · プライベートツール · グローバルリーチ",
@@ -166,12 +258,20 @@
       "audience": {
         "title": "オーディエンスを構築",
         "description": "リーダーマグネット + MailerLite統合が自動的にメールリストを構築します。",
-        "features": ["リードマグネット", "メール自動化", "オーディエンス分析"]
+        "features": [
+          "リードマグネット",
+          "メール自動化",
+          "オーディエンス分析"
+        ]
       },
       "sales": {
         "title": "直接販売",
         "description": "ストアを接続；WordToWalletがファイルを購入者に直接配信します。",
-        "features": ["直接販売", "ファイル配信", "顧客管理"]
+        "features": [
+          "直接販売",
+          "ファイル配信",
+          "顧客管理"
+        ]
       }
     }
   },
@@ -458,7 +558,7 @@
     }
   },
   "books": {
-    "title": "書籍",
+    "title": "タイトル",
     "subtitle": "EPUB書籍を管理し、ARCキャンペーンを作成",
     "uploadBook": "書籍をアップロード",
     "totalBooks": "総書籍数",
@@ -471,7 +571,6 @@
     "dragDropFile": "EPUBファイルをここにドラッグ&ドロップ",
     "browse": "閲覧",
     "epubOnly": "EPUBファイルのみ",
-    "title": "タイトル",
     "author": "著者",
     "description": "説明",
     "isbn": "ISBN",

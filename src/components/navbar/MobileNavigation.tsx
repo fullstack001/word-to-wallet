@@ -22,9 +22,9 @@ export function MobileNavigation({
   onLogout,
 }: NavbarProps) {
   const navigationItems = [
-    { label: "Course", path: "/course" },
-    { label: "Contact Us", path: "/contact" },
-    { label: "Blogs", path: "/blogs" },
+    { label: t("navbar.course"), path: "/course" },
+    { label: t("navbar.contactUs"), path: "/contact" },
+    { label: t("navbar.blogs"), path: "/blogs" },
     // { label: "Start with Free", path: "/start-free" },
   ];
 
@@ -66,7 +66,7 @@ export function MobileNavigation({
               <div className="flex flex-col h-full">
                 {/* Header */}
                 <div className="flex items-center justify-between mb-8">
-                  <h2 className="text-xl font-bold text-gray-900">Menu</h2>
+                  <h2 className="text-xl font-bold text-gray-900">{t("navbar.menu")}</h2>
                   <button
                     onClick={onCloseMobileMenu}
                     className="p-2 rounded-full hover:bg-gray-100 transition-colors duration-200"
@@ -100,10 +100,10 @@ export function MobileNavigation({
                     <>
                       <div className="px-4 py-2 text-sm text-gray-600 mb-2">
                         <div className="font-semibold text-gray-900">
-                          {user.name || user.email || "User"}
+                          {user.name || user.email || t("navbar.user")}
                         </div>
                         <div className="text-xs text-gray-500 mt-1">
-                          Welcome back!
+                          {t("navbar.welcomeBack")}
                         </div>
                       </div>
                       
@@ -115,7 +115,7 @@ export function MobileNavigation({
                         className="w-full text-left px-4 py-3 rounded-xl text-gray-700 hover:bg-purple-50 hover:text-purple-600 transition-all duration-200 flex items-center space-x-3"
                       >
                         <HomeIcon className="w-5 h-5" />
-                        <span>Dashboard</span>
+                        <span>{t("navbar.dashboard")}</span>
                       </button>
 
                       <button
@@ -137,7 +137,7 @@ export function MobileNavigation({
                         className="w-full text-left px-4 py-3 rounded-xl text-gray-700 hover:bg-purple-50 hover:text-purple-600 transition-all duration-200 flex items-center space-x-3"
                       >
                         <CogIcon className="w-5 h-5" />
-                        <span>Settings</span>
+                        <span>{t("navbar.settings")}</span>
                       </button>
 
                       {"isAdmin" in user && (user as any).isAdmin && (
@@ -161,7 +161,7 @@ export function MobileNavigation({
                               d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
                             />
                           </svg>
-                          <span>Admin Panel</span>
+                          <span>{t("navbar.adminPanel")}</span>
                         </button>
                       )}
 
@@ -175,7 +175,7 @@ export function MobileNavigation({
                         className="w-full text-left px-4 py-3 rounded-xl text-red-600 hover:bg-red-50 transition-all duration-200 flex items-center space-x-3"
                       >
                         <ArrowRightOnRectangleIcon className="w-5 h-5" />
-                        <span>Logout</span>
+                        <span>{t("navbar.logout")}</span>
                       </button>
                     </>
                   ) : (

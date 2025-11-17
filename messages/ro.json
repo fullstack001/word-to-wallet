@@ -3,7 +3,86 @@
     "loading": "Se încarcă...",
     "error": "Eroare",
     "configNotFound": "Configurația nu a fost găsită pentru pagina principală.",
-    "home": "Acasă"
+    "home": "Acasă",
+    "goToDashboard": "Mergi la Tablou de Bord",
+    "backToDashboard": "Înapoi la Tablou de Bord",
+    "allCourses": "Toate Cursurile",
+    "browseCourses": "Răsfoiește Cursuri",
+    "errorLoadingCourses": "Eroare la Încărcarea Cursurilor",
+    "backToBlogs": "Înapoi la Bloguri",
+    "accountSettings": "Setări Cont",
+    "accountType": "Tip de Cont",
+    "administrator": "Administrator",
+    "standardUser": "Utilizator Standard",
+    "notProvided": "Nu este furnizat",
+    "tryAgain": "Încearcă Din Nou",
+    "blogNotFound": "Blog negăsit",
+    "browseSubjects": "Răsfoiește Subiecte",
+    "selectSubject": "Selectează un subiect pentru a vedea cursurile sale",
+    "exploreCourses": "Explorează cursuri în",
+    "personalInformation": "Informații Personale",
+    "name": "Nume",
+    "email": "E-mail",
+    "subjects": "Subiecte",
+    "noSubjectsFound": "Nu s-au găsit subiecte",
+    "unknownSubject": "Subiect Necunoscut",
+    "untitledCourse": "Curs Fără Titlu",
+    "searchCourses": "Căutați cursuri...",
+    "loadingCourses": "Se încarcă cursurile...",
+    "courses": "cursuri",
+    "of": "din",
+    "inThisSubject": "în acest subiect",
+    "exploreAllAvailableCourses": "Explorați toate cursurile disponibile",
+    "noCoursesFound": "Nu s-au găsit cursuri",
+    "noCoursesInSubject": "Fără cursuri în",
+    "noCoursesAvailable": "Nu sunt cursuri disponibile",
+    "noCoursesInSubjectDesc": "Acest subiect nu are încă cursuri publicate",
+    "noCoursesAvailableDesc": "În prezent nu sunt cursuri publicate disponibile",
+    "viewAllCourses": "Vezi Toate Cursurile",
+    "refresh": "Reîmprospătează",
+    "availableCourses": "Cursuri Disponibile",
+    "coursesAvailableToStart": "cursuri disponibile pentru a începe să înveți",
+    "filteredBySubject": "(filtrat după subiect)",
+    "viewAll": "Vezi Totul",
+    "filterBySubject": "Filtrează după Subiect:",
+    "clearFilter": "Șterge Filtru",
+    "noCoursesFoundForSubject": "Nu s-au găsit cursuri pentru acest subiect",
+    "noCoursesFoundForSubjectDesc": "Încercați să selectați un alt subiect sau ștergeți filtrul pentru a vedea toate cursurile.",
+    "noCoursesAvailableDesc2": "În prezent nu sunt cursuri publicate disponibile. Verificați mai târziu pentru conținut nou.",
+    "tryAdjustingSearch": "Încercați să vă ajustați termenii de căutare",
+    "subscription": {
+      "noSubscription": "Fără Abonament",
+      "trialActive": "Perioada de Probă Activă",
+      "trialExpired": "Perioada de Probă Expirată",
+      "subscriptionCanceled": "Abonament Anulat",
+      "trialDaysRemaining": "Perioada de probă: {days} zile rămase",
+      "canceledDaysRemaining": "Anulat - {days} zile rămase",
+      "canceledActiveUntilEnd": "Anulat - Activ până la sfârșitul perioadei",
+      "pro": "Pro"
+    },
+    "noDescriptionAvailable": "Nu există descriere disponibilă",
+    "selectSubjectToViewCourses": "Selectați un subiect pentru a vedea cursurile sale.",
+    "manageCoursesForSubject": "Manage courses for",
+    "manageYourCourses": "Manage your courses and learning materials.",
+    "by": "by",
+    "admin": {
+      "dashboard": "Dashboard",
+      "overviewAndAnalytics": "Overview and analytics",
+      "coursesAndSubjects": "Courses & Subjects",
+      "manageCoursesAndSubjects": "Manage courses and subjects",
+      "mediaManagement": "Media Management",
+      "manageAllMediaFiles": "Manage all media files",
+      "blogs": "Blogs",
+      "createAndManageBlogPosts": "Create and manage blog posts",
+      "marketing": "Marketing",
+      "emailCampaignsSubscribers": "Email campaigns & subscribers",
+      "users": "Users",
+      "userManagement": "User management",
+      "coupons": "Coupons",
+      "manageDiscountCoupons": "Manage discount coupons",
+      "adminPanel": "Admin Panel",
+      "managementConsole": "Management Console"
+    }
   },
   "errors": {
     "oops": "Ups!",
@@ -33,7 +112,9 @@
     }
   },
   "footer": {
-    "selectLanguage": "Selectează limba"
+    "selectLanguage": "Selectează limba",
+    "termsOfUse": "Termeni de Utilizare",
+    "contactUs": "Contactează-ne"
   },
   "auth": {
     "signIn": "Conectează-te",
@@ -63,7 +144,18 @@
     "profileDetails": "Detalii profil",
     "noSubscription": "Fără abonament",
     "myDocuments": "Documentele mele",
-    "myAccount": "Contul meu"
+    "myAccount": "Contul meu",
+    "course": "Curs",
+    "auctions": "Licitatii",
+    "contactUs": "Contactează-ne",
+    "blogs": "Bloguri",
+    "dashboard": "Tablou de Bord",
+    "settings": "Setări",
+    "adminPanel": "Panou de Administrare",
+    "logout": "Deconectare",
+    "menu": "Meniu",
+    "welcomeBack": "Bun venit înapoi!",
+    "user": "Utilizator"
   },
   "hero": {
     "badge": "Membri primul · Instrumente private · Acoperire globală",
@@ -166,12 +258,20 @@
       "audience": {
         "title": "Construiește audiența ta",
         "description": "Magnet de cititori + integrarea MailerLite construiește automat lista ta de e-mail.",
-        "features": ["Magneți de lead-uri", "Automatizare e-mail", "Analiză audiență"]
+        "features": [
+          "Magneți de lead-uri",
+          "Automatizare e-mail",
+          "Analiză audiență"
+        ]
       },
       "sales": {
         "title": "Vinde direct",
         "description": "Conectează-ți magazinul; WordToWallet livrează fișiere direct către cumpărători.",
-        "features": ["Vânzări directe", "Livrare fișiere", "Gestionare clienți"]
+        "features": [
+          "Vânzări directe",
+          "Livrare fișiere",
+          "Gestionare clienți"
+        ]
       }
     }
   },
@@ -458,7 +558,7 @@
     }
   },
   "books": {
-    "title": "Cărți",
+    "title": "Titlu",
     "subtitle": "Gestionează cărțile tale EPUB și creează campanii ARC",
     "uploadBook": "Încarcă carte",
     "totalBooks": "Total cărți",
@@ -471,7 +571,6 @@
     "dragDropFile": "Trage și plasează fișierul tău EPUB aici",
     "browse": "răsfoiește",
     "epubOnly": "Doar fișiere EPUB",
-    "title": "Titlu",
     "author": "Autor",
     "description": "Descriere",
     "isbn": "ISBN",

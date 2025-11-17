@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { useTranslations } from "next-intl";
 import { useLocalizedNavigation } from "@/utils/navigation";
 import { RootState } from "@/store/store";
 import { useAuthInitialization } from "@/hooks/useAuthInitialization";
@@ -26,6 +27,7 @@ import {
 export default function CoursesPage() {
   const dispatch = useDispatch();
   const { navigate } = useLocalizedNavigation();
+  const t = useTranslations();
   const isLoggedIn = useSelector((state: RootState) => state.auth.isLoggedIn);
   const user = useSelector((state: RootState) => state.user);
 
@@ -353,7 +355,7 @@ export default function CoursesPage() {
   const getSubjectName = (subjectId: string | Subject) => {
     if (typeof subjectId === "string") {
       const subject = subjects.find((s) => s._id === subjectId);
-      return subject ? subject.name : "Unknown Subject";
+      return subject ? subject.name : t("common.unknownSubject");
     } else {
       return subjectId.name;
     }
@@ -565,17 +567,17 @@ export default function CoursesPage() {
                   <div className="mb-2">
                     <h1 className="text-3xl font-bold text-gray-900">
                       {currentView === "subjects"
-                        ? "Subjects"
+                        ? t("common.subjects")
                         : selectedSubject
-                        ? `${selectedSubject.name} Courses`
-                        : "All Courses"}
+                        ? `${selectedSubject.name} ${t("navbar.course")}s`
+                        : t("common.allCourses")}
                     </h1>
                     <p className="mt-2 text-gray-600">
                       {currentView === "subjects"
-                        ? "Select a subject to view its courses."
+                        ? t("common.selectSubjectToViewCourses")
                         : selectedSubject
-                        ? `Manage courses for ${selectedSubject.name}.`
-                        : "Manage your courses and learning materials."}
+                        ? `${t("common.manageCoursesForSubject")} ${selectedSubject.name}.`
+                        : t("common.manageYourCourses")}
                     </p>
                   </div>
                 </div>
@@ -704,7 +706,7 @@ export default function CoursesPage() {
 
                                 <p className="text-sm text-gray-600 mb-4">
                                   {subject.description ||
-                                    "No description available"}
+                                    t("common.noDescriptionAvailable")}
                                 </p>
 
                                 <div className="flex items-center justify-between text-sm">

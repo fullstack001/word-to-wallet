@@ -3,7 +3,86 @@
     "loading": "Lädt...",
     "error": "Fehler",
     "configNotFound": "Konfiguration für die Startseite nicht gefunden.",
-    "home": "Startseite"
+    "home": "Startseite",
+    "goToDashboard": "Zum Dashboard gehen",
+    "backToDashboard": "Zurück zum Dashboard",
+    "allCourses": "Alle Kurse",
+    "browseCourses": "Kurse durchsuchen",
+    "errorLoadingCourses": "Fehler beim Laden der Kurse",
+    "backToBlogs": "Zurück zu den Blogs",
+    "accountSettings": "Kontoeinstellungen",
+    "accountType": "Kontotyp",
+    "administrator": "Administrator",
+    "standardUser": "Standardbenutzer",
+    "notProvided": "Nicht angegeben",
+    "tryAgain": "Erneut versuchen",
+    "blogNotFound": "Blog nicht gefunden",
+    "browseSubjects": "Fächer durchsuchen",
+    "selectSubject": "Wählen Sie ein Fach aus, um dessen Kurse anzuzeigen",
+    "exploreCourses": "Kurse erkunden in",
+    "personalInformation": "Persönliche Informationen",
+    "name": "Name",
+    "email": "E-Mail",
+    "subjects": "Fächer",
+    "noSubjectsFound": "Keine Fächer gefunden",
+    "unknownSubject": "Unbekanntes Fach",
+    "untitledCourse": "Kurs ohne Titel",
+    "searchCourses": "Kurse suchen...",
+    "loadingCourses": "Kurse werden geladen...",
+    "courses": "Kurse",
+    "of": "von",
+    "inThisSubject": "in diesem Fach",
+    "exploreAllAvailableCourses": "Alle verfügbaren Kurse erkunden",
+    "noCoursesFound": "Keine Kurse gefunden",
+    "noCoursesInSubject": "Keine Kurse in",
+    "noCoursesAvailable": "Keine Kurse verfügbar",
+    "noCoursesInSubjectDesc": "Dieses Fach hat noch keine veröffentlichten Kurse",
+    "noCoursesAvailableDesc": "Derzeit sind keine veröffentlichten Kurse verfügbar",
+    "viewAllCourses": "Alle Kurse Anzeigen",
+    "refresh": "Aktualisieren",
+    "availableCourses": "Verfügbare Kurse",
+    "coursesAvailableToStart": "Kurse verfügbar zum Lernen beginnen",
+    "filteredBySubject": "(nach Fach gefiltert)",
+    "viewAll": "Alle Anzeigen",
+    "filterBySubject": "Nach Fach Filtern:",
+    "clearFilter": "Filter Löschen",
+    "noCoursesFoundForSubject": "Keine Kurse für dieses Fach gefunden",
+    "noCoursesFoundForSubjectDesc": "Versuchen Sie, ein anderes Fach auszuwählen oder löschen Sie den Filter, um alle Kurse zu sehen.",
+    "noCoursesAvailableDesc2": "Derzeit sind keine veröffentlichten Kurse verfügbar. Schauen Sie später für neue Inhalte vorbei.",
+    "tryAdjustingSearch": "Versuchen Sie, Ihre Suchbegriffe anzupassen",
+    "subscription": {
+      "noSubscription": "Kein Abonnement",
+      "trialActive": "Testphase Aktiv",
+      "trialExpired": "Testphase Abgelaufen",
+      "subscriptionCanceled": "Abonnement Gekündigt",
+      "trialDaysRemaining": "Testphase: {days} Tage verbleibend",
+      "canceledDaysRemaining": "Gekündigt - {days} Tage verbleibend",
+      "canceledActiveUntilEnd": "Gekündigt - Aktiv bis Periodenende",
+      "pro": "Pro"
+    },
+    "noDescriptionAvailable": "Keine Beschreibung verfügbar",
+    "selectSubjectToViewCourses": "Wählen Sie ein Fach aus, um dessen Kurse anzuzeigen.",
+    "manageCoursesForSubject": "Manage courses for",
+    "manageYourCourses": "Manage your courses and learning materials.",
+    "by": "by",
+    "admin": {
+      "dashboard": "Dashboard",
+      "overviewAndAnalytics": "Overview and analytics",
+      "coursesAndSubjects": "Courses & Subjects",
+      "manageCoursesAndSubjects": "Manage courses and subjects",
+      "mediaManagement": "Media Management",
+      "manageAllMediaFiles": "Manage all media files",
+      "blogs": "Blogs",
+      "createAndManageBlogPosts": "Create and manage blog posts",
+      "marketing": "Marketing",
+      "emailCampaignsSubscribers": "Email campaigns & subscribers",
+      "users": "Users",
+      "userManagement": "User management",
+      "coupons": "Coupons",
+      "manageDiscountCoupons": "Manage discount coupons",
+      "adminPanel": "Admin Panel",
+      "managementConsole": "Management Console"
+    }
   },
   "errors": {
     "oops": "Ups!",
@@ -33,7 +112,9 @@
     }
   },
   "footer": {
-    "selectLanguage": "Sprache auswählen"
+    "selectLanguage": "Sprache auswählen",
+    "termsOfUse": "Nutzungsbedingungen",
+    "contactUs": "Kontaktieren Sie uns"
   },
   "auth": {
     "signIn": "Anmelden",
@@ -63,7 +144,18 @@
     "profileDetails": "Profildetails",
     "noSubscription": "Kein Abonnement",
     "myDocuments": "Meine Dokumente",
-    "myAccount": "Mein Konto"
+    "myAccount": "Mein Konto",
+    "course": "Kurs",
+    "auctions": "Auktionen",
+    "contactUs": "Kontaktieren Sie uns",
+    "blogs": "Blogs",
+    "dashboard": "Dashboard",
+    "settings": "Einstellungen",
+    "adminPanel": "Administrationsbereich",
+    "logout": "Abmelden",
+    "menu": "Menü",
+    "welcomeBack": "Willkommen zurück!",
+    "user": "Benutzer"
   },
   "hero": {
     "badge": "Mitglieder zuerst · Private Tools · Globale Reichweite",
@@ -166,12 +258,20 @@
       "audience": {
         "title": "Ihre Zielgruppe aufbauen",
         "description": "Leser-Magnet + MailerLite-Integration baut automatisch Ihre E-Mail-Liste auf.",
-        "features": ["Lead-Magnete", "E-Mail-Automatisierung", "Zielgruppen-Analysen"]
+        "features": [
+          "Lead-Magnete",
+          "E-Mail-Automatisierung",
+          "Zielgruppen-Analysen"
+        ]
       },
       "sales": {
         "title": "Direkt verkaufen",
         "description": "Verbinden Sie Ihren Shop; WordToWallet liefert Dateien direkt an Käufer.",
-        "features": ["Direktverkauf", "Dateilieferung", "Kundenverwaltung"]
+        "features": [
+          "Direktverkauf",
+          "Dateilieferung",
+          "Kundenverwaltung"
+        ]
       }
     }
   },
@@ -458,7 +558,7 @@
     }
   },
   "books": {
-    "title": "Bücher",
+    "title": "Titel",
     "subtitle": "Verwalten Sie Ihre EPUB-Bücher und erstellen Sie ARC-Kampagnen",
     "uploadBook": "Buch hochladen",
     "totalBooks": "Gesamt Bücher",
@@ -471,7 +571,6 @@
     "dragDropFile": "Ziehen Sie Ihre EPUB-Datei hierher",
     "browse": "durchsuchen",
     "epubOnly": "Nur EPUB-Dateien",
-    "title": "Titel",
     "author": "Autor",
     "description": "Beschreibung",
     "isbn": "ISBN",

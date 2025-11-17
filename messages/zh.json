@@ -3,7 +3,86 @@
     "loading": "加载中...",
     "error": "错误",
     "configNotFound": "未找到主页配置。",
-    "home": "首页"
+    "home": "首页",
+    "goToDashboard": "前往仪表板",
+    "backToDashboard": "返回仪表板",
+    "allCourses": "所有课程",
+    "browseCourses": "浏览课程",
+    "errorLoadingCourses": "加载课程错误",
+    "backToBlogs": "返回博客",
+    "accountSettings": "账户设置",
+    "accountType": "账户类型",
+    "administrator": "管理员",
+    "standardUser": "标准用户",
+    "notProvided": "未提供",
+    "tryAgain": "重试",
+    "blogNotFound": "找不到博客",
+    "browseSubjects": "浏览科目",
+    "selectSubject": "选择科目以查看其课程",
+    "exploreCourses": "探索课程",
+    "personalInformation": "个人信息",
+    "name": "姓名",
+    "email": "电子邮件",
+    "subjects": "科目",
+    "noSubjectsFound": "未找到科目",
+    "unknownSubject": "未知科目",
+    "untitledCourse": "未命名课程",
+    "searchCourses": "搜索课程...",
+    "loadingCourses": "加载课程中...",
+    "courses": "课程",
+    "of": "的",
+    "inThisSubject": "在此科目中",
+    "exploreAllAvailableCourses": "探索所有可用课程",
+    "noCoursesFound": "未找到课程",
+    "noCoursesInSubject": "没有课程",
+    "noCoursesAvailable": "没有可用课程",
+    "noCoursesInSubjectDesc": "此科目还没有已发布的课程",
+    "noCoursesAvailableDesc": "目前没有已发布的课程",
+    "viewAllCourses": "查看所有课程",
+    "refresh": "刷新",
+    "availableCourses": "可用课程",
+    "coursesAvailableToStart": "课程可开始学习",
+    "filteredBySubject": "（按科目筛选）",
+    "viewAll": "查看全部",
+    "filterBySubject": "按科目筛选：",
+    "clearFilter": "清除筛选",
+    "noCoursesFoundForSubject": "此科目未找到课程",
+    "noCoursesFoundForSubjectDesc": "尝试选择其他科目或清除筛选以查看所有课程。",
+    "noCoursesAvailableDesc2": "目前没有已发布的课程。请稍后再查看新内容。",
+    "tryAdjustingSearch": "尝试调整搜索词",
+    "subscription": {
+      "noSubscription": "无订阅",
+      "trialActive": "试用中",
+      "trialExpired": "试用已过期",
+      "subscriptionCanceled": "订阅已取消",
+      "trialDaysRemaining": "试用：剩余 {days} 天",
+      "canceledDaysRemaining": "已取消 - 剩余 {days} 天",
+      "canceledActiveUntilEnd": "已取消 - 在期间结束前仍有效",
+      "pro": "专业版"
+    },
+    "noDescriptionAvailable": "无描述",
+    "selectSubjectToViewCourses": "选择科目以查看其课程。",
+    "manageCoursesForSubject": "Manage courses for",
+    "manageYourCourses": "Manage your courses and learning materials.",
+    "by": "by",
+    "admin": {
+      "dashboard": "Dashboard",
+      "overviewAndAnalytics": "Overview and analytics",
+      "coursesAndSubjects": "Courses & Subjects",
+      "manageCoursesAndSubjects": "Manage courses and subjects",
+      "mediaManagement": "Media Management",
+      "manageAllMediaFiles": "Manage all media files",
+      "blogs": "Blogs",
+      "createAndManageBlogPosts": "Create and manage blog posts",
+      "marketing": "Marketing",
+      "emailCampaignsSubscribers": "Email campaigns & subscribers",
+      "users": "Users",
+      "userManagement": "User management",
+      "coupons": "Coupons",
+      "manageDiscountCoupons": "Manage discount coupons",
+      "adminPanel": "Admin Panel",
+      "managementConsole": "Management Console"
+    }
   },
   "errors": {
     "oops": "糟糕！",
@@ -33,7 +112,9 @@
     }
   },
   "footer": {
-    "selectLanguage": "选择语言"
+    "selectLanguage": "选择语言",
+    "termsOfUse": "使用条款",
+    "contactUs": "联系我们"
   },
   "auth": {
     "signIn": "登录",
@@ -63,7 +144,18 @@
     "profileDetails": "个人资料详情",
     "noSubscription": "无订阅",
     "myDocuments": "我的文档",
-    "myAccount": "我的账户"
+    "myAccount": "我的账户",
+    "course": "课程",
+    "auctions": "拍卖",
+    "contactUs": "联系我们",
+    "blogs": "博客",
+    "dashboard": "仪表板",
+    "settings": "设置",
+    "adminPanel": "管理面板",
+    "logout": "登出",
+    "menu": "菜单",
+    "welcomeBack": "欢迎回来",
+    "user": "用户"
   },
   "hero": {
     "badge": "会员优先 · 私有工具 · 全球覆盖",
@@ -166,12 +258,20 @@
       "audience": {
         "title": "建立您的受众",
         "description": "读者磁铁+MailerLite集成自动建立您的电子邮件列表。",
-        "features": ["潜在客户磁铁", "电子邮件自动化", "受众分析"]
+        "features": [
+          "潜在客户磁铁",
+          "电子邮件自动化",
+          "受众分析"
+        ]
       },
       "sales": {
         "title": "直接销售",
         "description": "连接您的商店；WordToWallet直接将文件交付给买家。",
-        "features": ["直接销售", "文件交付", "客户管理"]
+        "features": [
+          "直接销售",
+          "文件交付",
+          "客户管理"
+        ]
       }
     }
   },
@@ -458,7 +558,7 @@
     }
   },
   "books": {
-    "title": "书籍",
+    "title": "标题",
     "subtitle": "管理您的EPUB书籍并创建ARC活动",
     "uploadBook": "上传书籍",
     "totalBooks": "总书籍数",
@@ -471,7 +571,6 @@
     "dragDropFile": "将您的EPUB文件拖放到此处",
     "browse": "浏览",
     "epubOnly": "仅EPUB文件",
-    "title": "标题",
     "author": "作者",
     "description": "描述",
     "isbn": "ISBN",

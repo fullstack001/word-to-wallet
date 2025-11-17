@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { motion } from "framer-motion";
 import { useSelector } from "react-redux";
+import { useTranslations } from "next-intl";
 import { useLocalizedNavigation } from "@/utils/navigation";
 import {
   BookOpenIcon,
@@ -31,6 +32,7 @@ import {
 
 export default function CoursePage() {
   const { navigate } = useLocalizedNavigation();
+  const t = useTranslations();
   const isLoggedIn = useSelector((state: RootState) => state.auth.isLoggedIn);
 
   const [subjects, setSubjects] = useState<Subject[]>([]);
@@ -152,7 +154,7 @@ export default function CoursePage() {
             <XMarkIcon className="w-8 h-8 text-red-600" />
           </div>
           <h2 className="text-2xl font-bold text-gray-900 mb-2">
-            Error Loading Courses
+            {t("common.errorLoadingCourses")}
           </h2>
           <p className="text-gray-600 mb-6">{error}</p>
           <button
@@ -163,7 +165,7 @@ export default function CoursePage() {
             }}
             className="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors"
           >
-            Try Again
+            {t("common.tryAgain")}
           </button>
         </div>
       </div>
@@ -183,15 +185,15 @@ export default function CoursePage() {
                 className="flex items-center space-x-1 text-gray-600 hover:text-purple-600 transition-colors"
               >
                 <HomeIcon className="w-4 h-4" />
-                <span>Dashboard</span>
+                <span>{t("navbar.dashboard")}</span>
               </button>
               <ChevronRightIcon className="w-4 h-4 text-gray-400" />
               <span className="text-gray-900 font-medium">
                 {currentView === "subjects"
                   ? "Subjects"
                   : selectedSubject
-                  ? `${selectedSubject.name} Courses`
-                  : "All Courses"}
+                  ? `${selectedSubject.name} ${t("navbar.course")}s`
+                  : t("common.allCourses")}
               </span>
             </nav>
           </div>
@@ -203,22 +205,22 @@ export default function CoursePage() {
                 className="flex items-center space-x-2 px-4 py-2 text-gray-600 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-colors"
               >
                 <ArrowRightIcon className="w-5 h-5 rotate-180" />
-                <span className="font-medium">Back to Dashboard</span>
+                <span className="font-medium">{t("common.backToDashboard")}</span>
               </button>
               <div className="border-l border-gray-200 pl-4">
                 <h1 className="text-2xl font-bold text-gray-900">
                   {currentView === "subjects"
-                    ? "Browse Subjects"
+                    ? t("common.browseSubjects")
                     : selectedSubject
-                    ? `${selectedSubject.name} Courses`
-                    : "Browse Courses"}
+                    ? `${selectedSubject.name} ${t("navbar.course")}s`
+                    : t("common.browseCourses")}
                 </h1>
                 <p className="text-gray-600">
                   {currentView === "subjects"
-                    ? "Select a subject to view its courses"
+                    ? t("common.selectSubject")
                     : selectedSubject
-                    ? `Explore courses in ${selectedSubject.name}`
-                    : "Explore all available courses"}
+                    ? `${t("common.exploreCourses")} ${selectedSubject.name}`
+                    : t("common.exploreAllAvailableCourses")}
                 </p>
               </div>
             </div>
@@ -281,7 +283,7 @@ export default function CoursePage() {
                         </h3>
 
                         <p className="text-sm text-gray-600 mb-4">
-                          {subject.description || "No description available"}
+                          {subject.description || t("common.noDescriptionAvailable")}
                         </p>
 
                         <div className="flex items-center justify-end">
@@ -304,11 +306,11 @@ export default function CoursePage() {
                   <h2 className="text-xl font-semibold text-gray-900">
                     {selectedSubject
                       ? `${selectedSubject.name} Courses`
-                      : "All Courses"}
+                      : t("common.allCourses")}
                   </h2>
                   <p className="text-sm text-gray-600 mt-1">
-                    {filteredCourses.length} of {courses.length} courses
-                    {selectedSubject && " in this subject"}
+                    {filteredCourses.length} {t("common.of")} {courses.length} {t("common.courses")}
+                    {selectedSubject && ` ${t("common.inThisSubject")}`}
                   </p>
                 </div>
               </div>
@@ -318,7 +320,7 @@ export default function CoursePage() {
                 <MagnifyingGlassIcon className="w-5 h-5 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
                 <input
                   type="text"
-                  placeholder="Search courses..."
+                  placeholder={t("common.searchCourses")}
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
@@ -340,7 +342,7 @@ export default function CoursePage() {
                 <div className="flex items-center justify-center py-12">
                   <div className="text-center">
                     <div className="w-8 h-8 border-4 border-purple-600 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-                    <p className="text-gray-600">Loading courses...</p>
+                    <p className="text-gray-600">{t("common.loadingCourses")}</p>
                   </div>
                 </div>
               ) : filteredCourses.length > 0 ? (
@@ -373,7 +375,7 @@ export default function CoursePage() {
                         <div className="absolute top-4 right-4">
                           <div className="bg-white/90 backdrop-blur-sm rounded-full px-3 py-1">
                             <span className="text-sm font-medium text-gray-900">
-                              {course.subject?.name || "Unknown Subject"}
+                              {course.subject?.name || t("common.unknownSubject")}
                             </span>
                           </div>
                         </div>
@@ -382,15 +384,15 @@ export default function CoursePage() {
                       {/* Course Info */}
                       <div className="p-6">
                         <h3 className="text-lg font-semibold text-gray-900 line-clamp-2 mb-2">
-                          {course.title || "Untitled Course"}
+                          {course.title || t("common.untitledCourse")}
                         </h3>
                         <p className="text-gray-600 text-sm line-clamp-2 mb-4">
-                          {course.description || "No description available"}
+                          {course.description || t("common.noDescriptionAvailable")}
                         </p>
                         <div className="flex items-center justify-between">
                           <div className="flex items-center space-x-2 text-sm text-gray-500">
                             <span>
-                              by {course.createdBy?.firstName || "James"}{" "}
+                              {t("common.by")} {course.createdBy?.firstName || "James"}{" "}
                               {course.createdBy?.lastName || "Musgrave"}
                             </span>
                           </div>
@@ -407,17 +409,17 @@ export default function CoursePage() {
                   <BookOpenIcon className="w-16 h-16 text-gray-400 mx-auto mb-4" />
                   <h3 className="text-lg font-medium text-gray-900 mb-2">
                     {searchQuery
-                      ? "No courses found"
+                      ? t("common.noCoursesFound")
                       : selectedSubject
-                      ? `No courses in ${selectedSubject.name}`
-                      : "No courses available"}
+                      ? `${t("common.noCoursesInSubject")} ${selectedSubject.name}`
+                      : t("common.noCoursesAvailable")}
                   </h3>
                   <p className="text-gray-600 mb-4">
                     {searchQuery
-                      ? "Try adjusting your search terms"
+                      ? t("common.tryAdjustingSearch")
                       : selectedSubject
-                      ? "This subject doesn't have any published courses yet"
-                      : "There are currently no published courses available"}
+                      ? t("common.noCoursesInSubjectDesc")
+                      : t("common.noCoursesAvailableDesc")}
                   </p>
                   {searchQuery && (
                     <button

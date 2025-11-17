@@ -3,7 +3,86 @@
     "loading": "Načítání...",
     "error": "Chyba",
     "configNotFound": "Konfigurace pro domovskou stránku nebyla nalezena.",
-    "home": "Domů"
+    "home": "Domů",
+    "goToDashboard": "Přejít na Nástěnku",
+    "backToDashboard": "Zpět na Nástěnku",
+    "allCourses": "Všechny Kurzy",
+    "browseCourses": "Procházet Kurzy",
+    "errorLoadingCourses": "Chyba při Načítání Kurzů",
+    "backToBlogs": "Zpět na Blog",
+    "accountSettings": "Nastavení Účtu",
+    "accountType": "Typ Účtu",
+    "administrator": "Správce",
+    "standardUser": "Standardní Uživatel",
+    "notProvided": "Neposkytnuto",
+    "tryAgain": "Zkusit Znovu",
+    "blogNotFound": "Blog nenalezen",
+    "browseSubjects": "Procházet Předměty",
+    "selectSubject": "Vyberte předmět pro zobrazení jeho kurzů",
+    "exploreCourses": "Prozkoumat kurzy v",
+    "personalInformation": "Osobní Informace",
+    "name": "Jméno",
+    "email": "E-mail",
+    "subjects": "Předměty",
+    "noSubjectsFound": "Nebyly nalezeny žádné předměty",
+    "unknownSubject": "Neznámý Předmět",
+    "untitledCourse": "Kurz bez Názvu",
+    "searchCourses": "Hledat kurzy...",
+    "loadingCourses": "Načítání kurzů...",
+    "courses": "kurzy",
+    "of": "z",
+    "inThisSubject": "v tomto předmětu",
+    "exploreAllAvailableCourses": "Prozkoumat všechny dostupné kurzy",
+    "noCoursesFound": "Nebyly nalezeny žádné kurzy",
+    "noCoursesInSubject": "Žádné kurzy v",
+    "noCoursesAvailable": "Žádné kurzy k dispozici",
+    "noCoursesInSubjectDesc": "Tento předmět ještě nemá žádné publikované kurzy",
+    "noCoursesAvailableDesc": "V současné době nejsou k dispozici žádné publikované kurzy",
+    "viewAllCourses": "Zobrazit Všechny Kurzy",
+    "refresh": "Obnovit",
+    "availableCourses": "Dostupné Kurzy",
+    "coursesAvailableToStart": "kurzy dostupné k zahájení učení",
+    "filteredBySubject": "(filtrováno podle předmětu)",
+    "viewAll": "Zobrazit Vše",
+    "filterBySubject": "Filtrovat podle Předmětu:",
+    "clearFilter": "Vymazat Filtr",
+    "noCoursesFoundForSubject": "Pro tento předmět nebyly nalezeny žádné kurzy",
+    "noCoursesFoundForSubjectDesc": "Zkuste vybrat jiný předmět nebo vymazat filtr, abyste viděli všechny kurzy.",
+    "noCoursesAvailableDesc2": "V současné době nejsou k dispozici žádné publikované kurzy. Zkuste to později pro nový obsah.",
+    "tryAdjustingSearch": "Zkuste upravit své vyhledávací termíny",
+    "subscription": {
+      "noSubscription": "Bez Předplatného",
+      "trialActive": "Zkušební Období Aktivní",
+      "trialExpired": "Zkušební Období Vypršelo",
+      "subscriptionCanceled": "Předplatné Zrušeno",
+      "trialDaysRemaining": "Zkušební období: {days} dní zbývá",
+      "canceledDaysRemaining": "Zrušeno - {days} dní zbývá",
+      "canceledActiveUntilEnd": "Zrušeno - Aktivní do konce období",
+      "pro": "Pro"
+    },
+    "noDescriptionAvailable": "Popis není k dispozici",
+    "selectSubjectToViewCourses": "Vyberte předmět pro zobrazení jeho kurzů.",
+    "manageCoursesForSubject": "Manage courses for",
+    "manageYourCourses": "Manage your courses and learning materials.",
+    "by": "by",
+    "admin": {
+      "dashboard": "Dashboard",
+      "overviewAndAnalytics": "Overview and analytics",
+      "coursesAndSubjects": "Courses & Subjects",
+      "manageCoursesAndSubjects": "Manage courses and subjects",
+      "mediaManagement": "Media Management",
+      "manageAllMediaFiles": "Manage all media files",
+      "blogs": "Blogs",
+      "createAndManageBlogPosts": "Create and manage blog posts",
+      "marketing": "Marketing",
+      "emailCampaignsSubscribers": "Email campaigns & subscribers",
+      "users": "Users",
+      "userManagement": "User management",
+      "coupons": "Coupons",
+      "manageDiscountCoupons": "Manage discount coupons",
+      "adminPanel": "Admin Panel",
+      "managementConsole": "Management Console"
+    }
   },
   "errors": {
     "oops": "Ups!",
@@ -33,7 +112,9 @@
     }
   },
   "footer": {
-    "selectLanguage": "Vybrat jazyk"
+    "selectLanguage": "Vybrat jazyk",
+    "termsOfUse": "Podmínky Použití",
+    "contactUs": "Kontaktujte Nás"
   },
   "auth": {
     "signIn": "Přihlásit se",
@@ -63,7 +144,18 @@
     "profileDetails": "Detaily profilu",
     "noSubscription": "Žádné předplatné",
     "myDocuments": "Moje dokumenty",
-    "myAccount": "Můj účet"
+    "myAccount": "Můj účet",
+    "course": "Kurz",
+    "auctions": "Aukce",
+    "contactUs": "Kontaktujte Nás",
+    "blogs": "Blogy",
+    "dashboard": "Nástěnka",
+    "settings": "Nastavení",
+    "adminPanel": "Administrátorský Panel",
+    "logout": "Odhlásit se",
+    "menu": "Menu",
+    "welcomeBack": "Vítejte zpět!",
+    "user": "Uživatel"
   },
   "hero": {
     "badge": "Členové na prvním místě · Soukromé nástroje · Globální dosah",
@@ -175,7 +267,11 @@
       "sales": {
         "title": "Prodávejte přímo",
         "description": "Připojte svůj obchod; WordToWallet doručuje soubory přímo kupujícím.",
-        "features": ["Přímý prodej", "Doručení souborů", "Správa zákazníků"]
+        "features": [
+          "Přímý prodej",
+          "Doručení souborů",
+          "Správa zákazníků"
+        ]
       }
     }
   },
@@ -462,7 +558,7 @@
     }
   },
   "books": {
-    "title": "Knihy",
+    "title": "Název",
     "subtitle": "Spravujte své EPUB knihy a vytvářejte ARC kampaně",
     "uploadBook": "Nahrát knihu",
     "totalBooks": "Celkem knih",
@@ -475,7 +571,6 @@
     "dragDropFile": "Přetáhněte svůj EPUB soubor sem",
     "browse": "procházet",
     "epubOnly": "Pouze EPUB soubory",
-    "title": "Název",
     "author": "Autor",
     "description": "Popis",
     "isbn": "ISBN",

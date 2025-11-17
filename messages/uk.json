@@ -3,7 +3,86 @@
     "loading": "Завантаження...",
     "error": "Помилка",
     "configNotFound": "Конфігурацію для головної сторінки не знайдено.",
-    "home": "Головна"
+    "home": "Головна",
+    "goToDashboard": "Перейти до Панелі",
+    "backToDashboard": "Повернутися до Панелі",
+    "allCourses": "Всі Курси",
+    "browseCourses": "Переглянути Курси",
+    "errorLoadingCourses": "Помилка Завантаження Курсів",
+    "backToBlogs": "Повернутися до Блогів",
+    "accountSettings": "Налаштування Облікового Запису",
+    "accountType": "Тип Облікового Запису",
+    "administrator": "Адміністратор",
+    "standardUser": "Стандартний Користувач",
+    "notProvided": "Не надано",
+    "tryAgain": "Спробувати Знову",
+    "blogNotFound": "Блог не знайдено",
+    "browseSubjects": "Переглянути Предмети",
+    "selectSubject": "Виберіть предмет, щоб переглянути його курси",
+    "exploreCourses": "Дослідити курси в",
+    "personalInformation": "Особиста Інформація",
+    "name": "Ім'я",
+    "email": "Електронна Пошта",
+    "subjects": "Предмети",
+    "noSubjectsFound": "Предмети не знайдено",
+    "unknownSubject": "Невідомий Предмет",
+    "untitledCourse": "Курс без Назви",
+    "searchCourses": "Пошук курсів...",
+    "loadingCourses": "Завантаження курсів...",
+    "courses": "курси",
+    "of": "з",
+    "inThisSubject": "з цього предмета",
+    "exploreAllAvailableCourses": "Дослідіть всі доступні курси",
+    "noCoursesFound": "Курси не знайдено",
+    "noCoursesInSubject": "Немає курсів у",
+    "noCoursesAvailable": "Немає доступних курсів",
+    "noCoursesInSubjectDesc": "Цей предмет ще не має опублікованих курсів",
+    "noCoursesAvailableDesc": "Наразі немає доступних опублікованих курсів",
+    "viewAllCourses": "Переглянути Всі Курси",
+    "refresh": "Оновити",
+    "availableCourses": "Доступні Курси",
+    "coursesAvailableToStart": "курси доступні для початку навчання",
+    "filteredBySubject": "(відфільтровано за предметом)",
+    "viewAll": "Переглянути Все",
+    "filterBySubject": "Фільтрувати за Предметом:",
+    "clearFilter": "Очистити Фільтр",
+    "noCoursesFoundForSubject": "Курси для цього предмета не знайдено",
+    "noCoursesFoundForSubjectDesc": "Спробуйте вибрати інший предмет або очистіть фільтр, щоб побачити всі курси.",
+    "noCoursesAvailableDesc2": "Наразі немає доступних опублікованих курсів. Перевірте пізніше для нового контенту.",
+    "tryAdjustingSearch": "Спробуйте налаштувати свої пошукові терміни",
+    "subscription": {
+      "noSubscription": "Без Підписки",
+      "trialActive": "Пробний Період Активний",
+      "trialExpired": "Пробний Період Закінчився",
+      "subscriptionCanceled": "Підписка Скасована",
+      "trialDaysRemaining": "Пробний період: залишилось {days} днів",
+      "canceledDaysRemaining": "Скасовано - залишилось {days} днів",
+      "canceledActiveUntilEnd": "Скасовано - Активна до кінця періоду",
+      "pro": "Про"
+    },
+    "noDescriptionAvailable": "Опис недоступний",
+    "selectSubjectToViewCourses": "Виберіть предмет, щоб переглянути його курси.",
+    "manageCoursesForSubject": "Manage courses for",
+    "manageYourCourses": "Manage your courses and learning materials.",
+    "by": "by",
+    "admin": {
+      "dashboard": "Dashboard",
+      "overviewAndAnalytics": "Overview and analytics",
+      "coursesAndSubjects": "Courses & Subjects",
+      "manageCoursesAndSubjects": "Manage courses and subjects",
+      "mediaManagement": "Media Management",
+      "manageAllMediaFiles": "Manage all media files",
+      "blogs": "Blogs",
+      "createAndManageBlogPosts": "Create and manage blog posts",
+      "marketing": "Marketing",
+      "emailCampaignsSubscribers": "Email campaigns & subscribers",
+      "users": "Users",
+      "userManagement": "User management",
+      "coupons": "Coupons",
+      "manageDiscountCoupons": "Manage discount coupons",
+      "adminPanel": "Admin Panel",
+      "managementConsole": "Management Console"
+    }
   },
   "errors": {
     "oops": "Упс!",
@@ -33,7 +112,9 @@
     }
   },
   "footer": {
-    "selectLanguage": "Виберіть мову"
+    "selectLanguage": "Виберіть мову",
+    "termsOfUse": "Умови Використання",
+    "contactUs": "Зв'яжіться з Нами"
   },
   "auth": {
     "signIn": "Увійти",
@@ -63,7 +144,18 @@
     "profileDetails": "Деталі профілю",
     "noSubscription": "Немає підписки",
     "myDocuments": "Мої документи",
-    "myAccount": "Мій обліковий запис"
+    "myAccount": "Мій обліковий запис",
+    "course": "Курс",
+    "auctions": "Аукціони",
+    "contactUs": "Зв'яжіться з Нами",
+    "blogs": "Блоги",
+    "dashboard": "Панель",
+    "settings": "Налаштування",
+    "adminPanel": "Панель Адміністратора",
+    "logout": "Вийти",
+    "menu": "Меню",
+    "welcomeBack": "Ласкаво просимо назад!",
+    "user": "Користувач"
   },
   "hero": {
     "badge": "Члени перші · Приватні інструменти · Глобальний охоплення",
@@ -166,12 +258,20 @@
       "audience": {
         "title": "Створіть свою аудиторію",
         "description": "Магніт читачів + інтеграція MailerLite автоматично створює ваш список електронної пошти.",
-        "features": ["Магніти потенційних клієнтів", "Автоматизація електронної пошти", "Аналітика аудиторії"]
+        "features": [
+          "Магніти потенційних клієнтів",
+          "Автоматизація електронної пошти",
+          "Аналітика аудиторії"
+        ]
       },
       "sales": {
         "title": "Продавайте безпосередньо",
         "description": "Підключіть свій магазин; WordToWallet доставляє файли безпосередньо покупцям.",
-        "features": ["Прямий продаж", "Доставка файлів", "Управління клієнтами"]
+        "features": [
+          "Прямий продаж",
+          "Доставка файлів",
+          "Управління клієнтами"
+        ]
       }
     }
   },
@@ -458,7 +558,7 @@
     }
   },
   "books": {
-    "title": "Книги",
+    "title": "Назва",
     "subtitle": "Керуйте своїми EPUB книгами та створюйте ARC кампанії",
     "uploadBook": "Завантажити книгу",
     "totalBooks": "Всього книг",
@@ -471,7 +571,6 @@
     "dragDropFile": "Перетягніть та відпустіть ваш EPUB файл сюди",
     "browse": "переглянути",
     "epubOnly": "Тільки EPUB файли",
-    "title": "Назва",
     "author": "Автор",
     "description": "Опис",
     "isbn": "ISBN",

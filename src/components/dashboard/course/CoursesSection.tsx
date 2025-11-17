@@ -2,6 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 import { ArrowRightIcon } from "@heroicons/react/24/outline";
 import CourseCard from "./CourseCard";
 
@@ -53,6 +54,7 @@ export default function CoursesSection({
   onSubjectClick,
   onClearFilter,
 }: CoursesSectionProps) {
+  const t = useTranslations();
   const recentCourses = courses.slice(0, 4);
   const inProgressCourses = courses.filter(
     (course) => course.progress && course.progress > 0 && course.progress < 100
@@ -71,15 +73,14 @@ export default function CoursesSection({
           <div className="flex items-center justify-between mb-4">
             <div>
               <h2 className="text-xl font-semibold text-gray-900">
-                Available Courses
+                {t("common.availableCourses")}
               </h2>
               <p className="text-sm text-gray-600 mt-1">
-                {courses.length} of {allCourses.length} courses available to
-                start learning
+                {courses.length} {t("common.of")} {allCourses.length} {t("common.coursesAvailableToStart")}
                 {selectedSubject && (
                   <span className="text-purple-600 font-medium">
                     {" "}
-                    (filtered by subject)
+                    {t("common.filteredBySubject")}
                   </span>
                 )}
               </p>
@@ -88,7 +89,7 @@ export default function CoursesSection({
               onClick={onViewAllCourses}
               className="text-purple-600 hover:text-purple-700 text-sm font-medium flex items-center space-x-1"
             >
-              <span>View All</span>
+              <span>{t("common.viewAll")}</span>
               <ArrowRightIcon className="w-4 h-4" />
             </button>
           </div>
@@ -98,14 +99,14 @@ export default function CoursesSection({
             <div className="mb-4">
               <div className="flex items-center justify-between mb-3">
                 <h3 className="text-sm font-medium text-gray-700">
-                  Filter by Subject:
+                  {t("common.filterBySubject")}
                 </h3>
                 {selectedSubject && (
                   <button
                     onClick={onClearFilter}
                     className="text-xs text-gray-500 hover:text-gray-700 underline"
                   >
-                    Clear filter
+                    {t("common.clearFilter")}
                   </button>
                 )}
               </div>
@@ -157,13 +158,13 @@ export default function CoursesSection({
               </div>
               <h3 className="text-lg font-medium text-gray-900 mb-2">
                 {selectedSubject
-                  ? "No courses found for this subject"
-                  : "No courses available"}
+                  ? t("common.noCoursesFoundForSubject")
+                  : t("common.noCoursesAvailable")}
               </h3>
               <p className="text-gray-600 mb-4">
                 {selectedSubject
-                  ? "Try selecting a different subject or clear the filter to see all courses."
-                  : "There are currently no published courses available. Check back later for new content."}
+                  ? t("common.noCoursesFoundForSubjectDesc")
+                  : t("common.noCoursesAvailableDesc2")}
               </p>
               <div className="flex gap-3 justify-center">
                 {selectedSubject && (
@@ -171,14 +172,14 @@ export default function CoursesSection({
                     onClick={onClearFilter}
                     className="px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors"
                   >
-                    Clear Filter
+                    {t("common.clearFilter")}
                   </button>
                 )}
                 <button
                   onClick={onViewAllCourses}
                   className="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors"
                 >
-                  {selectedSubject ? "View All Courses" : "Refresh"}
+                  {selectedSubject ? t("common.viewAllCourses") : t("common.refresh")}
                 </button>
               </div>
             </div>

@@ -3,7 +3,86 @@
     "loading": "Ladataan...",
     "error": "Virhe",
     "configNotFound": "Konfiguraatiota ei löytynyt etusivulle.",
-    "home": "Etusivu"
+    "home": "Etusivu",
+    "goToDashboard": "Siirry Koontinäyttöön",
+    "backToDashboard": "Takaisin Koontinäyttöön",
+    "allCourses": "Kaikki Kurssit",
+    "browseCourses": "Selaa Kursseja",
+    "errorLoadingCourses": "Virhe Kurssien Lataamisessa",
+    "backToBlogs": "Takaisin Blogeihin",
+    "accountSettings": "Tilin Asetukset",
+    "accountType": "Tilin Tyyppi",
+    "administrator": "Järjestelmänvalvoja",
+    "standardUser": "Vakio Käyttäjä",
+    "notProvided": "Ei annettu",
+    "tryAgain": "Yritä Uudelleen",
+    "blogNotFound": "Blogia ei löytynyt",
+    "browseSubjects": "Selaa Aiheita",
+    "selectSubject": "Valitse aihe nähdäksesi sen kurssit",
+    "exploreCourses": "Tutki kursseja",
+    "personalInformation": "Henkilökohtaiset Tiedot",
+    "name": "Nimi",
+    "email": "Sähköposti",
+    "subjects": "Aiheet",
+    "noSubjectsFound": "Aiheita ei löytynyt",
+    "unknownSubject": "Tuntematon Aihe",
+    "untitledCourse": "Kurssi ilman Otsikkoa",
+    "searchCourses": "Etsi kursseja...",
+    "loadingCourses": "Ladataan kursseja...",
+    "courses": "kurssit",
+    "of": "kaikista",
+    "inThisSubject": "tässä aiheessa",
+    "exploreAllAvailableCourses": "Tutki kaikkia saatavilla olevia kursseja",
+    "noCoursesFound": "Kursseja ei löytynyt",
+    "noCoursesInSubject": "Ei kursseja",
+    "noCoursesAvailable": "Ei kursseja saatavilla",
+    "noCoursesInSubjectDesc": "Tällä aiheella ei ole vielä julkaistuja kursseja",
+    "noCoursesAvailableDesc": "Tällä hetkellä ei ole julkaistuja kursseja saatavilla",
+    "viewAllCourses": "Näytä Kaikki Kurssit",
+    "refresh": "Päivitä",
+    "availableCourses": "Saatavilla Olevat Kurssit",
+    "coursesAvailableToStart": "kursseja saatavilla oppimisen aloittamiseen",
+    "filteredBySubject": "(suodatettu aiheen mukaan)",
+    "viewAll": "Näytä Kaikki",
+    "filterBySubject": "Suodata Aiheen Mukaan:",
+    "clearFilter": "Tyhjennä Suodatin",
+    "noCoursesFoundForSubject": "Tälle aiheelle ei löytynyt kursseja",
+    "noCoursesFoundForSubjectDesc": "Yritä valita toinen aihe tai tyhjennä suodatin nähdäksesi kaikki kurssit.",
+    "noCoursesAvailableDesc2": "Tällä hetkellä ei ole julkaistuja kursseja saatavilla. Tarkista myöhemmin uutta sisältöä varten.",
+    "tryAdjustingSearch": "Yritä säätää hakuehtojasi",
+    "subscription": {
+      "noSubscription": "Ei Tilausta",
+      "trialActive": "Kokeilujakso Aktiivinen",
+      "trialExpired": "Kokeilujakso Päättynyt",
+      "subscriptionCanceled": "Tilaus Peruutettu",
+      "trialDaysRemaining": "Kokeilujakso: {days} päivää jäljellä",
+      "canceledDaysRemaining": "Peruutettu - {days} päivää jäljellä",
+      "canceledActiveUntilEnd": "Peruutettu - Aktiivinen jakson loppuun asti",
+      "pro": "Pro"
+    },
+    "noDescriptionAvailable": "Kuvausta ei saatavilla",
+    "selectSubjectToViewCourses": "Valitse aihe nähdäksesi sen kurssit.",
+    "manageCoursesForSubject": "Manage courses for",
+    "manageYourCourses": "Manage your courses and learning materials.",
+    "by": "by",
+    "admin": {
+      "dashboard": "Dashboard",
+      "overviewAndAnalytics": "Overview and analytics",
+      "coursesAndSubjects": "Courses & Subjects",
+      "manageCoursesAndSubjects": "Manage courses and subjects",
+      "mediaManagement": "Media Management",
+      "manageAllMediaFiles": "Manage all media files",
+      "blogs": "Blogs",
+      "createAndManageBlogPosts": "Create and manage blog posts",
+      "marketing": "Marketing",
+      "emailCampaignsSubscribers": "Email campaigns & subscribers",
+      "users": "Users",
+      "userManagement": "User management",
+      "coupons": "Coupons",
+      "manageDiscountCoupons": "Manage discount coupons",
+      "adminPanel": "Admin Panel",
+      "managementConsole": "Management Console"
+    }
   },
   "errors": {
     "oops": "Hups!",
@@ -33,7 +112,9 @@
     }
   },
   "footer": {
-    "selectLanguage": "Valitse kieli"
+    "selectLanguage": "Valitse kieli",
+    "termsOfUse": "Käyttöehdot",
+    "contactUs": "Ota Yhteyttä"
   },
   "auth": {
     "signIn": "Kirjaudu sisään",
@@ -63,7 +144,18 @@
     "profileDetails": "Profiilin tiedot",
     "noSubscription": "Ei tilaus",
     "myDocuments": "Omat asiakirjat",
-    "myAccount": "Oma tili"
+    "myAccount": "Oma tili",
+    "course": "Kurssi",
+    "auctions": "Huutokaupat",
+    "contactUs": "Ota Yhteyttä",
+    "blogs": "Blogit",
+    "dashboard": "Koontinäyttö",
+    "settings": "Asetukset",
+    "adminPanel": "Hallintapaneeli",
+    "logout": "Kirjaudu Ulos",
+    "menu": "Valikko",
+    "welcomeBack": "Tervetuloa takaisin!",
+    "user": "Käyttäjä"
   },
   "hero": {
     "badge": "Jäsenet ensin · Yksityiset työkalut · Maailmanlaajuinen kattavuus",
@@ -166,12 +258,20 @@
       "audience": {
         "title": "Rakenna yleisösi",
         "description": "Lukijamagneetti + MailerLite-integraatio rakentaa automaattisesti sähköpostilistasi.",
-        "features": ["Liidimagneetit", "Sähköpostiautomaatio", "Yleisöanalytiikka"]
+        "features": [
+          "Liidimagneetit",
+          "Sähköpostiautomaatio",
+          "Yleisöanalytiikka"
+        ]
       },
       "sales": {
         "title": "Myy suoraan",
         "description": "Yhdistä kauppasi; WordToWallet toimittaa tiedostot suoraan ostajille.",
-        "features": ["Suoramyynti", "Tiedostojen toimitus", "Asiakashallinta"]
+        "features": [
+          "Suoramyynti",
+          "Tiedostojen toimitus",
+          "Asiakashallinta"
+        ]
       }
     }
   },
@@ -458,7 +558,7 @@
     }
   },
   "books": {
-    "title": "Kirjat",
+    "title": "Otsikko",
     "subtitle": "Hallitse EPUB-kirjojasi ja luo ARC-kampanjoita",
     "uploadBook": "Lataa kirja",
     "totalBooks": "Kirjoja yhteensä",
@@ -471,7 +571,6 @@
     "dragDropFile": "Vedä ja pudota EPUB-tiedostosi tähän",
     "browse": "selaa",
     "epubOnly": "Vain EPUB-tiedostot",
-    "title": "Otsikko",
     "author": "Kirjailija",
     "description": "Kuvaus",
     "isbn": "ISBN",

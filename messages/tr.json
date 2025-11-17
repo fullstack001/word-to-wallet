@@ -3,7 +3,86 @@
     "loading": "Yükleniyor...",
     "error": "Hata",
     "configNotFound": "Ana sayfa için yapılandırma bulunamadı.",
-    "home": "Ana Sayfa"
+    "home": "Ana Sayfa",
+    "goToDashboard": "Panele Git",
+    "backToDashboard": "Panele Dön",
+    "allCourses": "Tüm Kurslar",
+    "browseCourses": "Kurslara Göz At",
+    "errorLoadingCourses": "Kurslar Yüklenirken Hata",
+    "backToBlogs": "Bloglara Dön",
+    "accountSettings": "Hesap Ayarları",
+    "accountType": "Hesap Türü",
+    "administrator": "Yönetici",
+    "standardUser": "Standart Kullanıcı",
+    "notProvided": "Sağlanmadı",
+    "tryAgain": "Tekrar Dene",
+    "blogNotFound": "Blog bulunamadı",
+    "browseSubjects": "Konulara Göz At",
+    "selectSubject": "Kurslarını görmek için bir konu seçin",
+    "exploreCourses": "Kursları keşfet",
+    "personalInformation": "Kişisel Bilgiler",
+    "name": "Ad",
+    "email": "E-posta",
+    "subjects": "Konular",
+    "noSubjectsFound": "Konu bulunamadı",
+    "unknownSubject": "Bilinmeyen Konu",
+    "untitledCourse": "Başlıksız Kurs",
+    "searchCourses": "Kurs ara...",
+    "loadingCourses": "Kurslar yükleniyor...",
+    "courses": "kurslar",
+    "of": "nin",
+    "inThisSubject": "bu konuda",
+    "exploreAllAvailableCourses": "Tüm mevcut kursları keşfet",
+    "noCoursesFound": "Kurs bulunamadı",
+    "noCoursesInSubject": "İçinde kurs yok",
+    "noCoursesAvailable": "Kurs mevcut değil",
+    "noCoursesInSubjectDesc": "Bu konunun henüz yayınlanmış kursu yok",
+    "noCoursesAvailableDesc": "Şu anda yayınlanmış kurs mevcut değil",
+    "viewAllCourses": "Tüm Kursları Görüntüle",
+    "refresh": "Yenile",
+    "availableCourses": "Mevcut Kurslar",
+    "coursesAvailableToStart": "öğrenmeye başlamak için mevcut kurslar",
+    "filteredBySubject": "(konuya göre filtrelenmiş)",
+    "viewAll": "Tümünü Görüntüle",
+    "filterBySubject": "Konuya Göre Filtrele:",
+    "clearFilter": "Filtreyi Temizle",
+    "noCoursesFoundForSubject": "Bu konu için kurs bulunamadı",
+    "noCoursesFoundForSubjectDesc": "Tüm kursları görmek için farklı bir konu seçmeyi veya filtreyi temizlemeyi deneyin.",
+    "noCoursesAvailableDesc2": "Şu anda yayınlanmış kurs mevcut değil. Yeni içerik için daha sonra tekrar kontrol edin.",
+    "tryAdjustingSearch": "Arama terimlerinizi ayarlamayı deneyin",
+    "subscription": {
+      "noSubscription": "Abonelik Yok",
+      "trialActive": "Deneme Süresi Aktif",
+      "trialExpired": "Deneme Süresi Doldu",
+      "subscriptionCanceled": "Abonelik İptal Edildi",
+      "trialDaysRemaining": "Deneme süresi: {days} gün kaldı",
+      "canceledDaysRemaining": "İptal edildi - {days} gün kaldı",
+      "canceledActiveUntilEnd": "İptal edildi - Dönem sonuna kadar aktif",
+      "pro": "Pro"
+    },
+    "noDescriptionAvailable": "Açıklama mevcut değil",
+    "selectSubjectToViewCourses": "Kurslarını görmek için bir konu seçin.",
+    "manageCoursesForSubject": "Manage courses for",
+    "manageYourCourses": "Manage your courses and learning materials.",
+    "by": "by",
+    "admin": {
+      "dashboard": "Dashboard",
+      "overviewAndAnalytics": "Overview and analytics",
+      "coursesAndSubjects": "Courses & Subjects",
+      "manageCoursesAndSubjects": "Manage courses and subjects",
+      "mediaManagement": "Media Management",
+      "manageAllMediaFiles": "Manage all media files",
+      "blogs": "Blogs",
+      "createAndManageBlogPosts": "Create and manage blog posts",
+      "marketing": "Marketing",
+      "emailCampaignsSubscribers": "Email campaigns & subscribers",
+      "users": "Users",
+      "userManagement": "User management",
+      "coupons": "Coupons",
+      "manageDiscountCoupons": "Manage discount coupons",
+      "adminPanel": "Admin Panel",
+      "managementConsole": "Management Console"
+    }
   },
   "errors": {
     "oops": "Hay aksi!",
@@ -33,7 +112,9 @@
     }
   },
   "footer": {
-    "selectLanguage": "Dil Seç"
+    "selectLanguage": "Dil Seç",
+    "termsOfUse": "Kullanım Şartları",
+    "contactUs": "Bize Ulaşın"
   },
   "auth": {
     "signIn": "Giriş Yap",
@@ -63,7 +144,18 @@
     "profileDetails": "Profil Detayları",
     "noSubscription": "Abonelik yok",
     "myDocuments": "Belgelerim",
-    "myAccount": "Hesabım"
+    "myAccount": "Hesabım",
+    "course": "Kurs",
+    "auctions": "Müzayedeler",
+    "contactUs": "Bize Ulaşın",
+    "blogs": "Bloglar",
+    "dashboard": "Panel",
+    "settings": "Ayarlar",
+    "adminPanel": "Yönetim Paneli",
+    "logout": "Çıkış Yap",
+    "menu": "Menü",
+    "welcomeBack": "Tekrar hoş geldiniz!",
+    "user": "Kullanıcı"
   },
   "hero": {
     "badge": "Üyeler Önce · Özel Araçlar · Küresel Erişim",
@@ -166,12 +258,20 @@
       "audience": {
         "title": "Kitlenizi Oluşturun",
         "description": "Okuyucu mıknatısı + MailerLite entegrasyonu e-posta listenizi otomatik olarak oluşturur.",
-        "features": ["Potansiyel müşteri mıknatısları", "E-posta otomasyonu", "Kitle analitiği"]
+        "features": [
+          "Potansiyel müşteri mıknatısları",
+          "E-posta otomasyonu",
+          "Kitle analitiği"
+        ]
       },
       "sales": {
         "title": "Doğrudan Sat",
         "description": "Mağazanızı bağlayın; WordToWallet dosyaları doğrudan alıcılara teslim eder.",
-        "features": ["Doğrudan satış", "Dosya teslimatı", "Müşteri yönetimi"]
+        "features": [
+          "Doğrudan satış",
+          "Dosya teslimatı",
+          "Müşteri yönetimi"
+        ]
       }
     }
   },
@@ -458,7 +558,7 @@
     }
   },
   "books": {
-    "title": "Kitaplar",
+    "title": "Başlık",
     "subtitle": "EPUB kitaplarınızı yönetin ve ARC kampanyaları oluşturun",
     "uploadBook": "Kitap Yükle",
     "totalBooks": "Toplam Kitap",
@@ -471,7 +571,6 @@
     "dragDropFile": "EPUB dosyanızı buraya sürükleyip bırakın",
     "browse": "gözat",
     "epubOnly": "Yalnızca EPUB dosyaları",
-    "title": "Başlık",
     "author": "Yazar",
     "description": "Açıklama",
     "isbn": "ISBN",

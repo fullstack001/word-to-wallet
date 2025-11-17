@@ -3,7 +3,86 @@
     "loading": "Memuatkan...",
     "error": "Ralat",
     "configNotFound": "Konfigurasi tidak dijumpai untuk halaman utama.",
-    "home": "Utama"
+    "home": "Utama",
+    "goToDashboard": "Pergi ke Papan Pemuka",
+    "backToDashboard": "Kembali ke Papan Pemuka",
+    "allCourses": "Semua Kursus",
+    "browseCourses": "Lihat Kursus",
+    "errorLoadingCourses": "Ralat Memuatkan Kursus",
+    "backToBlogs": "Kembali ke Blog",
+    "accountSettings": "Tetapan Akaun",
+    "accountType": "Jenis Akaun",
+    "administrator": "Pentadbir",
+    "standardUser": "Pengguna Standard",
+    "notProvided": "Tidak disediakan",
+    "tryAgain": "Cuba Lagi",
+    "blogNotFound": "Blog tidak dijumpai",
+    "browseSubjects": "Lihat Subjek",
+    "selectSubject": "Pilih subjek untuk melihat kursusnya",
+    "exploreCourses": "Terokai kursus dalam",
+    "personalInformation": "Maklumat Peribadi",
+    "name": "Nama",
+    "email": "E-mel",
+    "subjects": "Subjek",
+    "noSubjectsFound": "Tiada subjek dijumpai",
+    "unknownSubject": "Subjek Tidak Diketahui",
+    "untitledCourse": "Kursus Tanpa Tajuk",
+    "searchCourses": "Cari kursus...",
+    "loadingCourses": "Memuatkan kursus...",
+    "courses": "kursus",
+    "of": "daripada",
+    "inThisSubject": "dalam subjek ini",
+    "exploreAllAvailableCourses": "Terokai semua kursus yang tersedia",
+    "noCoursesFound": "Tiada kursus dijumpai",
+    "noCoursesInSubject": "Tiada kursus dalam",
+    "noCoursesAvailable": "Tiada kursus tersedia",
+    "noCoursesInSubjectDesc": "Subjek ini belum mempunyai kursus yang diterbitkan",
+    "noCoursesAvailableDesc": "Pada masa ini tiada kursus yang diterbitkan tersedia",
+    "viewAllCourses": "Lihat Semua Kursus",
+    "refresh": "Muat Semula",
+    "availableCourses": "Kursus Tersedia",
+    "coursesAvailableToStart": "kursus tersedia untuk mula belajar",
+    "filteredBySubject": "(ditapis mengikut subjek)",
+    "viewAll": "Lihat Semua",
+    "filterBySubject": "Tapis mengikut Subjek:",
+    "clearFilter": "Bersihkan Penapis",
+    "noCoursesFoundForSubject": "Tiada kursus dijumpai untuk subjek ini",
+    "noCoursesFoundForSubjectDesc": "Cuba pilih subjek lain atau bersihkan penapis untuk melihat semua kursus.",
+    "noCoursesAvailableDesc2": "Pada masa ini tiada kursus yang diterbitkan tersedia. Sila semak semula kemudian untuk kandungan baharu.",
+    "tryAdjustingSearch": "Cuba laraskan istilah carian anda",
+    "subscription": {
+      "noSubscription": "Tiada Langganan",
+      "trialActive": "Percubaan Aktif",
+      "trialExpired": "Percubaan Tamat",
+      "subscriptionCanceled": "Langganan Dibatalkan",
+      "trialDaysRemaining": "Percubaan: {days} hari lagi",
+      "canceledDaysRemaining": "Dibatalkan - {days} hari lagi",
+      "canceledActiveUntilEnd": "Dibatalkan - Aktif sehingga akhir tempoh",
+      "pro": "Pro"
+    },
+    "noDescriptionAvailable": "Tiada keterangan tersedia",
+    "selectSubjectToViewCourses": "Pilih subjek untuk melihat kursusnya.",
+    "manageCoursesForSubject": "Manage courses for",
+    "manageYourCourses": "Manage your courses and learning materials.",
+    "by": "by",
+    "admin": {
+      "dashboard": "Dashboard",
+      "overviewAndAnalytics": "Overview and analytics",
+      "coursesAndSubjects": "Courses & Subjects",
+      "manageCoursesAndSubjects": "Manage courses and subjects",
+      "mediaManagement": "Media Management",
+      "manageAllMediaFiles": "Manage all media files",
+      "blogs": "Blogs",
+      "createAndManageBlogPosts": "Create and manage blog posts",
+      "marketing": "Marketing",
+      "emailCampaignsSubscribers": "Email campaigns & subscribers",
+      "users": "Users",
+      "userManagement": "User management",
+      "coupons": "Coupons",
+      "manageDiscountCoupons": "Manage discount coupons",
+      "adminPanel": "Admin Panel",
+      "managementConsole": "Management Console"
+    }
   },
   "errors": {
     "oops": "Aduh!",
@@ -33,7 +112,9 @@
     }
   },
   "footer": {
-    "selectLanguage": "Pilih Bahasa"
+    "selectLanguage": "Pilih Bahasa",
+    "termsOfUse": "Terma Penggunaan",
+    "contactUs": "Hubungi Kami"
   },
   "auth": {
     "signIn": "Log Masuk",
@@ -63,7 +144,18 @@
     "profileDetails": "Butiran Profil",
     "noSubscription": "Tiada langganan",
     "myDocuments": "Dokumen Saya",
-    "myAccount": "Akaun Saya"
+    "myAccount": "Akaun Saya",
+    "course": "Kursus",
+    "auctions": "Lelong",
+    "contactUs": "Hubungi Kami",
+    "blogs": "Blog",
+    "dashboard": "Papan Pemuka",
+    "settings": "Tetapan",
+    "adminPanel": "Panel Pentadbir",
+    "logout": "Log Keluar",
+    "menu": "Menu",
+    "welcomeBack": "Selamat kembali!",
+    "user": "Pengguna"
   },
   "hero": {
     "badge": "Ahli Pertama · Alat Persendirian · Jangkauan Global",
@@ -166,12 +258,20 @@
       "audience": {
         "title": "Bina Audiens Anda",
         "description": "Magnet pembaca + integrasi MailerLite secara automatik membina senarai e-mel anda.",
-        "features": ["Magnet prospek", "Automasi e-mel", "Analitik audiens"]
+        "features": [
+          "Magnet prospek",
+          "Automasi e-mel",
+          "Analitik audiens"
+        ]
       },
       "sales": {
         "title": "Jual Langsung",
         "description": "Sambungkan kedai anda; WordToWallet menghantar fail terus kepada pembeli.",
-        "features": ["Jualan langsung", "Penghantaran fail", "Pengurusan pelanggan"]
+        "features": [
+          "Jualan langsung",
+          "Penghantaran fail",
+          "Pengurusan pelanggan"
+        ]
       }
     }
   },
@@ -458,7 +558,7 @@
     }
   },
   "books": {
-    "title": "Buku",
+    "title": "Tajuk",
     "subtitle": "Urus buku EPUB anda dan cipta kempen ARC",
     "uploadBook": "Muat Naik Buku",
     "totalBooks": "Jumlah Buku",
@@ -471,7 +571,6 @@
     "dragDropFile": "Seret dan lepas fail EPUB anda di sini",
     "browse": "jelajah",
     "epubOnly": "Hanya fail EPUB",
-    "title": "Tajuk",
     "author": "Pengarang",
     "description": "Penerangan",
     "isbn": "ISBN",

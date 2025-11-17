@@ -3,7 +3,86 @@
     "loading": "Laden...",
     "error": "Fout",
     "configNotFound": "Configuratie niet gevonden voor startpagina.",
-    "home": "Home"
+    "home": "Home",
+    "goToDashboard": "Ga naar Dashboard",
+    "backToDashboard": "Terug naar Dashboard",
+    "allCourses": "Alle Cursussen",
+    "browseCourses": "Blader door Cursussen",
+    "errorLoadingCourses": "Fout bij Laden van Cursussen",
+    "backToBlogs": "Terug naar Blogs",
+    "accountSettings": "Accountinstellingen",
+    "accountType": "Accounttype",
+    "administrator": "Beheerder",
+    "standardUser": "Standaardgebruiker",
+    "notProvided": "Niet opgegeven",
+    "tryAgain": "Opnieuw Proberen",
+    "blogNotFound": "Blog niet gevonden",
+    "browseSubjects": "Blader door Vakken",
+    "selectSubject": "Selecteer een vak om de cursussen te bekijken",
+    "exploreCourses": "Verken cursussen in",
+    "personalInformation": "Persoonlijke Informatie",
+    "name": "Naam",
+    "email": "E-mail",
+    "subjects": "Vakken",
+    "noSubjectsFound": "Geen vakken gevonden",
+    "unknownSubject": "Onbekend Vak",
+    "untitledCourse": "Cursus zonder Titel",
+    "searchCourses": "Zoek cursussen...",
+    "loadingCourses": "Cursussen laden...",
+    "courses": "cursussen",
+    "of": "van",
+    "inThisSubject": "in dit vak",
+    "exploreAllAvailableCourses": "Verken alle beschikbare cursussen",
+    "noCoursesFound": "Geen cursussen gevonden",
+    "noCoursesInSubject": "Geen cursussen in",
+    "noCoursesAvailable": "Geen cursussen beschikbaar",
+    "noCoursesInSubjectDesc": "Dit vak heeft nog geen gepubliceerde cursussen",
+    "noCoursesAvailableDesc": "Er zijn momenteel geen gepubliceerde cursussen beschikbaar",
+    "viewAllCourses": "Bekijk Alle Cursussen",
+    "refresh": "Vernieuwen",
+    "availableCourses": "Beschikbare Cursussen",
+    "coursesAvailableToStart": "cursussen beschikbaar om te beginnen met leren",
+    "filteredBySubject": "(gefilterd op vak)",
+    "viewAll": "Alles Bekijken",
+    "filterBySubject": "Filteren op Vak:",
+    "clearFilter": "Filter Wissen",
+    "noCoursesFoundForSubject": "Geen cursussen gevonden voor dit vak",
+    "noCoursesFoundForSubjectDesc": "Probeer een ander vak te selecteren of wis het filter om alle cursussen te zien.",
+    "noCoursesAvailableDesc2": "Er zijn momenteel geen gepubliceerde cursussen beschikbaar. Kom later terug voor nieuwe inhoud.",
+    "tryAdjustingSearch": "Probeer uw zoektermen aan te passen",
+    "subscription": {
+      "noSubscription": "Geen Abonnement",
+      "trialActive": "Proefperiode Actief",
+      "trialExpired": "Proefperiode Verlopen",
+      "subscriptionCanceled": "Abonnement Geannuleerd",
+      "trialDaysRemaining": "Proefperiode: {days} dagen over",
+      "canceledDaysRemaining": "Geannuleerd - {days} dagen over",
+      "canceledActiveUntilEnd": "Geannuleerd - Actief tot einde periode",
+      "pro": "Pro"
+    },
+    "noDescriptionAvailable": "Geen beschrijving beschikbaar",
+    "selectSubjectToViewCourses": "Selecteer een vak om de cursussen te bekijken.",
+    "manageCoursesForSubject": "Manage courses for",
+    "manageYourCourses": "Manage your courses and learning materials.",
+    "by": "by",
+    "admin": {
+      "dashboard": "Dashboard",
+      "overviewAndAnalytics": "Overview and analytics",
+      "coursesAndSubjects": "Courses & Subjects",
+      "manageCoursesAndSubjects": "Manage courses and subjects",
+      "mediaManagement": "Media Management",
+      "manageAllMediaFiles": "Manage all media files",
+      "blogs": "Blogs",
+      "createAndManageBlogPosts": "Create and manage blog posts",
+      "marketing": "Marketing",
+      "emailCampaignsSubscribers": "Email campaigns & subscribers",
+      "users": "Users",
+      "userManagement": "User management",
+      "coupons": "Coupons",
+      "manageDiscountCoupons": "Manage discount coupons",
+      "adminPanel": "Admin Panel",
+      "managementConsole": "Management Console"
+    }
   },
   "errors": {
     "oops": "Oeps!",
@@ -33,7 +112,9 @@
     }
   },
   "footer": {
-    "selectLanguage": "Selecteer taal"
+    "selectLanguage": "Selecteer taal",
+    "termsOfUse": "Gebruiksvoorwaarden",
+    "contactUs": "Neem Contact Op"
   },
   "auth": {
     "signIn": "Inloggen",
@@ -63,7 +144,18 @@
     "profileDetails": "Profielgegevens",
     "noSubscription": "Geen abonnement",
     "myDocuments": "Mijn documenten",
-    "myAccount": "Mijn account"
+    "myAccount": "Mijn account",
+    "course": "Cursus",
+    "auctions": "Veilingen",
+    "contactUs": "Neem Contact Op",
+    "blogs": "Blogs",
+    "dashboard": "Dashboard",
+    "settings": "Instellingen",
+    "adminPanel": "Beheerpaneel",
+    "logout": "Uitloggen",
+    "menu": "Menu",
+    "welcomeBack": "Welkom terug!",
+    "user": "Gebruiker"
   },
   "hero": {
     "badge": "Leden eerst · Privétools · Wereldwijde reikwijdte",
@@ -166,12 +258,20 @@
       "audience": {
         "title": "Bouw uw publiek",
         "description": "Leesmagneet + MailerLite-integratie bouwt automatisch uw e-maillijst op.",
-        "features": ["Leadmagneten", "E-mailautomatisering", "Publieksanalyses"]
+        "features": [
+          "Leadmagneten",
+          "E-mailautomatisering",
+          "Publieksanalyses"
+        ]
       },
       "sales": {
         "title": "Verkoop direct",
         "description": "Verbind uw winkel; WordToWallet levert bestanden direct aan kopers.",
-        "features": ["Directe verkoop", "Bestandslevering", "Klantbeheer"]
+        "features": [
+          "Directe verkoop",
+          "Bestandslevering",
+          "Klantbeheer"
+        ]
       }
     }
   },
@@ -458,7 +558,7 @@
     }
   },
   "books": {
-    "title": "Boeken",
+    "title": "Titel",
     "subtitle": "Beheer uw EPUB-boeken en maak ARC-campagnes",
     "uploadBook": "Boek uploaden",
     "totalBooks": "Totaal boeken",
@@ -471,7 +571,6 @@
     "dragDropFile": "Sleep uw EPUB-bestand hierheen",
     "browse": "bladeren",
     "epubOnly": "Alleen EPUB-bestanden",
-    "title": "Titel",
     "author": "Auteur",
     "description": "Beschrijving",
     "isbn": "ISBN",

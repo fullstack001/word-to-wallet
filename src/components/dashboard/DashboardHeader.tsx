@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { useDispatch } from "react-redux";
+import { useTranslations } from "next-intl";
 import { useLocalizedNavigation } from "../../utils/navigation";
 // Subscription utilities are no longer needed as we work directly with props
 import {
@@ -43,6 +44,7 @@ export default function DashboardHeader({
 }: DashboardHeaderProps) {
   const dispatch = useDispatch();
   const { navigate } = useLocalizedNavigation();
+  const t = useTranslations();
   const [showCancelModal, setShowCancelModal] = useState(false);
   const [isCanceling, setIsCanceling] = useState(false);
 
@@ -156,33 +158,33 @@ export default function DashboardHeader({
     const state = getSubscriptionState();
     switch (state) {
       case "no-subscription":
-        return "No Subscription";
+        return t("common.subscription.noSubscription");
       case "trial":
         if (subscription?.trialEnd) {
           const daysRemaining = Math.ceil(
             (new Date(subscription.trialEnd).getTime() - new Date().getTime()) /
               (1000 * 60 * 60 * 24)
           );
-          return `Trial: ${Math.max(0, daysRemaining)} days remaining`;
+          return t("common.subscription.trialDaysRemaining", { days: Math.max(0, daysRemaining) });
         }
-        return "Trial Active";
+        return t("common.subscription.trialActive");
       case "trial-expired":
-        return "Trial Expired";
+        return t("common.subscription.trialExpired");
       case "active":
-        return "Pro";
+        return t("common.subscription.pro");
       case "canceled-but-active":
         if (subscription?.currentPeriodEnd) {
           const endDate = new Date(subscription.currentPeriodEnd);
           const daysRemaining = Math.ceil(
             (endDate.getTime() - new Date().getTime()) / (1000 * 60 * 60 * 24)
           );
-          return `Canceled - ${Math.max(0, daysRemaining)} days remaining`;
+          return t("common.subscription.canceledDaysRemaining", { days: Math.max(0, daysRemaining) });
         }
-        return "Canceled - Active until period end";
+        return t("common.subscription.canceledActiveUntilEnd");
       case "canceled":
-        return "Subscription Canceled";
+        return t("common.subscription.subscriptionCanceled");
       default:
-        return "No Subscription";
+        return t("common.subscription.noSubscription");
     }
   };
 
@@ -333,7 +335,7 @@ export default function DashboardHeader({
           >
             <div className="flex flex-col lg:flex-row items-center justify-center gap-6 my-4 mt-12">
               <h1 className="text-4xl font-bold text-white">
-                Welcome back, {userName || userEmail}!
+                {t("navbar.welcomeBack")} {userName || userEmail}!
               </h1>
 
               {/* Subscription Status Banner */}

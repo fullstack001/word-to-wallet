@@ -1,4 +1,5 @@
 "use client";
+import { useTranslations } from "next-intl";
 import { useLocalizedNavigation } from "@/utils/navigation";
 import { usePathname } from "next/navigation";
 
@@ -13,6 +14,7 @@ export default function AdminSidebar({
   mobileMenuOpen = false,
   onMobileMenuClose,
 }: AdminSidebarProps) {
+  const t = useTranslations();
   const { navigate } = useLocalizedNavigation();
   const pathname = usePathname();
 
@@ -25,9 +27,9 @@ export default function AdminSidebar({
 
   const navigation = [
     {
-      name: "Dashboard",
+      name: t("common.admin.dashboard"),
       href: "/admin/dashboard",
-      description: "Overview and analytics",
+      description: t("common.admin.overviewAndAnalytics"),
       icon: (
         <svg
           className="w-5 h-5"
@@ -51,9 +53,9 @@ export default function AdminSidebar({
       ),
     },
     {
-      name: "Courses & Subjects",
+      name: t("common.admin.coursesAndSubjects"),
       href: "/admin/courses",
-      description: "Manage courses and subjects",
+      description: t("common.admin.manageCoursesAndSubjects"),
       icon: (
         <svg
           className="w-5 h-5"
@@ -71,9 +73,9 @@ export default function AdminSidebar({
       ),
     },
     {
-      name: "Media Management",
+      name: t("common.admin.mediaManagement"),
       href: "/admin/media",
-      description: "Manage all media files",
+      description: t("common.admin.manageAllMediaFiles"),
       icon: (
         <svg
           className="w-5 h-5"
@@ -91,9 +93,9 @@ export default function AdminSidebar({
       ),
     },
     {
-      name: "Blogs",
+      name: t("common.admin.blogs"),
       href: "/admin/blogs",
-      description: "Create and manage blog posts",
+      description: t("common.admin.createAndManageBlogPosts"),
       icon: (
         <svg
           className="w-5 h-5"
@@ -111,9 +113,9 @@ export default function AdminSidebar({
       ),
     },
     {
-      name: "Marketing",
+      name: t("common.admin.marketing"),
       href: "/admin/marketing",
-      description: "Email campaigns & subscribers",
+      description: t("common.admin.emailCampaignsSubscribers"),
       icon: (
         <svg
           className="w-5 h-5"
@@ -131,9 +133,9 @@ export default function AdminSidebar({
       ),
     },
     {
-      name: "Users",
+      name: t("common.admin.users"),
       href: "/admin/users",
-      description: "User management",
+      description: t("common.admin.userManagement"),
       icon: (
         <svg
           className="w-5 h-5"
@@ -151,9 +153,9 @@ export default function AdminSidebar({
       ),
     },
     {
-      name: "Coupons",
+      name: t("common.admin.coupons"),
       href: "/admin/coupons",
-      description: "Manage discount coupons",
+      description: t("common.admin.manageDiscountCoupons"),
       icon: (
         <svg
           className="w-5 h-5"
@@ -219,8 +221,8 @@ export default function AdminSidebar({
                 />
               </div>
               <div>
-                <h1 className="text-xl font-bold text-gray-900">Admin Panel</h1>
-                <p className="text-xs text-gray-500">Management Console</p>
+                <h1 className="text-xl font-bold text-gray-900">{t("common.admin.adminPanel")}</h1>
+                <p className="text-xs text-gray-500">{t("common.admin.managementConsole")}</p>
               </div>
             </div>
           </div>
@@ -293,8 +295,8 @@ export default function AdminSidebar({
                 />
               </div>
               <div>
-                <h1 className="text-xl font-bold text-gray-900">Admin Panel</h1>
-                <p className="text-xs text-gray-500">Management Console</p>
+                <h1 className="text-xl font-bold text-gray-900">{t("common.admin.adminPanel")}</h1>
+                <p className="text-xs text-gray-500">{t("common.admin.managementConsole")}</p>
               </div>
             </div>
             <button
