@@ -1,0 +1,666 @@
+{
+  "common": {
+    "loading": "Yükleniyor...",
+    "error": "Hata",
+    "configNotFound": "Ana sayfa için yapılandırma bulunamadı.",
+    "home": "Ana Sayfa"
+  },
+  "errors": {
+    "oops": "Hay aksi!",
+    "somethingWentWrong": "Bir şeyler yanlış gitti",
+    "pageNotFound": "Sayfa Bulunamadı",
+    "pageNotExist": "Aradığınız sayfa mevcut değil.",
+    "errorLoadingPage": "Bu sayfayı yüklerken bir hata oluştu. Lütfen tekrar deneyin.",
+    "errorLoadingApp": "Uygulamayı yüklerken bir hata oluştu. Lütfen tekrar deneyin.",
+    "tryAgain": "Tekrar dene",
+    "goHome": "Ana Sayfaya Dön",
+    "goToHomePage": "Ana sayfaya git",
+    "errorDetails": "Hata detayları (yalnızca geliştirme)"
+  },
+  "faq": {
+    "title": "Sıkça Sorulan Sorular",
+    "q1": {
+      "q": "Başka AI araçlarına ihtiyacım var mı?",
+      "a": "Hayır. WordToWallet metin, tasarım ve teslimatı merkezileştirir, böylece onlarca uygulamayla uğraşmanız gerekmez."
+    },
+    "q2": {
+      "q": "Hala pazarlara yayınlayabilir miyim?",
+      "a": "Evet—Draft2Digital veya WordToWallet hesaplarınızı bağlayın ve daha geniş dağıtım istediğinizde devredin."
+    },
+    "q3": {
+      "q": "Kurs gerçekten ücretsiz mi?",
+      "a": "Evet—kurs üyeler için ücretsizdir. Platform erişimi için ödeme yaparsınız ve istediğiniz zaman iptal edebilirsiniz."
+    }
+  },
+  "footer": {
+    "selectLanguage": "Dil Seç"
+  },
+  "auth": {
+    "signIn": "Giriş Yap",
+    "email": "E-posta",
+    "password": "Şifre",
+    "emailAddress": "E-posta Adresi"
+  },
+  "account": {
+    "account": "Hesap",
+    "membership": "Üyelik",
+    "noSubscription": "Aktif abonelik yok",
+    "unlockAllTools": "Tüm araçların kilidini aç",
+    "fullAccess": "Tüm PDF araçlarına tam erişim elde edin",
+    "subscribeNow": "Şimdi abone ol",
+    "subscribe": "Abone ol",
+    "paymentMethod": "Ödeme Yöntemi",
+    "saveTime": "Otomatik ödemelerle zaman kazanın",
+    "cardNumber": "Kart Numarası",
+    "notSpecified": "Belirtilmemiş",
+    "importantUpdates": "Hesabınız hakkında önemli güncellemeler"
+  },
+  "plan": {
+    "choosePlan": "Planınızı Seçin",
+    "continue": "Devam Et"
+  },
+  "navbar": {
+    "profileDetails": "Profil Detayları",
+    "noSubscription": "Abonelik yok",
+    "myDocuments": "Belgelerim",
+    "myAccount": "Hesabım"
+  },
+  "hero": {
+    "badge": "Üyeler Önce · Özel Araçlar · Küresel Erişim",
+    "title": "Kelimeleri Satışa Dönüştürün — Ücretsiz Kurs + ePub3 Platformu",
+    "sub": "ChatGPT-5 ile etkileşimli ePub3 promosyonları oluşturun ve doğrudan e-posta ile satın. Çok dilli, ölçülebilir ve aracısız.",
+    "ctaPrimary": "Platform Erişimi Alın",
+    "ctaSecondary": "Ücretsiz Kursu Önizle",
+    "legal": "Verilerinizi asla satmayız. İstediğiniz zaman iptal edin."
+  },
+  "audiences": {
+    "title": "Kullanım Durumunuz İçin İnşa Edildi",
+    "solopreneurs": {
+      "title": "Solopreneurler ve Mikro Ekipler",
+      "desc": "Promosyonları başlatın, aboneler toplayın ve pahalı reklam platformları olmadan hizmet veya ürün satın. En fazla beş ekip üyesine izin verilir."
+    },
+    "authors": {
+      "title": "Kendi Kendine Yayınlanan Yazarlar ve PR Mikro Ajansları",
+      "desc": "Kampanyalar ve kitap düzenleri (kurgu ve kurgu dışı) oluşturun, ARCs teslim edin ve niş okuyucu listelerine satın."
+    }
+  },
+  "value": {
+    "title": "Neden WordToWallet",
+    "cards": {
+      "epub3": {
+        "title": "ePub3 Oluşturucu Stüdyosu",
+        "description": "Promosyonlar ve kitap düzenleri oluşturun. ChatGPT-5 tarafından oluşturulan kodu ve tasarımları yapıştırın, mobilde önizleyin ve dakikalar içinde yayınlayın.",
+        "features": {
+          "0": "Prompt'lardan yapıştırmaya hazır XHTML/CSS",
+          "1": "Erişilebilirlik ve çeviri hazır",
+          "2": "Kurgu/kurgu dışı için yeniden kullanılabilir şablonlar"
+        }
+      },
+      "email": {
+        "title": "Gelen Kutusu Güvenli E-posta",
+        "description": "Metin öncelikli, hizalı bağlantılı e-postalar gönderin, yerleşik teslimat korumaları (SPF/DKIM/DMARC) ile. Tahmin yapmadan ısıtın ve izleyin.",
+        "features": []
+      },
+      "analytics": {
+        "title": "Özel Listeler ve Analitik",
+        "description": "CSV'leri içe aktarın, ürüne/türe göre segmentleyin ve tek bir panodan tıklamaları → indirmeleri → yanıtları/satın almaları takip edin.",
+        "features": []
+      },
+      "byoa": {
+        "title": "BYOA: D2D ve WordToWallet",
+        "description": "Pazara hazır paketleri dışa aktarın veya bağlantılarla ARCs teslim edin—daha geniş dağıtım istediğinizde entegre edin.",
+        "features": []
+      }
+    }
+  },
+  "howItWorks": {
+    "title": "Nasıl Çalışır",
+    "subtitle": "Başarı için tasarlanmış basit 3 adımlı sürecimizle dakikalar içinde başlayın",
+    "steps": {
+      "step1": {
+        "title": "Öğrenmeye Başla",
+        "description": "Ücretsiz AI yazma kursumuzla başlayın. Küçük derslerde pratik teknikler öğrenin."
+      },
+      "step2": {
+        "title": "Listenizi Oluşturun",
+        "description": "E-posta kitlemizi büyütmek için okuyucu mıknatıslarımızı ve MailerLite entegrasyonunu kullanın."
+      },
+      "step3": {
+        "title": "Sat ve Ölçeklendir",
+        "description": "Ürünlerinizi başlatın ve yazmaya odaklanırken WordToWallet'ın teslimatı halletmesine izin verin."
+      }
+    },
+    "cta": "Şimdi Başla"
+  },
+  "howItWorksNew": {
+    "title": "Nasıl Çalışır",
+    "steps": {
+      "step1": {
+        "title": "ChatGPT-5'e hedefinizi söyleyin",
+        "description": "Teklifler, kitleler ve diller için prompt kartlarımızı kullanın."
+      },
+      "step2": {
+        "title": "Metin ve kod oluşturun",
+        "description": "Konu satırları, CTA'lar ve yapıştırmaya hazır ePub3 bölümleri."
+      },
+      "step3": {
+        "title": "Yayınla ve gönder",
+        "description": "Birinci taraf e-posta ile canlıya geçin ve huniyi takip edin."
+      }
+    }
+  },
+  "features": {
+    "title": "Başarılı Olmak İçin",
+    "titleHighlight": "İhtiyacınız Olan Her Şey",
+    "subtitle": "AI destekli yazma derslerinden doğrudan satış altyapısına kadar, her şeyi kapsadık.",
+    "cards": {
+      "aiWriting": {
+        "title": "AI Yazmayı Öğrenin",
+        "description": "AI kullanarak bölümler, özetler ve reklamlar üretmeyi öğreten 10 dakikalık pratik dersler.",
+        "features": [
+          "İnteraktif öğreticiler",
+          "Gerçek dünya örnekleri",
+          "İlerleme takibi"
+        ]
+      },
+      "audience": {
+        "title": "Kitlenizi Oluşturun",
+        "description": "Okuyucu mıknatısı + MailerLite entegrasyonu e-posta listenizi otomatik olarak oluşturur.",
+        "features": ["Potansiyel müşteri mıknatısları", "E-posta otomasyonu", "Kitle analitiği"]
+      },
+      "sales": {
+        "title": "Doğrudan Sat",
+        "description": "Mağazanızı bağlayın; WordToWallet dosyaları doğrudan alıcılara teslim eder.",
+        "features": ["Doğrudan satış", "Dosya teslimatı", "Müşteri yönetimi"]
+      }
+    }
+  },
+  "security": {
+    "badge": "Güvenlik Önce",
+    "title": "Güvenliğiniz Önceliğimizdir",
+    "subtitle": "Belgelerinizin ve verilerinizin her zaman tamamen korunmasını sağlamak için kurumsal düzeyde güvenlik önlemleri uyguluyoruz.",
+    "features": {
+      "encryption": {
+        "title": "Banka Düzeyinde Şifreleme",
+        "description": "256 bit SSL şifreleme verilerinizi korur"
+      },
+      "processing": {
+        "title": "Güvenli İşleme",
+        "description": "Dosyalar işlemeden sonra otomatik olarak silinir"
+      },
+      "privacy": {
+        "title": "Gizlilik Önce",
+        "description": "Belgelerinize insan erişimi yok"
+      },
+      "compliance": {
+        "title": "GDPR Uyumlu",
+        "description": "Veri koruma düzenlemelerine tam uyum"
+      }
+    },
+    "trustedBy": "Dünya çapında 400.000'den fazla kullanıcı tarafından güveniliyor"
+  },
+  "testimonials": {
+    "title": "Dünya çapında profesyoneller tarafından güveniliyor",
+    "subtitle": "Müşterilerimizin ne dediğini görün",
+    "rating": "3.000'den fazla incelemeden 5.0 puan",
+    "review1": {
+      "name": "Jennifer Martinez",
+      "role": "Hukuk Operasyonları Direktörü",
+      "company": "Global Law Partners",
+      "review": "WordToWallet belge iş akışımızı dönüştürdü. Hukuk ekibimiz artık otomatik form doldurma ve e-imza özellikleriyle sözleşmeleri 3 kat daha hızlı işleyebiliyor. Ekip işbirliği araçları sürüm kontrol sorunlarını tamamen ortadan kaldırdı."
+    },
+    "review2": {
+      "name": "David Chen",
+      "role": "CTO",
+      "company": "TechFlow Solutions",
+      "review": "Büyüyen bir startup olarak, kurumsal fiyat etiketi olmadan kurumsal düzeyde belge yönetimine ihtiyacımız vardı. WordToWallet'ın ekip özellikleri ve sınırsız işleme kapasitesi işletmemizle mükemmel şekilde ölçeklendi. ROI ilk ay içinde gerçekleştirildi."
+    },
+    "review3": {
+      "name": "Sarah Williams",
+      "role": "Finans Müdürü",
+      "company": "Merchant Capital Group",
+      "review": "OCR yetenekleri belge dijitalleştirme sürecimizi devrim niteliğinde değiştirdi. Muhasebe ekibimiz artık binlerce taranmış faturayı anında arayabilir. Bu bize sayısız saat kazandırdı ve denetim hazırlığımızı önemli ölçüde iyileştirdi."
+    },
+    "review4": {
+      "name": "Michael Rodriguez",
+      "role": "Uyum Görevlisi",
+      "company": "SecureBank International",
+      "review": "WordToWallet'ın kurumsal güvenlik özellikleri, hassas müşteri belgelerini işlerken bize güven veriyor. Uyum araçları ve denetim izleri, düzenleyici raporlamamızı çok daha basit hale getirdi. Uyum ekibimiz bunu seviyor."
+    },
+    "review5": {
+      "name": "Lisa Thompson",
+      "role": "Pazarlama Operasyonları Müdürü",
+      "company": "Digital Growth Agency",
+      "review": "Pazarlama ekibimiz kampanyalar için haftalık yüzlerce PDF işliyor. WordToWallet'ın toplu işleme ve otomasyon özellikleri belge hazırlama süremizi %70 azalttı. ROI, operasyonları ölçeklendirmek isteyen herhangi bir işletme için inanılmaz."
+    },
+    "review6": {
+      "name": "Robert Kim",
+      "role": "Proje Direktörü",
+      "company": "Construction Dynamics",
+      "review": "Ekip işbirliği özellikleri belge darboğazlarımızı ortadan kaldırdı. Birden fazla departman artık gerçek zamanlı güncellemelerle aynı belgeler üzerinde eşzamanlı olarak çalışabilir. Bu, proje teslimat sürelerimizi %40 iyileştirdi."
+    }
+  },
+  "course": {
+    "badge": "Ücretsiz Kurs Dahil",
+    "title": "Ücretsiz Kurs Dahil",
+    "bullets": [
+      "E-posta + ePub3 için doğrudan satış oyun kitabı.",
+      "Prompt kütüphanesi: teklifler, promosyonlar, açılış bölümleri, çeviri.",
+      "Anti-spam davet şablonları ve ısınma kontrol listesi.",
+      "Capstone: 7 günlük kâr sprint'iniz."
+    ],
+    "cta": "Ücretsiz Kaydolun (Platform Erişimi ile)"
+  },
+  "privacyPolicy": {
+    "title": "Gizlilik Politikası",
+    "lastUpdated": "Son güncelleme: Aralık 2024",
+    "websiteAddress": "Web sitemizin adresi: https://bestglobalai.com",
+    "sections": {
+      "whoWeAre": {
+        "title": "Biz kimiz",
+        "content": "Web sitemizin adresi: https://bestglobalai.com"
+      },
+      "comments": {
+        "title": "Yorumlar",
+        "content": "Ziyaretçiler sitede yorum bıraktığında, yorum formunda gösterilen verileri ve ayrıca spam tespitine yardımcı olmak için ziyaretçinin IP adresini ve tarayıcı kullanıcı aracısı dizesini topluyoruz. E-posta adresinizden oluşturulan anonimleştirilmiş bir dize (hash olarak da adlandırılır), kullanıp kullanmadığınızı görmek için Gravatar hizmetine sağlanabilir. Gravatar hizmeti gizlilik politikası burada mevcuttur: https://automattic.com/privacy/. Yorumunuzun onaylanmasından sonra, profil resminiz yorumunuzun bağlamında halka görünür hale gelir."
+      },
+      "media": {
+        "title": "Medya",
+        "content": "Web sitesine görüntü yüklerseniz, gömülü konum verileri (EXIF GPS) içeren görüntüleri yüklemekten kaçınmalısınız. Web sitesi ziyaretçileri web sitesindeki görüntülerden herhangi bir konum verisini indirebilir ve çıkarabilir."
+      },
+      "cookies": {
+        "title": "Çerezler",
+        "content": "Ziyaretçilerimizin bilgilerini toplamak için çerez kullanmıyoruz."
+      },
+      "embeddedContent": {
+        "title": "Diğer web sitelerinden gömülü içerik",
+        "content": "Bu sitedeki makaleler gömülü içerik (ör. videolar, görüntüler, makaleler vb.) içerebilir. Diğer web sitelerinden gömülü içerik, ziyaretçinin diğer web sitesini ziyaret etmiş gibi tam olarak aynı şekilde davranır."
+      },
+      "dataSharing": {
+        "title": "Verilerinizi kimlerle paylaşıyoruz",
+        "content": "Şifre sıfırlama talep ederseniz, IP adresiniz sıfırlama e-postasına dahil edilecektir."
+      },
+      "dataRetention": {
+        "title": "Verilerinizi ne kadar süre saklıyoruz",
+        "content": "Yorum bırakırsanız, yorum ve meta verileri süresiz olarak saklanır. Bu, takip yorumlarını moderasyon kuyruğunda tutmak yerine otomatik olarak tanıyıp onaylayabilmemiz içindir. Web sitemize kayıt olan kullanıcılar için (varsa), kullanıcı profillerinde sağladıkları kişisel bilgileri de saklarız. Tüm kullanıcılar kişisel bilgilerini istediği zaman görebilir, düzenleyebilir veya silebilir (kullanıcı adlarını değiştiremezler). Web sitesi yöneticileri de bu bilgileri görebilir ve düzenleyebilir."
+      },
+      "userRights": {
+        "title": "Verileriniz üzerinde hangi haklara sahipsiniz",
+        "content": "Bu sitede bir hesabınız varsa veya yorum bıraktıysanız, hakkınızda tuttuğumuz kişisel verilerin dışa aktarılmış bir dosyasını, bize sağladığınız tüm veriler dahil olmak üzere almayı talep edebilirsiniz. Ayrıca hakkınızda tuttuğumuz herhangi bir kişisel veriyi silmemizi de talep edebilirsiniz. Bu, idari, yasal veya güvenlik amaçlarıyla saklamak zorunda olduğumuz verileri içermez."
+      },
+      "dataTransfer": {
+        "title": "Verileriniz nereye gönderiliyor",
+        "content": "Ziyaretçi yorumları otomatik bir spam tespit hizmeti aracılığıyla kontrol edilebilir."
+      }
+    },
+    "contact": {
+      "title": "Bu Politika Hakkında Sorularınız mı Var?",
+      "description": "Bu Gizlilik Politikası veya verilerinizi nasıl işlediğimiz hakkında herhangi bir sorunuz varsa, lütfen bizimle iletişime geçmekten çekinmeyin.",
+      "website": "https://bestglobalai.com"
+    }
+  },
+  "contactPage": {
+    "title": "Bize ulaşın",
+    "description": "Hizmetimizle ilgili yardıma ihtiyacınız varsa veya sorularınız varsa, bizimle iletişime geçmekten çekinmeyin.",
+    "form": {
+      "name": "Ad",
+      "namePlaceholder": "Adınız",
+      "email": "E-posta adresi",
+      "emailPlaceholder": "email@domain.com",
+      "message": "Mesaj",
+      "messagePlaceholder": "Mesajınızı buraya yazın",
+      "sendButton": "Mesaj Gönder"
+    },
+    "directContact": {
+      "title": "Doğrudan bize ulaşın"
+    },
+    "billing": {
+      "title": "Faturalama desteği",
+      "description": "Ücretiniz hakkında bir sorunuz mu var? Platformdaki ödeme ile ilgili sorular için lütfen bizimle iletişime geçin:"
+    },
+    "customer": {
+      "title": "Müşteri desteği",
+      "description": "Sizinle konuşmaktan her zaman mutluluk duyarız. Hizmetimiz hakkında sorularınız varsa, bizi arayın veya e-posta gönderin:"
+    },
+    "meet": {
+      "title": "Toplantı Planlayın",
+      "description": "Doğrudan yardıma mı ihtiyacınız var? İhtiyaçlarınızı tartışmak ve uzman rehberliği almak için ekibimizle kişiselleştirilmiş bir toplantı planlayın."
+    }
+  },
+  "auction": {
+    "title": "Müzayedeler",
+    "subtitle": "Canlı müzayedeleri keşfedin ve katılın",
+    "myAuctions": "Müzayedelerim",
+    "createAuction": "Müzayede Oluştur",
+    "browseAll": "Tüm Müzayedeleri Gözat",
+    "manageAuctions": "Müzayede ilanlarınızı yönetin ve takip edin",
+    "createNewAuction": "Yeni Müzayede Oluştur",
+    "noAuctionsFound": "Müzayede bulunamadı",
+    "createFirstAuction": "İlk Müzayedenizi Oluşturun",
+    "filters": {
+      "allAuctions": "Tüm Müzayedeler",
+      "scheduled": "Zamanlanmış",
+      "active": "Aktif",
+      "sold": "Satıldı",
+      "ended": "Bitti"
+    },
+    "status": {
+      "scheduled": "Zamanlanmış",
+      "active": "Aktif",
+      "sold": "Satıldı",
+      "soldBuyNow": "Satıldı (Hemen Al)",
+      "soldOffer": "Satıldı (Teklif)",
+      "ended": "Bitti",
+      "endedNoSale": "Bitti (Satış Yok)",
+      "cancelled": "İptal Edildi"
+    },
+    "create": {
+      "title": "Yeni Müzayede Oluştur",
+      "form": {
+        "title": "Müzayede Başlığı",
+        "titlePlaceholder": "Müzayede başlığını girin",
+        "description": "Açıklama",
+        "descriptionPlaceholder": "Müzayede öğenizi açıklayın",
+        "currency": "Para Birimi",
+        "startingPrice": "Başlangıç Fiyatı",
+        "startingPricePlaceholder": "0.00",
+        "reservePrice": "Rezerv Fiyatı (İsteğe Bağlı)",
+        "reservePricePlaceholder": "Satış için minimum fiyat",
+        "reservePriceHelp": "Kabul etmeye hazır olduğunuz minimum fiyat. Karşılanmazsa, müzayede satılmayacaktır.",
+        "buyNowPrice": "Hemen Al Fiyatı (İsteğe Bağlı)",
+        "buyNowPricePlaceholder": "Anında satın alma fiyatı",
+        "buyNowPriceHelp": "Alıcıların bu fiyattan hemen satın almasına izin verin.",
+        "startTime": "Başlangıç Zamanı",
+        "endTime": "Bitiş Zamanı",
+        "extendSeconds": "Anti-Sniping Uzatma (saniye)",
+        "extendSecondsPlaceholder": "30",
+        "extendSecondsHelp": "Son dakikada teklif verildiğinde müzayedeyi bu kadar saniye uzatın.",
+        "minIncrement": "Minimum Teklif Artışı",
+        "minIncrementPlaceholder": "1.00",
+        "createButton": "Müzayede Oluştur",
+        "cancelButton": "İptal"
+      },
+      "validation": {
+        "titleRequired": "Başlık, açıklama, başlangıç fiyatı, başlangıç zamanı ve bitiş zamanı gereklidir",
+        "startingPriceRequired": "Başlangıç fiyatı 0'dan büyük olmalıdır",
+        "reservePriceInvalid": "Rezerv fiyatı başlangıç fiyatından büyük olmalıdır",
+        "buyNowPriceInvalid": "Hemen al fiyatı başlangıç fiyatından büyük olmalıdır",
+        "reservePriceTooHigh": "Rezerv fiyatı hemen al fiyatından yüksek olamaz",
+        "endTimeInvalid": "Bitiş zamanı başlangıç zamanından sonra olmalıdır",
+        "startTimeInvalid": "Başlangıç zamanı gelecekte olmalıdır"
+      }
+    },
+    "list": {
+      "startingPrice": "Başlangıç Fiyatı:",
+      "currentBid": "Mevcut Teklif:",
+      "buyNow": "Hemen Al:",
+      "starts": "Başlıyor:",
+      "ends": "Bitiyor:",
+      "timeLeft": "Kalan Süre:",
+      "ended": "Bitti",
+      "by": "tarafından",
+      "viewAuction": "Müzayedeyi Görüntüle",
+      "page": "Sayfa",
+      "of": "/",
+      "previous": "Önceki",
+      "next": "Sonraki"
+    },
+    "delete": "Sil",
+    "confirmDeleteTitle": "Silme İşlemini Onayla",
+    "confirmDelete": "Bu müzayedeyi silmek istediğinizden emin misiniz? Bu işlem geri alınamaz.",
+    "deleteError": "Müzayede silinemedi",
+    "deleteDisabledActive": "Aktif müzayedeler silinemez",
+    "deleting": "Siliniyor...",
+    "cancel": "İptal",
+    "view": {
+      "placeBid": "Teklif Ver",
+      "buyNow": "Hemen Al",
+      "makeOffer": "Teklif Yap",
+      "bidAmount": "Teklif Tutarı",
+      "minimumBid": "Minimum teklif:",
+      "yourBid": "Teklifiniz",
+      "bidButton": "Teklif Ver",
+      "offerAmount": "Teklif Tutarı",
+      "offerButton": "Teklif Yap",
+      "bidHistory": "Teklif Geçmişi",
+      "offers": "Teklifler",
+      "noBids": "Henüz teklif yok",
+      "noOffers": "Henüz teklif yok",
+      "timeRemaining": "Kalan Süre",
+      "days": "g",
+      "hours": "s",
+      "minutes": "d",
+      "seconds": "sn",
+      "reserveNotMet": "Rezerv karşılanmadı",
+      "reserveMet": "Rezerv karşılandı",
+      "online": "çevrimiçi",
+      "bidders": "teklif verenler"
+    },
+    "bidding": {
+      "bidPlaced": "Teklif başarıyla verildi",
+      "bidFailed": "Teklif verilemedi",
+      "bidTooLow": "Teklif tutarı çok düşük",
+      "auctionEnded": "Müzayede sona erdi",
+      "auctionNotActive": "Müzayede teklif kabul etmiyor",
+      "buyNowSuccess": "Müzayede başarıyla satın alındı",
+      "buyNowFailed": "Müzayede satın alınamadı",
+      "offerCreated": "Teklif başarıyla oluşturuldu",
+      "offerFailed": "Teklif oluşturulamadı",
+      "offerAccepted": "Teklif kabul edildi",
+      "offerDeclined": "Teklif reddedildi"
+    },
+    "currency": {
+      "USD": "USD - ABD Doları",
+      "EUR": "EUR - Euro",
+      "GBP": "GBP - İngiliz Sterlini",
+      "CAD": "CAD - Kanada Doları",
+      "AUD": "AUD - Avustralya Doları"
+    }
+  },
+  "books": {
+    "title": "Kitaplar",
+    "subtitle": "EPUB kitaplarınızı yönetin ve ARC kampanyaları oluşturun",
+    "uploadBook": "Kitap Yükle",
+    "totalBooks": "Toplam Kitap",
+    "readyBooks": "Hazır Kitaplar",
+    "processingBooks": "İşleniyor",
+    "errorBooks": "Hata",
+    "noBooks": "Kitap bulunamadı",
+    "noBooksDescription": "Başlamak için ilk EPUB kitabınızı yükleyin.",
+    "epubFile": "EPUB Dosyası",
+    "dragDropFile": "EPUB dosyanızı buraya sürükleyip bırakın",
+    "browse": "gözat",
+    "epubOnly": "Yalnızca EPUB dosyaları",
+    "title": "Başlık",
+    "author": "Yazar",
+    "description": "Açıklama",
+    "isbn": "ISBN",
+    "publisher": "Yayıncı",
+    "publicationDate": "Yayın Tarihi",
+    "language": "Dil",
+    "genre": "Tür",
+    "tags": "Etiketler",
+    "genrePlaceholder": "Kurgu, Kurgu Dışı, Romantik, vb.",
+    "tagsPlaceholder": "çok satan, ödüllü, vb.",
+    "upload": "Yükle",
+    "uploading": "Yükleniyor...",
+    "cancel": "İptal",
+    "invalidFileType": "Lütfen geçerli bir EPUB dosyası seçin",
+    "noFileSelected": "Lütfen yüklenecek bir dosya seçin",
+    "titleAndAuthorRequired": "Başlık ve yazar gereklidir",
+    "uploadError": "Kitap yüklenemedi",
+    "statusReady": "Hazır",
+    "statusProcessing": "İşleniyor",
+    "statusUploading": "Yükleniyor",
+    "statusError": "Hata",
+    "statusDeleted": "Silindi",
+    "view": "Görüntüle",
+    "edit": "Düzenle",
+    "delete": "Sil",
+    "confirmDelete": "Bu kitabı silmek istediğinizden emin misiniz?",
+    "deleteError": "Kitap silinemedi",
+    "download": "İndir",
+    "downloadError": "Kitap indirilemedi",
+    "loading": "Yükleniyor...",
+    "bookNotFound": "Kitap bulunamadı",
+    "backToBooks": "Kitaplara Dön",
+    "coverImage": "Kapak Görüntüsü",
+    "quickStats": "Hızlı İstatistikler",
+    "fileSize": "Dosya Boyutu",
+    "pages": "Sayfalar",
+    "words": "Kelimeler",
+    "readingTime": "Okuma Süresi",
+    "minutes": "dakika",
+    "uploadDate": "Yükleme Tarihi",
+    "actions": "İşlemler",
+    "bookDetails": "Kitap Detayları",
+    "epubMetadata": "EPUB Meta Verileri",
+    "creator": "Oluşturan",
+    "date": "Tarih",
+    "rights": "Haklar",
+    "lastModified": "Son Değiştirilme",
+    "filters": "Filtreler",
+    "clearFilters": "Filtreleri Temizle",
+    "searchPlaceholder": "Kitapları ara...",
+    "allStatuses": "Tüm Durumlar",
+    "allLanguages": "Tüm Diller",
+    "authorPlaceholder": "Yazara göre ara...",
+    "showAdvanced": "Gelişmiş Göster",
+    "hideAdvanced": "Gelişmiş Gizle",
+    "sortBy": "Sırala",
+    "showing": "Gösteriliyor",
+    "to": "-",
+    "of": "/",
+    "results": "sonuç",
+    "previous": "Önceki",
+    "next": "Sonraki",
+    "page": "Sayfa",
+    "statusReadyDescription": "Kitap kullanıma hazır",
+    "statusProcessingDescription": "Kitap işleniyor",
+    "statusUploadingDescription": "Kitap yükleniyor",
+    "statusErrorDescription": "İşleme sırasında bir hata oluştu",
+    "statusDeletedDescription": "Kitap silindi",
+    "statusUnknownDescription": "Bilinmeyen durum",
+    "processingStarted": "İşleme başladı",
+    "processingProgress": "İşleme devam ediyor...",
+    "errorOccurred": "Hata oluştu",
+    "viewErrorDetails": "Hata detaylarını görüntüle",
+    "readyForUse": "Kullanıma hazır",
+    "createArcCampaign": "ARC Kampanyası Oluştur",
+    "uploaded": "Yüklendi",
+    "duplicate": "Kopyala",
+    "share": "Paylaş",
+    "status": "Durum"
+  },
+  "integrations": {
+    "title": "Entegrasyonlar",
+    "subtitle": "Hesaplarınızı harici hizmetlere bağlayın",
+    "connectIntegration": "Entegrasyonu Bağla",
+    "loading": "Yükleniyor...",
+    "connectWordToWallet": "WordToWallet'ı Bağla",
+    "connectWordToWalletDescription": "ARC kampanyaları oluşturmak için WordToWallet hesabınızı bağlayın",
+    "apiKey": "API Anahtarı",
+    "apiKeyPlaceholder": "WordToWallet API anahtarınızı girin",
+    "apiKeyHelp": "API anahtarınız şifrelenecek ve güvenli bir şekilde saklanacaktır",
+    "howToGetApiKey": "API anahtarınızı nasıl alırsınız:",
+    "step1": "WordToWallet hesabınıza giriş yapın",
+    "step2": "Ayarlar > API Anahtarları'na gidin",
+    "step3": "Yeni bir API anahtarı oluşturun",
+    "step4": "Buraya kopyalayıp yapıştırın",
+    "features": "Özellikler",
+    "feature1": "Kitapları WordToWallet'a yükleyin",
+    "feature2": "ARC kampanyaları oluşturun",
+    "feature3": "İndirme kodları oluşturun",
+    "feature4": "İndirme analitiğini takip edin",
+    "connect": "Bağla",
+    "connecting": "Bağlanıyor...",
+    "cancel": "İptal",
+    "apiKeyRequired": "API anahtarı gereklidir",
+    "connectionFailed": "WordToWallet'a bağlanılamadı",
+    "availableIntegrations": "Mevcut Entegrasyonlar",
+    "WordToWalletDescription": "Kitaplarınız için ARC kampanyaları oluşturun ve yönetin",
+    "amazonKdpDescription": "Doğrudan Amazon Kindle Direct Publishing'e yayınlayın",
+    "draft2digitalDescription": "Birden fazla e-kitap perakendecisine dağıtın",
+    "smashwordsDescription": "Smashwords pazarına yayınlayın",
+    "comingSoon": "Yakında",
+    "connectedIntegrations": "Bağlı Entegrasyonlar",
+    "lastSync": "Son Senkronizasyon",
+    "test": "Test",
+    "sync": "Senkronize Et",
+    "disconnect": "Bağlantıyı Kes",
+    "confirmDisconnect": "Bu entegrasyonu kesmek istediğinizden emin misiniz?",
+    "statusActive": "Aktif",
+    "statusInactive": "Pasif",
+    "statusError": "Hata",
+    "statusPending": "Beklemede"
+  },
+  "arc": {
+    "title": "ARC Kampanyaları",
+    "subtitle": "Advanced Reader Copy kampanyaları oluşturun ve yönetin",
+    "createCampaign": "Kampanya Oluştur",
+    "cancel": "İptal",
+    "totalLinks": "Toplam Bağlantı",
+    "activeLinks": "Aktif Bağlantılar",
+    "expiredLinks": "Süresi Dolmuş Bağlantılar",
+    "maxDownloads": "Maks İndirme",
+    "errorLinks": "Hata Bağlantıları",
+    "filters": "Filtreler",
+    "status": "Durum",
+    "allStatuses": "Tüm Durumlar",
+    "statusActive": "Aktif",
+    "statusExpired": "Süresi Dolmuş",
+    "statusMaxDownloads": "Maks İndirme Ulaşıldı",
+    "statusDisabled": "Devre Dışı",
+    "statusError": "Hata",
+    "book": "Kitap",
+    "allBooks": "Tüm Kitaplar",
+    "expired": "Süresi Dolmuş",
+    "all": "Tümü",
+    "expiredOnly": "Yalnızca Süresi Dolmuş",
+    "activeOnly": "Yalnızca Aktif",
+    "noArcLinks": "ARC bağlantısı bulunamadı",
+    "noArcLinksDescription": "İndirme bağlantıları oluşturmak için ilk ARC kampanyanızı oluşturun.",
+    "downloads": "indirme",
+    "max": "maks",
+    "expires": "Süresi Doluyor",
+    "created": "Oluşturuldu",
+    "copyCode": "Kodu Kopyala",
+    "copied": "Kopyalandı!",
+    "share": "Paylaş",
+    "view": "Görüntüle",
+    "delete": "Sil",
+    "confirmDelete": "Bu ARC bağlantısını silmek istediğinizden emin misiniz?",
+    "deleteError": "ARC bağlantısı silinemedi",
+    "linkCopied": "Bağlantı panoya kopyalandı",
+    "showing": "Gösteriliyor",
+    "to": "-",
+    "of": "/",
+    "results": "sonuç",
+    "previous": "Önceki",
+    "next": "Sonraki",
+    "page": "Sayfa",
+    "createCampaignDescription": "Kitabınız için indirme bağlantıları oluşturmak üzere yeni bir ARC kampanyası oluşturun",
+    "selectBook": "Kitap Seç",
+    "chooseBook": "Bir kitap seçin...",
+    "selectedBook": "Seçilen kitap",
+    "campaignName": "Kampanya Adı",
+    "campaignNamePlaceholder": "Kampanya adını girin",
+    "description": "Açıklama",
+    "descriptionPlaceholder": "Kampanya açıklamasını girin",
+    "numberOfCodes": "Kod Sayısı",
+    "quantityHelp": "Oluşturulacak indirme kodu sayısı (1-1000)",
+    "maxDownloadsPerCode": "Kod Başına Maks İndirme",
+    "unlimited": "Sınırsız",
+    "totalMaxDownloads": "Toplam Maks İndirme",
+    "expirationDate": "Son Kullanma Tarihi",
+    "campaignInfo": "Kampanya Bilgileri",
+    "info1": "ARC kodları otomatik olarak oluşturulacaktır",
+    "info2": "Her kod okuyucularla paylaşılabilir",
+    "info3": "İndirme takibi mevcuttur",
+    "info4": "Kodlar otomatik olarak sona erecek şekilde ayarlanabilir",
+    "bookAndNameRequired": "Kitap seçimi ve kampanya adı gereklidir",
+    "invalidQuantity": "Miktar 1 ile 1000 arasında olmalıdır",
+    "creating": "Oluşturuluyor...",
+    "creationFailed": "Kampanya oluşturulamadı"
+  }
+}

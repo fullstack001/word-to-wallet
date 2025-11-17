@@ -1,0 +1,666 @@
+{
+  "common": {
+    "loading": "加载中...",
+    "error": "错误",
+    "configNotFound": "未找到主页配置。",
+    "home": "首页"
+  },
+  "errors": {
+    "oops": "糟糕！",
+    "somethingWentWrong": "出了点问题",
+    "pageNotFound": "页面未找到",
+    "pageNotExist": "您要查找的页面不存在。",
+    "errorLoadingPage": "加载此页面时遇到错误。请重试。",
+    "errorLoadingApp": "加载应用程序时遇到错误。请重试。",
+    "tryAgain": "重试",
+    "goHome": "返回首页",
+    "goToHomePage": "转到首页",
+    "errorDetails": "错误详情（仅开发模式）"
+  },
+  "faq": {
+    "title": "常见问题",
+    "q1": {
+      "q": "我需要其他AI工具吗？",
+      "a": "不需要。WordToWallet集中了文案、设计和交付，您无需同时使用数十个应用程序。"
+    },
+    "q2": {
+      "q": "我还能发布到市场吗？",
+      "a": "可以——连接您的Draft2Digital或WordToWallet账户，当您需要更广泛的分发时即可移交。"
+    },
+    "q3": {
+      "q": "课程真的免费吗？",
+      "a": "是的——会员可免费使用课程。您只需支付平台访问费用，可随时取消。"
+    }
+  },
+  "footer": {
+    "selectLanguage": "选择语言"
+  },
+  "auth": {
+    "signIn": "登录",
+    "email": "电子邮件",
+    "password": "密码",
+    "emailAddress": "电子邮件地址"
+  },
+  "account": {
+    "account": "账户",
+    "membership": "会员资格",
+    "noSubscription": "无有效订阅",
+    "unlockAllTools": "解锁所有工具",
+    "fullAccess": "获得所有PDF工具的完整访问权限",
+    "subscribeNow": "立即订阅",
+    "subscribe": "订阅",
+    "paymentMethod": "支付方式",
+    "saveTime": "通过自动支付节省时间",
+    "cardNumber": "卡号",
+    "notSpecified": "未指定",
+    "importantUpdates": "关于您账户的重要更新"
+  },
+  "plan": {
+    "choosePlan": "选择您的计划",
+    "continue": "继续"
+  },
+  "navbar": {
+    "profileDetails": "个人资料详情",
+    "noSubscription": "无订阅",
+    "myDocuments": "我的文档",
+    "myAccount": "我的账户"
+  },
+  "hero": {
+    "badge": "会员优先 · 私有工具 · 全球覆盖",
+    "title": "将文字转化为销售 — 免费课程 + ePub3平台",
+    "sub": "使用ChatGPT-5构建交互式ePub3促销活动，并通过电子邮件直接销售。多语言、可衡量、无中间商。",
+    "ctaPrimary": "获取平台访问权限",
+    "ctaSecondary": "预览免费课程",
+    "legal": "我们绝不销售您的数据。可随时取消。"
+  },
+  "audiences": {
+    "title": "为您的用例而构建",
+    "solopreneurs": {
+      "title": "独立创业者和小型团队",
+      "desc": "发布促销活动，收集订阅者，无需昂贵的广告平台即可销售服务或产品。最多允许五名团队成员。"
+    },
+    "authors": {
+      "title": "自出版作者和PR小型代理",
+      "desc": "创建活动和书籍布局（小说和非小说），交付ARC，并向小众读者列表销售。"
+    }
+  },
+  "value": {
+    "title": "为什么选择WordToWallet",
+    "cards": {
+      "epub3": {
+        "title": "ePub3创建工作室",
+        "description": "创建促销活动和书籍布局。粘贴ChatGPT-5生成的代码和设计，在移动设备上预览，几分钟内即可发布。",
+        "features": {
+          "0": "从提示中直接粘贴XHTML/CSS",
+          "1": "无障碍和翻译就绪",
+          "2": "适用于小说/非小说的可重用模板"
+        }
+      },
+      "email": {
+        "title": "收件箱安全电子邮件",
+        "description": "发送文本优先、对齐链接的电子邮件，内置可交付性护栏（SPF/DKIM/DMARC）。无需猜测即可预热和监控。",
+        "features": []
+      },
+      "analytics": {
+        "title": "私有列表和分析",
+        "description": "导入CSV，按产品/类型细分，并从一个仪表板跟踪点击→下载→回复/购买。",
+        "features": []
+      },
+      "byoa": {
+        "title": "BYOA：D2D和WordToWallet",
+        "description": "导出市场就绪的包或通过链接交付ARC——当您需要更广泛的分发时进行集成。",
+        "features": []
+      }
+    }
+  },
+  "howItWorks": {
+    "title": "工作原理",
+    "subtitle": "通过我们专为成功设计的简单3步流程，几分钟内即可开始",
+    "steps": {
+      "step1": {
+        "title": "开始学习",
+        "description": "从我们的免费AI写作课程开始。在小块课程中学习实用技巧。"
+      },
+      "step2": {
+        "title": "建立您的列表",
+        "description": "使用我们的读者磁铁和MailerLite集成来增长您的电子邮件受众。"
+      },
+      "step3": {
+        "title": "销售和扩展",
+        "description": "发布您的产品，让WordToWallet处理交付，而您专注于写作。"
+      }
+    },
+    "cta": "立即开始"
+  },
+  "howItWorksNew": {
+    "title": "工作原理",
+    "steps": {
+      "step1": {
+        "title": "告诉ChatGPT-5您的目标",
+        "description": "使用我们的提示卡进行报价、受众和语言。"
+      },
+      "step2": {
+        "title": "生成文案和代码",
+        "description": "主题行、CTA和可直接粘贴的ePub3部分。"
+      },
+      "step3": {
+        "title": "发布和发送",
+        "description": "通过第一方电子邮件上线并跟踪漏斗。"
+      }
+    }
+  },
+  "features": {
+    "title": "成功所需的一切",
+    "titleHighlight": "成功",
+    "subtitle": "从AI驱动的写作课程到直接销售基础设施，我们为您提供全面支持。",
+    "cards": {
+      "aiWriting": {
+        "title": "学习AI写作",
+        "description": "10分钟实用课程，教您使用AI制作章节、简介和广告。",
+        "features": [
+          "交互式教程",
+          "真实世界示例",
+          "进度跟踪"
+        ]
+      },
+      "audience": {
+        "title": "建立您的受众",
+        "description": "读者磁铁+MailerLite集成自动建立您的电子邮件列表。",
+        "features": ["潜在客户磁铁", "电子邮件自动化", "受众分析"]
+      },
+      "sales": {
+        "title": "直接销售",
+        "description": "连接您的商店；WordToWallet直接将文件交付给买家。",
+        "features": ["直接销售", "文件交付", "客户管理"]
+      }
+    }
+  },
+  "security": {
+    "badge": "安全第一",
+    "title": "您的安全是我们的首要任务",
+    "subtitle": "我们实施企业级安全措施，确保您的文档和数据始终完全受保护。",
+    "features": {
+      "encryption": {
+        "title": "银行级加密",
+        "description": "256位SSL加密保护您的数据"
+      },
+      "processing": {
+        "title": "安全处理",
+        "description": "处理完成后文件会自动删除"
+      },
+      "privacy": {
+        "title": "隐私第一",
+        "description": "无人可访问您的文档"
+      },
+      "compliance": {
+        "title": "符合GDPR",
+        "description": "完全符合数据保护法规"
+      }
+    },
+    "trustedBy": "全球40万+用户信赖"
+  },
+  "testimonials": {
+    "title": "受到全球专业人士的信赖",
+    "subtitle": "看看我们的客户怎么说",
+    "rating": "来自3,000+评论的5.0评分",
+    "review1": {
+      "name": "Jennifer Martinez",
+      "role": "法律运营总监",
+      "company": "Global Law Partners",
+      "review": "WordToWallet改变了我们的文档工作流程。我们的法律团队现在可以通过自动表单填写和电子签名功能以3倍的速度处理合同。团队协作工具完全消除了版本控制问题。"
+    },
+    "review2": {
+      "name": "David Chen",
+      "role": "首席技术官",
+      "company": "TechFlow Solutions",
+      "review": "作为一家成长中的初创公司，我们需要企业级文档管理，但不需要企业级价格标签。WordToWallet的团队功能和无限制处理与我们的业务完美扩展。第一个月就实现了投资回报率。"
+    },
+    "review3": {
+      "name": "Sarah Williams",
+      "role": "财务经理",
+      "company": "Merchant Capital Group",
+      "review": "OCR功能彻底改变了我们的文档数字化流程。我们的会计团队现在可以立即搜索数千张扫描发票。这为我们节省了无数小时，并显著提高了审计准备度。"
+    },
+    "review4": {
+      "name": "Michael Rodriguez",
+      "role": "合规官",
+      "company": "SecureBank International",
+      "review": "WordToWallet的企业安全功能让我们在处理敏感客户文档时充满信心。合规工具和审计跟踪使我们的监管报告更加直接。我们的合规团队非常喜欢它。"
+    },
+    "review5": {
+      "name": "Lisa Thompson",
+      "role": "营销运营经理",
+      "company": "Digital Growth Agency",
+      "review": "我们的营销团队每周为活动处理数百个PDF。WordToWallet的批处理和自动化功能将我们的文档准备时间减少了70%。对于任何希望扩展业务的公司来说，投资回报率都是惊人的。"
+    },
+    "review6": {
+      "name": "Robert Kim",
+      "role": "项目总监",
+      "company": "Construction Dynamics",
+      "review": "团队协作功能消除了我们的文档瓶颈。多个部门现在可以同时处理相同的文档，并实时更新。这使我们的项目交付时间提高了40%。"
+    }
+  },
+  "course": {
+    "badge": "包含免费课程",
+    "title": "包含免费课程",
+    "bullets": [
+      "电子邮件+ePub3的直接销售手册。",
+      "提示库：报价、促销、落地页部分、翻译。",
+      "反垃圾邮件邀请模板和预热清单。",
+      "顶点项目：您的7天利润冲刺。"
+    ],
+    "cta": "免费注册（含平台访问权限）"
+  },
+  "privacyPolicy": {
+    "title": "隐私政策",
+    "lastUpdated": "最后更新：2024年12月",
+    "websiteAddress": "我们的网站地址是：https://bestglobalai.com",
+    "sections": {
+      "whoWeAre": {
+        "title": "我们是谁",
+        "content": "我们的网站地址是：https://bestglobalai.com"
+      },
+      "comments": {
+        "title": "评论",
+        "content": "当访问者在网站上留下评论时，我们会收集评论表单中显示的数据，以及访问者的IP地址和浏览器用户代理字符串以帮助垃圾邮件检测。从您的电子邮件地址创建的匿名字符串（也称为哈希）可能会提供给Gravatar服务，以查看您是否正在使用它。Gravatar服务隐私政策可在此处查看：https://automattic.com/privacy/。在您的评论获得批准后，您的个人资料图片将在您的评论上下文中对公众可见。"
+      },
+      "media": {
+        "title": "媒体",
+        "content": "如果您将图像上传到网站，应避免上传包含嵌入位置数据（EXIF GPS）的图像。网站访问者可以下载并提取网站上图像中的任何位置数据。"
+      },
+      "cookies": {
+        "title": "Cookie",
+        "content": "我们不使用cookie收集访问者的信息。"
+      },
+      "embeddedContent": {
+        "title": "来自其他网站的嵌入内容",
+        "content": "本网站上的文章可能包含嵌入内容（例如视频、图像、文章等）。来自其他网站的嵌入内容的行为与访问者访问其他网站的方式完全相同。"
+      },
+      "dataSharing": {
+        "title": "我们与谁共享您的数据",
+        "content": "如果您请求重置密码，您的IP地址将包含在重置电子邮件中。"
+      },
+      "dataRetention": {
+        "title": "我们保留您的数据多长时间",
+        "content": "如果您留下评论，评论及其元数据将无限期保留。这样我们就可以自动识别和批准任何后续评论，而不是将它们保留在审核队列中。对于在我们网站上注册的用户（如果有），我们还会在其用户配置文件中存储他们提供的个人信息。所有用户都可以随时查看、编辑或删除其个人信息（但他们无法更改用户名）。网站管理员也可以查看和编辑该信息。"
+      },
+      "userRights": {
+        "title": "您对数据拥有的权利",
+        "content": "如果您在本网站上有账户或留下过评论，您可以请求接收我们持有的关于您的个人数据的导出文件，包括您提供给我们的任何数据。您也可以请求我们删除我们持有的关于您的任何个人数据。这不包括我们有义务为行政、法律或安全目的而保留的任何数据。"
+      },
+      "dataTransfer": {
+        "title": "您的数据发送到哪里",
+        "content": "访问者评论可能会通过自动垃圾邮件检测服务进行检查。"
+      }
+    },
+    "contact": {
+      "title": "对此政策有疑问？",
+      "description": "如果您对此隐私政策或我们如何处理您的数据有任何疑问，请随时与我们联系。",
+      "website": "https://bestglobalai.com"
+    }
+  },
+  "contactPage": {
+    "title": "联系我们",
+    "description": "如果您需要帮助或有任何问题，请随时与我们联系。",
+    "form": {
+      "name": "姓名",
+      "namePlaceholder": "您的姓名",
+      "email": "电子邮件地址",
+      "emailPlaceholder": "email@domain.com",
+      "message": "消息",
+      "messagePlaceholder": "在此输入您的消息",
+      "sendButton": "发送消息"
+    },
+    "directContact": {
+      "title": "直接联系我们"
+    },
+    "billing": {
+      "title": "账单支持",
+      "description": "您对费用有疑问吗？对于平台上任何与支付相关的问题，请联系我们："
+    },
+    "customer": {
+      "title": "客户支持",
+      "description": "我们很高兴与您交谈。如果您对我们的服务有任何疑问，请致电或发送电子邮件至："
+    },
+    "meet": {
+      "title": "安排会议",
+      "description": "需要直接帮助？安排与我们团队的个性化会议，讨论您的需求并获得专家指导。"
+    }
+  },
+  "auction": {
+    "title": "拍卖",
+    "subtitle": "发现并参与实时拍卖",
+    "myAuctions": "我的拍卖",
+    "createAuction": "创建拍卖",
+    "browseAll": "浏览所有拍卖",
+    "manageAuctions": "管理和跟踪您的拍卖列表",
+    "createNewAuction": "创建新拍卖",
+    "noAuctionsFound": "未找到拍卖",
+    "createFirstAuction": "创建您的第一个拍卖",
+    "filters": {
+      "allAuctions": "所有拍卖",
+      "scheduled": "已安排",
+      "active": "进行中",
+      "sold": "已售出",
+      "ended": "已结束"
+    },
+    "status": {
+      "scheduled": "已安排",
+      "active": "进行中",
+      "sold": "已售出",
+      "soldBuyNow": "已售出（立即购买）",
+      "soldOffer": "已售出（报价）",
+      "ended": "已结束",
+      "endedNoSale": "已结束（未售出）",
+      "cancelled": "已取消"
+    },
+    "create": {
+      "title": "创建新拍卖",
+      "form": {
+        "title": "拍卖标题",
+        "titlePlaceholder": "输入拍卖标题",
+        "description": "描述",
+        "descriptionPlaceholder": "描述您的拍卖物品",
+        "currency": "货币",
+        "startingPrice": "起拍价",
+        "startingPricePlaceholder": "0.00",
+        "reservePrice": "保留价（可选）",
+        "reservePricePlaceholder": "最低售价",
+        "reservePriceHelp": "您愿意接受的最低价格。如果未达到，拍卖将不会售出。",
+        "buyNowPrice": "立即购买价（可选）",
+        "buyNowPricePlaceholder": "即时购买价格",
+        "buyNowPriceHelp": "允许买家立即以此价格购买。",
+        "startTime": "开始时间",
+        "endTime": "结束时间",
+        "extendSeconds": "防狙击延长（秒）",
+        "extendSecondsPlaceholder": "30",
+        "extendSecondsHelp": "在最后一分钟出价时，将拍卖延长这么多秒。",
+        "minIncrement": "最低出价增量",
+        "minIncrementPlaceholder": "1.00",
+        "createButton": "创建拍卖",
+        "cancelButton": "取消"
+      },
+      "validation": {
+        "titleRequired": "标题、描述、起拍价、开始时间和结束时间为必填项",
+        "startingPriceRequired": "起拍价必须大于0",
+        "reservePriceInvalid": "保留价必须大于起拍价",
+        "buyNowPriceInvalid": "立即购买价必须大于起拍价",
+        "reservePriceTooHigh": "保留价不能高于立即购买价",
+        "endTimeInvalid": "结束时间必须在开始时间之后",
+        "startTimeInvalid": "开始时间必须在未来"
+      }
+    },
+    "list": {
+      "startingPrice": "起拍价：",
+      "currentBid": "当前出价：",
+      "buyNow": "立即购买：",
+      "starts": "开始：",
+      "ends": "结束：",
+      "timeLeft": "剩余时间：",
+      "ended": "已结束",
+      "by": "由",
+      "viewAuction": "查看拍卖",
+      "page": "页",
+      "of": "共",
+      "previous": "上一页",
+      "next": "下一页"
+    },
+    "delete": "删除",
+    "confirmDeleteTitle": "确认删除",
+    "confirmDelete": "您确定要删除此拍卖吗？此操作无法撤销。",
+    "deleteError": "删除拍卖失败",
+    "deleteDisabledActive": "无法删除进行中的拍卖",
+    "deleting": "删除中...",
+    "cancel": "取消",
+    "view": {
+      "placeBid": "出价",
+      "buyNow": "立即购买",
+      "makeOffer": "报价",
+      "bidAmount": "出价金额",
+      "minimumBid": "最低出价：",
+      "yourBid": "您的出价",
+      "bidButton": "出价",
+      "offerAmount": "报价金额",
+      "offerButton": "报价",
+      "bidHistory": "出价历史",
+      "offers": "报价",
+      "noBids": "尚无出价",
+      "noOffers": "尚无报价",
+      "timeRemaining": "剩余时间",
+      "days": "天",
+      "hours": "小时",
+      "minutes": "分钟",
+      "seconds": "秒",
+      "reserveNotMet": "未达到保留价",
+      "reserveMet": "已达到保留价",
+      "online": "在线",
+      "bidders": "出价者"
+    },
+    "bidding": {
+      "bidPlaced": "出价成功",
+      "bidFailed": "出价失败",
+      "bidTooLow": "出价金额太低",
+      "auctionEnded": "拍卖已结束",
+      "auctionNotActive": "拍卖不接受出价",
+      "buyNowSuccess": "拍卖购买成功",
+      "buyNowFailed": "购买拍卖失败",
+      "offerCreated": "报价创建成功",
+      "offerFailed": "创建报价失败",
+      "offerAccepted": "报价已接受",
+      "offerDeclined": "报价已拒绝"
+    },
+    "currency": {
+      "USD": "USD - 美元",
+      "EUR": "EUR - 欧元",
+      "GBP": "GBP - 英镑",
+      "CAD": "CAD - 加元",
+      "AUD": "AUD - 澳元"
+    }
+  },
+  "books": {
+    "title": "书籍",
+    "subtitle": "管理您的EPUB书籍并创建ARC活动",
+    "uploadBook": "上传书籍",
+    "totalBooks": "总书籍数",
+    "readyBooks": "就绪书籍",
+    "processingBooks": "处理中",
+    "errorBooks": "错误",
+    "noBooks": "未找到书籍",
+    "noBooksDescription": "上传您的第一本EPUB书籍以开始。",
+    "epubFile": "EPUB文件",
+    "dragDropFile": "将您的EPUB文件拖放到此处",
+    "browse": "浏览",
+    "epubOnly": "仅EPUB文件",
+    "title": "标题",
+    "author": "作者",
+    "description": "描述",
+    "isbn": "ISBN",
+    "publisher": "出版商",
+    "publicationDate": "出版日期",
+    "language": "语言",
+    "genre": "类型",
+    "tags": "标签",
+    "genrePlaceholder": "小说、非小说、浪漫等。",
+    "tagsPlaceholder": "畅销书、获奖作品等。",
+    "upload": "上传",
+    "uploading": "上传中...",
+    "cancel": "取消",
+    "invalidFileType": "请选择有效的EPUB文件",
+    "noFileSelected": "请选择要上传的文件",
+    "titleAndAuthorRequired": "标题和作者为必填项",
+    "uploadError": "上传书籍失败",
+    "statusReady": "就绪",
+    "statusProcessing": "处理中",
+    "statusUploading": "上传中",
+    "statusError": "错误",
+    "statusDeleted": "已删除",
+    "view": "查看",
+    "edit": "编辑",
+    "delete": "删除",
+    "confirmDelete": "您确定要删除此书吗？",
+    "deleteError": "删除书籍失败",
+    "download": "下载",
+    "downloadError": "下载书籍失败",
+    "loading": "加载中...",
+    "bookNotFound": "未找到书籍",
+    "backToBooks": "返回书籍",
+    "coverImage": "封面图片",
+    "quickStats": "快速统计",
+    "fileSize": "文件大小",
+    "pages": "页数",
+    "words": "字数",
+    "readingTime": "阅读时间",
+    "minutes": "分钟",
+    "uploadDate": "上传日期",
+    "actions": "操作",
+    "bookDetails": "书籍详情",
+    "epubMetadata": "EPUB元数据",
+    "creator": "创建者",
+    "date": "日期",
+    "rights": "权利",
+    "lastModified": "最后修改",
+    "filters": "筛选",
+    "clearFilters": "清除筛选",
+    "searchPlaceholder": "搜索书籍...",
+    "allStatuses": "所有状态",
+    "allLanguages": "所有语言",
+    "authorPlaceholder": "按作者搜索...",
+    "showAdvanced": "显示高级",
+    "hideAdvanced": "隐藏高级",
+    "sortBy": "排序方式",
+    "showing": "显示",
+    "to": "到",
+    "of": "共",
+    "results": "结果",
+    "previous": "上一页",
+    "next": "下一页",
+    "page": "页",
+    "statusReadyDescription": "书籍已就绪可使用",
+    "statusProcessingDescription": "书籍正在处理中",
+    "statusUploadingDescription": "书籍正在上传中",
+    "statusErrorDescription": "处理过程中发生错误",
+    "statusDeletedDescription": "书籍已删除",
+    "statusUnknownDescription": "未知状态",
+    "processingStarted": "处理已开始",
+    "processingProgress": "处理进行中...",
+    "errorOccurred": "发生错误",
+    "viewErrorDetails": "查看错误详情",
+    "readyForUse": "可使用",
+    "createArcCampaign": "创建ARC活动",
+    "uploaded": "已上传",
+    "duplicate": "重复",
+    "share": "分享",
+    "status": "状态"
+  },
+  "integrations": {
+    "title": "集成",
+    "subtitle": "将您的账户连接到外部服务",
+    "connectIntegration": "连接集成",
+    "loading": "加载中...",
+    "connectWordToWallet": "连接WordToWallet",
+    "connectWordToWalletDescription": "连接您的WordToWallet账户以创建ARC活动",
+    "apiKey": "API密钥",
+    "apiKeyPlaceholder": "输入您的WordToWallet API密钥",
+    "apiKeyHelp": "您的API密钥将被加密并安全存储",
+    "howToGetApiKey": "如何获取您的API密钥：",
+    "step1": "登录您的WordToWallet账户",
+    "step2": "转到设置 > API密钥",
+    "step3": "生成新的API密钥",
+    "step4": "复制并粘贴到此处",
+    "features": "功能",
+    "feature1": "将书籍上传到WordToWallet",
+    "feature2": "创建ARC活动",
+    "feature3": "生成下载代码",
+    "feature4": "跟踪下载分析",
+    "connect": "连接",
+    "connecting": "连接中...",
+    "cancel": "取消",
+    "apiKeyRequired": "需要API密钥",
+    "connectionFailed": "连接到WordToWallet失败",
+    "availableIntegrations": "可用集成",
+    "WordToWalletDescription": "为您的书籍创建和管理ARC活动",
+    "amazonKdpDescription": "直接发布到Amazon Kindle Direct Publishing",
+    "draft2digitalDescription": "分发到多个电子书零售商",
+    "smashwordsDescription": "发布到Smashwords市场",
+    "comingSoon": "即将推出",
+    "connectedIntegrations": "已连接集成",
+    "lastSync": "最后同步",
+    "test": "测试",
+    "sync": "同步",
+    "disconnect": "断开连接",
+    "confirmDisconnect": "您确定要断开此集成吗？",
+    "statusActive": "活动",
+    "statusInactive": "非活动",
+    "statusError": "错误",
+    "statusPending": "待处理"
+  },
+  "arc": {
+    "title": "ARC活动",
+    "subtitle": "创建和管理高级读者副本活动",
+    "createCampaign": "创建活动",
+    "cancel": "取消",
+    "totalLinks": "总链接数",
+    "activeLinks": "活动链接",
+    "expiredLinks": "过期链接",
+    "maxDownloads": "最大下载数",
+    "errorLinks": "错误链接",
+    "filters": "筛选",
+    "status": "状态",
+    "allStatuses": "所有状态",
+    "statusActive": "活动",
+    "statusExpired": "已过期",
+    "statusMaxDownloads": "达到最大下载数",
+    "statusDisabled": "已禁用",
+    "statusError": "错误",
+    "book": "书籍",
+    "allBooks": "所有书籍",
+    "expired": "已过期",
+    "all": "全部",
+    "expiredOnly": "仅过期",
+    "activeOnly": "仅活动",
+    "noArcLinks": "未找到ARC链接",
+    "noArcLinksDescription": "创建您的第一个ARC活动以生成下载链接。",
+    "downloads": "下载",
+    "max": "最大",
+    "expires": "过期",
+    "created": "已创建",
+    "copyCode": "复制代码",
+    "copied": "已复制！",
+    "share": "分享",
+    "view": "查看",
+    "delete": "删除",
+    "confirmDelete": "您确定要删除此ARC链接吗？",
+    "deleteError": "删除ARC链接失败",
+    "linkCopied": "链接已复制到剪贴板",
+    "showing": "显示",
+    "to": "到",
+    "of": "共",
+    "results": "结果",
+    "previous": "上一页",
+    "next": "下一页",
+    "page": "页",
+    "createCampaignDescription": "创建新的ARC活动以为您的书籍生成下载链接",
+    "selectBook": "选择书籍",
+    "chooseBook": "选择一本书...",
+    "selectedBook": "已选书籍",
+    "campaignName": "活动名称",
+    "campaignNamePlaceholder": "输入活动名称",
+    "description": "描述",
+    "descriptionPlaceholder": "输入活动描述",
+    "numberOfCodes": "代码数量",
+    "quantityHelp": "要生成的下载代码数量（1-1000）",
+    "maxDownloadsPerCode": "每个代码的最大下载数",
+    "unlimited": "无限制",
+    "totalMaxDownloads": "总最大下载数",
+    "expirationDate": "过期日期",
+    "campaignInfo": "活动信息",
+    "info1": "ARC代码将自动生成",
+    "info2": "每个代码可以与读者分享",
+    "info3": "可跟踪下载",
+    "info4": "代码可设置为自动过期",
+    "bookAndNameRequired": "需要选择书籍和活动名称",
+    "invalidQuantity": "数量必须在1到1000之间",
+    "creating": "创建中...",
+    "creationFailed": "创建活动失败"
+  }
+}

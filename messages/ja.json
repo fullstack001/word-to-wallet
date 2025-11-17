@@ -1,0 +1,666 @@
+{
+  "common": {
+    "loading": "読み込み中...",
+    "error": "エラー",
+    "configNotFound": "ホームページの設定が見つかりません。",
+    "home": "ホーム"
+  },
+  "errors": {
+    "oops": "おっと！",
+    "somethingWentWrong": "問題が発生しました",
+    "pageNotFound": "ページが見つかりません",
+    "pageNotExist": "お探しのページは存在しません。",
+    "errorLoadingPage": "このページの読み込み中にエラーが発生しました。もう一度お試しください。",
+    "errorLoadingApp": "アプリケーションの読み込み中にエラーが発生しました。もう一度お試しください。",
+    "tryAgain": "再試行",
+    "goHome": "ホームに戻る",
+    "goToHomePage": "ホームページに移動",
+    "errorDetails": "エラー詳細（開発モードのみ）"
+  },
+  "faq": {
+    "title": "よくある質問",
+    "q1": {
+      "q": "他のAIツールが必要ですか？",
+      "a": "いいえ。WordToWalletはコピー、デザイン、配信を一元化するため、数十のアプリを使い分ける必要がありません。"
+    },
+    "q2": {
+      "q": "マーケットプレイスに公開できますか？",
+      "a": "はい—Draft2DigitalまたはWordToWalletアカウントを接続し、より広範な配布が必要なときに引き渡すことができます。"
+    },
+    "q3": {
+      "q": "コースは本当に無料ですか？",
+      "a": "はい—コースはメンバーには無料です。プラットフォームアクセスの料金を支払い、いつでもキャンセルできます。"
+    }
+  },
+  "footer": {
+    "selectLanguage": "言語を選択"
+  },
+  "auth": {
+    "signIn": "サインイン",
+    "email": "メール",
+    "password": "パスワード",
+    "emailAddress": "メールアドレス"
+  },
+  "account": {
+    "account": "アカウント",
+    "membership": "メンバーシップ",
+    "noSubscription": "アクティブなサブスクリプションがありません",
+    "unlockAllTools": "すべてのツールをアンロック",
+    "fullAccess": "すべてのPDFツールへのフルアクセスを取得",
+    "subscribeNow": "今すぐ購読",
+    "subscribe": "購読",
+    "paymentMethod": "支払い方法",
+    "saveTime": "自動支払いで時間を節約",
+    "cardNumber": "カード番号",
+    "notSpecified": "指定なし",
+    "importantUpdates": "アカウントに関する重要な更新"
+  },
+  "plan": {
+    "choosePlan": "プランを選択",
+    "continue": "続ける"
+  },
+  "navbar": {
+    "profileDetails": "プロフィール詳細",
+    "noSubscription": "サブスクリプションなし",
+    "myDocuments": "マイドキュメント",
+    "myAccount": "マイアカウント"
+  },
+  "hero": {
+    "badge": "メンバー優先 · プライベートツール · グローバルリーチ",
+    "title": "言葉を売上に変える — 無料コース + ePub3プラットフォーム",
+    "sub": "ChatGPT-5でインタラクティブなePub3プロモを作成し、メールで直接販売。多言語対応、測定可能、中間業者なし。",
+    "ctaPrimary": "プラットフォームアクセスを取得",
+    "ctaSecondary": "無料コースをプレビュー",
+    "legal": "あなたのデータを販売することはありません。いつでもキャンセル可能。"
+  },
+  "audiences": {
+    "title": "あなたのユースケース向けに構築",
+    "solopreneurs": {
+      "title": "ソロプレナー & マイクロチーム",
+      "desc": "プロモを開始し、購読者を集め、高額な広告プラットフォームなしでサービスや製品を販売。最大5人のチームメンバーまで許可。"
+    },
+    "authors": {
+      "title": "セルフパブリッシュ著者 & PRマイクロエージェンシー",
+      "desc": "キャンペーンや書籍レイアウト（フィクション & ノンフィクション）を作成し、ARCを配信し、ニッチな読者リストに販売。"
+    }
+  },
+  "value": {
+    "title": "WordToWalletを選ぶ理由",
+    "cards": {
+      "epub3": {
+        "title": "ePub3クリエイタースタジオ",
+        "description": "プロモと書籍レイアウトを作成。ChatGPT-5で生成されたコードとデザインを貼り付け、モバイルでプレビューし、数分で公開。",
+        "features": {
+          "0": "プロンプトから貼り付け可能なXHTML/CSS",
+          "1": "アクセシビリティ & 翻訳対応",
+          "2": "フィクション/ノンフィクション用の再利用可能なテンプレート"
+        }
+      },
+      "email": {
+        "title": "受信トレイ安全メール",
+        "description": "テキスト優先、整列リンクのメールを、組み込みの配信性ガードレール（SPF/DKIM/DMARC）付きで送信。推測なしでウォームアップとモニタリング。",
+        "features": []
+      },
+      "analytics": {
+        "title": "プライベートリスト & 分析",
+        "description": "CSVをインポートし、製品/ジャンルでセグメント化し、1つのダッシュボードからクリック → ダウンロード → 返信/購入を追跡。",
+        "features": []
+      },
+      "byoa": {
+        "title": "BYOA: D2D & WordToWallet",
+        "description": "マーケットプレイス対応パッケージをエクスポート、またはリンク付きARCを配信—より広範な配布が必要なときに統合。",
+        "features": []
+      }
+    }
+  },
+  "howItWorks": {
+    "title": "仕組み",
+    "subtitle": "成功のために設計されたシンプルな3ステッププロセスで、数分で始められます",
+    "steps": {
+      "step1": {
+        "title": "学習を開始",
+        "description": "無料のAIライティングコースから始めましょう。小さなレッスンで実践的なテクニックを学びます。"
+      },
+      "step2": {
+        "title": "リストを構築",
+        "description": "リーダーマグネットとMailerLite統合を使用して、メールオーディエンスを成長させます。"
+      },
+      "step3": {
+        "title": "販売 & スケール",
+        "description": "製品をローンチし、WordToWalletに配信を任せながら、ライティングに集中します。"
+      }
+    },
+    "cta": "今すぐ始める"
+  },
+  "howItWorksNew": {
+    "title": "仕組み",
+    "steps": {
+      "step1": {
+        "title": "ChatGPT-5に目標を伝える",
+        "description": "オファー、オーディエンス、言語用のプロンプトカードを使用。"
+      },
+      "step2": {
+        "title": "コピー & コードを生成",
+        "description": "件名、CTA、貼り付け可能なePub3セクション。"
+      },
+      "step3": {
+        "title": "公開 & 送信",
+        "description": "ファーストパーティメールでライブにし、ファネルを追跡。"
+      }
+    }
+  },
+  "features": {
+    "title": "成功に必要なすべて",
+    "titleHighlight": "成功",
+    "subtitle": "AI駆動のライティングレッスンから直接販売インフラまで、すべてをカバーしています。",
+    "cards": {
+      "aiWriting": {
+        "title": "AIライティングを学ぶ",
+        "description": "AIを使用して章、あらすじ、広告を作成する方法を教える10分の実践レッスン。",
+        "features": [
+          "インタラクティブチュートリアル",
+          "実世界の例",
+          "進捗追跡"
+        ]
+      },
+      "audience": {
+        "title": "オーディエンスを構築",
+        "description": "リーダーマグネット + MailerLite統合が自動的にメールリストを構築します。",
+        "features": ["リードマグネット", "メール自動化", "オーディエンス分析"]
+      },
+      "sales": {
+        "title": "直接販売",
+        "description": "ストアを接続；WordToWalletがファイルを購入者に直接配信します。",
+        "features": ["直接販売", "ファイル配信", "顧客管理"]
+      }
+    }
+  },
+  "security": {
+    "badge": "セキュリティ第一",
+    "title": "あなたのセキュリティが最優先事項です",
+    "subtitle": "エンタープライズレベルのセキュリティ対策を実装し、ドキュメントとデータが常に完全に保護されるようにします。",
+    "features": {
+      "encryption": {
+        "title": "銀行レベルの暗号化",
+        "description": "256ビットSSL暗号化がデータを保護します"
+      },
+      "processing": {
+        "title": "安全な処理",
+        "description": "処理後、ファイルは自動的に削除されます"
+      },
+      "privacy": {
+        "title": "プライバシー第一",
+        "description": "ドキュメントへの人間のアクセスはありません"
+      },
+      "compliance": {
+        "title": "GDPR準拠",
+        "description": "データ保護規制への完全な準拠"
+      }
+    },
+    "trustedBy": "世界中の40万人以上のユーザーに信頼されています"
+  },
+  "testimonials": {
+    "title": "世界中の専門家に信頼されています",
+    "subtitle": "お客様の声をご覧ください",
+    "rating": "3,000件以上のレビューから5.0評価",
+    "review1": {
+      "name": "Jennifer Martinez",
+      "role": "法務運営ディレクター",
+      "company": "Global Law Partners",
+      "review": "WordToWalletは私たちのドキュメントワークフローを変革しました。法務チームは、自動フォーム入力と電子署名機能により、契約を3倍速く処理できるようになりました。チームコラボレーションツールにより、バージョン管理の問題が完全に解消されました。"
+    },
+    "review2": {
+      "name": "David Chen",
+      "role": "CTO",
+      "company": "TechFlow Solutions",
+      "review": "成長中のスタートアップとして、エンタープライズ価格タグなしでエンタープライズレベルのドキュメント管理が必要でした。WordToWalletのチーム機能と無制限の処理により、ビジネスに完璧にスケールしました。ROIは最初の月に達成されました。"
+    },
+    "review3": {
+      "name": "Sarah Williams",
+      "role": "財務マネージャー",
+      "company": "Merchant Capital Group",
+      "review": "OCR機能により、ドキュメントのデジタル化プロセスが革命化されました。会計チームは、数千のスキャンされた請求書を瞬時に検索できるようになりました。これにより、無数の時間を節約し、監査準備を大幅に改善しました。"
+    },
+    "review4": {
+      "name": "Michael Rodriguez",
+      "role": "コンプライアンスオフィサー",
+      "company": "SecureBank International",
+      "review": "WordToWalletのエンタープライズセキュリティ機能により、機密性の高いクライアントドキュメントを処理する際に自信を持てます。コンプライアンスツールと監査証跡により、規制報告がはるかに簡単になりました。コンプライアンスチームはそれを愛しています。"
+    },
+    "review5": {
+      "name": "Lisa Thompson",
+      "role": "マーケティング運営マネージャー",
+      "company": "Digital Growth Agency",
+      "review": "マーケティングチームは、キャンペーン用に毎週数百のPDFを処理しています。WordToWalletのバッチ処理と自動化機能により、ドキュメント準備時間が70%削減されました。ROIは、業務を拡大しようとするあらゆるビジネスにとって驚異的です。"
+    },
+    "review6": {
+      "name": "Robert Kim",
+      "role": "プロジェクトディレクター",
+      "company": "Construction Dynamics",
+      "review": "チームコラボレーション機能により、ドキュメントのボトルネックが解消されました。複数の部門が、リアルタイム更新で同じドキュメントに同時に作業できるようになりました。これにより、プロジェクト納期が40%改善されました。"
+    }
+  },
+  "course": {
+    "badge": "無料コース付き",
+    "title": "無料コース付き",
+    "bullets": [
+      "メール + ePub3用の直接販売プレイブック。",
+      "プロンプトライブラリ：オファー、プロモ、ランディングセクション、翻訳。",
+      "アンチスパム招待テンプレートとウォームアップチェックリスト。",
+      "キャップストーン：7日間の利益スプリント。"
+    ],
+    "cta": "無料で登録（プラットフォームアクセス付き）"
+  },
+  "privacyPolicy": {
+    "title": "プライバシーポリシー",
+    "lastUpdated": "最終更新：2024年12月",
+    "websiteAddress": "当社のウェブサイトアドレスは：https://bestglobalai.com",
+    "sections": {
+      "whoWeAre": {
+        "title": "私たちについて",
+        "content": "当社のウェブサイトアドレスは：https://bestglobalai.com"
+      },
+      "comments": {
+        "title": "コメント",
+        "content": "訪問者がサイトにコメントを残す場合、コメントフォームに表示されるデータ、および訪問者のIPアドレスとブラウザのユーザーエージェント文字列を収集して、スパム検出を支援します。メールアドレスから作成された匿名化された文字列（ハッシュとも呼ばれる）が、Gravatarサービスに提供され、使用しているかどうかを確認する場合があります。Gravatarサービスのプライバシーポリシーはこちらでご覧いただけます：https://automattic.com/privacy/。コメントが承認された後、プロフィール画像はコメントの文脈で一般に公開されます。"
+      },
+      "media": {
+        "title": "メディア",
+        "content": "ウェブサイトに画像をアップロードする場合、埋め込み位置データ（EXIF GPS）を含む画像のアップロードは避ける必要があります。ウェブサイトの訪問者は、ウェブサイト上の画像から位置データをダウンロードして抽出できます。"
+      },
+      "cookies": {
+        "title": "Cookie",
+        "content": "訪問者の情報を収集するためにCookieを使用していません。"
+      },
+      "embeddedContent": {
+        "title": "他のウェブサイトからの埋め込みコンテンツ",
+        "content": "このサイトの記事には、埋め込みコンテンツ（例：動画、画像、記事など）が含まれる場合があります。他のウェブサイトからの埋め込みコンテンツは、訪問者が他のウェブサイトを訪問した場合とまったく同じように動作します。"
+      },
+      "dataSharing": {
+        "title": "データの共有先",
+        "content": "パスワードリセットをリクエストした場合、IPアドレスがリセットメールに含まれます。"
+      },
+      "dataRetention": {
+        "title": "データの保持期間",
+        "content": "コメントを残した場合、コメントとそのメタデータは無期限に保持されます。これにより、フォローアップコメントをモデレーションキューに保持する代わりに、自動的に認識して承認できます。当社のウェブサイトに登録するユーザー（該当する場合）についても、ユーザープロフィールに提供された個人情報を保存します。すべてのユーザーは、個人情報をいつでも表示、編集、または削除できます（ユーザー名は変更できません）。ウェブサイト管理者もその情報を表示および編集できます。"
+      },
+      "userRights": {
+        "title": "データに関する権利",
+        "content": "このサイトにアカウントがある場合、またはコメントを残した場合、当社が保持している個人データ（提供されたすべてのデータを含む）のエクスポートファイルの受信をリクエストできます。また、当社が保持している個人データの削除をリクエストすることもできます。これには、管理、法的、またはセキュリティ上の目的で保持する義務があるデータは含まれません。"
+      },
+      "dataTransfer": {
+        "title": "データの送信先",
+        "content": "訪問者のコメントは、自動スパム検出サービスを通じてチェックされる場合があります。"
+      }
+    },
+    "contact": {
+      "title": "このポリシーについて質問がありますか？",
+      "description": "このプライバシーポリシーまたはデータの処理方法について質問がある場合は、お気軽にお問い合わせください。",
+      "website": "https://bestglobalai.com"
+    }
+  },
+  "contactPage": {
+    "title": "お問い合わせ",
+    "description": "サービスに関するサポートが必要な場合、または質問がある場合は、お気軽にお問い合わせください。",
+    "form": {
+      "name": "名前",
+      "namePlaceholder": "お名前",
+      "email": "メールアドレス",
+      "emailPlaceholder": "email@domain.com",
+      "message": "メッセージ",
+      "messagePlaceholder": "ここにメッセージを入力してください",
+      "sendButton": "メッセージを送信"
+    },
+    "directContact": {
+      "title": "直接お問い合わせ"
+    },
+    "billing": {
+      "title": "請求サポート",
+      "description": "請求に関する質問がありますか？プラットフォームでの支払い関連の質問については、以下までお問い合わせください："
+    },
+    "customer": {
+      "title": "カスタマーサポート",
+      "description": "お話しできることをいつでも喜んでおります。サービスに関する質問がある場合は、お電話またはメールでお問い合わせください："
+    },
+    "meet": {
+      "title": "ミーティングをスケジュール",
+      "description": "直接のサポートが必要ですか？ニーズについて話し合い、専門家のガイダンスを得るために、チームとの個別ミーティングをスケジュールしてください。"
+    }
+  },
+  "auction": {
+    "title": "オークション",
+    "subtitle": "ライブオークションを発見して参加",
+    "myAuctions": "マイオークション",
+    "createAuction": "オークションを作成",
+    "browseAll": "すべてのオークションを閲覧",
+    "manageAuctions": "オークションリストを管理および追跡",
+    "createNewAuction": "新しいオークションを作成",
+    "noAuctionsFound": "オークションが見つかりません",
+    "createFirstAuction": "最初のオークションを作成",
+    "filters": {
+      "allAuctions": "すべてのオークション",
+      "scheduled": "スケジュール済み",
+      "active": "アクティブ",
+      "sold": "売却済み",
+      "ended": "終了"
+    },
+    "status": {
+      "scheduled": "スケジュール済み",
+      "active": "アクティブ",
+      "sold": "売却済み",
+      "soldBuyNow": "売却済み（即購入）",
+      "soldOffer": "売却済み（オファー）",
+      "ended": "終了",
+      "endedNoSale": "終了（売却なし）",
+      "cancelled": "キャンセル済み"
+    },
+    "create": {
+      "title": "新しいオークションを作成",
+      "form": {
+        "title": "オークションタイトル",
+        "titlePlaceholder": "オークションタイトルを入力",
+        "description": "説明",
+        "descriptionPlaceholder": "オークションアイテムを説明",
+        "currency": "通貨",
+        "startingPrice": "開始価格",
+        "startingPricePlaceholder": "0.00",
+        "reservePrice": "リザーブ価格（オプション）",
+        "reservePricePlaceholder": "最低売却価格",
+        "reservePriceHelp": "受け入れ可能な最低価格。達成されない場合、オークションは売却されません。",
+        "buyNowPrice": "即購入価格（オプション）",
+        "buyNowPricePlaceholder": "即時購入価格",
+        "buyNowPriceHelp": "購入者がこの価格で即座に購入できるようにします。",
+        "startTime": "開始時刻",
+        "endTime": "終了時刻",
+        "extendSeconds": "アンチスナイピング延長（秒）",
+        "extendSecondsPlaceholder": "30",
+        "extendSecondsHelp": "最後の1分に入札が行われた場合、オークションをこの秒数だけ延長します。",
+        "minIncrement": "最低入札増額",
+        "minIncrementPlaceholder": "1.00",
+        "createButton": "オークションを作成",
+        "cancelButton": "キャンセル"
+      },
+      "validation": {
+        "titleRequired": "タイトル、説明、開始価格、開始時刻、終了時刻は必須です",
+        "startingPriceRequired": "開始価格は0より大きい必要があります",
+        "reservePriceInvalid": "リザーブ価格は開始価格より大きい必要があります",
+        "buyNowPriceInvalid": "即購入価格は開始価格より大きい必要があります",
+        "reservePriceTooHigh": "リザーブ価格は即購入価格より高くできません",
+        "endTimeInvalid": "終了時刻は開始時刻より後である必要があります",
+        "startTimeInvalid": "開始時刻は未来である必要があります"
+      }
+    },
+    "list": {
+      "startingPrice": "開始価格：",
+      "currentBid": "現在の入札：",
+      "buyNow": "即購入：",
+      "starts": "開始：",
+      "ends": "終了：",
+      "timeLeft": "残り時間：",
+      "ended": "終了",
+      "by": "による",
+      "viewAuction": "オークションを表示",
+      "page": "ページ",
+      "of": "の",
+      "previous": "前へ",
+      "next": "次へ"
+    },
+    "delete": "削除",
+    "confirmDeleteTitle": "削除を確認",
+    "confirmDelete": "このオークションを削除してもよろしいですか？この操作は元に戻せません。",
+    "deleteError": "オークションの削除に失敗しました",
+    "deleteDisabledActive": "アクティブなオークションは削除できません",
+    "deleting": "削除中...",
+    "cancel": "キャンセル",
+    "view": {
+      "placeBid": "入札する",
+      "buyNow": "即購入",
+      "makeOffer": "オファーする",
+      "bidAmount": "入札額",
+      "minimumBid": "最低入札：",
+      "yourBid": "あなたの入札",
+      "bidButton": "入札する",
+      "offerAmount": "オファー額",
+      "offerButton": "オファーする",
+      "bidHistory": "入札履歴",
+      "offers": "オファー",
+      "noBids": "まだ入札がありません",
+      "noOffers": "まだオファーがありません",
+      "timeRemaining": "残り時間",
+      "days": "日",
+      "hours": "時間",
+      "minutes": "分",
+      "seconds": "秒",
+      "reserveNotMet": "リザーブ未達成",
+      "reserveMet": "リザーブ達成",
+      "online": "オンライン",
+      "bidders": "入札者"
+    },
+    "bidding": {
+      "bidPlaced": "入札が正常に完了しました",
+      "bidFailed": "入札に失敗しました",
+      "bidTooLow": "入札額が低すぎます",
+      "auctionEnded": "オークションは終了しました",
+      "auctionNotActive": "オークションは入札を受け付けていません",
+      "buyNowSuccess": "オークションの購入が正常に完了しました",
+      "buyNowFailed": "オークションの購入に失敗しました",
+      "offerCreated": "オファーが正常に作成されました",
+      "offerFailed": "オファーの作成に失敗しました",
+      "offerAccepted": "オファーが承認されました",
+      "offerDeclined": "オファーが拒否されました"
+    },
+    "currency": {
+      "USD": "USD - 米ドル",
+      "EUR": "EUR - ユーロ",
+      "GBP": "GBP - 英ポンド",
+      "CAD": "CAD - カナダドル",
+      "AUD": "AUD - オーストラリアドル"
+    }
+  },
+  "books": {
+    "title": "書籍",
+    "subtitle": "EPUB書籍を管理し、ARCキャンペーンを作成",
+    "uploadBook": "書籍をアップロード",
+    "totalBooks": "総書籍数",
+    "readyBooks": "準備完了の書籍",
+    "processingBooks": "処理中",
+    "errorBooks": "エラー",
+    "noBooks": "書籍が見つかりません",
+    "noBooksDescription": "最初のEPUB書籍をアップロードして開始してください。",
+    "epubFile": "EPUBファイル",
+    "dragDropFile": "EPUBファイルをここにドラッグ&ドロップ",
+    "browse": "閲覧",
+    "epubOnly": "EPUBファイルのみ",
+    "title": "タイトル",
+    "author": "著者",
+    "description": "説明",
+    "isbn": "ISBN",
+    "publisher": "出版社",
+    "publicationDate": "出版日",
+    "language": "言語",
+    "genre": "ジャンル",
+    "tags": "タグ",
+    "genrePlaceholder": "フィクション、ノンフィクション、ロマンスなど",
+    "tagsPlaceholder": "ベストセラー、受賞作品など",
+    "upload": "アップロード",
+    "uploading": "アップロード中...",
+    "cancel": "キャンセル",
+    "invalidFileType": "有効なEPUBファイルを選択してください",
+    "noFileSelected": "アップロードするファイルを選択してください",
+    "titleAndAuthorRequired": "タイトルと著者は必須です",
+    "uploadError": "書籍のアップロードに失敗しました",
+    "statusReady": "準備完了",
+    "statusProcessing": "処理中",
+    "statusUploading": "アップロード中",
+    "statusError": "エラー",
+    "statusDeleted": "削除済み",
+    "view": "表示",
+    "edit": "編集",
+    "delete": "削除",
+    "confirmDelete": "この書籍を削除してもよろしいですか？",
+    "deleteError": "書籍の削除に失敗しました",
+    "download": "ダウンロード",
+    "downloadError": "書籍のダウンロードに失敗しました",
+    "loading": "読み込み中...",
+    "bookNotFound": "書籍が見つかりません",
+    "backToBooks": "書籍に戻る",
+    "coverImage": "カバー画像",
+    "quickStats": "クイック統計",
+    "fileSize": "ファイルサイズ",
+    "pages": "ページ",
+    "words": "単語数",
+    "readingTime": "読書時間",
+    "minutes": "分",
+    "uploadDate": "アップロード日",
+    "actions": "アクション",
+    "bookDetails": "書籍詳細",
+    "epubMetadata": "EPUBメタデータ",
+    "creator": "作成者",
+    "date": "日付",
+    "rights": "権利",
+    "lastModified": "最終更新",
+    "filters": "フィルター",
+    "clearFilters": "フィルターをクリア",
+    "searchPlaceholder": "書籍を検索...",
+    "allStatuses": "すべてのステータス",
+    "allLanguages": "すべての言語",
+    "authorPlaceholder": "著者で検索...",
+    "showAdvanced": "詳細を表示",
+    "hideAdvanced": "詳細を非表示",
+    "sortBy": "並び替え",
+    "showing": "表示中",
+    "to": "から",
+    "of": "の",
+    "results": "結果",
+    "previous": "前へ",
+    "next": "次へ",
+    "page": "ページ",
+    "statusReadyDescription": "書籍は使用可能です",
+    "statusProcessingDescription": "書籍は処理中です",
+    "statusUploadingDescription": "書籍はアップロード中です",
+    "statusErrorDescription": "処理中にエラーが発生しました",
+    "statusDeletedDescription": "書籍は削除されました",
+    "statusUnknownDescription": "不明なステータス",
+    "processingStarted": "処理が開始されました",
+    "processingProgress": "処理進行中...",
+    "errorOccurred": "エラーが発生しました",
+    "viewErrorDetails": "エラー詳細を表示",
+    "readyForUse": "使用可能",
+    "createArcCampaign": "ARCキャンペーンを作成",
+    "uploaded": "アップロード済み",
+    "duplicate": "複製",
+    "share": "共有",
+    "status": "ステータス"
+  },
+  "integrations": {
+    "title": "統合",
+    "subtitle": "アカウントを外部サービスに接続",
+    "connectIntegration": "統合を接続",
+    "loading": "読み込み中...",
+    "connectWordToWallet": "WordToWalletを接続",
+    "connectWordToWalletDescription": "WordToWalletアカウントを接続してARCキャンペーンを作成",
+    "apiKey": "APIキー",
+    "apiKeyPlaceholder": "WordToWallet APIキーを入力",
+    "apiKeyHelp": "APIキーは暗号化されて安全に保存されます",
+    "howToGetApiKey": "APIキーの取得方法：",
+    "step1": "WordToWalletアカウントにログイン",
+    "step2": "設定 > APIキーに移動",
+    "step3": "新しいAPIキーを生成",
+    "step4": "ここにコピー&ペースト",
+    "features": "機能",
+    "feature1": "WordToWalletに書籍をアップロード",
+    "feature2": "ARCキャンペーンを作成",
+    "feature3": "ダウンロードコードを生成",
+    "feature4": "ダウンロード分析を追跡",
+    "connect": "接続",
+    "connecting": "接続中...",
+    "cancel": "キャンセル",
+    "apiKeyRequired": "APIキーは必須です",
+    "connectionFailed": "WordToWalletへの接続に失敗しました",
+    "availableIntegrations": "利用可能な統合",
+    "WordToWalletDescription": "書籍のARCキャンペーンを作成および管理",
+    "amazonKdpDescription": "Amazon Kindle Direct Publishingに直接公開",
+    "draft2digitalDescription": "複数の電子書籍小売業者に配布",
+    "smashwordsDescription": "Smashwordsマーケットプレイスに公開",
+    "comingSoon": "近日公開",
+    "connectedIntegrations": "接続済み統合",
+    "lastSync": "最終同期",
+    "test": "テスト",
+    "sync": "同期",
+    "disconnect": "切断",
+    "confirmDisconnect": "この統合を切断してもよろしいですか？",
+    "statusActive": "アクティブ",
+    "statusInactive": "非アクティブ",
+    "statusError": "エラー",
+    "statusPending": "保留中"
+  },
+  "arc": {
+    "title": "ARCキャンペーン",
+    "subtitle": "Advanced Reader Copyキャンペーンを作成および管理",
+    "createCampaign": "キャンペーンを作成",
+    "cancel": "キャンセル",
+    "totalLinks": "総リンク数",
+    "activeLinks": "アクティブリンク",
+    "expiredLinks": "期限切れリンク",
+    "maxDownloads": "最大ダウンロード数",
+    "errorLinks": "エラーリンク",
+    "filters": "フィルター",
+    "status": "ステータス",
+    "allStatuses": "すべてのステータス",
+    "statusActive": "アクティブ",
+    "statusExpired": "期限切れ",
+    "statusMaxDownloads": "最大ダウンロード数に達しました",
+    "statusDisabled": "無効",
+    "statusError": "エラー",
+    "book": "書籍",
+    "allBooks": "すべての書籍",
+    "expired": "期限切れ",
+    "all": "すべて",
+    "expiredOnly": "期限切れのみ",
+    "activeOnly": "アクティブのみ",
+    "noArcLinks": "ARCリンクが見つかりません",
+    "noArcLinksDescription": "最初のARCキャンペーンを作成してダウンロードリンクを生成してください。",
+    "downloads": "ダウンロード",
+    "max": "最大",
+    "expires": "有効期限",
+    "created": "作成日",
+    "copyCode": "コードをコピー",
+    "copied": "コピーしました！",
+    "share": "共有",
+    "view": "表示",
+    "delete": "削除",
+    "confirmDelete": "このARCリンクを削除してもよろしいですか？",
+    "deleteError": "ARCリンクの削除に失敗しました",
+    "linkCopied": "リンクがクリップボードにコピーされました",
+    "showing": "表示中",
+    "to": "から",
+    "of": "の",
+    "results": "結果",
+    "previous": "前へ",
+    "next": "次へ",
+    "page": "ページ",
+    "createCampaignDescription": "書籍のダウンロードリンクを生成するために新しいARCキャンペーンを作成",
+    "selectBook": "書籍を選択",
+    "chooseBook": "書籍を選択...",
+    "selectedBook": "選択された書籍",
+    "campaignName": "キャンペーン名",
+    "campaignNamePlaceholder": "キャンペーン名を入力",
+    "description": "説明",
+    "descriptionPlaceholder": "キャンペーン説明を入力",
+    "numberOfCodes": "コード数",
+    "quantityHelp": "生成するダウンロードコード数（1-1000）",
+    "maxDownloadsPerCode": "コードあたりの最大ダウンロード数",
+    "unlimited": "無制限",
+    "totalMaxDownloads": "総最大ダウンロード数",
+    "expirationDate": "有効期限",
+    "campaignInfo": "キャンペーン情報",
+    "info1": "ARCコードは自動的に生成されます",
+    "info2": "各コードは読者と共有できます",
+    "info3": "ダウンロード追跡が利用可能です",
+    "info4": "コードは自動的に期限切れに設定できます",
+    "bookAndNameRequired": "書籍選択とキャンペーン名は必須です",
+    "invalidQuantity": "数量は1から1000の間である必要があります",
+    "creating": "作成中...",
+    "creationFailed": "キャンペーンの作成に失敗しました"
+  }
+}

@@ -1,0 +1,666 @@
+{
+  "common": {
+    "loading": "Ladataan...",
+    "error": "Virhe",
+    "configNotFound": "Konfiguraatiota ei löytynyt etusivulle.",
+    "home": "Etusivu"
+  },
+  "errors": {
+    "oops": "Hups!",
+    "somethingWentWrong": "Jotain meni pieleen",
+    "pageNotFound": "Sivua ei löytynyt",
+    "pageNotExist": "Etsimäsi sivu ei ole olemassa.",
+    "errorLoadingPage": "Tapahtui virhe tätä sivua ladatessa. Yritä uudelleen.",
+    "errorLoadingApp": "Tapahtui virhe sovellusta ladatessa. Yritä uudelleen.",
+    "tryAgain": "Yritä uudelleen",
+    "goHome": "Siirry etusivulle",
+    "goToHomePage": "Siirry etusivulle",
+    "errorDetails": "Virheen yksityiskohdat (vain kehitystä varten)"
+  },
+  "faq": {
+    "title": "Usein kysytyt kysymykset",
+    "q1": {
+      "q": "Tarvitsenko muita AI-työkaluja?",
+      "a": "Ei. WordToWallet keskittää tekstin, suunnittelun ja toimituksen, joten sinun ei tarvitse jongleerata kymmeniä sovelluksia."
+    },
+    "q2": {
+      "q": "Voinko silti julkaista markkinoille?",
+      "a": "Kyllä—yhdistä Draft2Digital- tai WordToWallet-tilisi ja luovuta, kun haluat laajemman jakelun."
+    },
+    "q3": {
+      "q": "Onko kurssi todella ilmainen?",
+      "a": "Kyllä—kurssi on ilmainen jäsenille. Maksat alustan käytöstä ja voit perua milloin tahansa."
+    }
+  },
+  "footer": {
+    "selectLanguage": "Valitse kieli"
+  },
+  "auth": {
+    "signIn": "Kirjaudu sisään",
+    "email": "Sähköposti",
+    "password": "Salasana",
+    "emailAddress": "Sähköpostiosoite"
+  },
+  "account": {
+    "account": "Tili",
+    "membership": "Jäsenyys",
+    "noSubscription": "Ei aktiivista tilaus",
+    "unlockAllTools": "Avaa kaikki työkalut",
+    "fullAccess": "Hanki täysi pääsy kaikkiin PDF-työkaluihin",
+    "subscribeNow": "Tilaa nyt",
+    "subscribe": "Tilaa",
+    "paymentMethod": "Maksutapa",
+    "saveTime": "Säästä aikaa automaattisilla maksuilla",
+    "cardNumber": "Kortin numero",
+    "notSpecified": "Ei määritelty",
+    "importantUpdates": "Tärkeitä päivityksiä tilistäsi"
+  },
+  "plan": {
+    "choosePlan": "Valitse suunnitelmasi",
+    "continue": "Jatka"
+  },
+  "navbar": {
+    "profileDetails": "Profiilin tiedot",
+    "noSubscription": "Ei tilaus",
+    "myDocuments": "Omat asiakirjat",
+    "myAccount": "Oma tili"
+  },
+  "hero": {
+    "badge": "Jäsenet ensin · Yksityiset työkalut · Maailmanlaajuinen kattavuus",
+    "title": "Muuta sanat myynniksi — Ilmainen kurssi + ePub3-alusta",
+    "sub": "Luo vuorovaikutteisia ePub3-mainoksia ChatGPT-5:llä ja myy suoraan sähköpostitse. Monikielinen, mitattava ja ilman välikäsiä.",
+    "ctaPrimary": "Hanki alustan pääsy",
+    "ctaSecondary": "Esikatsele ilmaista kurssia",
+    "legal": "Emme koskaan myy tietojasi. Peruuta milloin tahansa."
+  },
+  "audiences": {
+    "title": "Rakennettu käyttötapaustasi varten",
+    "solopreneurs": {
+      "title": "Solopreneurit ja mikroyritykset",
+      "desc": "Käynnistä mainokset, kerää tilaajia ja myy palveluja tai tuotteita ilman kalliita mainosalustoja. Sallittu enintään viisi tiimin jäsentä."
+    },
+    "authors": {
+      "title": "Itsenäisesti julkaistut kirjailijat ja PR-mikroyritykset",
+      "desc": "Luo kampanjoita ja kirjan asetteluja (kaunokirjallisuus ja tietokirjallisuus), toimita ARCs ja myy niche-lukijalistoille."
+    }
+  },
+  "value": {
+    "title": "Miksi WordToWallet",
+    "cards": {
+      "epub3": {
+        "title": "ePub3 Creator Studio",
+        "description": "Luo mainoksia ja kirjan asetteluja. Liitä ChatGPT-5:n luoma koodi ja suunnitelmat, esikatsele mobiilissa ja julkaise minuuteissa.",
+        "features": {
+          "0": "Liitä valmis XHTML/CSS prompteista",
+          "1": "Saavutettavuus ja käännös valmiina",
+          "2": "Uudelleenkäytettävät mallit kaunokirjallisuudelle/tietokirjallisuudelle"
+        }
+      },
+      "email": {
+        "title": "Saapuneet-kansio turvallinen sähköposti",
+        "description": "Lähetä tekstiprioriteettisia, tasattuja linkkejä sisäänrakennetuilla toimitusvarmennuksilla (SPF/DKIM/DMARC). Lämmitä ja seuraa ilman arvailua.",
+        "features": []
+      },
+      "analytics": {
+        "title": "Yksityiset listat ja analytiikka",
+        "description": "Tuo CSV-tiedostoja, segmentoi tuotteen/genren mukaan ja seuraa napsautuksia → latauksia → vastauksia/ostoja yhdestä kojetaulusta.",
+        "features": []
+      },
+      "byoa": {
+        "title": "BYOA: D2D ja WordToWallet",
+        "description": "Vie markkinavalmiit paketit tai toimita ARCs linkeillä—integraoi kun haluat laajemman jakelun.",
+        "features": []
+      }
+    }
+  },
+  "howItWorks": {
+    "title": "Miten se toimii",
+    "subtitle": "Aloita minuuteissa yksinkertaisella 3-vaiheisella prosessillamme, joka on suunniteltu menestystä varten",
+    "steps": {
+      "step1": {
+        "title": "Aloita oppiminen",
+        "description": "Aloita ilmaisella AI-kirjoituskurssillamme. Opi käytännön tekniikoita pieniin oppitunteihin."
+      },
+      "step2": {
+        "title": "Rakenna listasi",
+        "description": "Käytä lukijamagneettejamme ja MailerLite-integraatiota kasvattaaksesi sähköpostiyleisöäsi."
+      },
+      "step3": {
+        "title": "Myy ja skaalaa",
+        "description": "Käynnistä tuotteesi ja anna WordToWalletin hoitaa toimitus, kun keskityt kirjoittamiseen."
+      }
+    },
+    "cta": "Aloita nyt"
+  },
+  "howItWorksNew": {
+    "title": "Miten se toimii",
+    "steps": {
+      "step1": {
+        "title": "Kerro ChatGPT-5:lle tavoitteesi",
+        "description": "Käytä prompt-korttejamme tarjouksille, yleisöille ja kielille."
+      },
+      "step2": {
+        "title": "Luo teksti ja koodi",
+        "description": "Aiherivit, CTA:t ja liitä valmiit ePub3-osiot."
+      },
+      "step3": {
+        "title": "Julkaise ja lähetä",
+        "description": "Mene live ensimmäisen osapuolen sähköpostilla ja seuraa funnelia."
+      }
+    }
+  },
+  "features": {
+    "title": "Kaikki mitä tarvitset",
+    "titleHighlight": "onnistuaksesi",
+    "subtitle": "AI-pohjaisista kirjoitusoppitunneista suoramyyntiinfrastruktuuriin, olemme kattaneet kaiken.",
+    "cards": {
+      "aiWriting": {
+        "title": "Opi AI-kirjoitusta",
+        "description": "10 minuutin käytännön oppitunnit, jotka opettavat sinua tuottamaan lukuja, esittelytekstejä ja mainoksia AI:lla.",
+        "features": [
+          "Vuorovaikutteiset opetusohjelmat",
+          "Todellisen maailman esimerkit",
+          "Edistymisen seuranta"
+        ]
+      },
+      "audience": {
+        "title": "Rakenna yleisösi",
+        "description": "Lukijamagneetti + MailerLite-integraatio rakentaa automaattisesti sähköpostilistasi.",
+        "features": ["Liidimagneetit", "Sähköpostiautomaatio", "Yleisöanalytiikka"]
+      },
+      "sales": {
+        "title": "Myy suoraan",
+        "description": "Yhdistä kauppasi; WordToWallet toimittaa tiedostot suoraan ostajille.",
+        "features": ["Suoramyynti", "Tiedostojen toimitus", "Asiakashallinta"]
+      }
+    }
+  },
+  "security": {
+    "badge": "Turvallisuus ensin",
+    "title": "Turvallisuutesi on prioriteettimme",
+    "subtitle": "Toteutamme yritystason turvallisuustoimenpiteet varmistaaksemme, että asiakirjasi ja tietosi pysyvät täysin suojattuina koko ajan.",
+    "features": {
+      "encryption": {
+        "title": "Pankkitason salaus",
+        "description": "256-bittinen SSL-salaus suojaa tietojasi"
+      },
+      "processing": {
+        "title": "Turvallinen käsittely",
+        "description": "Tiedostot poistetaan automaattisesti käsittelyn jälkeen"
+      },
+      "privacy": {
+        "title": "Yksityisyys ensin",
+        "description": "Ei ihmisten pääsyä asiakirjoihisi"
+      },
+      "compliance": {
+        "title": "GDPR-yhteensopiva",
+        "description": "Täysi noudattaminen tietosuojamääräyksiä"
+      }
+    },
+    "trustedBy": "Luotettu yli 400 000 käyttäjän toimesta maailmanlaajuisesti"
+  },
+  "testimonials": {
+    "title": "Luotettu ammattilaisten toimesta maailmanlaajuisesti",
+    "subtitle": "Katso mitä asiakkaamme sanovat",
+    "rating": "5.0 arvostelu yli 3 000 arvostelusta",
+    "review1": {
+      "name": "Jennifer Martinez",
+      "role": "Juridiikan toimintajohtaja",
+      "company": "Global Law Partners",
+      "review": "WordToWallet on muuttanut asiakirjatyönkulkumme. Juridiikkatiimimme voi nyt käsitellä sopimuksia 3x nopeammin automaattisilla lomaketäydennyksillä ja sähköisillä allekirjoituksilla. Tiimiyhteistyötyökalut ovat poistaneet versiohallintaongelmat täysin."
+    },
+    "review2": {
+      "name": "David Chen",
+      "role": "CTO",
+      "company": "TechFlow Solutions",
+      "review": "Kasvavana startup-yrityksenä tarvitsimme yritystason asiakirjahallintaa ilman yrityshintalappua. WordToWalletin tiimitoiminnot ja rajoittamaton käsittely ovat skaalautuneet täydellisesti liiketoimintamme kanssa. ROI saavutettiin ensimmäisessä kuukaudessa."
+    },
+    "review3": {
+      "name": "Sarah Williams",
+      "role": "Rahoitusjohtaja",
+      "company": "Merchant Capital Group",
+      "review": "OCR-kyvyt ovat mullistaneet asiakirjojen digitalisointiprosessimme. Kirjanpitotiimimme voi nyt etsiä tuhansista skannatuista laskuista hetkessä. Tämä on säästänyt meille lukemattomia tunteja ja parantanut merkittävästi tarkastusvalmiuttamme."
+    },
+    "review4": {
+      "name": "Michael Rodriguez",
+      "role": "Vastuuvirkailija",
+      "company": "SecureBank International",
+      "review": "WordToWalletin yritystason turvallisuustoiminnot antavat meille luottamusta käsitellessämme arkaluontoisia asiakirjoja. Vastuutyökalut ja tarkastusjäljet ovat tehneet sääntelyraportoinnistamme paljon suoraviivaisemman. Vastuutiimimme rakastaa sitä."
+    },
+    "review5": {
+      "name": "Lisa Thompson",
+      "role": "Markkinointitoimintojen johtaja",
+      "company": "Digital Growth Agency",
+      "review": "Markkinointitiimimme käsittelee satoja PDF-tiedostoja viikoittain kampanjoita varten. WordToWalletin erätyöstö- ja automatisointitoiminnot ovat vähentäneet asiakirjojen valmisteluaikaamme 70%. ROI on uskomaton kaikille yrityksille, jotka haluavat skaalata toimintojaan."
+    },
+    "review6": {
+      "name": "Robert Kim",
+      "role": "Projektipäällikkö",
+      "company": "Construction Dynamics",
+      "review": "Tiimiyhteistyötoiminnot ovat poistaneet asiakirjapullonkaulamme. Useat osastot voivat nyt työskennellä samoilla asiakirjoilla samanaikaisesti reaaliaikaisilla päivityksillä. Tämä on parantanut projektitoimitusaikojamme 40%."
+    }
+  },
+  "course": {
+    "badge": "Ilmainen kurssi sisältyy",
+    "title": "Ilmainen kurssi sisältyy",
+    "bullets": [
+      "Suoramyyntiohjekirja sähköpostille + ePub3.",
+      "Prompt-kirjasto: tarjoukset, mainokset, laskutusalueet, käännös.",
+      "Roskapostinvastaiset kutsumallit ja lämmitystarkistuslista.",
+      "Loppuprojekti: 7 päivän voittosprinttisi."
+    ],
+    "cta": "Ilmoittaudu ilmaiseksi (alustan pääsyllä)"
+  },
+  "privacyPolicy": {
+    "title": "Tietosuojakäytäntö",
+    "lastUpdated": "Viimeksi päivitetty: joulukuu 2024",
+    "websiteAddress": "Verkkosivustomme osoite on: https://bestglobalai.com",
+    "sections": {
+      "whoWeAre": {
+        "title": "Keitä olemme",
+        "content": "Verkkosivustomme osoite on: https://bestglobalai.com"
+      },
+      "comments": {
+        "title": "Kommentit",
+        "content": "Kun vierailijat jättävät kommentteja sivustolle, keräämme lomakkeessa näytetyt tiedot sekä vierailijan IP-osoitteen ja selaimen käyttäjäagenttijonon auttamaan roskapostin havaitsemisessa. Sähköpostiosoitteestasi luotu anonymisoitu merkkijono (jota kutsutaan myös hashiksi) voidaan antaa Gravatar-palvelulle nähdäksemme käytätkö sitä. Gravatar-palvelun tietosuojakäytäntö on saatavilla täällä: https://automattic.com/privacy/. Kommenttisi hyväksymisen jälkeen profiilikuvasi on näkyvissä yleisölle kommenttisi yhteydessä."
+      },
+      "media": {
+        "title": "Media",
+        "content": "Jos lataat kuvia verkkosivustolle, sinun tulisi välttää kuvien lataamista upotetuilla sijaintitiedoilla (EXIF GPS). Verkkosivuston vierailijat voivat ladata ja poimia mitä tahansa sijaintitietoja verkkosivuston kuvista."
+      },
+      "cookies": {
+        "title": "Evästeet",
+        "content": "Emme käytä evästeitä kerätäksemme vierailijoidemme tietoja."
+      },
+      "embeddedContent": {
+        "title": "Upotettu sisältö muista verkkosivustoista",
+        "content": "Tämän sivuston artikkelit voivat sisältää upotettua sisältöä (esim. videoita, kuvia, artikkeleita jne.). Muista verkkosivustoista upotettu sisältö käyttäytyy täsmälleen samalla tavalla kuin vierailija olisi vieraillut muulla verkkosivustolla."
+      },
+      "dataSharing": {
+        "title": "Kenelle jaamme tietojasi",
+        "content": "Jos pyydät salasanan nollaus, IP-osoitteesi sisällytetään nollaussähköpostiin."
+      },
+      "dataRetention": {
+        "title": "Kuinka kauan säilytämme tietojasi",
+        "content": "Jos jätät kommentin, kommentti ja sen metatiedot säilytetään määräämättömän ajan. Tämä on, jotta voimme tunnistaa ja hyväksyä automaattisesti kaikki jatkokommentit sen sijaan, että pidämme niitä moderointijonossa. Käyttäjille, jotka rekisteröityvät verkkosivustollemme (jos sellaisia on), säilytämme myös henkilökohtaiset tiedot, jotka he antavat käyttäjäprofiilissaan. Kaikki käyttäjät voivat tarkastella, muokata tai poistaa henkilökohtaisia tietojaan milloin tahansa (paitsi että he eivät voi muuttaa käyttäjänimeään). Verkkosivuston ylläpitäjät voivat myös tarkastella ja muokata näitä tietoja."
+      },
+      "userRights": {
+        "title": "Mitä oikeuksia sinulla on tietoihisi",
+        "content": "Jos sinulla on tili tällä sivustolla tai olet jättänyt kommentteja, voit pyytää vastaanottamaan viedyn tiedoston henkilötiedoista, joita säilytämme sinusta, mukaan lukien kaikki tiedot, jotka olet meille antanut. Voit myös pyytää meitä poistamaan kaikki henkilötiedot, joita säilytämme sinusta. Tämä ei sisällä tietoja, joita olemme velvollisia säilyttämään hallinnollisiin, oikeudellisiin tai turvallisuussyihin."
+      },
+      "dataTransfer": {
+        "title": "Minne tietojasi lähetetään",
+        "content": "Vierailijoiden kommentit voidaan tarkistaa automaattisen roskapostin havaitsemispalvelun kautta."
+      }
+    },
+    "contact": {
+      "title": "Kysymyksiä tästä käytännöstä?",
+      "description": "Jos sinulla on kysymyksiä tästä Tietosuojakäytännöstä tai siitä, miten käsittelemme tietojasi, älä epäröi ottaa meihin yhteyttä.",
+      "website": "https://bestglobalai.com"
+    }
+  },
+  "contactPage": {
+    "title": "Ota meihin yhteyttä",
+    "description": "Jos tarvitset apua palveluumme tai sinulla on kysymyksiä, älä epäröi ottaa meihin yhteyttä.",
+    "form": {
+      "name": "Nimi",
+      "namePlaceholder": "Nimesi",
+      "email": "Sähköpostiosoite",
+      "emailPlaceholder": "email@domain.com",
+      "message": "Viesti",
+      "messagePlaceholder": "Kirjoita viestisi tähän",
+      "sendButton": "Lähetä viesti"
+    },
+    "directContact": {
+      "title": "Ota meihin yhteyttä suoraan"
+    },
+    "billing": {
+      "title": "Laskutustuki",
+      "description": "Onko sinulla kysymys maksustasi? Kaikista maksuun liittyvistä kysymyksistä alustalla, ota yhteyttä:"
+    },
+    "customer": {
+      "title": "Asiakastuki",
+      "description": "Olemme aina iloisia puhumaan kanssasi. Jos sinulla on kysymyksiä palvelustamme, soita meille tai lähetä sähköpostia:"
+    },
+    "meet": {
+      "title": "Aikatauluta kokous",
+      "description": "Tarvitsetko suoraa apua? Aikatauluta henkilökohtainen kokous tiimimme kanssa keskustellaksesi tarpeistasi ja saadaksesi asiantuntijaohjausta."
+    }
+  },
+  "auction": {
+    "title": "Huutokaupat",
+    "subtitle": "Löydä ja osallistu suoriin huutokauppoihin",
+    "myAuctions": "Omat huutokaupat",
+    "createAuction": "Luo huutokauppa",
+    "browseAll": "Selaa kaikkia huutokauppoja",
+    "manageAuctions": "Hallitse ja seuraa huutokauppailmoituksiasi",
+    "createNewAuction": "Luo uusi huutokauppa",
+    "noAuctionsFound": "Huutokauppoja ei löytynyt",
+    "createFirstAuction": "Luo ensimmäinen huutokauppasi",
+    "filters": {
+      "allAuctions": "Kaikki huutokaupat",
+      "scheduled": "Aikataulutettu",
+      "active": "Aktiivinen",
+      "sold": "Myyty",
+      "ended": "Päättynyt"
+    },
+    "status": {
+      "scheduled": "Aikataulutettu",
+      "active": "Aktiivinen",
+      "sold": "Myyty",
+      "soldBuyNow": "Myyty (Osta heti)",
+      "soldOffer": "Myyty (Tarjous)",
+      "ended": "Päättynyt",
+      "endedNoSale": "Päättynyt (Ei myyntiä)",
+      "cancelled": "Peruutettu"
+    },
+    "create": {
+      "title": "Luo uusi huutokauppa",
+      "form": {
+        "title": "Huutokaupan otsikko",
+        "titlePlaceholder": "Syötä huutokaupan otsikko",
+        "description": "Kuvaus",
+        "descriptionPlaceholder": "Kuvaile huutokaupan kohdetta",
+        "currency": "Valuutta",
+        "startingPrice": "Aloitushinta",
+        "startingPricePlaceholder": "0.00",
+        "reservePrice": "Varaamishinta (Valinnainen)",
+        "reservePricePlaceholder": "Vähimmäishinta myyntiin",
+        "reservePriceHelp": "Vähimmäishinta, jonka olet valmis hyväksymään. Jos sitä ei saavuteta, huutokauppaa ei myydä.",
+        "buyNowPrice": "Osta heti -hinta (Valinnainen)",
+        "buyNowPricePlaceholder": "Heti ostohinta",
+        "buyNowPriceHelp": "Salli ostajien ostaa heti tällä hinnalla.",
+        "startTime": "Aloitusaika",
+        "endTime": "Päättymisaika",
+        "extendSeconds": "Anti-sniping-laajennus (sekuntia)",
+        "extendSecondsPlaceholder": "30",
+        "extendSecondsHelp": "Pidennä huutokauppaa näin monta sekuntia, kun tarjous tehdään viimeisellä minuutilla.",
+        "minIncrement": "Vähimmäistarjouksen lisäys",
+        "minIncrementPlaceholder": "1.00",
+        "createButton": "Luo huutokauppa",
+        "cancelButton": "Peruuta"
+      },
+      "validation": {
+        "titleRequired": "Otsikko, kuvaus, aloitushinta, aloitusaika ja päättymisaika ovat pakollisia",
+        "startingPriceRequired": "Aloitushinnan on oltava suurempi kuin 0",
+        "reservePriceInvalid": "Varaamishinnan on oltava suurempi kuin aloitushinta",
+        "buyNowPriceInvalid": "Osta heti -hinnan on oltava suurempi kuin aloitushinta",
+        "reservePriceTooHigh": "Varaamishinta ei voi olla korkeampi kuin Osta heti -hinta",
+        "endTimeInvalid": "Päättymisaika on oltava aloitusajan jälkeen",
+        "startTimeInvalid": "Aloitusajan on oltava tulevaisuudessa"
+      }
+    },
+    "list": {
+      "startingPrice": "Aloitushinta:",
+      "currentBid": "Nykyinen tarjous:",
+      "buyNow": "Osta heti:",
+      "starts": "Alkaa:",
+      "ends": "Päättyy:",
+      "timeLeft": "Aikaa jäljellä:",
+      "ended": "Päättynyt",
+      "by": "tekijä",
+      "viewAuction": "Näytä huutokauppa",
+      "page": "Sivu",
+      "of": "/",
+      "previous": "Edellinen",
+      "next": "Seuraava"
+    },
+    "delete": "Poista",
+    "confirmDeleteTitle": "Vahvista poisto",
+    "confirmDelete": "Haluatko varmasti poistaa tämän huutokaupan? Tätä toimintoa ei voi kumota.",
+    "deleteError": "Huutokaupan poistaminen epäonnistui",
+    "deleteDisabledActive": "Aktiivisia huutokauppoja ei voi poistaa",
+    "deleting": "Poistetaan...",
+    "cancel": "Peruuta",
+    "view": {
+      "placeBid": "Tee tarjous",
+      "buyNow": "Osta heti",
+      "makeOffer": "Tee tarjous",
+      "bidAmount": "Tarjouksen määrä",
+      "minimumBid": "Vähimmäistarjous:",
+      "yourBid": "Tarjouksesi",
+      "bidButton": "Tee tarjous",
+      "offerAmount": "Tarjouksen määrä",
+      "offerButton": "Tee tarjous",
+      "bidHistory": "Tarjoushistoria",
+      "offers": "Tarjoukset",
+      "noBids": "Ei vielä tarjouksia",
+      "noOffers": "Ei vielä tarjouksia",
+      "timeRemaining": "Aikaa jäljellä",
+      "days": "pv",
+      "hours": "t",
+      "minutes": "min",
+      "seconds": "s",
+      "reserveNotMet": "Varaamishintaa ei saavutettu",
+      "reserveMet": "Varaamishinta saavutettu",
+      "online": "verkossa",
+      "bidders": "tarjoajat"
+    },
+    "bidding": {
+      "bidPlaced": "Tarjous tehty onnistuneesti",
+      "bidFailed": "Tarjouksen tekeminen epäonnistui",
+      "bidTooLow": "Tarjouksen määrä on liian pieni",
+      "auctionEnded": "Huutokauppa on päättynyt",
+      "auctionNotActive": "Huutokauppa ei hyväksy tarjouksia",
+      "buyNowSuccess": "Huutokauppa ostettu onnistuneesti",
+      "buyNowFailed": "Huutokaupan ostaminen epäonnistui",
+      "offerCreated": "Tarjous luotu onnistuneesti",
+      "offerFailed": "Tarjouksen luominen epäonnistui",
+      "offerAccepted": "Tarjous hyväksytty",
+      "offerDeclined": "Tarjous hylätty"
+    },
+    "currency": {
+      "USD": "USD - Yhdysvaltain dollari",
+      "EUR": "EUR - Euro",
+      "GBP": "GBP - Englannin punta",
+      "CAD": "CAD - Kanadan dollari",
+      "AUD": "AUD - Australian dollari"
+    }
+  },
+  "books": {
+    "title": "Kirjat",
+    "subtitle": "Hallitse EPUB-kirjojasi ja luo ARC-kampanjoita",
+    "uploadBook": "Lataa kirja",
+    "totalBooks": "Kirjoja yhteensä",
+    "readyBooks": "Valmiit kirjat",
+    "processingBooks": "Käsitellään",
+    "errorBooks": "Virhe",
+    "noBooks": "Kirjoja ei löytynyt",
+    "noBooksDescription": "Lataa ensimmäinen EPUB-kirjasi aloittaaksesi.",
+    "epubFile": "EPUB-tiedosto",
+    "dragDropFile": "Vedä ja pudota EPUB-tiedostosi tähän",
+    "browse": "selaa",
+    "epubOnly": "Vain EPUB-tiedostot",
+    "title": "Otsikko",
+    "author": "Kirjailija",
+    "description": "Kuvaus",
+    "isbn": "ISBN",
+    "publisher": "Kustantaja",
+    "publicationDate": "Julkaisupäivä",
+    "language": "Kieli",
+    "genre": "Lajityyppi",
+    "tags": "Tunnisteet",
+    "genrePlaceholder": "Kaunokirjallisuus, Tietokirjallisuus, Romaanit jne.",
+    "tagsPlaceholder": "bestseller, palkittu jne.",
+    "upload": "Lataa",
+    "uploading": "Ladataan...",
+    "cancel": "Peruuta",
+    "invalidFileType": "Valitse kelvollinen EPUB-tiedosto",
+    "noFileSelected": "Valitse tiedosto ladattavaksi",
+    "titleAndAuthorRequired": "Otsikko ja kirjailija ovat pakollisia",
+    "uploadError": "Kirjan lataaminen epäonnistui",
+    "statusReady": "Valmis",
+    "statusProcessing": "Käsitellään",
+    "statusUploading": "Ladataan",
+    "statusError": "Virhe",
+    "statusDeleted": "Poistettu",
+    "view": "Näytä",
+    "edit": "Muokkaa",
+    "delete": "Poista",
+    "confirmDelete": "Haluatko varmasti poistaa tämän kirjan?",
+    "deleteError": "Kirjan poistaminen epäonnistui",
+    "download": "Lataa",
+    "downloadError": "Kirjan lataaminen epäonnistui",
+    "loading": "Ladataan...",
+    "bookNotFound": "Kirjaa ei löytynyt",
+    "backToBooks": "Takaisin kirjoihin",
+    "coverImage": "Kansikuva",
+    "quickStats": "Nopeat tilastot",
+    "fileSize": "Tiedostokoko",
+    "pages": "Sivut",
+    "words": "Sanat",
+    "readingTime": "Lukuaika",
+    "minutes": "minuuttia",
+    "uploadDate": "Latauspäivä",
+    "actions": "Toiminnot",
+    "bookDetails": "Kirjan tiedot",
+    "epubMetadata": "EPUB-metatiedot",
+    "creator": "Luonut",
+    "date": "Päivä",
+    "rights": "Oikeudet",
+    "lastModified": "Viimeksi muokattu",
+    "filters": "Suodattimet",
+    "clearFilters": "Tyhjennä suodattimet",
+    "searchPlaceholder": "Etsi kirjoja...",
+    "allStatuses": "Kaikki tilat",
+    "allLanguages": "Kaikki kielet",
+    "authorPlaceholder": "Etsi kirjailijan mukaan...",
+    "showAdvanced": "Näytä lisäasetukset",
+    "hideAdvanced": "Piilota lisäasetukset",
+    "sortBy": "Järjestä",
+    "showing": "Näytetään",
+    "to": "-",
+    "of": "/",
+    "results": "tulosta",
+    "previous": "Edellinen",
+    "next": "Seuraava",
+    "page": "Sivu",
+    "statusReadyDescription": "Kirja on valmis käyttöön",
+    "statusProcessingDescription": "Kirjaa käsitellään",
+    "statusUploadingDescription": "Kirjaa ladataan",
+    "statusErrorDescription": "Käsittelyn aikana tapahtui virhe",
+    "statusDeletedDescription": "Kirja on poistettu",
+    "statusUnknownDescription": "Tuntematon tila",
+    "processingStarted": "Käsittely aloitettu",
+    "processingProgress": "Käsittely käynnissä...",
+    "errorOccurred": "Virhe tapahtui",
+    "viewErrorDetails": "Näytä virheen yksityiskohdat",
+    "readyForUse": "Valmis käyttöön",
+    "createArcCampaign": "Luo ARC-kampanja",
+    "uploaded": "Ladattu",
+    "duplicate": "Kopioi",
+    "share": "Jaa",
+    "status": "Tila"
+  },
+  "integrations": {
+    "title": "Integraatiot",
+    "subtitle": "Yhdistä tilisi ulkoisiin palveluihin",
+    "connectIntegration": "Yhdistä integraatio",
+    "loading": "Ladataan...",
+    "connectWordToWallet": "Yhdistä WordToWallet",
+    "connectWordToWalletDescription": "Yhdistä WordToWallet-tilisi luodaksesi ARC-kampanjoita",
+    "apiKey": "API-avain",
+    "apiKeyPlaceholder": "Syötä WordToWallet API-avain",
+    "apiKeyHelp": "API-avainsi salataan ja tallennetaan turvallisesti",
+    "howToGetApiKey": "Miten saat API-avain:",
+    "step1": "Kirjaudu WordToWallet-tiliisi",
+    "step2": "Siirry Asetukset > API-avaimet",
+    "step3": "Luo uusi API-avain",
+    "step4": "Kopioi ja liitä se tähän",
+    "features": "Ominaisuudet",
+    "feature1": "Lataa kirjoja WordToWalletiin",
+    "feature2": "Luo ARC-kampanjoita",
+    "feature3": "Luo latauskoodit",
+    "feature4": "Seuraa latausanalytiikkaa",
+    "connect": "Yhdistä",
+    "connecting": "Yhdistetään...",
+    "cancel": "Peruuta",
+    "apiKeyRequired": "API-avain on pakollinen",
+    "connectionFailed": "Yhteyden muodostaminen WordToWallettiin epäonnistui",
+    "availableIntegrations": "Saatavilla olevat integraatiot",
+    "WordToWalletDescription": "Luo ja hallitse ARC-kampanjoita kirjoillesi",
+    "amazonKdpDescription": "Julkaise suoraan Amazon Kindle Direct Publishingiin",
+    "draft2digitalDescription": "Jaa useille e-kirjakaupoille",
+    "smashwordsDescription": "Julkaise Smashwords-markkinapaikalle",
+    "comingSoon": "Tulossa pian",
+    "connectedIntegrations": "Yhdistetyt integraatiot",
+    "lastSync": "Viimeisin synkronointi",
+    "test": "Testaa",
+    "sync": "Synkronoi",
+    "disconnect": "Katkaise yhteys",
+    "confirmDisconnect": "Haluatko varmasti katkaista tämän integraation?",
+    "statusActive": "Aktiivinen",
+    "statusInactive": "Epäaktiivinen",
+    "statusError": "Virhe",
+    "statusPending": "Odottaa"
+  },
+  "arc": {
+    "title": "ARC-kampanjat",
+    "subtitle": "Luo ja hallitse Advanced Reader Copy -kampanjoita",
+    "createCampaign": "Luo kampanja",
+    "cancel": "Peruuta",
+    "totalLinks": "Linkkejä yhteensä",
+    "activeLinks": "Aktiiviset linkit",
+    "expiredLinks": "Vanhentuneet linkit",
+    "maxDownloads": "Maks lataukset",
+    "errorLinks": "Virhelinkit",
+    "filters": "Suodattimet",
+    "status": "Tila",
+    "allStatuses": "Kaikki tilat",
+    "statusActive": "Aktiivinen",
+    "statusExpired": "Vanhentunut",
+    "statusMaxDownloads": "Maks lataukset saavutettu",
+    "statusDisabled": "Poistettu käytöstä",
+    "statusError": "Virhe",
+    "book": "Kirja",
+    "allBooks": "Kaikki kirjat",
+    "expired": "Vanhentunut",
+    "all": "Kaikki",
+    "expiredOnly": "Vain vanhentuneet",
+    "activeOnly": "Vain aktiiviset",
+    "noArcLinks": "ARC-linkkejä ei löytynyt",
+    "noArcLinksDescription": "Luo ensimmäinen ARC-kampanjasi luodaksesi latauslinkkejä.",
+    "downloads": "latausta",
+    "max": "maks",
+    "expires": "Vanhenee",
+    "created": "Luotu",
+    "copyCode": "Kopioi koodi",
+    "copied": "Kopioitu!",
+    "share": "Jaa",
+    "view": "Näytä",
+    "delete": "Poista",
+    "confirmDelete": "Haluatko varmasti poistaa tämän ARC-linkin?",
+    "deleteError": "ARC-linkin poistaminen epäonnistui",
+    "linkCopied": "Linkki kopioitu leikepöydälle",
+    "showing": "Näytetään",
+    "to": "-",
+    "of": "/",
+    "results": "tulosta",
+    "previous": "Edellinen",
+    "next": "Seuraava",
+    "page": "Sivu",
+    "createCampaignDescription": "Luo uusi ARC-kampanja luodaksesi latauslinkkejä kirjallesi",
+    "selectBook": "Valitse kirja",
+    "chooseBook": "Valitse kirja...",
+    "selectedBook": "Valittu kirja",
+    "campaignName": "Kampanjan nimi",
+    "campaignNamePlaceholder": "Syötä kampanjan nimi",
+    "description": "Kuvaus",
+    "descriptionPlaceholder": "Syötä kampanjan kuvaus",
+    "numberOfCodes": "Koodien määrä",
+    "quantityHelp": "Luotavien latauskoodien määrä (1-1000)",
+    "maxDownloadsPerCode": "Maks lataukset per koodi",
+    "unlimited": "Rajoittamaton",
+    "totalMaxDownloads": "Maks lataukset yhteensä",
+    "expirationDate": "Vanhenemispäivä",
+    "campaignInfo": "Kampanjan tiedot",
+    "info1": "ARC-koodit luodaan automaattisesti",
+    "info2": "Jokainen koodi voidaan jakaa lukijoiden kanssa",
+    "info3": "Latausten seuranta on saatavilla",
+    "info4": "Koodit voidaan asettaa vanhenemaan automaattisesti",
+    "bookAndNameRequired": "Kirjan valinta ja kampanjan nimi ovat pakollisia",
+    "invalidQuantity": "Määrän on oltava välillä 1-1000",
+    "creating": "Luodaan...",
+    "creationFailed": "Kampanjan luominen epäonnistui"
+  }
+}

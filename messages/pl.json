@@ -1,0 +1,666 @@
+{
+  "common": {
+    "loading": "Ładowanie...",
+    "error": "Błąd",
+    "configNotFound": "Nie znaleziono konfiguracji dla strony głównej.",
+    "home": "Strona główna"
+  },
+  "errors": {
+    "oops": "Ups!",
+    "somethingWentWrong": "Coś poszło nie tak",
+    "pageNotFound": "Strona nie znaleziona",
+    "pageNotExist": "Strona, której szukasz, nie istnieje.",
+    "errorLoadingPage": "Wystąpił błąd podczas ładowania tej strony. Spróbuj ponownie.",
+    "errorLoadingApp": "Wystąpił błąd podczas ładowania aplikacji. Spróbuj ponownie.",
+    "tryAgain": "Spróbuj ponownie",
+    "goHome": "Wróć do strony głównej",
+    "goToHomePage": "Przejdź do strony głównej",
+    "errorDetails": "Szczegóły błędu (tylko do rozwoju)"
+  },
+  "faq": {
+    "title": "Często zadawane pytania",
+    "q1": {
+      "q": "Czy potrzebuję innych narzędzi AI?",
+      "a": "Nie. WordToWallet centralizuje tekst, projekt i dostawę, więc nie musisz żonglować dziesiątkami aplikacji."
+    },
+    "q2": {
+      "q": "Czy nadal mogę publikować na rynkach?",
+      "a": "Tak—połącz swoje konta Draft2Digital lub WordToWallet i przekaż, gdy chcesz szerszej dystrybucji."
+    },
+    "q3": {
+      "q": "Czy kurs jest naprawdę darmowy?",
+      "a": "Tak—kurs jest darmowy dla członków. Płacisz za dostęp do platformy i możesz anulować w dowolnym momencie."
+    }
+  },
+  "footer": {
+    "selectLanguage": "Wybierz język"
+  },
+  "auth": {
+    "signIn": "Zaloguj się",
+    "email": "E-mail",
+    "password": "Hasło",
+    "emailAddress": "Adres e-mail"
+  },
+  "account": {
+    "account": "Konto",
+    "membership": "Członkostwo",
+    "noSubscription": "Brak aktywnej subskrypcji",
+    "unlockAllTools": "Odblokuj wszystkie narzędzia",
+    "fullAccess": "Uzyskaj pełny dostęp do wszystkich narzędzi PDF",
+    "subscribeNow": "Zapisz się teraz",
+    "subscribe": "Zapisz się",
+    "paymentMethod": "Metoda płatności",
+    "saveTime": "Oszczędzaj czas dzięki automatycznym płatnościom",
+    "cardNumber": "Numer karty",
+    "notSpecified": "Nie określono",
+    "importantUpdates": "Ważne aktualizacje dotyczące Twojego konta"
+  },
+  "plan": {
+    "choosePlan": "Wybierz swój plan",
+    "continue": "Kontynuuj"
+  },
+  "navbar": {
+    "profileDetails": "Szczegóły profilu",
+    "noSubscription": "Brak subskrypcji",
+    "myDocuments": "Moje dokumenty",
+    "myAccount": "Moje konto"
+  },
+  "hero": {
+    "badge": "Członkowie najpierw · Prywatne narzędzia · Globalny zasięg",
+    "title": "Zamień słowa na sprzedaż — Darmowy kurs + Platforma ePub3",
+    "sub": "Twórz interaktywne promocje ePub3 z ChatGPT-5 i sprzedawaj bezpośrednio przez e-mail. Wielojęzyczne, mierzalne i bez pośredników.",
+    "ctaPrimary": "Uzyskaj dostęp do platformy",
+    "ctaSecondary": "Podgląd darmowego kursu",
+    "legal": "Nigdy nie sprzedajemy Twoich danych. Anuluj w dowolnym momencie."
+  },
+  "audiences": {
+    "title": "Zbudowane dla Twojego przypadku użycia",
+    "solopreneurs": {
+      "title": "Solopreneurzy i mikrozespoły",
+      "desc": "Uruchamiaj promocje, zbieraj subskrybentów i sprzedawaj usługi lub produkty bez kosztownych platform reklamowych. Dozwolonych do pięciu członków zespołu."
+    },
+    "authors": {
+      "title": "Autorzy samodzielnie publikujący i mikroagencje PR",
+      "desc": "Twórz kampanie i układy książek (fikcja i literatura faktu), dostarczaj ARCs i sprzedawaj do niszowych list czytelników."
+    }
+  },
+  "value": {
+    "title": "Dlaczego WordToWallet",
+    "cards": {
+      "epub3": {
+        "title": "Studio Twórców ePub3",
+        "description": "Twórz promocje i układy książek. Wklej kod i projekty wygenerowane przez ChatGPT-5, podglądaj na urządzeniu mobilnym i publikuj w kilka minut.",
+        "features": {
+          "0": "Gotowy do wklejenia XHTML/CSS z promptów",
+          "1": "Gotowe do dostępności i tłumaczenia",
+          "2": "Wielokrotnego użytku szablony dla fikcji/literatury faktu"
+        }
+      },
+      "email": {
+        "title": "Bezpieczny e-mail w skrzynce",
+        "description": "Wysyłaj e-maile z priorytetem tekstu, wyrównanymi linkami z wbudowanymi zabezpieczeniami dostarczalności (SPF/DKIM/DMARC). Rozgrzewaj i monitoruj bez zgadywania.",
+        "features": []
+      },
+      "analytics": {
+        "title": "Prywatne listy i analityka",
+        "description": "Importuj CSV, segmentuj według produktu/gatunku i śledź kliknięcia → pobrania → odpowiedzi/zakupy z jednego pulpitu.",
+        "features": []
+      },
+      "byoa": {
+        "title": "BYOA: D2D i WordToWallet",
+        "description": "Eksportuj pakiety gotowe do rynku lub dostarczaj ARCs z linkami—integruj, gdy chcesz szerszej dystrybucji.",
+        "features": []
+      }
+    }
+  },
+  "howItWorks": {
+    "title": "Jak to działa",
+    "subtitle": "Zacznij w kilka minut dzięki naszemu prostemu procesowi 3-krokowemu zaprojektowanemu dla sukcesu",
+    "steps": {
+      "step1": {
+        "title": "Zacznij się uczyć",
+        "description": "Zacznij od naszego darmowego kursu pisania AI. Ucz się praktycznych technik w małych lekcjach."
+      },
+      "step2": {
+        "title": "Zbuduj swoją listę",
+        "description": "Użyj naszych magnesów czytelników i integracji MailerLite, aby zwiększyć swoją publiczność e-mailową."
+      },
+      "step3": {
+        "title": "Sprzedawaj i skaluj",
+        "description": "Uruchom swoje produkty i pozwól WordToWallet obsłużyć dostawę, podczas gdy Ty skupiasz się na pisaniu."
+      }
+    },
+    "cta": "Zacznij teraz"
+  },
+  "howItWorksNew": {
+    "title": "Jak to działa",
+    "steps": {
+      "step1": {
+        "title": "Powiedz ChatGPT-5 swój cel",
+        "description": "Użyj naszych kart promptów dla ofert, odbiorców i języków."
+      },
+      "step2": {
+        "title": "Generuj tekst i kod",
+        "description": "Tematy wiadomości, CTAs i sekcje ePub3 gotowe do wklejenia."
+      },
+      "step3": {
+        "title": "Publikuj i wysyłaj",
+        "description": "Wystartuj przez e-mail pierwszej strony i śledź lejek."
+      }
+    }
+  },
+  "features": {
+    "title": "Wszystko, czego potrzebujesz, aby",
+    "titleHighlight": "odnieść sukces",
+    "subtitle": "Od lekcji pisania napędzanych AI po infrastrukturę bezpośredniej sprzedaży, mamy wszystko pokryte.",
+    "cards": {
+      "aiWriting": {
+        "title": "Naucz się pisania AI",
+        "description": "10-minutowe praktyczne lekcje, które nauczą Cię tworzyć rozdziały, opisy i reklamy za pomocą AI.",
+        "features": [
+          "Interaktywne samouczki",
+          "Przykłady z prawdziwego świata",
+          "Śledzenie postępów"
+        ]
+      },
+      "audience": {
+        "title": "Zbuduj swoją publiczność",
+        "description": "Magnes czytelników + integracja MailerLite automatycznie buduje Twoją listę e-mailową.",
+        "features": ["Magnesy leadów", "Automatyzacja e-maili", "Analityka odbiorców"]
+      },
+      "sales": {
+        "title": "Sprzedawaj bezpośrednio",
+        "description": "Połącz swój sklep; WordToWallet dostarcza pliki bezpośrednio do kupujących.",
+        "features": ["Sprzedaż bezpośrednia", "Dostarczanie plików", "Zarządzanie klientami"]
+      }
+    }
+  },
+  "security": {
+    "badge": "Bezpieczeństwo najpierw",
+    "title": "Twoje bezpieczeństwo jest naszym priorytetem",
+    "subtitle": "Wdrażamy środki bezpieczeństwa na poziomie przedsiębiorstwa, aby zapewnić, że Twoje dokumenty i dane pozostają w pełni chronione przez cały czas.",
+    "features": {
+      "encryption": {
+        "title": "Szyfrowanie na poziomie bankowym",
+        "description": "256-bitowe szyfrowanie SSL chroni Twoje dane"
+      },
+      "processing": {
+        "title": "Bezpieczne przetwarzanie",
+        "description": "Pliki są automatycznie usuwane po przetworzeniu"
+      },
+      "privacy": {
+        "title": "Prywatność najpierw",
+        "description": "Brak dostępu ludzi do Twoich dokumentów"
+      },
+      "compliance": {
+        "title": "Zgodne z RODO",
+        "description": "Pełna zgodność z przepisami o ochronie danych"
+      }
+    },
+    "trustedBy": "Zaufane przez ponad 400 000 użytkowników na całym świecie"
+  },
+  "testimonials": {
+    "title": "Zaufane przez profesjonalistów na całym świecie",
+    "subtitle": "Zobacz, co mówią nasi klienci",
+    "rating": "Ocena 5.0 z ponad 3000 recenzji",
+    "review1": {
+      "name": "Jennifer Martinez",
+      "role": "Dyrektor Operacji Prawnych",
+      "company": "Global Law Partners",
+      "review": "WordToWallet przekształcił nasz przepływ pracy dokumentów. Nasz zespół prawny może teraz przetwarzać umowy 3x szybciej dzięki funkcjom automatycznego wypełniania formularzy i podpisu elektronicznego. Narzędzia współpracy zespołowej całkowicie wyeliminowały problemy z kontrolą wersji."
+    },
+    "review2": {
+      "name": "David Chen",
+      "role": "CTO",
+      "company": "TechFlow Solutions",
+      "review": "Jako rozwijający się startup potrzebowaliśmy zarządzania dokumentami na poziomie przedsiębiorstwa bez ceny przedsiębiorstwa. Funkcje zespołowe i nieograniczone przetwarzanie WordToWallet idealnie skalowały się z naszym biznesem. ROI osiągnięto w pierwszym miesiącu."
+    },
+    "review3": {
+      "name": "Sarah Williams",
+      "role": "Menedżer Finansowy",
+      "company": "Merchant Capital Group",
+      "review": "Możliwości OCR zrewolucjonizowały nasz proces cyfryzacji dokumentów. Nasz zespół księgowy może teraz natychmiast przeszukiwać tysiące zeskanowanych faktur. To zaoszczędziło nam niezliczone godziny i znacznie poprawiło naszą gotowość do audytu."
+    },
+    "review4": {
+      "name": "Michael Rodriguez",
+      "role": "Oficer ds. Zgodności",
+      "company": "SecureBank International",
+      "review": "Funkcje bezpieczeństwa na poziomie przedsiębiorstwa WordToWallet dają nam pewność podczas obsługi wrażliwych dokumentów klientów. Narzędzia zgodności i ślady audytu znacznie uprościły nasze raportowanie regulacyjne. Nasz zespół ds. zgodności to uwielbia."
+    },
+    "review5": {
+      "name": "Lisa Thompson",
+      "role": "Menedżer Operacji Marketingowych",
+      "company": "Digital Growth Agency",
+      "review": "Nasz zespół marketingowy przetwarza setki plików PDF tygodniowo dla kampanii. Funkcje przetwarzania wsadowego i automatyzacji WordToWallet zmniejszyły nasz czas przygotowania dokumentów o 70%. ROI jest niesamowite dla każdej firmy, która chce skalować operacje."
+    },
+    "review6": {
+      "name": "Robert Kim",
+      "role": "Dyrektor Projektu",
+      "company": "Construction Dynamics",
+      "review": "Funkcje współpracy zespołowej wyeliminowały nasze wąskie gardła dokumentów. Wiele działów może teraz pracować nad tymi samymi dokumentami jednocześnie z aktualizacjami w czasie rzeczywistym. To poprawiło nasze czasy dostawy projektów o 40%."
+    }
+  },
+  "course": {
+    "badge": "Darmowy kurs włączony",
+    "title": "Darmowy kurs włączony",
+    "bullets": [
+      "Podręcznik sprzedaży bezpośredniej dla e-mail + ePub3.",
+      "Biblioteka promptów: oferty, promocje, sekcje docelowe, tłumaczenie.",
+      "Szablony zaproszeń antyspamowych i lista kontrolna rozgrzewki.",
+      "Projekt końcowy: Twój 7-dniowy sprint zysków."
+    ],
+    "cta": "Zapisz się za darmo (z dostępem do platformy)"
+  },
+  "privacyPolicy": {
+    "title": "Polityka prywatności",
+    "lastUpdated": "Ostatnia aktualizacja: grudzień 2024",
+    "websiteAddress": "Adres naszej strony internetowej to: https://bestglobalai.com",
+    "sections": {
+      "whoWeAre": {
+        "title": "Kim jesteśmy",
+        "content": "Adres naszej strony internetowej to: https://bestglobalai.com"
+      },
+      "comments": {
+        "title": "Komentarze",
+        "content": "Gdy odwiedzający pozostawiają komentarze na stronie, zbieramy dane pokazane w formularzu komentarzy, a także adres IP odwiedzającego i ciąg user agent przeglądarki, aby pomóc w wykrywaniu spamu. Zanonimizowany ciąg utworzony z Twojego adresu e-mail (zwany także hashem) może być przekazany do usługi Gravatar, aby sprawdzić, czy z niego korzystasz. Polityka prywatności usługi Gravatar jest dostępna tutaj: https://automattic.com/privacy/. Po zatwierdzeniu Twojego komentarza Twoje zdjęcie profilowe jest widoczne publicznie w kontekście Twojego komentarza."
+      },
+      "media": {
+        "title": "Media",
+        "content": "Jeśli przesyłasz obrazy na stronę internetową, powinieneś unikać przesyłania obrazów z osadzonymi danymi lokalizacji (EXIF GPS). Odwiedzający stronę mogą pobrać i wyodrębnić dowolne dane lokalizacji z obrazów na stronie."
+      },
+      "cookies": {
+        "title": "Ciasteczka",
+        "content": "Nie używamy ciasteczek do zbierania informacji o naszych odwiedzających."
+      },
+      "embeddedContent": {
+        "title": "Osadzona zawartość z innych stron internetowych",
+        "content": "Artykuły na tej stronie mogą zawierać osadzoną zawartość (np. filmy, obrazy, artykuły itp.). Osadzona zawartość z innych stron internetowych zachowuje się dokładnie tak samo, jak gdyby odwiedzający odwiedził inną stronę internetową."
+      },
+      "dataSharing": {
+        "title": "Z kim dzielimy się Twoimi danymi",
+        "content": "Jeśli poprosisz o reset hasła, Twój adres IP zostanie uwzględniony w e-mailu resetującym."
+      },
+      "dataRetention": {
+        "title": "Jak długo przechowujemy Twoje dane",
+        "content": "Jeśli zostawisz komentarz, komentarz i jego metadane są przechowywane w nieskończoność. To pozwala nam automatycznie rozpoznawać i zatwierdzać wszelkie kolejne komentarze zamiast trzymać je w kolejce moderacji. Dla użytkowników, którzy rejestrują się na naszej stronie internetowej (jeśli są), przechowujemy również informacje osobiste, które podają w swoim profilu użytkownika. Wszyscy użytkownicy mogą przeglądać, edytować lub usuwać swoje informacje osobiste w dowolnym momencie (z wyjątkiem tego, że nie mogą zmienić swojej nazwy użytkownika). Administratorzy strony internetowej mogą również przeglądać i edytować te informacje."
+      },
+      "userRights": {
+        "title": "Jakie masz prawa do swoich danych",
+        "content": "Jeśli masz konto na tej stronie lub pozostawiłeś komentarze, możesz poprosić o otrzymanie wyeksportowanego pliku danych osobowych, które przechowujemy o Tobie, w tym wszelkich danych, które nam podałeś. Możesz również poprosić, abyśmy usunęli wszelkie dane osobowe, które przechowujemy o Tobie. Nie obejmuje to żadnych danych, które jesteśmy zobowiązani przechowywać do celów administracyjnych, prawnych lub bezpieczeństwa."
+      },
+      "dataTransfer": {
+        "title": "Gdzie są wysyłane Twoje dane",
+        "content": "Komentarze odwiedzających mogą być sprawdzane przez automatyczną usługę wykrywania spamu."
+      }
+    },
+    "contact": {
+      "title": "Pytania dotyczące tej polityki?",
+      "description": "Jeśli masz jakiekolwiek pytania dotyczące tej Polityki Prywatności lub tego, jak obsługujemy Twoje dane, nie wahaj się skontaktować z nami.",
+      "website": "https://bestglobalai.com"
+    }
+  },
+  "contactPage": {
+    "title": "Skontaktuj się z nami",
+    "description": "Jeśli potrzebujesz pomocy w związku z naszą usługą lub masz pytania, nie wahaj się skontaktować z nami.",
+    "form": {
+      "name": "Imię",
+      "namePlaceholder": "Twoje imię",
+      "email": "Adres e-mail",
+      "emailPlaceholder": "email@domain.com",
+      "message": "Wiadomość",
+      "messagePlaceholder": "Wpisz swoją wiadomość tutaj",
+      "sendButton": "Wyślij wiadomość"
+    },
+    "directContact": {
+      "title": "Skontaktuj się z nami bezpośrednio"
+    },
+    "billing": {
+      "title": "Wsparcie rozliczeniowe",
+      "description": "Masz pytanie dotyczące opłaty? W przypadku pytań związanych z płatnościami na platformie, skontaktuj się z nami pod adresem:"
+    },
+    "customer": {
+      "title": "Obsługa klienta",
+      "description": "Zawsze chętnie z Tobą porozmawiamy. Jeśli masz pytania dotyczące naszej usługi, zadzwoń do nas lub napisz do nas na:"
+    },
+    "meet": {
+      "title": "Zaplanuj spotkanie",
+      "description": "Potrzebujesz bezpośredniej pomocy? Zaplanuj spersonalizowane spotkanie z naszym zespołem, aby omówić swoje potrzeby i uzyskać fachowe wskazówki."
+    }
+  },
+  "auction": {
+    "title": "Aukcje",
+    "subtitle": "Odkryj i weź udział w aukcjach na żywo",
+    "myAuctions": "Moje aukcje",
+    "createAuction": "Utwórz aukcję",
+    "browseAll": "Przeglądaj wszystkie aukcje",
+    "manageAuctions": "Zarządzaj i śledź swoje aukcje",
+    "createNewAuction": "Utwórz nową aukcję",
+    "noAuctionsFound": "Nie znaleziono aukcji",
+    "createFirstAuction": "Utwórz swoją pierwszą aukcję",
+    "filters": {
+      "allAuctions": "Wszystkie aukcje",
+      "scheduled": "Zaplanowane",
+      "active": "Aktywne",
+      "sold": "Sprzedane",
+      "ended": "Zakończone"
+    },
+    "status": {
+      "scheduled": "Zaplanowane",
+      "active": "Aktywne",
+      "sold": "Sprzedane",
+      "soldBuyNow": "Sprzedane (Kup teraz)",
+      "soldOffer": "Sprzedane (Oferta)",
+      "ended": "Zakończone",
+      "endedNoSale": "Zakończone (Brak sprzedaży)",
+      "cancelled": "Anulowane"
+    },
+    "create": {
+      "title": "Utwórz nową aukcję",
+      "form": {
+        "title": "Tytuł aukcji",
+        "titlePlaceholder": "Wprowadź tytuł aukcji",
+        "description": "Opis",
+        "descriptionPlaceholder": "Opisz przedmiot aukcji",
+        "currency": "Waluta",
+        "startingPrice": "Cena wywoławcza",
+        "startingPricePlaceholder": "0.00",
+        "reservePrice": "Cena minimalna (Opcjonalne)",
+        "reservePricePlaceholder": "Minimalna cena sprzedaży",
+        "reservePriceHelp": "Minimalna cena, którą jesteś gotowy zaakceptować. Jeśli nie zostanie osiągnięta, aukcja nie zostanie sprzedana.",
+        "buyNowPrice": "Cena Kup teraz (Opcjonalne)",
+        "buyNowPricePlaceholder": "Cena natychmiastowego zakupu",
+        "buyNowPriceHelp": "Pozwól kupującym natychmiast kupić w tej cenie.",
+        "startTime": "Czas rozpoczęcia",
+        "endTime": "Czas zakończenia",
+        "extendSeconds": "Przedłużenie anty-sniping (sekundy)",
+        "extendSecondsPlaceholder": "30",
+        "extendSecondsHelp": "Przedłuż aukcję o tyle sekund, gdy oferta zostanie złożona w ostatniej minucie.",
+        "minIncrement": "Minimalny przyrost oferty",
+        "minIncrementPlaceholder": "1.00",
+        "createButton": "Utwórz aukcję",
+        "cancelButton": "Anuluj"
+      },
+      "validation": {
+        "titleRequired": "Tytuł, opis, cena wywoławcza, czas rozpoczęcia i czas zakończenia są wymagane",
+        "startingPriceRequired": "Cena wywoławcza musi być większa niż 0",
+        "reservePriceInvalid": "Cena minimalna musi być większa niż cena wywoławcza",
+        "buyNowPriceInvalid": "Cena Kup teraz musi być większa niż cena wywoławcza",
+        "reservePriceTooHigh": "Cena minimalna nie może być wyższa niż cena Kup teraz",
+        "endTimeInvalid": "Czas zakończenia musi być po czasie rozpoczęcia",
+        "startTimeInvalid": "Czas rozpoczęcia musi być w przyszłości"
+      }
+    },
+    "list": {
+      "startingPrice": "Cena wywoławcza:",
+      "currentBid": "Aktualna oferta:",
+      "buyNow": "Kup teraz:",
+      "starts": "Rozpoczyna się:",
+      "ends": "Kończy się:",
+      "timeLeft": "Pozostały czas:",
+      "ended": "Zakończone",
+      "by": "przez",
+      "viewAuction": "Zobacz aukcję",
+      "page": "Strona",
+      "of": "z",
+      "previous": "Poprzednia",
+      "next": "Następna"
+    },
+    "delete": "Usuń",
+    "confirmDeleteTitle": "Potwierdź usunięcie",
+    "confirmDelete": "Czy na pewno chcesz usunąć tę aukcję? Tej akcji nie można cofnąć.",
+    "deleteError": "Nie udało się usunąć aukcji",
+    "deleteDisabledActive": "Nie można usunąć aktywnych aukcji",
+    "deleting": "Usuwanie...",
+    "cancel": "Anuluj",
+    "view": {
+      "placeBid": "Złóż ofertę",
+      "buyNow": "Kup teraz",
+      "makeOffer": "Złóż ofertę",
+      "bidAmount": "Kwota oferty",
+      "minimumBid": "Minimalna oferta:",
+      "yourBid": "Twoja oferta",
+      "bidButton": "Złóż ofertę",
+      "offerAmount": "Kwota oferty",
+      "offerButton": "Złóż ofertę",
+      "bidHistory": "Historia ofert",
+      "offers": "Oferty",
+      "noBids": "Brak ofert",
+      "noOffers": "Brak ofert",
+      "timeRemaining": "Pozostały czas",
+      "days": "d",
+      "hours": "g",
+      "minutes": "m",
+      "seconds": "s",
+      "reserveNotMet": "Cena minimalna nie osiągnięta",
+      "reserveMet": "Cena minimalna osiągnięta",
+      "online": "online",
+      "bidders": "licytujący"
+    },
+    "bidding": {
+      "bidPlaced": "Oferta złożona pomyślnie",
+      "bidFailed": "Nie udało się złożyć oferty",
+      "bidTooLow": "Kwota oferty jest zbyt niska",
+      "auctionEnded": "Aukcja się zakończyła",
+      "auctionNotActive": "Aukcja nie przyjmuje ofert",
+      "buyNowSuccess": "Aukcja zakupiona pomyślnie",
+      "buyNowFailed": "Nie udało się kupić aukcji",
+      "offerCreated": "Oferta utworzona pomyślnie",
+      "offerFailed": "Nie udało się utworzyć oferty",
+      "offerAccepted": "Oferta zaakceptowana",
+      "offerDeclined": "Oferta odrzucona"
+    },
+    "currency": {
+      "USD": "USD - Dolar amerykański",
+      "EUR": "EUR - Euro",
+      "GBP": "GBP - Funt brytyjski",
+      "CAD": "CAD - Dolar kanadyjski",
+      "AUD": "AUD - Dolar australijski"
+    }
+  },
+  "books": {
+    "title": "Książki",
+    "subtitle": "Zarządzaj swoimi książkami EPUB i twórz kampanie ARC",
+    "uploadBook": "Prześlij książkę",
+    "totalBooks": "Łączna liczba książek",
+    "readyBooks": "Gotowe książki",
+    "processingBooks": "Przetwarzanie",
+    "errorBooks": "Błąd",
+    "noBooks": "Nie znaleziono książek",
+    "noBooksDescription": "Prześlij swoją pierwszą książkę EPUB, aby rozpocząć.",
+    "epubFile": "Plik EPUB",
+    "dragDropFile": "Przeciągnij i upuść swój plik EPUB tutaj",
+    "browse": "przeglądaj",
+    "epubOnly": "Tylko pliki EPUB",
+    "title": "Tytuł",
+    "author": "Autor",
+    "description": "Opis",
+    "isbn": "ISBN",
+    "publisher": "Wydawca",
+    "publicationDate": "Data publikacji",
+    "language": "Język",
+    "genre": "Gatunek",
+    "tags": "Tagi",
+    "genrePlaceholder": "Fikcja, Literatura faktu, Romans itp.",
+    "tagsPlaceholder": "bestseller, nagrodzony itp.",
+    "upload": "Prześlij",
+    "uploading": "Przesyłanie...",
+    "cancel": "Anuluj",
+    "invalidFileType": "Proszę wybrać prawidłowy plik EPUB",
+    "noFileSelected": "Proszę wybrać plik do przesłania",
+    "titleAndAuthorRequired": "Tytuł i autor są wymagane",
+    "uploadError": "Nie udało się przesłać książki",
+    "statusReady": "Gotowe",
+    "statusProcessing": "Przetwarzanie",
+    "statusUploading": "Przesyłanie",
+    "statusError": "Błąd",
+    "statusDeleted": "Usunięte",
+    "view": "Zobacz",
+    "edit": "Edytuj",
+    "delete": "Usuń",
+    "confirmDelete": "Czy na pewno chcesz usunąć tę książkę?",
+    "deleteError": "Nie udało się usunąć książki",
+    "download": "Pobierz",
+    "downloadError": "Nie udało się pobrać książki",
+    "loading": "Ładowanie...",
+    "bookNotFound": "Książka nie znaleziona",
+    "backToBooks": "Powrót do książek",
+    "coverImage": "Obraz okładki",
+    "quickStats": "Szybkie statystyki",
+    "fileSize": "Rozmiar pliku",
+    "pages": "Strony",
+    "words": "Słowa",
+    "readingTime": "Czas czytania",
+    "minutes": "minut",
+    "uploadDate": "Data przesłania",
+    "actions": "Akcje",
+    "bookDetails": "Szczegóły książki",
+    "epubMetadata": "Metadane EPUB",
+    "creator": "Twórca",
+    "date": "Data",
+    "rights": "Prawa",
+    "lastModified": "Ostatnia modyfikacja",
+    "filters": "Filtry",
+    "clearFilters": "Wyczyść filtry",
+    "searchPlaceholder": "Szukaj książek...",
+    "allStatuses": "Wszystkie statusy",
+    "allLanguages": "Wszystkie języki",
+    "authorPlaceholder": "Szukaj według autora...",
+    "showAdvanced": "Pokaż zaawansowane",
+    "hideAdvanced": "Ukryj zaawansowane",
+    "sortBy": "Sortuj według",
+    "showing": "Pokazuje",
+    "to": "do",
+    "of": "z",
+    "results": "wyników",
+    "previous": "Poprzednia",
+    "next": "Następna",
+    "page": "Strona",
+    "statusReadyDescription": "Książka jest gotowa do użycia",
+    "statusProcessingDescription": "Książka jest przetwarzana",
+    "statusUploadingDescription": "Książka jest przesyłana",
+    "statusErrorDescription": "Wystąpił błąd podczas przetwarzania",
+    "statusDeletedDescription": "Książka została usunięta",
+    "statusUnknownDescription": "Nieznany status",
+    "processingStarted": "Przetwarzanie rozpoczęte",
+    "processingProgress": "Przetwarzanie w toku...",
+    "errorOccurred": "Wystąpił błąd",
+    "viewErrorDetails": "Zobacz szczegóły błędu",
+    "readyForUse": "Gotowe do użycia",
+    "createArcCampaign": "Utwórz kampanię ARC",
+    "uploaded": "Przesłane",
+    "duplicate": "Duplikuj",
+    "share": "Udostępnij",
+    "status": "Status"
+  },
+  "integrations": {
+    "title": "Integracje",
+    "subtitle": "Połącz swoje konta z usługami zewnętrznymi",
+    "connectIntegration": "Połącz integrację",
+    "loading": "Ładowanie...",
+    "connectWordToWallet": "Połącz WordToWallet",
+    "connectWordToWalletDescription": "Połącz swoje konto WordToWallet, aby tworzyć kampanie ARC",
+    "apiKey": "Klucz API",
+    "apiKeyPlaceholder": "Wprowadź swój klucz API WordToWallet",
+    "apiKeyHelp": "Twój klucz API zostanie zaszyfrowany i bezpiecznie przechowany",
+    "howToGetApiKey": "Jak uzyskać klucz API:",
+    "step1": "Zaloguj się na swoje konto WordToWallet",
+    "step2": "Przejdź do Ustawienia > Klucze API",
+    "step3": "Wygeneruj nowy klucz API",
+    "step4": "Skopiuj i wklej go tutaj",
+    "features": "Funkcje",
+    "feature1": "Prześlij książki do WordToWallet",
+    "feature2": "Utwórz kampanie ARC",
+    "feature3": "Generuj kody pobierania",
+    "feature4": "Śledź analitykę pobierania",
+    "connect": "Połącz",
+    "connecting": "Łączenie...",
+    "cancel": "Anuluj",
+    "apiKeyRequired": "Klucz API jest wymagany",
+    "connectionFailed": "Nie udało się połączyć z WordToWallet",
+    "availableIntegrations": "Dostępne integracje",
+    "WordToWalletDescription": "Twórz i zarządzaj kampaniami ARC dla swoich książek",
+    "amazonKdpDescription": "Publikuj bezpośrednio w Amazon Kindle Direct Publishing",
+    "draft2digitalDescription": "Dystrybuuj do wielu sprzedawców ebooków",
+    "smashwordsDescription": "Publikuj na rynku Smashwords",
+    "comingSoon": "Wkrótce",
+    "connectedIntegrations": "Połączone integracje",
+    "lastSync": "Ostatnia synchronizacja",
+    "test": "Test",
+    "sync": "Synchronizuj",
+    "disconnect": "Rozłącz",
+    "confirmDisconnect": "Czy na pewno chcesz rozłączyć tę integrację?",
+    "statusActive": "Aktywne",
+    "statusInactive": "Nieaktywne",
+    "statusError": "Błąd",
+    "statusPending": "Oczekujące"
+  },
+  "arc": {
+    "title": "Kampanie ARC",
+    "subtitle": "Twórz i zarządzaj kampaniami Advanced Reader Copy",
+    "createCampaign": "Utwórz kampanię",
+    "cancel": "Anuluj",
+    "totalLinks": "Łączna liczba linków",
+    "activeLinks": "Aktywne linki",
+    "expiredLinks": "Wygasłe linki",
+    "maxDownloads": "Maksymalne pobrania",
+    "errorLinks": "Linki błędów",
+    "filters": "Filtry",
+    "status": "Status",
+    "allStatuses": "Wszystkie statusy",
+    "statusActive": "Aktywne",
+    "statusExpired": "Wygasłe",
+    "statusMaxDownloads": "Osiągnięto maksymalne pobrania",
+    "statusDisabled": "Wyłączone",
+    "statusError": "Błąd",
+    "book": "Książka",
+    "allBooks": "Wszystkie książki",
+    "expired": "Wygasłe",
+    "all": "Wszystkie",
+    "expiredOnly": "Tylko wygasłe",
+    "activeOnly": "Tylko aktywne",
+    "noArcLinks": "Nie znaleziono linków ARC",
+    "noArcLinksDescription": "Utwórz swoją pierwszą kampanię ARC, aby generować linki pobierania.",
+    "downloads": "pobrania",
+    "max": "maks",
+    "expires": "Wygasa",
+    "created": "Utworzono",
+    "copyCode": "Skopiuj kod",
+    "copied": "Skopiowano!",
+    "share": "Udostępnij",
+    "view": "Zobacz",
+    "delete": "Usuń",
+    "confirmDelete": "Czy na pewno chcesz usunąć ten link ARC?",
+    "deleteError": "Nie udało się usunąć linku ARC",
+    "linkCopied": "Link skopiowany do schowka",
+    "showing": "Pokazuje",
+    "to": "do",
+    "of": "z",
+    "results": "wyników",
+    "previous": "Poprzednia",
+    "next": "Następna",
+    "page": "Strona",
+    "createCampaignDescription": "Utwórz nową kampanię ARC, aby generować linki pobierania dla swojej książki",
+    "selectBook": "Wybierz książkę",
+    "chooseBook": "Wybierz książkę...",
+    "selectedBook": "Wybrana książka",
+    "campaignName": "Nazwa kampanii",
+    "campaignNamePlaceholder": "Wprowadź nazwę kampanii",
+    "description": "Opis",
+    "descriptionPlaceholder": "Wprowadź opis kampanii",
+    "numberOfCodes": "Liczba kodów",
+    "quantityHelp": "Liczba kodów pobierania do wygenerowania (1-1000)",
+    "maxDownloadsPerCode": "Maksymalne pobrania na kod",
+    "unlimited": "Bez limitu",
+    "totalMaxDownloads": "Łączne maksymalne pobrania",
+    "expirationDate": "Data wygaśnięcia",
+    "campaignInfo": "Informacje o kampanii",
+    "info1": "Kody ARC zostaną wygenerowane automatycznie",
+    "info2": "Każdy kod może być udostępniony czytelnikom",
+    "info3": "Śledzenie pobierania jest dostępne",
+    "info4": "Kody mogą być ustawione na automatyczne wygaśnięcie",
+    "bookAndNameRequired": "Wybór książki i nazwa kampanii są wymagane",
+    "invalidQuantity": "Ilość musi być między 1 a 1000",
+    "creating": "Tworzenie...",
+    "creationFailed": "Nie udało się utworzyć kampanii"
+  }
+}

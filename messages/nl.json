@@ -1,0 +1,666 @@
+{
+  "common": {
+    "loading": "Laden...",
+    "error": "Fout",
+    "configNotFound": "Configuratie niet gevonden voor startpagina.",
+    "home": "Home"
+  },
+  "errors": {
+    "oops": "Oeps!",
+    "somethingWentWrong": "Er is iets misgegaan",
+    "pageNotFound": "Pagina niet gevonden",
+    "pageNotExist": "De pagina die u zoekt bestaat niet.",
+    "errorLoadingPage": "Er is een fout opgetreden bij het laden van deze pagina. Probeer het opnieuw.",
+    "errorLoadingApp": "Er is een fout opgetreden bij het laden van de applicatie. Probeer het opnieuw.",
+    "tryAgain": "Probeer opnieuw",
+    "goHome": "Ga naar home",
+    "goToHomePage": "Ga naar de startpagina",
+    "errorDetails": "Foutdetails (alleen ontwikkeling)"
+  },
+  "faq": {
+    "title": "Veelgestelde vragen",
+    "q1": {
+      "q": "Heb ik andere AI-tools nodig?",
+      "a": "Nee. WordToWallet centraliseert tekst, ontwerp en levering zodat u niet met tientallen apps hoeft te jongleren."
+    },
+    "q2": {
+      "q": "Kan ik nog steeds publiceren op marktplaatsen?",
+      "a": "Ja—verbind uw Draft2Digital of WordToWallet accounts en draag over wanneer u een bredere distributie wilt."
+    },
+    "q3": {
+      "q": "Is de cursus echt gratis?",
+      "a": "Ja—de cursus is gratis voor leden. U betaalt voor platformtoegang en kunt op elk moment annuleren."
+    }
+  },
+  "footer": {
+    "selectLanguage": "Selecteer taal"
+  },
+  "auth": {
+    "signIn": "Inloggen",
+    "email": "E-mail",
+    "password": "Wachtwoord",
+    "emailAddress": "E-mailadres"
+  },
+  "account": {
+    "account": "Account",
+    "membership": "Lidmaatschap",
+    "noSubscription": "Geen actief abonnement",
+    "unlockAllTools": "Ontgrendel alle tools",
+    "fullAccess": "Krijg volledige toegang tot alle PDF-tools",
+    "subscribeNow": "Nu abonneren",
+    "subscribe": "Abonneren",
+    "paymentMethod": "Betalingsmethode",
+    "saveTime": "Bespaar tijd met automatische betalingen",
+    "cardNumber": "Kaartnummer",
+    "notSpecified": "Niet gespecificeerd",
+    "importantUpdates": "Belangrijke updates over uw account"
+  },
+  "plan": {
+    "choosePlan": "Kies uw plan",
+    "continue": "Doorgaan"
+  },
+  "navbar": {
+    "profileDetails": "Profielgegevens",
+    "noSubscription": "Geen abonnement",
+    "myDocuments": "Mijn documenten",
+    "myAccount": "Mijn account"
+  },
+  "hero": {
+    "badge": "Leden eerst · Privétools · Wereldwijde reikwijdte",
+    "title": "Verander woorden in verkopen — Gratis cursus + ePub3-platform",
+    "sub": "Bouw interactieve ePub3-promo's met ChatGPT-5 en verkoop direct via e-mail. Meertalig, meetbaar en zonder tussenpersonen.",
+    "ctaPrimary": "Krijg platformtoegang",
+    "ctaSecondary": "Bekijk de gratis cursus",
+    "legal": "We verkopen uw gegevens nooit. Annuleer op elk moment."
+  },
+  "audiences": {
+    "title": "Gebouwd voor uw gebruik",
+    "solopreneurs": {
+      "title": "Solopreneurs en microteams",
+      "desc": "Lanceer promo's, verzamel abonnees en verkoop diensten of producten zonder dure advertentieplatforms. Tot vijf teamleden toegestaan."
+    },
+    "authors": {
+      "title": "Zelfgepubliceerde auteurs en PR-microbureaus",
+      "desc": "Maak campagnes en boeklayouts (fictie en non-fictie), lever ARCs en verkoop aan niche lezerslijsten."
+    }
+  },
+  "value": {
+    "title": "Waarom WordToWallet",
+    "cards": {
+      "epub3": {
+        "title": "ePub3 Creator Studio",
+        "description": "Maak promo's en boeklayouts. Plak code en ontwerpen gegenereerd door ChatGPT-5, bekijk op mobiel en publiceer binnen enkele minuten.",
+        "features": {
+          "0": "Klaar om te plakken XHTML/CSS van prompts",
+          "1": "Toegankelijkheid en vertaling gereed",
+          "2": "Herbruikbare sjablonen voor fictie/non-fictie"
+        }
+      },
+      "email": {
+        "title": "Postvak-veilige e-mail",
+        "description": "Verstuur tekst-eerst, uitgelijnde-link e-mails met ingebouwde leverbaarheidsbeveiligingen (SPF/DKIM/DMARC). Opwarmen en monitoren zonder giswerk.",
+        "features": []
+      },
+      "analytics": {
+        "title": "Privélijsten en analyses",
+        "description": "Importeer CSV's, segmenteer op product/genre en volg klikken → downloads → antwoorden/aankopen vanuit één dashboard.",
+        "features": []
+      },
+      "byoa": {
+        "title": "BYOA: D2D en WordToWallet",
+        "description": "Exporteer marktplaats-klare pakketten of lever ARCs met links—integreer wanneer u een bredere distributie wilt.",
+        "features": []
+      }
+    }
+  },
+  "howItWorks": {
+    "title": "Hoe het werkt",
+    "subtitle": "Begin binnen enkele minuten met ons eenvoudige 3-stappen proces ontworpen voor succes",
+    "steps": {
+      "step1": {
+        "title": "Begin met leren",
+        "description": "Begin met onze gratis AI-schrijfcursus. Leer praktische technieken in hapklare lessen."
+      },
+      "step2": {
+        "title": "Bouw uw lijst",
+        "description": "Gebruik onze leesmagneet en MailerLite-integratie om uw e-mailpubliek te laten groeien."
+      },
+      "step3": {
+        "title": "Verkoop en schaal",
+        "description": "Lanceer uw producten en laat WordToWallet de levering afhandelen terwijl u zich concentreert op schrijven."
+      }
+    },
+    "cta": "Begin nu"
+  },
+  "howItWorksNew": {
+    "title": "Hoe het werkt",
+    "steps": {
+      "step1": {
+        "title": "Vertel ChatGPT-5 uw doel",
+        "description": "Gebruik onze promptkaarten voor aanbiedingen, doelgroepen en talen."
+      },
+      "step2": {
+        "title": "Genereer tekst en code",
+        "description": "Onderwerpregels, CTA's en klaar om te plakken ePub3-secties."
+      },
+      "step3": {
+        "title": "Publiceer en verstuur",
+        "description": "Ga live via first-party e-mail en volg de funnel."
+      }
+    }
+  },
+  "features": {
+    "title": "Alles wat u nodig heeft om",
+    "titleHighlight": "te slagen",
+    "subtitle": "Van AI-aangedreven schrijflessen tot directe verkoopinfrastructuur, wij hebben alles gedekt.",
+    "cards": {
+      "aiWriting": {
+        "title": "Leer AI-schrijven",
+        "description": "10-minuten praktische lessen die u leren hoofdstukken, flapteksten en advertenties te produceren met AI.",
+        "features": [
+          "Interactieve tutorials",
+          "Voorbeelden uit de echte wereld",
+          "Voortgangsvolging"
+        ]
+      },
+      "audience": {
+        "title": "Bouw uw publiek",
+        "description": "Leesmagneet + MailerLite-integratie bouwt automatisch uw e-maillijst op.",
+        "features": ["Leadmagneten", "E-mailautomatisering", "Publieksanalyses"]
+      },
+      "sales": {
+        "title": "Verkoop direct",
+        "description": "Verbind uw winkel; WordToWallet levert bestanden direct aan kopers.",
+        "features": ["Directe verkoop", "Bestandslevering", "Klantbeheer"]
+      }
+    }
+  },
+  "security": {
+    "badge": "Veiligheid eerst",
+    "title": "Uw veiligheid is onze prioriteit",
+    "subtitle": "We implementeren beveiligingsmaatregelen op bedrijfsniveau om ervoor te zorgen dat uw documenten en gegevens te allen tijde volledig beschermd blijven.",
+    "features": {
+      "encryption": {
+        "title": "Bankniveau encryptie",
+        "description": "256-bits SSL-encryptie beschermt uw gegevens"
+      },
+      "processing": {
+        "title": "Veilige verwerking",
+        "description": "Bestanden worden automatisch verwijderd na verwerking"
+      },
+      "privacy": {
+        "title": "Privacy eerst",
+        "description": "Geen menselijke toegang tot uw documenten"
+      },
+      "compliance": {
+        "title": "AVG-conform",
+        "description": "Volledige naleving van gegevensbeschermingsvoorschriften"
+      }
+    },
+    "trustedBy": "Vertrouwd door meer dan 400.000 gebruikers wereldwijd"
+  },
+  "testimonials": {
+    "title": "Vertrouwd door professionals wereldwijd",
+    "subtitle": "Zie wat onze klanten zeggen",
+    "rating": "5.0 beoordeling van meer dan 3.000 beoordelingen",
+    "review1": {
+      "name": "Jennifer Martinez",
+      "role": "Directeur juridische operaties",
+      "company": "Global Law Partners",
+      "review": "WordToWallet heeft onze documentworkflow getransformeerd. Ons juridische team kan nu contracten 3x sneller verwerken met de geautomatiseerde formulierinvulling en e-handtekeningfuncties. De teamcollaboratietools hebben versiecontroleproblemen volledig geëlimineerd."
+    },
+    "review2": {
+      "name": "David Chen",
+      "role": "CTO",
+      "company": "TechFlow Solutions",
+      "review": "Als een groeiende startup hadden we documentbeheer op bedrijfsniveau nodig zonder het bedrijfsprijskaartje. De teamfuncties en onbeperkte verwerking van WordToWallet zijn perfect geschaald met ons bedrijf. ROI werd bereikt binnen de eerste maand."
+    },
+    "review3": {
+      "name": "Sarah Williams",
+      "role": "Financieel manager",
+      "company": "Merchant Capital Group",
+      "review": "De OCR-mogelijkheden hebben ons documentdigitaliseringsproces gerevolutioneerd. Ons boekhoudteam kan nu direct door duizenden gescande facturen zoeken. Dit heeft ons talloze uren bespaard en onze auditbereidheid aanzienlijk verbeterd."
+    },
+    "review4": {
+      "name": "Michael Rodriguez",
+      "role": "Compliance-officier",
+      "company": "SecureBank International",
+      "review": "De beveiligingsfuncties op bedrijfsniveau van WordToWallet geven ons vertrouwen bij het omgaan met gevoelige klantdocumenten. De compliancetools en audittrails hebben onze regelgevingsrapportage veel eenvoudiger gemaakt. Ons complianceteam houdt ervan."
+    },
+    "review5": {
+      "name": "Lisa Thompson",
+      "role": "Marketing Operations Manager",
+      "company": "Digital Growth Agency",
+      "review": "Ons marketingteam verwerkt wekelijks honderden PDF's voor campagnes. De batchverwerking en automatiseringsfuncties van WordToWallet hebben onze documentvoorbereidingstijd met 70% verminderd. De ROI is ongelooflijk voor elk bedrijf dat zijn operaties wil opschalen."
+    },
+    "review6": {
+      "name": "Robert Kim",
+      "role": "Projectdirecteur",
+      "company": "Construction Dynamics",
+      "review": "De teamcollaboratiefuncties hebben onze documentknelpunten geëlimineerd. Meerdere afdelingen kunnen nu tegelijkertijd aan dezelfde documenten werken met real-time updates. Dit heeft onze projectleveringskwaliteit met 40% verbeterd."
+    }
+  },
+  "course": {
+    "badge": "Gratis cursus inbegrepen",
+    "title": "Gratis cursus inbegrepen",
+    "bullets": [
+      "Directe verkoop playbook voor e-mail + ePub3.",
+      "Promptbibliotheek: aanbiedingen, promo's, landingssecties, vertaling.",
+      "Anti-spam uitnodigingssjablonen en opwarmchecklist.",
+      "Capstone: uw 7-daagse winstsprint."
+    ],
+    "cta": "Gratis inschrijven (met platformtoegang)"
+  },
+  "privacyPolicy": {
+    "title": "Privacybeleid",
+    "lastUpdated": "Laatst bijgewerkt: december 2024",
+    "websiteAddress": "Ons websiteadres is: https://bestglobalai.com",
+    "sections": {
+      "whoWeAre": {
+        "title": "Wie wij zijn",
+        "content": "Ons websiteadres is: https://bestglobalai.com"
+      },
+      "comments": {
+        "title": "Reacties",
+        "content": "Wanneer bezoekers reacties op de site achterlaten, verzamelen we de gegevens die in het reactieformulier worden getoond, en ook het IP-adres van de bezoeker en de browser user agent string om spamdetectie te helpen. Een geanonimiseerde string gemaakt van uw e-mailadres (ook wel hash genoemd) kan worden verstrekt aan de Gravatar-service om te zien of u deze gebruikt. Het privacybeleid van de Gravatar-service is hier beschikbaar: https://automattic.com/privacy/. Na goedkeuring van uw reactie is uw profielfoto zichtbaar voor het publiek in de context van uw reactie."
+      },
+      "media": {
+        "title": "Media",
+        "content": "Als u afbeeldingen naar de website uploadt, moet u vermijden afbeeldingen met ingesloten locatiegegevens (EXIF GPS) te uploaden. Bezoekers van de website kunnen locatiegegevens van afbeeldingen op de website downloaden en extraheren."
+      },
+      "cookies": {
+        "title": "Cookies",
+        "content": "We gebruiken geen cookies om informatie van onze bezoekers te verzamelen."
+      },
+      "embeddedContent": {
+        "title": "Ingesloten inhoud van andere websites",
+        "content": "Artikelen op deze site kunnen ingesloten inhoud bevatten (bijv. video's, afbeeldingen, artikelen, enz.). Ingesloten inhoud van andere websites gedraagt zich precies hetzelfde alsof de bezoeker de andere website heeft bezocht."
+      },
+      "dataSharing": {
+        "title": "Met wie we uw gegevens delen",
+        "content": "Als u een wachtwoordreset aanvraagt, wordt uw IP-adres opgenomen in de reset-e-mail."
+      },
+      "dataRetention": {
+        "title": "Hoe lang we uw gegevens bewaren",
+        "content": "Als u een reactie achterlaat, worden de reactie en de bijbehorende metadata voor onbepaalde tijd bewaard. Dit is zodat we eventuele vervolgreacties automatisch kunnen herkennen en goedkeuren in plaats van ze in een moderatiewachtrij te houden. Voor gebruikers die zich registreren op onze website (indien van toepassing), slaan we ook de persoonlijke informatie op die zij verstrekken in hun gebruikersprofiel. Alle gebruikers kunnen hun persoonlijke informatie op elk moment bekijken, bewerken of verwijderen (behalve dat ze hun gebruikersnaam niet kunnen wijzigen). Websitebeheerders kunnen deze informatie ook bekijken en bewerken."
+      },
+      "userRights": {
+        "title": "Welke rechten u heeft over uw gegevens",
+        "content": "Als u een account op deze site heeft of reacties heeft achtergelaten, kunt u verzoeken om een geëxporteerd bestand te ontvangen van de persoonlijke gegevens die we over u bewaren, inclusief alle gegevens die u ons heeft verstrekt. U kunt ook verzoeken dat we alle persoonlijke gegevens die we over u bewaren wissen. Dit omvat geen gegevens die we verplicht zijn te bewaren voor administratieve, juridische of beveiligingsdoeleinden."
+      },
+      "dataTransfer": {
+        "title": "Waar uw gegevens naartoe worden verzonden",
+        "content": "Bezoekersreacties kunnen worden gecontroleerd via een geautomatiseerde spamdetectieservice."
+      }
+    },
+    "contact": {
+      "title": "Vragen over dit beleid?",
+      "description": "Als u vragen heeft over dit privacybeleid of hoe we uw gegevens behandelen, aarzel dan niet om contact met ons op te nemen.",
+      "website": "https://bestglobalai.com"
+    }
+  },
+  "contactPage": {
+    "title": "Neem contact met ons op",
+    "description": "Als u hulp nodig heeft bij onze service of vragen heeft, aarzel dan niet om contact met ons op te nemen.",
+    "form": {
+      "name": "Naam",
+      "namePlaceholder": "Uw naam",
+      "email": "E-mailadres",
+      "emailPlaceholder": "email@domain.com",
+      "message": "Bericht",
+      "messagePlaceholder": "Typ hier uw bericht",
+      "sendButton": "Bericht verzenden"
+    },
+    "directContact": {
+      "title": "Neem direct contact met ons op"
+    },
+    "billing": {
+      "title": "Factureringsondersteuning",
+      "description": "Heeft u een vraag over uw kosten? Voor vragen met betrekking tot betalingen op het platform, neem contact met ons op via:"
+    },
+    "customer": {
+      "title": "Klantenservice",
+      "description": "We praten graag met u. Als u vragen heeft over onze service, bel of e-mail ons op:"
+    },
+    "meet": {
+      "title": "Plan een vergadering",
+      "description": "Heeft u directe hulp nodig? Plan een gepersonaliseerde vergadering met ons team om uw behoeften te bespreken en deskundige begeleiding te krijgen."
+    }
+  },
+  "auction": {
+    "title": "Veilingen",
+    "subtitle": "Ontdek en neem deel aan live veilingen",
+    "myAuctions": "Mijn veilingen",
+    "createAuction": "Veiling maken",
+    "browseAll": "Blader door alle veilingen",
+    "manageAuctions": "Beheer en volg uw veilingaanbiedingen",
+    "createNewAuction": "Nieuwe veiling maken",
+    "noAuctionsFound": "Geen veilingen gevonden",
+    "createFirstAuction": "Maak uw eerste veiling",
+    "filters": {
+      "allAuctions": "Alle veilingen",
+      "scheduled": "Gepland",
+      "active": "Actief",
+      "sold": "Verkocht",
+      "ended": "Beëindigd"
+    },
+    "status": {
+      "scheduled": "Gepland",
+      "active": "Actief",
+      "sold": "Verkocht",
+      "soldBuyNow": "Verkocht (Nu kopen)",
+      "soldOffer": "Verkocht (Aanbieding)",
+      "ended": "Beëindigd",
+      "endedNoSale": "Beëindigd (Geen verkoop)",
+      "cancelled": "Geannuleerd"
+    },
+    "create": {
+      "title": "Nieuwe veiling maken",
+      "form": {
+        "title": "Veilingtitel",
+        "titlePlaceholder": "Voer veilingtitel in",
+        "description": "Beschrijving",
+        "descriptionPlaceholder": "Beschrijf uw veilingitem",
+        "currency": "Valuta",
+        "startingPrice": "Startprijs",
+        "startingPricePlaceholder": "0,00",
+        "reservePrice": "Reserveprijs (Optioneel)",
+        "reservePricePlaceholder": "Minimale verkoopprijs",
+        "reservePriceHelp": "De minimale prijs die u bereid bent te accepteren. Indien niet bereikt, wordt de veiling niet verkocht.",
+        "buyNowPrice": "Nu kopen prijs (Optioneel)",
+        "buyNowPricePlaceholder": "Directe aankoopprijs",
+        "buyNowPriceHelp": "Sta kopers toe om onmiddellijk tegen deze prijs te kopen.",
+        "startTime": "Starttijd",
+        "endTime": "Eindtijd",
+        "extendSeconds": "Anti-sniping verlenging (seconden)",
+        "extendSecondsPlaceholder": "30",
+        "extendSecondsHelp": "Verleng veiling met zoveel seconden wanneer een bod wordt geplaatst in de laatste minuut.",
+        "minIncrement": "Minimale biedverhoging",
+        "minIncrementPlaceholder": "1,00",
+        "createButton": "Veiling maken",
+        "cancelButton": "Annuleren"
+      },
+      "validation": {
+        "titleRequired": "Titel, beschrijving, startprijs, starttijd en eindtijd zijn verplicht",
+        "startingPriceRequired": "Startprijs moet groter zijn dan 0",
+        "reservePriceInvalid": "Reserveprijs moet groter zijn dan startprijs",
+        "buyNowPriceInvalid": "Nu kopen prijs moet groter zijn dan startprijs",
+        "reservePriceTooHigh": "Reserveprijs kan niet hoger zijn dan nu kopen prijs",
+        "endTimeInvalid": "Eindtijd moet na starttijd zijn",
+        "startTimeInvalid": "Starttijd moet in de toekomst zijn"
+      }
+    },
+    "list": {
+      "startingPrice": "Startprijs:",
+      "currentBid": "Huidig bod:",
+      "buyNow": "Nu kopen:",
+      "starts": "Begint:",
+      "ends": "Eindigt:",
+      "timeLeft": "Resterende tijd:",
+      "ended": "Beëindigd",
+      "by": "door",
+      "viewAuction": "Veiling bekijken",
+      "page": "Pagina",
+      "of": "van",
+      "previous": "Vorige",
+      "next": "Volgende"
+    },
+    "delete": "Verwijderen",
+    "confirmDeleteTitle": "Verwijderen bevestigen",
+    "confirmDelete": "Weet u zeker dat u deze veiling wilt verwijderen? Deze actie kan niet ongedaan worden gemaakt.",
+    "deleteError": "Veiling verwijderen mislukt",
+    "deleteDisabledActive": "Actieve veilingen kunnen niet worden verwijderd",
+    "deleting": "Verwijderen...",
+    "cancel": "Annuleren",
+    "view": {
+      "placeBid": "Bod plaatsen",
+      "buyNow": "Nu kopen",
+      "makeOffer": "Aanbieding doen",
+      "bidAmount": "Bodbedrag",
+      "minimumBid": "Minimum bod:",
+      "yourBid": "Uw bod",
+      "bidButton": "Bod plaatsen",
+      "offerAmount": "Aanbiedingsbedrag",
+      "offerButton": "Aanbieding doen",
+      "bidHistory": "Biedgeschiedenis",
+      "offers": "Aanbiedingen",
+      "noBids": "Nog geen biedingen",
+      "noOffers": "Nog geen aanbiedingen",
+      "timeRemaining": "Resterende tijd",
+      "days": "d",
+      "hours": "u",
+      "minutes": "m",
+      "seconds": "s",
+      "reserveNotMet": "Reserveprijs niet bereikt",
+      "reserveMet": "Reserveprijs bereikt",
+      "online": "online",
+      "bidders": "bieders"
+    },
+    "bidding": {
+      "bidPlaced": "Bod succesvol geplaatst",
+      "bidFailed": "Bod plaatsen mislukt",
+      "bidTooLow": "Bodbedrag is te laag",
+      "auctionEnded": "Veiling is beëindigd",
+      "auctionNotActive": "Veiling accepteert geen biedingen",
+      "buyNowSuccess": "Veiling succesvol gekocht",
+      "buyNowFailed": "Veiling kopen mislukt",
+      "offerCreated": "Aanbieding succesvol gemaakt",
+      "offerFailed": "Aanbieding maken mislukt",
+      "offerAccepted": "Aanbieding geaccepteerd",
+      "offerDeclined": "Aanbieding geweigerd"
+    },
+    "currency": {
+      "USD": "USD - Amerikaanse dollar",
+      "EUR": "EUR - Euro",
+      "GBP": "GBP - Britse pond",
+      "CAD": "CAD - Canadese dollar",
+      "AUD": "AUD - Australische dollar"
+    }
+  },
+  "books": {
+    "title": "Boeken",
+    "subtitle": "Beheer uw EPUB-boeken en maak ARC-campagnes",
+    "uploadBook": "Boek uploaden",
+    "totalBooks": "Totaal boeken",
+    "readyBooks": "Gereed boeken",
+    "processingBooks": "Verwerken",
+    "errorBooks": "Fout",
+    "noBooks": "Geen boeken gevonden",
+    "noBooksDescription": "Upload uw eerste EPUB-boek om te beginnen.",
+    "epubFile": "EPUB-bestand",
+    "dragDropFile": "Sleep uw EPUB-bestand hierheen",
+    "browse": "bladeren",
+    "epubOnly": "Alleen EPUB-bestanden",
+    "title": "Titel",
+    "author": "Auteur",
+    "description": "Beschrijving",
+    "isbn": "ISBN",
+    "publisher": "Uitgever",
+    "publicationDate": "Publicatiedatum",
+    "language": "Taal",
+    "genre": "Genre",
+    "tags": "Tags",
+    "genrePlaceholder": "Fictie, Non-fictie, Romantiek, enz.",
+    "tagsPlaceholder": "bestseller, bekroond, enz.",
+    "upload": "Uploaden",
+    "uploading": "Uploaden...",
+    "cancel": "Annuleren",
+    "invalidFileType": "Selecteer een geldig EPUB-bestand",
+    "noFileSelected": "Selecteer een bestand om te uploaden",
+    "titleAndAuthorRequired": "Titel en auteur zijn verplicht",
+    "uploadError": "Boek uploaden mislukt",
+    "statusReady": "Gereed",
+    "statusProcessing": "Verwerken",
+    "statusUploading": "Uploaden",
+    "statusError": "Fout",
+    "statusDeleted": "Verwijderd",
+    "view": "Bekijken",
+    "edit": "Bewerken",
+    "delete": "Verwijderen",
+    "confirmDelete": "Weet u zeker dat u dit boek wilt verwijderen?",
+    "deleteError": "Boek verwijderen mislukt",
+    "download": "Downloaden",
+    "downloadError": "Boek downloaden mislukt",
+    "loading": "Laden...",
+    "bookNotFound": "Boek niet gevonden",
+    "backToBooks": "Terug naar boeken",
+    "coverImage": "Omslagafbeelding",
+    "quickStats": "Snelle statistieken",
+    "fileSize": "Bestandsgrootte",
+    "pages": "Pagina's",
+    "words": "Woorden",
+    "readingTime": "Leestijd",
+    "minutes": "minuten",
+    "uploadDate": "Uploaddatum",
+    "actions": "Acties",
+    "bookDetails": "Boekdetails",
+    "epubMetadata": "EPUB-metadata",
+    "creator": "Maker",
+    "date": "Datum",
+    "rights": "Rechten",
+    "lastModified": "Laatst gewijzigd",
+    "filters": "Filters",
+    "clearFilters": "Filters wissen",
+    "searchPlaceholder": "Zoek boeken...",
+    "allStatuses": "Alle statussen",
+    "allLanguages": "Alle talen",
+    "authorPlaceholder": "Zoek op auteur...",
+    "showAdvanced": "Geavanceerd tonen",
+    "hideAdvanced": "Geavanceerd verbergen",
+    "sortBy": "Sorteren op",
+    "showing": "Toont",
+    "to": "tot",
+    "of": "van",
+    "results": "resultaten",
+    "previous": "Vorige",
+    "next": "Volgende",
+    "page": "Pagina",
+    "statusReadyDescription": "Boek is gereed voor gebruik",
+    "statusProcessingDescription": "Boek wordt verwerkt",
+    "statusUploadingDescription": "Boek wordt geüpload",
+    "statusErrorDescription": "Er is een fout opgetreden tijdens het verwerken",
+    "statusDeletedDescription": "Boek is verwijderd",
+    "statusUnknownDescription": "Onbekende status",
+    "processingStarted": "Verwerken gestart",
+    "processingProgress": "Verwerken in uitvoering...",
+    "errorOccurred": "Fout opgetreden",
+    "viewErrorDetails": "Foutdetails bekijken",
+    "readyForUse": "Gereed voor gebruik",
+    "createArcCampaign": "ARC-campagne maken",
+    "uploaded": "Geüpload",
+    "duplicate": "Duplicaat",
+    "share": "Delen",
+    "status": "Status"
+  },
+  "integrations": {
+    "title": "Integraties",
+    "subtitle": "Verbind uw accounts met externe services",
+    "connectIntegration": "Integratie verbinden",
+    "loading": "Laden...",
+    "connectWordToWallet": "WordToWallet verbinden",
+    "connectWordToWalletDescription": "Verbind uw WordToWallet-account om ARC-campagnes te maken",
+    "apiKey": "API-sleutel",
+    "apiKeyPlaceholder": "Voer uw WordToWallet API-sleutel in",
+    "apiKeyHelp": "Uw API-sleutel wordt versleuteld en veilig opgeslagen",
+    "howToGetApiKey": "Hoe u uw API-sleutel krijgt:",
+    "step1": "Log in op uw WordToWallet-account",
+    "step2": "Ga naar Instellingen > API-sleutels",
+    "step3": "Genereer een nieuwe API-sleutel",
+    "step4": "Kopieer en plak deze hier",
+    "features": "Functies",
+    "feature1": "Boeken uploaden naar WordToWallet",
+    "feature2": "ARC-campagnes maken",
+    "feature3": "Downloadcodes genereren",
+    "feature4": "Downloadanalyses volgen",
+    "connect": "Verbinden",
+    "connecting": "Verbinden...",
+    "cancel": "Annuleren",
+    "apiKeyRequired": "API-sleutel is verplicht",
+    "connectionFailed": "Verbinding met WordToWallet mislukt",
+    "availableIntegrations": "Beschikbare integraties",
+    "WordToWalletDescription": "Maak en beheer ARC-campagnes voor uw boeken",
+    "amazonKdpDescription": "Publiceer direct naar Amazon Kindle Direct Publishing",
+    "draft2digitalDescription": "Distribueer naar meerdere e-book retailers",
+    "smashwordsDescription": "Publiceer naar Smashwords marktplaats",
+    "comingSoon": "Binnenkort beschikbaar",
+    "connectedIntegrations": "Verbonden integraties",
+    "lastSync": "Laatste synchronisatie",
+    "test": "Testen",
+    "sync": "Synchroniseren",
+    "disconnect": "Verbreken",
+    "confirmDisconnect": "Weet u zeker dat u deze integratie wilt verbreken?",
+    "statusActive": "Actief",
+    "statusInactive": "Inactief",
+    "statusError": "Fout",
+    "statusPending": "In afwachting"
+  },
+  "arc": {
+    "title": "ARC-campagnes",
+    "subtitle": "Maak en beheer Advanced Reader Copy-campagnes",
+    "createCampaign": "Campagne maken",
+    "cancel": "Annuleren",
+    "totalLinks": "Totaal links",
+    "activeLinks": "Actieve links",
+    "expiredLinks": "Verlopen links",
+    "maxDownloads": "Max downloads",
+    "errorLinks": "Foutlinks",
+    "filters": "Filters",
+    "status": "Status",
+    "allStatuses": "Alle statussen",
+    "statusActive": "Actief",
+    "statusExpired": "Verlopen",
+    "statusMaxDownloads": "Max downloads bereikt",
+    "statusDisabled": "Uitgeschakeld",
+    "statusError": "Fout",
+    "book": "Boek",
+    "allBooks": "Alle boeken",
+    "expired": "Verlopen",
+    "all": "Alles",
+    "expiredOnly": "Alleen verlopen",
+    "activeOnly": "Alleen actief",
+    "noArcLinks": "Geen ARC-links gevonden",
+    "noArcLinksDescription": "Maak uw eerste ARC-campagne om downloadlinks te genereren.",
+    "downloads": "downloads",
+    "max": "max",
+    "expires": "Verloopt",
+    "created": "Gemaakt",
+    "copyCode": "Code kopiëren",
+    "copied": "Gekopieerd!",
+    "share": "Delen",
+    "view": "Bekijken",
+    "delete": "Verwijderen",
+    "confirmDelete": "Weet u zeker dat u deze ARC-link wilt verwijderen?",
+    "deleteError": "ARC-link verwijderen mislukt",
+    "linkCopied": "Link gekopieerd naar klembord",
+    "showing": "Toont",
+    "to": "tot",
+    "of": "van",
+    "results": "resultaten",
+    "previous": "Vorige",
+    "next": "Volgende",
+    "page": "Pagina",
+    "createCampaignDescription": "Maak een nieuwe ARC-campagne om downloadlinks voor uw boek te genereren",
+    "selectBook": "Boek selecteren",
+    "chooseBook": "Kies een boek...",
+    "selectedBook": "Geselecteerd boek",
+    "campaignName": "Campagnenaam",
+    "campaignNamePlaceholder": "Voer campagnenaam in",
+    "description": "Beschrijving",
+    "descriptionPlaceholder": "Voer campagnenbeschrijving in",
+    "numberOfCodes": "Aantal codes",
+    "quantityHelp": "Aantal downloadcodes om te genereren (1-1000)",
+    "maxDownloadsPerCode": "Max downloads per code",
+    "unlimited": "Onbeperkt",
+    "totalMaxDownloads": "Totaal max downloads",
+    "expirationDate": "Vervaldatum",
+    "campaignInfo": "Campagne-informatie",
+    "info1": "ARC-codes worden automatisch gegenereerd",
+    "info2": "Elke code kan worden gedeeld met lezers",
+    "info3": "Downloadvolging is beschikbaar",
+    "info4": "Codes kunnen worden ingesteld om automatisch te verlopen",
+    "bookAndNameRequired": "Boekselectie en campagnenaam zijn verplicht",
+    "invalidQuantity": "Aantal moet tussen 1 en 1000 liggen",
+    "creating": "Maken...",
+    "creationFailed": "Campagne maken mislukt"
+  }
+}

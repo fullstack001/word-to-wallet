@@ -1,0 +1,666 @@
+{
+  "common": {
+    "loading": "Memuat...",
+    "error": "Kesalahan",
+    "configNotFound": "Konfigurasi tidak ditemukan untuk halaman beranda.",
+    "home": "Beranda"
+  },
+  "errors": {
+    "oops": "Ups!",
+    "somethingWentWrong": "Ada yang salah",
+    "pageNotFound": "Halaman Tidak Ditemukan",
+    "pageNotExist": "Halaman yang Anda cari tidak ada.",
+    "errorLoadingPage": "Kami mengalami kesalahan saat memuat halaman ini. Silakan coba lagi.",
+    "errorLoadingApp": "Kami mengalami kesalahan saat memuat aplikasi. Silakan coba lagi.",
+    "tryAgain": "Coba lagi",
+    "goHome": "Kembali ke Beranda",
+    "goToHomePage": "Pergi ke halaman beranda",
+    "errorDetails": "Detail kesalahan (hanya pengembangan)"
+  },
+  "faq": {
+    "title": "Pertanyaan yang Sering Diajukan",
+    "q1": {
+      "q": "Apakah saya perlu alat AI lain?",
+      "a": "Tidak. WordToWallet memusatkan teks, desain, dan pengiriman sehingga Anda tidak perlu mengelola puluhan aplikasi."
+    },
+    "q2": {
+      "q": "Bisakah saya masih menerbitkan ke marketplace?",
+      "a": "Ya—hubungkan akun Draft2Digital atau WordToWallet Anda dan serahkan saat Anda ingin distribusi yang lebih luas."
+    },
+    "q3": {
+      "q": "Apakah kursusnya benar-benar gratis?",
+      "a": "Ya—kursus gratis untuk anggota. Anda membayar untuk akses platform dan dapat membatalkan kapan saja."
+    }
+  },
+  "footer": {
+    "selectLanguage": "Pilih Bahasa"
+  },
+  "auth": {
+    "signIn": "Masuk",
+    "email": "Email",
+    "password": "Kata Sandi",
+    "emailAddress": "Alamat Email"
+  },
+  "account": {
+    "account": "Akun",
+    "membership": "Keanggotaan",
+    "noSubscription": "Tidak ada langganan aktif",
+    "unlockAllTools": "Buka kunci semua alat",
+    "fullAccess": "Dapatkan akses penuh ke semua alat PDF",
+    "subscribeNow": "Berlangganan sekarang",
+    "subscribe": "Berlangganan",
+    "paymentMethod": "Metode Pembayaran",
+    "saveTime": "Hemat waktu dengan pembayaran otomatis",
+    "cardNumber": "Nomor Kartu",
+    "notSpecified": "Tidak ditentukan",
+    "importantUpdates": "Pembaruan penting tentang akun Anda"
+  },
+  "plan": {
+    "choosePlan": "Pilih Paket Anda",
+    "continue": "Lanjutkan"
+  },
+  "navbar": {
+    "profileDetails": "Detail Profil",
+    "noSubscription": "Tidak ada langganan",
+    "myDocuments": "Dokumen Saya",
+    "myAccount": "Akun Saya"
+  },
+  "hero": {
+    "badge": "Anggota Pertama · Alat Privat · Jangkauan Global",
+    "title": "Ubah Kata Menjadi Penjualan — Kursus Gratis + Platform ePub3",
+    "sub": "Buat promosi ePub3 interaktif dengan ChatGPT-5 dan jual langsung melalui email. Multibahasa, terukur, dan tanpa perantara.",
+    "ctaPrimary": "Dapatkan Akses Platform",
+    "ctaSecondary": "Pratinjau Kursus Gratis",
+    "legal": "Kami tidak pernah menjual data Anda. Batalkan kapan saja."
+  },
+  "audiences": {
+    "title": "Dibangun untuk Kasus Penggunaan Anda",
+    "solopreneurs": {
+      "title": "Solopreneur & Tim Mikro",
+      "desc": "Luncurkan promosi, kumpulkan pelanggan, dan jual layanan atau produk tanpa platform iklan yang mahal. Hingga lima anggota tim diizinkan."
+    },
+    "authors": {
+      "title": "Penulis Self-Published & Agensi PR Mikro",
+      "desc": "Buat kampanye dan tata letak buku (fiksi & non-fiksi), kirimkan ARCs, dan jual ke daftar pembaca niche."
+    }
+  },
+  "value": {
+    "title": "Mengapa WordToWallet",
+    "cards": {
+      "epub3": {
+        "title": "Studio Pembuat ePub3",
+        "description": "Buat promosi dan tata letak buku. Tempelkan kode & desain yang dihasilkan oleh ChatGPT-5, pratinjau di mobile, dan terbitkan dalam hitungan menit.",
+        "features": {
+          "0": "XHTML/CSS siap tempel dari prompt",
+          "1": "Aksesibilitas & terjemahan siap",
+          "2": "Template yang dapat digunakan kembali untuk fiksi/non-fiksi"
+        }
+      },
+      "email": {
+        "title": "Email Aman Kotak Masuk",
+        "description": "Kirim email teks-pertama, tautan selaras dengan perlindungan deliverability bawaan (SPF/DKIM/DMARC). Pemanasan dan pemantauan tanpa tebakan.",
+        "features": []
+      },
+      "analytics": {
+        "title": "Daftar Privat & Analitik",
+        "description": "Impor CSV, segmentasi berdasarkan produk/genre, dan lacak klik → unduhan → balasan/pembelian dari satu dashboard.",
+        "features": []
+      },
+      "byoa": {
+        "title": "BYOA: D2D & WordToWallet",
+        "description": "Ekspor paket siap marketplace atau kirimkan ARCs dengan tautan—integrasikan saat Anda ingin distribusi yang lebih luas.",
+        "features": []
+      }
+    }
+  },
+  "howItWorks": {
+    "title": "Cara Kerjanya",
+    "subtitle": "Mulai dalam hitungan menit dengan proses 3 langkah sederhana kami yang dirancang untuk kesuksesan",
+    "steps": {
+      "step1": {
+        "title": "Mulai Belajar",
+        "description": "Mulai dengan kursus menulis AI gratis kami. Pelajari teknik praktis dalam pelajaran singkat."
+      },
+      "step2": {
+        "title": "Buat Daftar Anda",
+        "description": "Gunakan magnet pembaca kami dan integrasi MailerLite untuk menumbuhkan audiens email Anda."
+      },
+      "step3": {
+        "title": "Jual & Skala",
+        "description": "Luncurkan produk Anda dan biarkan WordToWallet menangani pengiriman sementara Anda fokus pada menulis."
+      }
+    },
+    "cta": "Mulai Sekarang"
+  },
+  "howItWorksNew": {
+    "title": "Cara Kerjanya",
+    "steps": {
+      "step1": {
+        "title": "Beritahu ChatGPT-5 tujuan Anda",
+        "description": "Gunakan kartu prompt kami untuk penawaran, audiens, dan bahasa."
+      },
+      "step2": {
+        "title": "Hasilkan teks & kode",
+        "description": "Baris subjek, CTA, dan bagian ePub3 siap tempel."
+      },
+      "step3": {
+        "title": "Terbitkan & kirim",
+        "description": "Tayangkan langsung melalui email pihak pertama dan lacak funnel."
+      }
+    }
+  },
+  "features": {
+    "title": "Semua yang Anda Butuhkan untuk",
+    "titleHighlight": "Berhasil",
+    "subtitle": "Dari pelajaran menulis berbasis AI hingga infrastruktur penjualan langsung, kami telah mencakup semuanya.",
+    "cards": {
+      "aiWriting": {
+        "title": "Pelajari Menulis AI",
+        "description": "Pelajaran praktis 10 menit yang mengajarkan Anda menghasilkan bab, sinopsis, dan iklan menggunakan AI.",
+        "features": [
+          "Tutorial interaktif",
+          "Contoh dunia nyata",
+          "Pelacakan kemajuan"
+        ]
+      },
+      "audience": {
+        "title": "Buat Audiens Anda",
+        "description": "Magnet pembaca + integrasi MailerLite secara otomatis membangun daftar email Anda.",
+        "features": ["Magnet prospek", "Otomasi email", "Analitik audiens"]
+      },
+      "sales": {
+        "title": "Jual Langsung",
+        "description": "Hubungkan toko Anda; WordToWallet mengirimkan file langsung ke pembeli.",
+        "features": ["Penjualan langsung", "Pengiriman file", "Manajemen pelanggan"]
+      }
+    }
+  },
+  "security": {
+    "badge": "Keamanan Pertama",
+    "title": "Keamanan Anda Adalah Prioritas Kami",
+    "subtitle": "Kami menerapkan langkah-langkah keamanan tingkat perusahaan untuk memastikan dokumen dan data Anda tetap sepenuhnya terlindungi setiap saat.",
+    "features": {
+      "encryption": {
+        "title": "Enkripsi Tingkat Bank",
+        "description": "Enkripsi SSL 256-bit melindungi data Anda"
+      },
+      "processing": {
+        "title": "Pemrosesan Aman",
+        "description": "File dihapus secara otomatis setelah pemrosesan"
+      },
+      "privacy": {
+        "title": "Privasi Pertama",
+        "description": "Tidak ada akses manusia ke dokumen Anda"
+      },
+      "compliance": {
+        "title": "Sesuai GDPR",
+        "description": "Kepatuhan penuh terhadap peraturan perlindungan data"
+      }
+    },
+    "trustedBy": "Dipercaya oleh lebih dari 400.000 pengguna di seluruh dunia"
+  },
+  "testimonials": {
+    "title": "Dipercaya oleh profesional di seluruh dunia",
+    "subtitle": "Lihat apa yang dikatakan pelanggan kami",
+    "rating": "Peringkat 5.0 dari lebih dari 3.000 ulasan",
+    "review1": {
+      "name": "Jennifer Martinez",
+      "role": "Direktur Operasi Hukum",
+      "company": "Global Law Partners",
+      "review": "WordToWallet telah mengubah alur kerja dokumen kami. Tim hukum kami sekarang dapat memproses kontrak 3x lebih cepat dengan fitur pengisian formulir otomatis dan tanda tangan elektronik. Alat kolaborasi tim telah menghilangkan masalah kontrol versi sepenuhnya."
+    },
+    "review2": {
+      "name": "David Chen",
+      "role": "CTO",
+      "company": "TechFlow Solutions",
+      "review": "Sebagai startup yang berkembang, kami membutuhkan manajemen dokumen tingkat perusahaan tanpa label harga perusahaan. Fitur tim dan pemrosesan tanpa batas WordToWallet telah berkembang sempurna dengan bisnis kami. ROI tercapai dalam bulan pertama."
+    },
+    "review3": {
+      "name": "Sarah Williams",
+      "role": "Manajer Keuangan",
+      "company": "Merchant Capital Group",
+      "review": "Kemampuan OCR telah merevolusi proses digitalisasi dokumen kami. Tim akuntansi kami sekarang dapat mencari melalui ribuan faktur yang dipindai secara instan. Ini telah menghemat banyak waktu dan secara signifikan meningkatkan kesiapan audit kami."
+    },
+    "review4": {
+      "name": "Michael Rodriguez",
+      "role": "Petugas Kepatuhan",
+      "company": "SecureBank International",
+      "review": "Fitur keamanan perusahaan WordToWallet memberi kami kepercayaan saat menangani dokumen klien yang sensitif. Alat kepatuhan dan jejak audit telah membuat pelaporan regulasi kami jauh lebih sederhana. Tim kepatuhan kami menyukainya."
+    },
+    "review5": {
+      "name": "Lisa Thompson",
+      "role": "Manajer Operasi Pemasaran",
+      "company": "Digital Growth Agency",
+      "review": "Tim pemasaran kami memproses ratusan PDF setiap minggu untuk kampanye. Fitur pemrosesan batch dan otomasi WordToWallet telah mengurangi waktu persiapan dokumen kami sebesar 70%. ROI luar biasa untuk bisnis apa pun yang ingin meningkatkan operasi."
+    },
+    "review6": {
+      "name": "Robert Kim",
+      "role": "Direktur Proyek",
+      "company": "Construction Dynamics",
+      "review": "Fitur kolaborasi tim telah menghilangkan hambatan dokumen kami. Beberapa departemen sekarang dapat bekerja pada dokumen yang sama secara bersamaan dengan pembaruan waktu nyata. Ini telah meningkatkan waktu pengiriman proyek kami sebesar 40%."
+    }
+  },
+  "course": {
+    "badge": "Kursus Gratis Disertakan",
+    "title": "Kursus Gratis Disertakan",
+    "bullets": [
+      "Buku panduan penjualan langsung untuk email + ePub3.",
+      "Perpustakaan prompt: penawaran, promosi, bagian landing, terjemahan.",
+      "Template undangan anti-spam dan daftar periksa pemanasan.",
+      "Proyek akhir: sprint profit 7 hari Anda."
+    ],
+    "cta": "Daftar Gratis (dengan Akses Platform)"
+  },
+  "privacyPolicy": {
+    "title": "Kebijakan Privasi",
+    "lastUpdated": "Terakhir diperbarui: Desember 2024",
+    "websiteAddress": "Alamat situs web kami adalah: https://bestglobalai.com",
+    "sections": {
+      "whoWeAre": {
+        "title": "Siapa kami",
+        "content": "Alamat situs web kami adalah: https://bestglobalai.com"
+      },
+      "comments": {
+        "title": "Komentar",
+        "content": "Ketika pengunjung meninggalkan komentar di situs, kami mengumpulkan data yang ditampilkan dalam formulir komentar, dan juga alamat IP pengunjung dan string user agent browser untuk membantu deteksi spam. String yang dianonimkan dibuat dari alamat email Anda (juga disebut hash) dapat diberikan ke layanan Gravatar untuk melihat apakah Anda menggunakannya. Kebijakan privasi layanan Gravatar tersedia di sini: https://automattic.com/privacy/. Setelah persetujuan komentar Anda, foto profil Anda terlihat oleh publik dalam konteks komentar Anda."
+      },
+      "media": {
+        "title": "Media",
+        "content": "Jika Anda mengunggah gambar ke situs web, Anda harus menghindari mengunggah gambar dengan data lokasi tertanam (EXIF GPS) yang disertakan. Pengunjung situs web dapat mengunduh dan mengekstrak data lokasi apa pun dari gambar di situs web."
+      },
+      "cookies": {
+        "title": "Cookies",
+        "content": "Kami tidak menggunakan cookie untuk mengumpulkan informasi pengunjung kami."
+      },
+      "embeddedContent": {
+        "title": "Konten tertanam dari situs web lain",
+        "content": "Artikel di situs ini mungkin menyertakan konten tertanam (mis. video, gambar, artikel, dll.). Konten tertanam dari situs web lain berperilaku persis sama seperti jika pengunjung telah mengunjungi situs web lain."
+      },
+      "dataSharing": {
+        "title": "Dengan siapa kami membagikan data Anda",
+        "content": "Jika Anda meminta reset kata sandi, alamat IP Anda akan disertakan dalam email reset."
+      },
+      "dataRetention": {
+        "title": "Berapa lama kami menyimpan data Anda",
+        "content": "Jika Anda meninggalkan komentar, komentar dan metadatanya disimpan tanpa batas waktu. Ini agar kami dapat mengenali dan menyetujui komentar lanjutan secara otomatis alih-alih menahannya dalam antrian moderasi. Untuk pengguna yang mendaftar di situs web kami (jika ada), kami juga menyimpan informasi pribadi yang mereka berikan dalam profil pengguna mereka. Semua pengguna dapat melihat, mengedit, atau menghapus informasi pribadi mereka kapan saja (kecuali mereka tidak dapat mengubah nama pengguna mereka). Administrator situs web juga dapat melihat dan mengedit informasi tersebut."
+      },
+      "userRights": {
+        "title": "Hak apa yang Anda miliki atas data Anda",
+        "content": "Jika Anda memiliki akun di situs ini, atau telah meninggalkan komentar, Anda dapat meminta untuk menerima file yang diekspor dari data pribadi yang kami simpan tentang Anda, termasuk semua data yang telah Anda berikan kepada kami. Anda juga dapat meminta agar kami menghapus data pribadi apa pun yang kami simpan tentang Anda. Ini tidak termasuk data apa pun yang kami wajibkan untuk disimpan untuk tujuan administratif, hukum, atau keamanan."
+      },
+      "dataTransfer": {
+        "title": "Ke mana data Anda dikirim",
+        "content": "Komentar pengunjung dapat diperiksa melalui layanan deteksi spam otomatis."
+      }
+    },
+    "contact": {
+      "title": "Pertanyaan Tentang Kebijakan Ini?",
+      "description": "Jika Anda memiliki pertanyaan tentang Kebijakan Privasi ini atau bagaimana kami menangani data Anda, jangan ragu untuk menghubungi kami.",
+      "website": "https://bestglobalai.com"
+    }
+  },
+  "contactPage": {
+    "title": "Hubungi kami",
+    "description": "Jika Anda memerlukan bantuan dengan layanan kami atau memiliki pertanyaan, jangan ragu untuk menghubungi kami.",
+    "form": {
+      "name": "Nama",
+      "namePlaceholder": "Nama Anda",
+      "email": "Alamat email",
+      "emailPlaceholder": "email@domain.com",
+      "message": "Pesan",
+      "messagePlaceholder": "Ketik pesan Anda di sini",
+      "sendButton": "Kirim Pesan"
+    },
+    "directContact": {
+      "title": "Hubungi kami langsung"
+    },
+    "billing": {
+      "title": "Dukungan penagihan",
+      "description": "Apakah Anda memiliki pertanyaan tentang tagihan Anda? Untuk pertanyaan terkait pembayaran di platform, silakan hubungi kami di:"
+    },
+    "customer": {
+      "title": "Dukungan pelanggan",
+      "description": "Kami selalu senang berbicara dengan Anda. Jika Anda memiliki pertanyaan tentang layanan kami, hubungi kami atau kirim email kepada kami di:"
+    },
+    "meet": {
+      "title": "Jadwalkan Pertemuan",
+      "description": "Perlu bantuan langsung? Jadwalkan pertemuan yang dipersonalisasi dengan tim kami untuk membahas kebutuhan Anda dan mendapatkan panduan ahli."
+    }
+  },
+  "auction": {
+    "title": "Lelang",
+    "subtitle": "Temukan dan ikuti lelang langsung",
+    "myAuctions": "Lelang Saya",
+    "createAuction": "Buat Lelang",
+    "browseAll": "Jelajahi Semua Lelang",
+    "manageAuctions": "Kelola dan lacak daftar lelang Anda",
+    "createNewAuction": "Buat Lelang Baru",
+    "noAuctionsFound": "Tidak ada lelang ditemukan",
+    "createFirstAuction": "Buat Lelang Pertama Anda",
+    "filters": {
+      "allAuctions": "Semua Lelang",
+      "scheduled": "Dijadwalkan",
+      "active": "Aktif",
+      "sold": "Terjual",
+      "ended": "Berakhir"
+    },
+    "status": {
+      "scheduled": "Dijadwalkan",
+      "active": "Aktif",
+      "sold": "Terjual",
+      "soldBuyNow": "Terjual (Beli Sekarang)",
+      "soldOffer": "Terjual (Penawaran)",
+      "ended": "Berakhir",
+      "endedNoSale": "Berakhir (Tidak Terjual)",
+      "cancelled": "Dibatalkan"
+    },
+    "create": {
+      "title": "Buat Lelang Baru",
+      "form": {
+        "title": "Judul Lelang",
+        "titlePlaceholder": "Masukkan judul lelang",
+        "description": "Deskripsi",
+        "descriptionPlaceholder": "Jelaskan item lelang Anda",
+        "currency": "Mata Uang",
+        "startingPrice": "Harga Mulai",
+        "startingPricePlaceholder": "0.00",
+        "reservePrice": "Harga Cadangan (Opsional)",
+        "reservePricePlaceholder": "Harga minimum untuk dijual",
+        "reservePriceHelp": "Harga minimum yang bersedia Anda terima. Jika tidak tercapai, lelang tidak akan terjual.",
+        "buyNowPrice": "Harga Beli Sekarang (Opsional)",
+        "buyNowPricePlaceholder": "Harga pembelian instan",
+        "buyNowPriceHelp": "Izinkan pembeli untuk membeli segera dengan harga ini.",
+        "startTime": "Waktu Mulai",
+        "endTime": "Waktu Berakhir",
+        "extendSeconds": "Perpanjangan Anti-Sniping (detik)",
+        "extendSecondsPlaceholder": "30",
+        "extendSecondsHelp": "Perpanjang lelang sebanyak detik ini ketika penawaran ditempatkan di menit terakhir.",
+        "minIncrement": "Kenaikan Penawaran Minimum",
+        "minIncrementPlaceholder": "1.00",
+        "createButton": "Buat Lelang",
+        "cancelButton": "Batal"
+      },
+      "validation": {
+        "titleRequired": "Judul, deskripsi, harga mulai, waktu mulai, dan waktu berakhir wajib diisi",
+        "startingPriceRequired": "Harga mulai harus lebih besar dari 0",
+        "reservePriceInvalid": "Harga cadangan harus lebih besar dari harga mulai",
+        "buyNowPriceInvalid": "Harga beli sekarang harus lebih besar dari harga mulai",
+        "reservePriceTooHigh": "Harga cadangan tidak boleh lebih tinggi dari harga beli sekarang",
+        "endTimeInvalid": "Waktu berakhir harus setelah waktu mulai",
+        "startTimeInvalid": "Waktu mulai harus di masa depan"
+      }
+    },
+    "list": {
+      "startingPrice": "Harga Mulai:",
+      "currentBid": "Penawaran Saat Ini:",
+      "buyNow": "Beli Sekarang:",
+      "starts": "Mulai:",
+      "ends": "Berakhir:",
+      "timeLeft": "Waktu Tersisa:",
+      "ended": "Berakhir",
+      "by": "oleh",
+      "viewAuction": "Lihat Lelang",
+      "page": "Halaman",
+      "of": "dari",
+      "previous": "Sebelumnya",
+      "next": "Selanjutnya"
+    },
+    "delete": "Hapus",
+    "confirmDeleteTitle": "Konfirmasi Hapus",
+    "confirmDelete": "Apakah Anda yakin ingin menghapus lelang ini? Tindakan ini tidak dapat dibatalkan.",
+    "deleteError": "Gagal menghapus lelang",
+    "deleteDisabledActive": "Tidak dapat menghapus lelang aktif",
+    "deleting": "Menghapus...",
+    "cancel": "Batal",
+    "view": {
+      "placeBid": "Ajukan Penawaran",
+      "buyNow": "Beli Sekarang",
+      "makeOffer": "Buat Penawaran",
+      "bidAmount": "Jumlah Penawaran",
+      "minimumBid": "Penawaran minimum:",
+      "yourBid": "Penawaran Anda",
+      "bidButton": "Ajukan Penawaran",
+      "offerAmount": "Jumlah Penawaran",
+      "offerButton": "Buat Penawaran",
+      "bidHistory": "Riwayat Penawaran",
+      "offers": "Penawaran",
+      "noBids": "Belum ada penawaran",
+      "noOffers": "Belum ada penawaran",
+      "timeRemaining": "Waktu Tersisa",
+      "days": "h",
+      "hours": "j",
+      "minutes": "m",
+      "seconds": "d",
+      "reserveNotMet": "Harga cadangan tidak tercapai",
+      "reserveMet": "Harga cadangan tercapai",
+      "online": "online",
+      "bidders": "penawar"
+    },
+    "bidding": {
+      "bidPlaced": "Penawaran berhasil diajukan",
+      "bidFailed": "Gagal mengajukan penawaran",
+      "bidTooLow": "Jumlah penawaran terlalu rendah",
+      "auctionEnded": "Lelang telah berakhir",
+      "auctionNotActive": "Lelang tidak menerima penawaran",
+      "buyNowSuccess": "Lelang berhasil dibeli",
+      "buyNowFailed": "Gagal membeli lelang",
+      "offerCreated": "Penawaran berhasil dibuat",
+      "offerFailed": "Gagal membuat penawaran",
+      "offerAccepted": "Penawaran diterima",
+      "offerDeclined": "Penawaran ditolak"
+    },
+    "currency": {
+      "USD": "USD - Dolar AS",
+      "EUR": "EUR - Euro",
+      "GBP": "GBP - Pound Inggris",
+      "CAD": "CAD - Dolar Kanada",
+      "AUD": "AUD - Dolar Australia"
+    }
+  },
+  "books": {
+    "title": "Buku",
+    "subtitle": "Kelola buku EPUB Anda dan buat kampanye ARC",
+    "uploadBook": "Unggah Buku",
+    "totalBooks": "Total Buku",
+    "readyBooks": "Buku Siap",
+    "processingBooks": "Memproses",
+    "errorBooks": "Kesalahan",
+    "noBooks": "Tidak ada buku ditemukan",
+    "noBooksDescription": "Unggah buku EPUB pertama Anda untuk memulai.",
+    "epubFile": "File EPUB",
+    "dragDropFile": "Seret dan lepas file EPUB Anda di sini",
+    "browse": "jelajahi",
+    "epubOnly": "Hanya file EPUB",
+    "title": "Judul",
+    "author": "Penulis",
+    "description": "Deskripsi",
+    "isbn": "ISBN",
+    "publisher": "Penerbit",
+    "publicationDate": "Tanggal Publikasi",
+    "language": "Bahasa",
+    "genre": "Genre",
+    "tags": "Tag",
+    "genrePlaceholder": "Fiksi, Non-fiksi, Romantis, dll.",
+    "tagsPlaceholder": "bestseller, pemenang penghargaan, dll.",
+    "upload": "Unggah",
+    "uploading": "Mengunggah...",
+    "cancel": "Batal",
+    "invalidFileType": "Silakan pilih file EPUB yang valid",
+    "noFileSelected": "Silakan pilih file untuk diunggah",
+    "titleAndAuthorRequired": "Judul dan penulis wajib diisi",
+    "uploadError": "Gagal mengunggah buku",
+    "statusReady": "Siap",
+    "statusProcessing": "Memproses",
+    "statusUploading": "Mengunggah",
+    "statusError": "Kesalahan",
+    "statusDeleted": "Dihapus",
+    "view": "Lihat",
+    "edit": "Edit",
+    "delete": "Hapus",
+    "confirmDelete": "Apakah Anda yakin ingin menghapus buku ini?",
+    "deleteError": "Gagal menghapus buku",
+    "download": "Unduh",
+    "downloadError": "Gagal mengunduh buku",
+    "loading": "Memuat...",
+    "bookNotFound": "Buku tidak ditemukan",
+    "backToBooks": "Kembali ke Buku",
+    "coverImage": "Gambar Sampul",
+    "quickStats": "Statistik Cepat",
+    "fileSize": "Ukuran File",
+    "pages": "Halaman",
+    "words": "Kata",
+    "readingTime": "Waktu Membaca",
+    "minutes": "menit",
+    "uploadDate": "Tanggal Unggah",
+    "actions": "Tindakan",
+    "bookDetails": "Detail Buku",
+    "epubMetadata": "Metadata EPUB",
+    "creator": "Pembuat",
+    "date": "Tanggal",
+    "rights": "Hak",
+    "lastModified": "Terakhir Dimodifikasi",
+    "filters": "Filter",
+    "clearFilters": "Hapus Filter",
+    "searchPlaceholder": "Cari buku...",
+    "allStatuses": "Semua Status",
+    "allLanguages": "Semua Bahasa",
+    "authorPlaceholder": "Cari berdasarkan penulis...",
+    "showAdvanced": "Tampilkan Lanjutan",
+    "hideAdvanced": "Sembunyikan Lanjutan",
+    "sortBy": "Urutkan Berdasarkan",
+    "showing": "Menampilkan",
+    "to": "hingga",
+    "of": "dari",
+    "results": "hasil",
+    "previous": "Sebelumnya",
+    "next": "Selanjutnya",
+    "page": "Halaman",
+    "statusReadyDescription": "Buku siap digunakan",
+    "statusProcessingDescription": "Buku sedang diproses",
+    "statusUploadingDescription": "Buku sedang diunggah",
+    "statusErrorDescription": "Terjadi kesalahan selama pemrosesan",
+    "statusDeletedDescription": "Buku telah dihapus",
+    "statusUnknownDescription": "Status tidak diketahui",
+    "processingStarted": "Pemrosesan dimulai",
+    "processingProgress": "Pemrosesan sedang berlangsung...",
+    "errorOccurred": "Kesalahan terjadi",
+    "viewErrorDetails": "Lihat detail kesalahan",
+    "readyForUse": "Siap digunakan",
+    "createArcCampaign": "Buat Kampanye ARC",
+    "uploaded": "Diunggah",
+    "duplicate": "Duplikat",
+    "share": "Bagikan",
+    "status": "Status"
+  },
+  "integrations": {
+    "title": "Integrasi",
+    "subtitle": "Hubungkan akun Anda ke layanan eksternal",
+    "connectIntegration": "Hubungkan Integrasi",
+    "loading": "Memuat...",
+    "connectWordToWallet": "Hubungkan WordToWallet",
+    "connectWordToWalletDescription": "Hubungkan akun WordToWallet Anda untuk membuat kampanye ARC",
+    "apiKey": "Kunci API",
+    "apiKeyPlaceholder": "Masukkan kunci API WordToWallet Anda",
+    "apiKeyHelp": "Kunci API Anda akan dienkripsi dan disimpan dengan aman",
+    "howToGetApiKey": "Cara mendapatkan kunci API Anda:",
+    "step1": "Masuk ke akun WordToWallet Anda",
+    "step2": "Buka Pengaturan > Kunci API",
+    "step3": "Buat kunci API baru",
+    "step4": "Salin dan tempel di sini",
+    "features": "Fitur",
+    "feature1": "Unggah buku ke WordToWallet",
+    "feature2": "Buat kampanye ARC",
+    "feature3": "Hasilkan kode unduhan",
+    "feature4": "Lacak analitik unduhan",
+    "connect": "Hubungkan",
+    "connecting": "Menghubungkan...",
+    "cancel": "Batal",
+    "apiKeyRequired": "Kunci API wajib diisi",
+    "connectionFailed": "Gagal terhubung ke WordToWallet",
+    "availableIntegrations": "Integrasi Tersedia",
+    "WordToWalletDescription": "Buat dan kelola kampanye ARC untuk buku Anda",
+    "amazonKdpDescription": "Terbitkan langsung ke Amazon Kindle Direct Publishing",
+    "draft2digitalDescription": "Distribusikan ke beberapa pengecer ebook",
+    "smashwordsDescription": "Terbitkan ke marketplace Smashwords",
+    "comingSoon": "Segera Hadir",
+    "connectedIntegrations": "Integrasi Terhubung",
+    "lastSync": "Sinkronisasi Terakhir",
+    "test": "Uji",
+    "sync": "Sinkronisasi",
+    "disconnect": "Putuskan",
+    "confirmDisconnect": "Apakah Anda yakin ingin memutuskan integrasi ini?",
+    "statusActive": "Aktif",
+    "statusInactive": "Tidak Aktif",
+    "statusError": "Kesalahan",
+    "statusPending": "Tertunda"
+  },
+  "arc": {
+    "title": "Kampanye ARC",
+    "subtitle": "Buat dan kelola kampanye Advanced Reader Copy",
+    "createCampaign": "Buat Kampanye",
+    "cancel": "Batal",
+    "totalLinks": "Total Tautan",
+    "activeLinks": "Tautan Aktif",
+    "expiredLinks": "Tautan Kedaluwarsa",
+    "maxDownloads": "Unduhan Maks",
+    "errorLinks": "Tautan Kesalahan",
+    "filters": "Filter",
+    "status": "Status",
+    "allStatuses": "Semua Status",
+    "statusActive": "Aktif",
+    "statusExpired": "Kedaluwarsa",
+    "statusMaxDownloads": "Unduhan Maks Tercapai",
+    "statusDisabled": "Dinonaktifkan",
+    "statusError": "Kesalahan",
+    "book": "Buku",
+    "allBooks": "Semua Buku",
+    "expired": "Kedaluwarsa",
+    "all": "Semua",
+    "expiredOnly": "Hanya Kedaluwarsa",
+    "activeOnly": "Hanya Aktif",
+    "noArcLinks": "Tidak ada tautan ARC ditemukan",
+    "noArcLinksDescription": "Buat kampanye ARC pertama Anda untuk menghasilkan tautan unduhan.",
+    "downloads": "unduhan",
+    "max": "maks",
+    "expires": "Kedaluwarsa",
+    "created": "Dibuat",
+    "copyCode": "Salin Kode",
+    "copied": "Disalin!",
+    "share": "Bagikan",
+    "view": "Lihat",
+    "delete": "Hapus",
+    "confirmDelete": "Apakah Anda yakin ingin menghapus tautan ARC ini?",
+    "deleteError": "Gagal menghapus tautan ARC",
+    "linkCopied": "Tautan disalin ke clipboard",
+    "showing": "Menampilkan",
+    "to": "hingga",
+    "of": "dari",
+    "results": "hasil",
+    "previous": "Sebelumnya",
+    "next": "Selanjutnya",
+    "page": "Halaman",
+    "createCampaignDescription": "Buat kampanye ARC baru untuk menghasilkan tautan unduhan untuk buku Anda",
+    "selectBook": "Pilih Buku",
+    "chooseBook": "Pilih buku...",
+    "selectedBook": "Buku yang dipilih",
+    "campaignName": "Nama Kampanye",
+    "campaignNamePlaceholder": "Masukkan nama kampanye",
+    "description": "Deskripsi",
+    "descriptionPlaceholder": "Masukkan deskripsi kampanye",
+    "numberOfCodes": "Jumlah Kode",
+    "quantityHelp": "Jumlah kode unduhan yang akan dibuat (1-1000)",
+    "maxDownloadsPerCode": "Unduhan Maks Per Kode",
+    "unlimited": "Tidak Terbatas",
+    "totalMaxDownloads": "Total Unduhan Maks",
+    "expirationDate": "Tanggal Kedaluwarsa",
+    "campaignInfo": "Informasi Kampanye",
+    "info1": "Kode ARC akan dibuat secara otomatis",
+    "info2": "Setiap kode dapat dibagikan dengan pembaca",
+    "info3": "Pelacakan unduhan tersedia",
+    "info4": "Kode dapat diatur untuk kedaluwarsa secara otomatis",
+    "bookAndNameRequired": "Pemilihan buku dan nama kampanye wajib diisi",
+    "invalidQuantity": "Jumlah harus antara 1 dan 1000",
+    "creating": "Membuat...",
+    "creationFailed": "Gagal membuat kampanye"
+  }
+}

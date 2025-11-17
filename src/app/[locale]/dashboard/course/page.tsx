@@ -1,7 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useCallback, useRef } from "react";
-import { useTranslations } from "next-intl";
+import React, { useState, useEffect, useCallback } from "react";
 import { motion } from "framer-motion";
 import { useSelector } from "react-redux";
 import { useLocalizedNavigation } from "@/utils/navigation";
@@ -16,6 +15,7 @@ import {
 } from "@heroicons/react/24/outline";
 import { RootState } from "@/store/store";
 import { PageLoading } from "@/components/common/Loading";
+import { BackButton } from "@/components/common";
 import {
   getCourseCoverUrl,
   hasCourseCover,
@@ -30,28 +30,26 @@ import {
 } from "@/utils/courseApi";
 
 export default function CoursePage() {
-  const t = useTranslations();
   const { navigate } = useLocalizedNavigation();
   const isLoggedIn = useSelector((state: RootState) => state.auth.isLoggedIn);
 
   const [subjects, setSubjects] = useState<Subject[]>([]);
   const [courses, setCourses] = useState<Course[]>([]);
-  const [selectedSubject, setSelectedSubject] = useState<string | null>(null);
+  const [allCourses, setAllCourses] = useState<Course[]>([]);
+  const [currentView, setCurrentView] = useState<"subjects" | "courses">(
+    "subjects"
+  );
+  const [selectedSubject, setSelectedSubject] = useState<Subject | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
   const [isLoading, setIsLoading] = useState(true);
   const [isLoadingCourses, setIsLoadingCourses] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const subjectsFetched = useRef(false);
-  const coursesFetched = useRef(false);
 
   const fetchSubjectsData = useCallback(async () => {
-    if (subjectsFetched.current) return;
-
     try {
       setError(null);
       const subjectsData = await fetchSubjects();
       setSubjects(subjectsData);
-      subjectsFetched.current = true;
     } catch (error) {
       console.error("Error fetching subjects:", error);
       setError(
@@ -63,19 +61,16 @@ export default function CoursePage() {
   }, []);
 
   const fetchAllCoursesData = useCallback(async () => {
-    if (coursesFetched.current && !selectedSubject) return;
-
     setIsLoadingCourses(true);
     try {
       const coursesData = await fetchAllCourses();
-      setCourses(coursesData);
-      coursesFetched.current = true;
+      setAllCourses(coursesData);
     } catch (error) {
       console.error("Error fetching courses:", error);
     } finally {
       setIsLoadingCourses(false);
     }
-  }, [selectedSubject]);
+  }, []);
 
   const fetchCoursesBySubjectData = useCallback(async (subjectId: string) => {
     setIsLoadingCourses(true);
@@ -96,26 +91,21 @@ export default function CoursePage() {
     }
 
     fetchSubjectsData();
-  }, [isLoggedIn, navigate]);
+    fetchAllCoursesData();
+  }, [isLoggedIn, navigate, fetchSubjectsData, fetchAllCoursesData]);
 
-  useEffect(() => {
-    if (selectedSubject) {
-      fetchCoursesBySubjectData(selectedSubject);
-    } else {
-      fetchAllCoursesData();
-    }
-  }, [selectedSubject]);
-
-  const handleSubjectClick = (subjectId: string) => {
-    setSelectedSubject(subjectId);
+  const handleSubjectClick = (subject: Subject) => {
+    setSelectedSubject(subject);
+    setCurrentView("courses");
     setSearchQuery("");
-    coursesFetched.current = false; // Reset courses fetch flag
+    fetchCoursesBySubjectData(subject._id);
   };
 
-  const handleClearFilter = () => {
+  const handleBackToSubjects = () => {
+    setCurrentView("subjects");
     setSelectedSubject(null);
+    setCourses([]);
     setSearchQuery("");
-    coursesFetched.current = false; // Reset courses fetch flag
   };
 
   const handleCourseClick = (courseId: string) => {
@@ -126,7 +116,25 @@ export default function CoursePage() {
     navigate("/dashboard");
   };
 
-  const filteredCourses = courses.filter(
+  const getCoursesForSubject = (subjectId: string) => {
+    return allCourses.filter((course) => {
+      const courseSubjectId =
+        typeof course.subject === "string"
+          ? course.subject
+          : course.subject?._id;
+      return courseSubjectId === subjectId;
+    });
+  };
+
+  const getDisplayCourses = () => {
+    if (currentView === "subjects") {
+      return [];
+    }
+    return courses;
+  };
+
+  const displayCourses = getDisplayCourses();
+  const filteredCourses = displayCourses.filter(
     (course) =>
       course.title?.toLowerCase().includes(searchQuery.toLowerCase()) ||
       course.description?.toLowerCase().includes(searchQuery.toLowerCase())
@@ -178,7 +186,13 @@ export default function CoursePage() {
                 <span>Dashboard</span>
               </button>
               <ChevronRightIcon className="w-4 h-4 text-gray-400" />
-              <span className="text-gray-900 font-medium">All Courses</span>
+              <span className="text-gray-900 font-medium">
+                {currentView === "subjects"
+                  ? "Subjects"
+                  : selectedSubject
+                  ? `${selectedSubject.name} Courses`
+                  : "All Courses"}
+              </span>
             </nav>
           </div>
 
@@ -193,10 +207,18 @@ export default function CoursePage() {
               </button>
               <div className="border-l border-gray-200 pl-4">
                 <h1 className="text-2xl font-bold text-gray-900">
-                  Browse Courses
+                  {currentView === "subjects"
+                    ? "Browse Subjects"
+                    : selectedSubject
+                    ? `${selectedSubject.name} Courses`
+                    : "Browse Courses"}
                 </h1>
                 <p className="text-gray-600">
-                  Explore all available courses by subject
+                  {currentView === "subjects"
+                    ? "Select a subject to view its courses"
+                    : selectedSubject
+                    ? `Explore courses in ${selectedSubject.name}`
+                    : "Explore all available courses"}
                 </p>
               </div>
             </div>
@@ -205,229 +227,211 @@ export default function CoursePage() {
       </header>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-          {/* Subjects Sidebar */}
-          <div className="lg:col-span-1">
-            <motion.div
-              className="bg-white rounded-xl shadow-sm border border-gray-200"
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              <div className="p-6 border-b border-gray-200">
-                <h3 className="text-lg font-semibold text-gray-900">
-                  Subjects
+        {/* Back Button */}
+        {currentView === "courses" && selectedSubject && (
+          <div className="mb-6">
+            <BackButton onClick={handleBackToSubjects}>
+              Back to Subjects
+            </BackButton>
+          </div>
+        )}
+
+        {currentView === "subjects" ? (
+          // Subjects View
+          <div>
+            {subjects.length === 0 ? (
+              <div className="text-center py-12 bg-white rounded-xl shadow-sm border border-gray-200">
+                <AcademicCapIcon className="w-16 h-16 text-gray-400 mx-auto mb-4" />
+                <h3 className="text-lg font-medium text-gray-900 mb-2">
+                  No subjects available
                 </h3>
-                <p className="text-sm text-gray-600 mt-1">
-                  {subjects.length} subjects available
+                <p className="text-gray-600">
+                  There are currently no subjects available.
                 </p>
               </div>
-
-              <div className="p-4">
-                {/* All Courses Button */}
-                <button
-                  onClick={handleClearFilter}
-                  className={`w-full text-left p-3 rounded-lg transition-all duration-200 mb-2 ${
-                    !selectedSubject
-                      ? "bg-purple-50 border-2 border-purple-200"
-                      : "bg-gray-50 hover:bg-gray-100 border-2 border-transparent"
-                  }`}
-                >
-                  <div className="flex items-center space-x-3">
-                    <div className="w-8 h-8 bg-gradient-to-r from-purple-500 to-blue-500 rounded-lg flex items-center justify-center">
-                      <BookOpenIcon className="w-4 h-4 text-white" />
-                    </div>
-                    <div>
-                      <p className="font-medium text-gray-900">All Courses</p>
-                      <p className="text-sm text-gray-600">
-                        {courses.length} courses
-                      </p>
-                    </div>
-                  </div>
-                </button>
-
-                {/* Subject List */}
-                <div className="space-y-2">
-                  {subjects.map((subject, index) => (
-                    <motion.button
+            ) : (
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                {subjects.map((subject, index) => {
+                  const subjectCourses = getCoursesForSubject(subject._id);
+                  return (
+                    <motion.div
                       key={subject._id}
-                      onClick={() => handleSubjectClick(subject._id)}
-                      className={`w-full text-left p-3 rounded-lg transition-all duration-200 ${
-                        selectedSubject === subject._id
-                          ? "bg-purple-50 border-2 border-purple-200"
-                          : "bg-gray-50 hover:bg-gray-100 border-2 border-transparent"
-                      }`}
-                      initial={{ opacity: 0, y: 10 }}
+                      onClick={() => handleSubjectClick(subject)}
+                      className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 cursor-pointer hover:border-purple-300 group"
+                      initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.3, delay: index * 0.1 }}
+                      whileHover={{ y: -2 }}
                     >
-                      <div className="flex items-center space-x-3">
-                        <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-green-500 rounded-lg flex items-center justify-center">
-                          <AcademicCapIcon className="w-4 h-4 text-white" />
+                      <div className="p-6">
+                        <div className="flex items-center justify-between mb-4">
+                          <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-blue-500 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-200">
+                            <AcademicCapIcon className="w-6 h-6 text-white" />
+                          </div>
+                          <div className="text-right">
+                            <div className="text-2xl font-bold text-gray-900">
+                              {subjectCourses.length}
+                            </div>
+                            <div className="text-xs text-gray-500">Courses</div>
+                          </div>
                         </div>
-                        <div>
-                          <p className="font-medium text-gray-900">
-                            {subject.name}
-                          </p>
-                          {subject.description && (
-                            <p className="text-sm text-gray-600 line-clamp-1">
-                              {subject.description}
-                            </p>
-                          )}
+
+                        <h3 className="text-lg font-semibold text-gray-900 mb-2 group-hover:text-purple-600 transition-colors duration-200">
+                          {subject.name}
+                        </h3>
+
+                        <p className="text-sm text-gray-600 mb-4">
+                          {subject.description || "No description available"}
+                        </p>
+
+                        <div className="flex items-center justify-end">
+                          <ArrowRightIcon className="w-5 h-5 text-gray-400 group-hover:text-purple-500 transition-colors duration-200" />
                         </div>
                       </div>
-                    </motion.button>
-                  ))}
+                    </motion.div>
+                  );
+                })}
+              </div>
+            )}
+          </div>
+        ) : (
+          // Courses View
+          <div className="bg-white rounded-xl shadow-sm border border-gray-200">
+            {/* Header */}
+            <div className="p-6 border-b border-gray-200">
+              <div className="flex items-center justify-between mb-4">
+                <div>
+                  <h2 className="text-xl font-semibold text-gray-900">
+                    {selectedSubject
+                      ? `${selectedSubject.name} Courses`
+                      : "All Courses"}
+                  </h2>
+                  <p className="text-sm text-gray-600 mt-1">
+                    {filteredCourses.length} of {courses.length} courses
+                    {selectedSubject && " in this subject"}
+                  </p>
                 </div>
               </div>
-            </motion.div>
-          </div>
 
-          {/* Courses Content */}
-          <div className="lg:col-span-3">
-            <motion.div
-              className="bg-white rounded-xl shadow-sm border border-gray-200"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              {/* Header */}
-              <div className="p-6 border-b border-gray-200">
-                <div className="flex items-center justify-between mb-4">
-                  <div>
-                    <h2 className="text-xl font-semibold text-gray-900">
-                      {selectedSubject
-                        ? subjects.find((s) => s._id === selectedSubject)
-                            ?.name + " Courses"
-                        : "All Courses"}
-                    </h2>
-                    <p className="text-sm text-gray-600 mt-1">
-                      {filteredCourses.length} of {courses.length} courses
-                      {selectedSubject && " in this subject"}
-                    </p>
+              {/* Search Bar */}
+              <div className="relative">
+                <MagnifyingGlassIcon className="w-5 h-5 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+                <input
+                  type="text"
+                  placeholder="Search courses..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                />
+                {searchQuery && (
+                  <button
+                    onClick={() => setSearchQuery("")}
+                    className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                  >
+                    <XMarkIcon className="w-4 h-4" />
+                  </button>
+                )}
+              </div>
+            </div>
+
+            {/* Courses Grid */}
+            <div className="p-6">
+              {isLoadingCourses ? (
+                <div className="flex items-center justify-center py-12">
+                  <div className="text-center">
+                    <div className="w-8 h-8 border-4 border-purple-600 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+                    <p className="text-gray-600">Loading courses...</p>
                   </div>
                 </div>
+              ) : filteredCourses.length > 0 ? (
+                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+                  {filteredCourses.map((course, index) => (
+                    <motion.div
+                      key={course._id}
+                      className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition-shadow duration-300 cursor-pointer"
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.3, delay: index * 0.1 }}
+                      whileHover={{ y: -2 }}
+                      onClick={() => handleCourseClick(course._id)}
+                    >
+                      {/* Course Cover */}
+                      <div className="h-48 bg-gradient-to-r from-purple-500 to-blue-500 relative overflow-hidden">
+                        {hasCourseCover(course) ? (
+                          <img
+                            src={getCourseCoverUrl(course._id)}
+                            alt={course.title}
+                            className="w-full h-full object-cover"
+                            onError={handleImageError}
+                          />
+                        ) : (
+                          <div className="w-full h-full flex items-center justify-center">
+                            <BookOpenIcon className="w-16 h-16 text-white/80" />
+                          </div>
+                        )}
+                        <div className="absolute inset-0 bg-black/20"></div>
+                        <div className="absolute top-4 right-4">
+                          <div className="bg-white/90 backdrop-blur-sm rounded-full px-3 py-1">
+                            <span className="text-sm font-medium text-gray-900">
+                              {course.subject?.name || "Unknown Subject"}
+                            </span>
+                          </div>
+                        </div>
+                      </div>
 
-                {/* Search Bar */}
-                <div className="relative">
-                  <MagnifyingGlassIcon className="w-5 h-5 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
-                  <input
-                    type="text"
-                    placeholder="Search courses..."
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
-                    className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
-                  />
+                      {/* Course Info */}
+                      <div className="p-6">
+                        <h3 className="text-lg font-semibold text-gray-900 line-clamp-2 mb-2">
+                          {course.title || "Untitled Course"}
+                        </h3>
+                        <p className="text-gray-600 text-sm line-clamp-2 mb-4">
+                          {course.description || "No description available"}
+                        </p>
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center space-x-2 text-sm text-gray-500">
+                            <span>
+                              by {course.createdBy?.firstName || "James"}{" "}
+                              {course.createdBy?.lastName || "Musgrave"}
+                            </span>
+                          </div>
+                          <div className="flex items-center space-x-2">
+                            <ArrowRightIcon className="w-4 h-4 text-purple-600" />
+                          </div>
+                        </div>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              ) : (
+                <div className="text-center py-12">
+                  <BookOpenIcon className="w-16 h-16 text-gray-400 mx-auto mb-4" />
+                  <h3 className="text-lg font-medium text-gray-900 mb-2">
+                    {searchQuery
+                      ? "No courses found"
+                      : selectedSubject
+                      ? `No courses in ${selectedSubject.name}`
+                      : "No courses available"}
+                  </h3>
+                  <p className="text-gray-600 mb-4">
+                    {searchQuery
+                      ? "Try adjusting your search terms"
+                      : selectedSubject
+                      ? "This subject doesn't have any published courses yet"
+                      : "There are currently no published courses available"}
+                  </p>
                   {searchQuery && (
                     <button
                       onClick={() => setSearchQuery("")}
-                      className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                      className="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors"
                     >
-                      <XMarkIcon className="w-4 h-4" />
+                      Clear Search
                     </button>
                   )}
                 </div>
-              </div>
-
-              {/* Courses Grid */}
-              <div className="p-6">
-                {isLoadingCourses ? (
-                  <div className="flex items-center justify-center py-12">
-                    <div className="text-center">
-                      <div className="w-8 h-8 border-4 border-purple-600 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-                      <p className="text-gray-600">Loading courses...</p>
-                    </div>
-                  </div>
-                ) : filteredCourses.length > 0 ? (
-                  <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-                    {filteredCourses.map((course, index) => (
-                      <motion.div
-                        key={course._id}
-                        className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition-shadow duration-300 cursor-pointer"
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.3, delay: index * 0.1 }}
-                        whileHover={{ y: -2 }}
-                        onClick={() => handleCourseClick(course._id)}
-                      >
-                        {/* Course Cover */}
-                        <div className="h-48 bg-gradient-to-r from-purple-500 to-blue-500 relative overflow-hidden">
-                          {hasCourseCover(course) ? (
-                            <img
-                              src={getCourseCoverUrl(course._id)}
-                              alt={course.title}
-                              className="w-full h-full object-cover"
-                              onError={handleImageError}
-                            />
-                          ) : (
-                            <div className="w-full h-full flex items-center justify-center">
-                              <BookOpenIcon className="w-16 h-16 text-white/80" />
-                            </div>
-                          )}
-                          <div className="absolute inset-0 bg-black/20"></div>
-                          <div className="absolute top-4 right-4">
-                            <div className="bg-white/90 backdrop-blur-sm rounded-full px-3 py-1">
-                              <span className="text-sm font-medium text-gray-900">
-                                {course.subject?.name || "Unknown Subject"}
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-
-                        {/* Course Info */}
-                        <div className="p-6">
-                          <h3 className="text-lg font-semibold text-gray-900 line-clamp-2 mb-2">
-                            {course.title || "Untitled Course"}
-                          </h3>
-                          <p className="text-gray-600 text-sm line-clamp-2 mb-4">
-                            {course.description || "No description available"}
-                          </p>
-                          <div className="flex items-center justify-between">
-                            <div className="flex items-center space-x-2 text-sm text-gray-500">
-                              <span>
-                                by {course.createdBy?.firstName || "James"}{" "}
-                                {course.createdBy?.lastName || "Musgrave"}
-                              </span>
-                            </div>
-                            <div className="flex items-center space-x-2">
-                              <ArrowRightIcon className="w-4 h-4 text-purple-600" />
-                            </div>
-                          </div>
-                        </div>
-                      </motion.div>
-                    ))}
-                  </div>
-                ) : (
-                  <div className="text-center py-12">
-                    <BookOpenIcon className="w-16 h-16 text-gray-400 mx-auto mb-4" />
-                    <h3 className="text-lg font-medium text-gray-900 mb-2">
-                      {searchQuery
-                        ? "No courses found"
-                        : selectedSubject
-                        ? "No courses in this subject"
-                        : "No courses available"}
-                    </h3>
-                    <p className="text-gray-600 mb-4">
-                      {searchQuery
-                        ? "Try adjusting your search terms"
-                        : selectedSubject
-                        ? "This subject doesn't have any published courses yet"
-                        : "There are currently no published courses available"}
-                    </p>
-                    {searchQuery && (
-                      <button
-                        onClick={() => setSearchQuery("")}
-                        className="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors"
-                      >
-                        Clear Search
-                      </button>
-                    )}
-                  </div>
-                )}
-              </div>
-            </motion.div>
+              )}
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </div>
   );

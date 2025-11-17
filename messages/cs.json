@@ -1,0 +1,670 @@
+{
+  "common": {
+    "loading": "Načítání...",
+    "error": "Chyba",
+    "configNotFound": "Konfigurace pro domovskou stránku nebyla nalezena.",
+    "home": "Domů"
+  },
+  "errors": {
+    "oops": "Ups!",
+    "somethingWentWrong": "Něco se pokazilo",
+    "pageNotFound": "Stránka nenalezena",
+    "pageNotExist": "Stránka, kterou hledáte, neexistuje.",
+    "errorLoadingPage": "Při načítání této stránky došlo k chybě. Zkuste to prosím znovu.",
+    "errorLoadingApp": "Při načítání aplikace došlo k chybě. Zkuste to prosím znovu.",
+    "tryAgain": "Zkusit znovu",
+    "goHome": "Jít domů",
+    "goToHomePage": "Přejít na domovskou stránku",
+    "errorDetails": "Detaily chyby (pouze pro vývoj)"
+  },
+  "faq": {
+    "title": "Často kladené otázky",
+    "q1": {
+      "q": "Potřebuji jiné AI nástroje?",
+      "a": "Ne. WordToWallet centralizuje text, design a doručení, takže nemusíte žonglovat s desítkami aplikací."
+    },
+    "q2": {
+      "q": "Mohu stále publikovat na tržištích?",
+      "a": "Ano—připojte své účty Draft2Digital nebo WordToWallet a předávejte, když chcete širší distribuci."
+    },
+    "q3": {
+      "q": "Je kurz opravdu zdarma?",
+      "a": "Ano—kurz je zdarma pro členy. Platíte za přístup k platformě a můžete kdykoli zrušit."
+    }
+  },
+  "footer": {
+    "selectLanguage": "Vybrat jazyk"
+  },
+  "auth": {
+    "signIn": "Přihlásit se",
+    "email": "E-mail",
+    "password": "Heslo",
+    "emailAddress": "E-mailová adresa"
+  },
+  "account": {
+    "account": "Účet",
+    "membership": "Členství",
+    "noSubscription": "Žádné aktivní předplatné",
+    "unlockAllTools": "Odemknout všechny nástroje",
+    "fullAccess": "Získat plný přístup ke všem PDF nástrojům",
+    "subscribeNow": "Předplatit nyní",
+    "subscribe": "Předplatit",
+    "paymentMethod": "Způsob platby",
+    "saveTime": "Ušetřit čas s automatickými platbami",
+    "cardNumber": "Číslo karty",
+    "notSpecified": "Nespecifikováno",
+    "importantUpdates": "Důležité aktualizace o vašem účtu"
+  },
+  "plan": {
+    "choosePlan": "Vyberte svůj plán",
+    "continue": "Pokračovat"
+  },
+  "navbar": {
+    "profileDetails": "Detaily profilu",
+    "noSubscription": "Žádné předplatné",
+    "myDocuments": "Moje dokumenty",
+    "myAccount": "Můj účet"
+  },
+  "hero": {
+    "badge": "Členové na prvním místě · Soukromé nástroje · Globální dosah",
+    "title": "Proměňte slova v prodeje — Bezplatný kurz + Platforma ePub3",
+    "sub": "Vytvářejte interaktivní ePub3 promo akce s ChatGPT-5 a prodávejte přímo e-mailem. Vícejazyčné, měřitelné a bez zprostředkovatelů.",
+    "ctaPrimary": "Získat přístup k platformě",
+    "ctaSecondary": "Náhled bezplatného kurzu",
+    "legal": "Nikdy neprodáváme vaše data. Zrušte kdykoli."
+  },
+  "audiences": {
+    "title": "Vytvořeno pro váš případ použití",
+    "solopreneurs": {
+      "title": "Solo podnikatelé a mikrotýmy",
+      "desc": "Spouštějte promo akce, sbírejte předplatitele a prodávejte služby nebo produkty bez nákladných reklamních platforem. Povoleno až pět členů týmu."
+    },
+    "authors": {
+      "title": "Samo-vydavatelé a PR mikroagentury",
+      "desc": "Vytvářejte kampaně a rozvržení knih (beletrie a literatura faktu), doručujte ARCs a prodávejte do seznamů čtenářů v úzkém segmentu."
+    }
+  },
+  "value": {
+    "title": "Proč WordToWallet",
+    "cards": {
+      "epub3": {
+        "title": "ePub3 Creator Studio",
+        "description": "Vytvářejte promo akce a rozvržení knih. Vložte kód a návrhy vygenerované ChatGPT-5, zobrazte náhled na mobilu a publikujte během několika minut.",
+        "features": {
+          "0": "Připravené XHTML/CSS z promptů k vložení",
+          "1": "Připraveno pro přístupnost a překlad",
+          "2": "Znovupoužitelné šablony pro beletrii/literaturu faktu"
+        }
+      },
+      "email": {
+        "title": "Bezpečný e-mail pro doručenou poštu",
+        "description": "Posílejte e-maily s prioritou textu a zarovnanými odkazy s vestavěnými ochrannými prvky doručitelnosti (SPF/DKIM/DMARC). Zahřívání a monitorování bez hádání.",
+        "features": []
+      },
+      "analytics": {
+        "title": "Soukromé seznamy a analýzy",
+        "description": "Importujte CSV, segmentujte podle produktu/žánru a sledujte kliknutí → stažení → odpovědi/nákupy z jednoho dashboardu.",
+        "features": []
+      },
+      "byoa": {
+        "title": "BYOA: D2D a WordToWallet",
+        "description": "Exportujte balíčky připravené pro tržiště nebo doručujte ARCs s odkazy—integrujte, když chcete širší distribuci.",
+        "features": []
+      }
+    }
+  },
+  "howItWorks": {
+    "title": "Jak to funguje",
+    "subtitle": "Začněte během několika minut s naším jednoduchým 3krokovým procesem navrženým pro úspěch",
+    "steps": {
+      "step1": {
+        "title": "Začněte se učit",
+        "description": "Začněte s naším bezplatným kurzem psaní s AI. Naučte se praktické techniky v krátkých lekcích."
+      },
+      "step2": {
+        "title": "Vytvořte svůj seznam",
+        "description": "Použijte naše magnety pro čtenáře a integraci MailerLite k růstu vašeho e-mailového publika."
+      },
+      "step3": {
+        "title": "Prodávejte a škálujte",
+        "description": "Spusťte své produkty a nechte WordToWallet řešit doručení, zatímco se soustředíte na psaní."
+      }
+    },
+    "cta": "Začněte nyní"
+  },
+  "howItWorksNew": {
+    "title": "Jak to funguje",
+    "steps": {
+      "step1": {
+        "title": "Řekněte ChatGPT-5 svůj cíl",
+        "description": "Použijte naše prompt karty pro nabídky, publikum a jazyky."
+      },
+      "step2": {
+        "title": "Generujte text a kód",
+        "description": "Předmětové řádky, CTAs a sekce ePub3 připravené k vložení."
+      },
+      "step3": {
+        "title": "Publikujte a pošlete",
+        "description": "Jděte naživo přes e-mail první strany a sledujte funnel."
+      }
+    }
+  },
+  "features": {
+    "title": "Vše, co potřebujete k",
+    "titleHighlight": "úspěchu",
+    "subtitle": "Od lekcí psaní poháněných AI až po infrastrukturu přímého prodeje, máme vše pokryto.",
+    "cards": {
+      "aiWriting": {
+        "title": "Naučte se psaní s AI",
+        "description": "10minutové praktické lekce, které vás naučí vytvářet kapitoly, anotace a reklamy pomocí AI.",
+        "features": [
+          "Interaktivní tutoriály",
+          "Příklady ze skutečného světa",
+          "Sledování pokroku"
+        ]
+      },
+      "audience": {
+        "title": "Vytvořte své publikum",
+        "description": "Magnet pro čtenáře + integrace MailerLite automaticky vytváří váš e-mailový seznam.",
+        "features": [
+          "Magnety pro potenciální zákazníky",
+          "Automatizace e-mailů",
+          "Analýzy publika"
+        ]
+      },
+      "sales": {
+        "title": "Prodávejte přímo",
+        "description": "Připojte svůj obchod; WordToWallet doručuje soubory přímo kupujícím.",
+        "features": ["Přímý prodej", "Doručení souborů", "Správa zákazníků"]
+      }
+    }
+  },
+  "security": {
+    "badge": "Bezpečnost na prvním místě",
+    "title": "Vaše bezpečnost je naší prioritou",
+    "subtitle": "Implementujeme bezpečnostní opatření na úrovni podniku, abychom zajistili, že vaše dokumenty a data zůstanou vždy zcela chráněny.",
+    "features": {
+      "encryption": {
+        "title": "Šifrování na úrovni banky",
+        "description": "256bitové SSL šifrování chrání vaše data"
+      },
+      "processing": {
+        "title": "Bezpečné zpracování",
+        "description": "Soubory jsou po zpracování automaticky smazány"
+      },
+      "privacy": {
+        "title": "Soukromí na prvním místě",
+        "description": "Žádný lidský přístup k vašim dokumentům"
+      },
+      "compliance": {
+        "title": "Soulad s GDPR",
+        "description": "Plný soulad s předpisy o ochraně dat"
+      }
+    },
+    "trustedBy": "Důvěřuje více než 400 000 uživatelů po celém světě"
+  },
+  "testimonials": {
+    "title": "Důvěřují profesionálové po celém světě",
+    "subtitle": "Podívejte se, co říkají naši zákazníci",
+    "rating": "Hodnocení 5.0 z více než 3 000 recenzí",
+    "review1": {
+      "name": "Jennifer Martinez",
+      "role": "Ředitelka právních operací",
+      "company": "Global Law Partners",
+      "review": "WordToWallet transformoval náš pracovní postup dokumentů. Náš právní tým nyní může zpracovávat smlouvy 3x rychleji díky automatickému vyplňování formulářů a funkcím elektronického podpisu. Nástroje pro spolupráci týmu zcela eliminovaly problémy s kontrolou verzí."
+    },
+    "review2": {
+      "name": "David Chen",
+      "role": "CTO",
+      "company": "TechFlow Solutions",
+      "review": "Jako rostoucí startup jsme potřebovali správu dokumentů na úrovni podniku bez cenovky podniku. Funkce týmu WordToWallet a neomezené zpracování se perfektně škálovaly s naším podnikáním. ROI bylo dosaženo během prvního měsíce."
+    },
+    "review3": {
+      "name": "Sarah Williams",
+      "role": "Finanční manažerka",
+      "company": "Merchant Capital Group",
+      "review": "Schopnosti OCR zrevolutionizovaly náš proces digitalizace dokumentů. Náš účetní tým nyní může okamžitě prohledávat tisíce naskenovaných faktur. To nám ušetřilo nespočet hodin a výrazně zlepšilo naši připravenost na audit."
+    },
+    "review4": {
+      "name": "Michael Rodriguez",
+      "role": "Úředník pro soulad",
+      "company": "SecureBank International",
+      "review": "Bezpečnostní funkce podnikové úrovně WordToWallet nám dávají důvěru při práci s citlivými dokumenty klientů. Nástroje pro soulad a auditní stopy výrazně zjednodušily naše regulační hlášení. Náš tým pro soulad to miluje."
+    },
+    "review5": {
+      "name": "Lisa Thompson",
+      "role": "Manažerka marketingových operací",
+      "company": "Digital Growth Agency",
+      "review": "Náš marketingový tým zpracovává týdně stovky PDF pro kampaně. Funkce dávkového zpracování a automatizace WordToWallet snížily náš čas přípravy dokumentů o 70%. ROI je neuvěřitelné pro jakékoli podnikání, které chce škálovat operace."
+    },
+    "review6": {
+      "name": "Robert Kim",
+      "role": "Ředitel projektu",
+      "company": "Construction Dynamics",
+      "review": "Funkce spolupráce týmu eliminovaly naše úzká místa v dokumentech. Více oddělení nyní může současně pracovat na stejných dokumentech s aktualizacemi v reálném čase. To zlepšilo naše časy dodání projektů o 40%."
+    }
+  },
+  "course": {
+    "badge": "Bezplatný kurz zahrnut",
+    "title": "Bezplatný kurz zahrnut",
+    "bullets": [
+      "Příručka přímého prodeje pro e-mail + ePub3.",
+      "Knihovna promptů: nabídky, promo akce, sekce pro přistání, překlad.",
+      "Šablony pozvánek proti spamu a kontrolní seznam zahřívání.",
+      "Závěrečný projekt: váš 7denní sprint zisku."
+    ],
+    "cta": "Zaregistrovat se zdarma (s přístupem k platformě)"
+  },
+  "privacyPolicy": {
+    "title": "Zásady ochrany osobních údajů",
+    "lastUpdated": "Poslední aktualizace: prosinec 2024",
+    "websiteAddress": "Adresa našeho webu je: https://bestglobalai.com",
+    "sections": {
+      "whoWeAre": {
+        "title": "Kdo jsme",
+        "content": "Adresa našeho webu je: https://bestglobalai.com"
+      },
+      "comments": {
+        "title": "Komentáře",
+        "content": "Když návštěvníci zanechávají komentáře na webu, shromažďujeme data zobrazená ve formuláři komentářů a také IP adresu návštěvníka a řetězec uživatelského agenta prohlížeče, abychom pomohli detekci spamu. Anonymizovaný řetězec vytvořený z vaší e-mailové adresy (také nazývaný hash) může být poskytnut službě Gravatar, aby zjistila, zda ji používáte. Zásady ochrany osobních údajů služby Gravatar jsou k dispozici zde: https://automattic.com/privacy/. Po schválení vašeho komentáře je vaše profilová fotografie viditelná veřejnosti v kontextu vašeho komentáře."
+      },
+      "media": {
+        "title": "Média",
+        "content": "Pokud nahráváte obrázky na web, měli byste se vyhnout nahrávání obrázků s vloženými údaji o poloze (EXIF GPS). Návštěvníci webu mohou stáhnout a extrahovat jakékoli údaje o poloze z obrázků na webu."
+      },
+      "cookies": {
+        "title": "Cookies",
+        "content": "Nepoužíváme cookies ke shromažďování informací o našich návštěvnících."
+      },
+      "embeddedContent": {
+        "title": "Vložený obsah z jiných webů",
+        "content": "Články na tomto webu mohou obsahovat vložený obsah (např. videa, obrázky, články atd.). Vložený obsah z jiných webů se chová přesně stejným způsobem, jako kdyby návštěvník navštívil jiný web."
+      },
+      "dataSharing": {
+        "title": "S kým sdílíme vaše data",
+        "content": "Pokud požádáte o resetování hesla, vaše IP adresa bude zahrnuta do e-mailu pro resetování."
+      },
+      "dataRetention": {
+        "title": "Jak dlouho uchováváme vaše data",
+        "content": "Pokud zanecháte komentář, komentář a jeho metadata jsou uchovávány neomezeně dlouho. To je proto, abychom mohli automaticky rozpoznat a schválit jakékoli následné komentáře místo toho, abychom je drželi ve frontě moderování. Pro uživatele, kteří se registrují na našem webu (pokud existují), také ukládáme osobní informace, které poskytují ve svém uživatelském profilu. Všichni uživatelé mohou kdykoli zobrazit, upravit nebo smazat své osobní informace (kromě toho, že nemohou změnit své uživatelské jméno). Správci webu mohou také zobrazit a upravit tyto informace."
+      },
+      "userRights": {
+        "title": "Jaká práva máte nad svými daty",
+        "content": "Pokud máte účet na tomto webu nebo jste zanechali komentáře, můžete požádat o přijetí exportovaného souboru osobních údajů, které o vás uchováváme, včetně všech údajů, které jste nám poskytli. Můžete také požádat, abychom vymazali jakékoli osobní údaje, které o vás uchováváme. To nezahrnuje žádná data, která jsme povinni uchovávat pro administrativní, právní nebo bezpečnostní účely."
+      },
+      "dataTransfer": {
+        "title": "Kam jsou vaše data odesílána",
+        "content": "Komentáře návštěvníků mohou být kontrolovány prostřednictvím automatizované služby detekce spamu."
+      }
+    },
+    "contact": {
+      "title": "Otázky k této politice?",
+      "description": "Pokud máte jakékoli otázky k těmto zásadám ochrany osobních údajů nebo k tomu, jak zacházíme s vašimi daty, neváhejte nás kontaktovat.",
+      "website": "https://bestglobalai.com"
+    }
+  },
+  "contactPage": {
+    "title": "Kontaktujte nás",
+    "description": "Pokud potřebujete pomoc s naší službou nebo máte jakékoli otázky, neváhejte nás kontaktovat.",
+    "form": {
+      "name": "Jméno",
+      "namePlaceholder": "Vaše jméno",
+      "email": "E-mailová adresa",
+      "emailPlaceholder": "email@domain.com",
+      "message": "Zpráva",
+      "messagePlaceholder": "Napište zde svou zprávu",
+      "sendButton": "Odeslat zprávu"
+    },
+    "directContact": {
+      "title": "Kontaktujte nás přímo"
+    },
+    "billing": {
+      "title": "Podpora fakturace",
+      "description": "Máte otázku ohledně vašeho poplatku? Pro jakékoli otázky týkající se plateb na platformě nás kontaktujte na:"
+    },
+    "customer": {
+      "title": "Zákaznická podpora",
+      "description": "Jsme vždy rádi, když s vámi mluvíme. Pokud máte jakékoli otázky ohledně naší služby, zavolejte nám nebo nám napište na:"
+    },
+    "meet": {
+      "title": "Naplánovat schůzku",
+      "description": "Potřebujete přímou pomoc? Naplánujte si personalizovanou schůzku s naším týmem, abyste prodiskutovali vaše potřeby a získali odborné vedení."
+    }
+  },
+  "auction": {
+    "title": "Aukce",
+    "subtitle": "Objevte a účastněte se živých aukcí",
+    "myAuctions": "Moje aukce",
+    "createAuction": "Vytvořit aukci",
+    "browseAll": "Procházet všechny aukce",
+    "manageAuctions": "Spravujte a sledujte své aukční výpisy",
+    "createNewAuction": "Vytvořit novou aukci",
+    "noAuctionsFound": "Nebyly nalezeny žádné aukce",
+    "createFirstAuction": "Vytvořte svou první aukci",
+    "filters": {
+      "allAuctions": "Všechny aukce",
+      "scheduled": "Naplánováno",
+      "active": "Aktivní",
+      "sold": "Prodáno",
+      "ended": "Ukončeno"
+    },
+    "status": {
+      "scheduled": "Naplánováno",
+      "active": "Aktivní",
+      "sold": "Prodáno",
+      "soldBuyNow": "Prodáno (Koupit nyní)",
+      "soldOffer": "Prodáno (Nabídka)",
+      "ended": "Ukončeno",
+      "endedNoSale": "Ukončeno (Bez prodeje)",
+      "cancelled": "Zrušeno"
+    },
+    "create": {
+      "title": "Vytvořit novou aukci",
+      "form": {
+        "title": "Název aukce",
+        "titlePlaceholder": "Zadejte název aukce",
+        "description": "Popis",
+        "descriptionPlaceholder": "Popište svůj aukční předmět",
+        "currency": "Měna",
+        "startingPrice": "Počáteční cena",
+        "startingPricePlaceholder": "0,00",
+        "reservePrice": "Rezervní cena (Volitelné)",
+        "reservePricePlaceholder": "Minimální cena k prodeji",
+        "reservePriceHelp": "Minimální cena, kterou jste ochotni přijmout. Pokud není dosaženo, aukce se neprodá.",
+        "buyNowPrice": "Cena Koupit nyní (Volitelné)",
+        "buyNowPricePlaceholder": "Okamžitá kupní cena",
+        "buyNowPriceHelp": "Umožněte kupujícím okamžitě koupit za tuto cenu.",
+        "startTime": "Čas začátku",
+        "endTime": "Čas ukončení",
+        "extendSeconds": "Prodloužení proti snajpingu (sekundy)",
+        "extendSecondsPlaceholder": "30",
+        "extendSecondsHelp": "Prodloužit aukci o tolik sekund, když je nabídka umístěna v poslední minutě.",
+        "minIncrement": "Minimální přírůstek nabídky",
+        "minIncrementPlaceholder": "1,00",
+        "createButton": "Vytvořit aukci",
+        "cancelButton": "Zrušit"
+      },
+      "validation": {
+        "titleRequired": "Název, popis, počáteční cena, čas začátku a čas ukončení jsou povinné",
+        "startingPriceRequired": "Počáteční cena musí být větší než 0",
+        "reservePriceInvalid": "Rezervní cena musí být větší než počáteční cena",
+        "buyNowPriceInvalid": "Cena Koupit nyní musí být větší než počáteční cena",
+        "reservePriceTooHigh": "Rezervní cena nemůže být vyšší než cena Koupit nyní",
+        "endTimeInvalid": "Čas ukončení musí být po času začátku",
+        "startTimeInvalid": "Čas začátku musí být v budoucnosti"
+      }
+    },
+    "list": {
+      "startingPrice": "Počáteční cena:",
+      "currentBid": "Aktuální nabídka:",
+      "buyNow": "Koupit nyní:",
+      "starts": "Začíná:",
+      "ends": "Končí:",
+      "timeLeft": "Zbývající čas:",
+      "ended": "Ukončeno",
+      "by": "od",
+      "viewAuction": "Zobrazit aukci",
+      "page": "Stránka",
+      "of": "z",
+      "previous": "Předchozí",
+      "next": "Další"
+    },
+    "delete": "Smazat",
+    "confirmDeleteTitle": "Potvrdit smazání",
+    "confirmDelete": "Opravdu chcete smazat tuto aukci? Tuto akci nelze vrátit zpět.",
+    "deleteError": "Nepodařilo se smazat aukci",
+    "deleteDisabledActive": "Nelze smazat aktivní aukce",
+    "deleting": "Mazání...",
+    "cancel": "Zrušit",
+    "view": {
+      "placeBid": "Podat nabídku",
+      "buyNow": "Koupit nyní",
+      "makeOffer": "Podat nabídku",
+      "bidAmount": "Částka nabídky",
+      "minimumBid": "Minimální nabídka:",
+      "yourBid": "Vaše nabídka",
+      "bidButton": "Podat nabídku",
+      "offerAmount": "Částka nabídky",
+      "offerButton": "Podat nabídku",
+      "bidHistory": "Historie nabídek",
+      "offers": "Nabídky",
+      "noBids": "Zatím žádné nabídky",
+      "noOffers": "Zatím žádné nabídky",
+      "timeRemaining": "Zbývající čas",
+      "days": "d",
+      "hours": "h",
+      "minutes": "m",
+      "seconds": "s",
+      "reserveNotMet": "Rezervní cena nedosažena",
+      "reserveMet": "Rezervní cena dosažena",
+      "online": "online",
+      "bidders": "přihazující"
+    },
+    "bidding": {
+      "bidPlaced": "Nabídka úspěšně podána",
+      "bidFailed": "Nepodařilo se podat nabídku",
+      "bidTooLow": "Částka nabídky je příliš nízká",
+      "auctionEnded": "Aukce byla ukončena",
+      "auctionNotActive": "Aukce nepřijímá nabídky",
+      "buyNowSuccess": "Aukce úspěšně zakoupena",
+      "buyNowFailed": "Nepodařilo se koupit aukci",
+      "offerCreated": "Nabídka úspěšně vytvořena",
+      "offerFailed": "Nepodařilo se vytvořit nabídku",
+      "offerAccepted": "Nabídka přijata",
+      "offerDeclined": "Nabídka zamítnuta"
+    },
+    "currency": {
+      "USD": "USD - Americký dolar",
+      "EUR": "EUR - Euro",
+      "GBP": "GBP - Britská libra",
+      "CAD": "CAD - Kanadský dolar",
+      "AUD": "AUD - Australský dolar"
+    }
+  },
+  "books": {
+    "title": "Knihy",
+    "subtitle": "Spravujte své EPUB knihy a vytvářejte ARC kampaně",
+    "uploadBook": "Nahrát knihu",
+    "totalBooks": "Celkem knih",
+    "readyBooks": "Připravené knihy",
+    "processingBooks": "Zpracování",
+    "errorBooks": "Chyba",
+    "noBooks": "Nebyly nalezeny žádné knihy",
+    "noBooksDescription": "Nahrajte svou první EPUB knihu, abyste mohli začít.",
+    "epubFile": "EPUB soubor",
+    "dragDropFile": "Přetáhněte svůj EPUB soubor sem",
+    "browse": "procházet",
+    "epubOnly": "Pouze EPUB soubory",
+    "title": "Název",
+    "author": "Autor",
+    "description": "Popis",
+    "isbn": "ISBN",
+    "publisher": "Vydavatel",
+    "publicationDate": "Datum publikace",
+    "language": "Jazyk",
+    "genre": "Žánr",
+    "tags": "Štítky",
+    "genrePlaceholder": "Beletrie, Literatura faktu, Romantika atd.",
+    "tagsPlaceholder": "bestseller, oceněný atd.",
+    "upload": "Nahrát",
+    "uploading": "Nahrávání...",
+    "cancel": "Zrušit",
+    "invalidFileType": "Vyberte prosím platný EPUB soubor",
+    "noFileSelected": "Vyberte prosím soubor k nahrání",
+    "titleAndAuthorRequired": "Název a autor jsou povinné",
+    "uploadError": "Nepodařilo se nahrát knihu",
+    "statusReady": "Připraveno",
+    "statusProcessing": "Zpracování",
+    "statusUploading": "Nahrávání",
+    "statusError": "Chyba",
+    "statusDeleted": "Smazáno",
+    "view": "Zobrazit",
+    "edit": "Upravit",
+    "delete": "Smazat",
+    "confirmDelete": "Opravdu chcete smazat tuto knihu?",
+    "deleteError": "Nepodařilo se smazat knihu",
+    "download": "Stáhnout",
+    "downloadError": "Nepodařilo se stáhnout knihu",
+    "loading": "Načítání...",
+    "bookNotFound": "Kniha nenalezena",
+    "backToBooks": "Zpět na knihy",
+    "coverImage": "Obrázek obálky",
+    "quickStats": "Rychlé statistiky",
+    "fileSize": "Velikost souboru",
+    "pages": "Stránky",
+    "words": "Slova",
+    "readingTime": "Čas čtení",
+    "minutes": "minut",
+    "uploadDate": "Datum nahrání",
+    "actions": "Akce",
+    "bookDetails": "Detaily knihy",
+    "epubMetadata": "EPUB metadata",
+    "creator": "Tvůrce",
+    "date": "Datum",
+    "rights": "Práva",
+    "lastModified": "Poslední úprava",
+    "filters": "Filtry",
+    "clearFilters": "Vymazat filtry",
+    "searchPlaceholder": "Hledat knihy...",
+    "allStatuses": "Všechny stavy",
+    "allLanguages": "Všechny jazyky",
+    "authorPlaceholder": "Hledat podle autora...",
+    "showAdvanced": "Zobrazit pokročilé",
+    "hideAdvanced": "Skrýt pokročilé",
+    "sortBy": "Seřadit podle",
+    "showing": "Zobrazuje",
+    "to": "až",
+    "of": "z",
+    "results": "výsledků",
+    "previous": "Předchozí",
+    "next": "Další",
+    "page": "Stránka",
+    "statusReadyDescription": "Kniha je připravena k použití",
+    "statusProcessingDescription": "Kniha se zpracovává",
+    "statusUploadingDescription": "Kniha se nahrává",
+    "statusErrorDescription": "Během zpracování došlo k chybě",
+    "statusDeletedDescription": "Kniha byla smazána",
+    "statusUnknownDescription": "Neznámý stav",
+    "processingStarted": "Zpracování zahájeno",
+    "processingProgress": "Zpracování probíhá...",
+    "errorOccurred": "Došlo k chybě",
+    "viewErrorDetails": "Zobrazit detaily chyby",
+    "readyForUse": "Připraveno k použití",
+    "createArcCampaign": "Vytvořit ARC kampaň",
+    "uploaded": "Nahráno",
+    "duplicate": "Duplikát",
+    "share": "Sdílet",
+    "status": "Stav"
+  },
+  "integrations": {
+    "title": "Integrace",
+    "subtitle": "Připojte své účty k externím službám",
+    "connectIntegration": "Připojit integraci",
+    "loading": "Načítání...",
+    "connectWordToWallet": "Připojit WordToWallet",
+    "connectWordToWalletDescription": "Připojte svůj účet WordToWallet k vytváření ARC kampaní",
+    "apiKey": "API klíč",
+    "apiKeyPlaceholder": "Zadejte svůj WordToWallet API klíč",
+    "apiKeyHelp": "Váš API klíč bude zašifrován a bezpečně uložen",
+    "howToGetApiKey": "Jak získat svůj API klíč:",
+    "step1": "Přihlaste se ke svému účtu WordToWallet",
+    "step2": "Přejděte na Nastavení > API klíče",
+    "step3": "Vygenerujte nový API klíč",
+    "step4": "Zkopírujte a vložte ho sem",
+    "features": "Funkce",
+    "feature1": "Nahrát knihy do WordToWallet",
+    "feature2": "Vytvořit ARC kampaně",
+    "feature3": "Generovat kódy ke stažení",
+    "feature4": "Sledovat analýzy stažení",
+    "connect": "Připojit",
+    "connecting": "Připojování...",
+    "cancel": "Zrušit",
+    "apiKeyRequired": "API klíč je povinný",
+    "connectionFailed": "Nepodařilo se připojit k WordToWallet",
+    "availableIntegrations": "Dostupné integrace",
+    "WordToWalletDescription": "Vytvářejte a spravujte ARC kampaně pro své knihy",
+    "amazonKdpDescription": "Publikujte přímo na Amazon Kindle Direct Publishing",
+    "draft2digitalDescription": "Distribuujte do více prodejců elektronických knih",
+    "smashwordsDescription": "Publikujte na tržišti Smashwords",
+    "comingSoon": "Již brzy",
+    "connectedIntegrations": "Připojené integrace",
+    "lastSync": "Poslední synchronizace",
+    "test": "Test",
+    "sync": "Synchronizovat",
+    "disconnect": "Odpojit",
+    "confirmDisconnect": "Opravdu chcete odpojit tuto integraci?",
+    "statusActive": "Aktivní",
+    "statusInactive": "Neaktivní",
+    "statusError": "Chyba",
+    "statusPending": "Čekající"
+  },
+  "arc": {
+    "title": "ARC kampaně",
+    "subtitle": "Vytvářejte a spravujte kampaně Advanced Reader Copy",
+    "createCampaign": "Vytvořit kampaň",
+    "cancel": "Zrušit",
+    "totalLinks": "Celkem odkazů",
+    "activeLinks": "Aktivní odkazy",
+    "expiredLinks": "Expirované odkazy",
+    "maxDownloads": "Max stažení",
+    "errorLinks": "Chybové odkazy",
+    "filters": "Filtry",
+    "status": "Stav",
+    "allStatuses": "Všechny stavy",
+    "statusActive": "Aktivní",
+    "statusExpired": "Expirovaný",
+    "statusMaxDownloads": "Dosaženo max stažení",
+    "statusDisabled": "Zakázáno",
+    "statusError": "Chyba",
+    "book": "Kniha",
+    "allBooks": "Všechny knihy",
+    "expired": "Expirovaný",
+    "all": "Vše",
+    "expiredOnly": "Pouze expirované",
+    "activeOnly": "Pouze aktivní",
+    "noArcLinks": "Nebyly nalezeny žádné ARC odkazy",
+    "noArcLinksDescription": "Vytvořte svou první ARC kampaň pro generování odkazů ke stažení.",
+    "downloads": "stažení",
+    "max": "max",
+    "expires": "Expiruje",
+    "created": "Vytvořeno",
+    "copyCode": "Kopírovat kód",
+    "copied": "Zkopírováno!",
+    "share": "Sdílet",
+    "view": "Zobrazit",
+    "delete": "Smazat",
+    "confirmDelete": "Opravdu chcete smazat tento ARC odkaz?",
+    "deleteError": "Nepodařilo se smazat ARC odkaz",
+    "linkCopied": "Odkaz zkopírován do schránky",
+    "showing": "Zobrazuje",
+    "to": "až",
+    "of": "z",
+    "results": "výsledků",
+    "previous": "Předchozí",
+    "next": "Další",
+    "page": "Stránka",
+    "createCampaignDescription": "Vytvořte novou ARC kampaň pro generování odkazů ke stažení pro vaši knihu",
+    "selectBook": "Vybrat knihu",
+    "chooseBook": "Vyberte knihu...",
+    "selectedBook": "Vybraná kniha",
+    "campaignName": "Název kampaně",
+    "campaignNamePlaceholder": "Zadejte název kampaně",
+    "description": "Popis",
+    "descriptionPlaceholder": "Zadejte popis kampaně",
+    "numberOfCodes": "Počet kódů",
+    "quantityHelp": "Počet kódů ke stažení k vygenerování (1-1000)",
+    "maxDownloadsPerCode": "Max stažení na kód",
+    "unlimited": "Neomezeno",
+    "totalMaxDownloads": "Celkem max stažení",
+    "expirationDate": "Datum expirace",
+    "campaignInfo": "Informace o kampani",
+    "info1": "ARC kódy budou automaticky vygenerovány",
+    "info2": "Každý kód může být sdílen s čtenáři",
+    "info3": "Sledování stažení je k dispozici",
+    "info4": "Kódy mohou být nastaveny na automatické vypršení",
+    "bookAndNameRequired": "Výběr knihy a název kampaně jsou povinné",
+    "invalidQuantity": "Množství musí být mezi 1 a 1000",
+    "creating": "Vytváření...",
+    "creationFailed": "Nepodařilo se vytvořit kampaň"
+  }
+}

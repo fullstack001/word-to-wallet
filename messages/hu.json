@@ -1,0 +1,666 @@
+{
+  "common": {
+    "loading": "Betöltés...",
+    "error": "Hiba",
+    "configNotFound": "A kezdőlap konfigurációja nem található.",
+    "home": "Kezdőlap"
+  },
+  "errors": {
+    "oops": "Hoppá!",
+    "somethingWentWrong": "Valami hiba történt",
+    "pageNotFound": "Az oldal nem található",
+    "pageNotExist": "A keresett oldal nem létezik.",
+    "errorLoadingPage": "Hiba történt az oldal betöltése során. Kérjük, próbálja újra.",
+    "errorLoadingApp": "Hiba történt az alkalmazás betöltése során. Kérjük, próbálja újra.",
+    "tryAgain": "Próbálja újra",
+    "goHome": "Vissza a kezdőlapra",
+    "goToHomePage": "Ugrás a kezdőlapra",
+    "errorDetails": "Hibareszletek (csak fejlesztéshez)"
+  },
+  "faq": {
+    "title": "Gyakran ismételt kérdések",
+    "q1": {
+      "q": "Szükségem van más AI eszközökre?",
+      "a": "Nem. A WordToWallet központosítja a szöveget, a dizájnt és a kézbesítést, így nem kell tucatnyi alkalmazással zsonglőrködnie."
+    },
+    "q2": {
+      "q": "Még mindig publikálhatok piacokon?",
+      "a": "Igen—csatlakoztassa Draft2Digital vagy WordToWallet fiókjait, és adja át, amikor szélesebb terjesztést szeretne."
+    },
+    "q3": {
+      "q": "A kurzus valóban ingyenes?",
+      "a": "Igen—a kurzus ingyenes a tagok számára. A platform hozzáférésért fizet, és bármikor lemondhatja."
+    }
+  },
+  "footer": {
+    "selectLanguage": "Válasszon nyelvet"
+  },
+  "auth": {
+    "signIn": "Bejelentkezés",
+    "email": "E-mail",
+    "password": "Jelszó",
+    "emailAddress": "E-mail cím"
+  },
+  "account": {
+    "account": "Fiók",
+    "membership": "Tagság",
+    "noSubscription": "Nincs aktív előfizetés",
+    "unlockAllTools": "Minden eszköz feloldása",
+    "fullAccess": "Teljes hozzáférés az összes PDF eszközhöz",
+    "subscribeNow": "Előfizetés most",
+    "subscribe": "Előfizetés",
+    "paymentMethod": "Fizetési mód",
+    "saveTime": "Időt takarítson meg automatikus fizetésekkel",
+    "cardNumber": "Kártyaszám",
+    "notSpecified": "Nincs megadva",
+    "importantUpdates": "Fontos frissítések a fiókjáról"
+  },
+  "plan": {
+    "choosePlan": "Válassza ki a tervét",
+    "continue": "Folytatás"
+  },
+  "navbar": {
+    "profileDetails": "Profil részletek",
+    "noSubscription": "Nincs előfizetés",
+    "myDocuments": "Dokumentumaim",
+    "myAccount": "Fiókom"
+  },
+  "hero": {
+    "badge": "Tagok először · Privát eszközök · Globális elérés",
+    "title": "Alakítsa át a szavakat eladásokká — Ingyenes kurzus + ePub3 platform",
+    "sub": "Hozzon létre interaktív ePub3 promóciókat ChatGPT-5-tel, és adjon el közvetlenül e-mailben. Többnyelvű, mérhető és közvetítő nélküli.",
+    "ctaPrimary": "Platform hozzáférés",
+    "ctaSecondary": "Az ingyenes kurzus előnézete",
+    "legal": "Soha nem adjuk el az adatait. Lemondhat bármikor."
+  },
+  "audiences": {
+    "title": "Az Ön használati esetéhez építve",
+    "solopreneurs": {
+      "title": "Solo vállalkozók és mikroteamok",
+      "desc": "Indítson promóciókat, gyűjtsön előfizetőket, és adjon el szolgáltatásokat vagy termékeket drága hirdetési platformok nélkül. Legfeljebb öt csapattag engedélyezett."
+    },
+    "authors": {
+      "title": "Önkiadó szerzők és PR mikroügynökségek",
+      "desc": "Hozzon létre kampányokat és könyv elrendezéseket (regény és nem regény), szállítson ARCs-t, és adjon el niche olvasólistáknak."
+    }
+  },
+  "value": {
+    "title": "Miért WordToWallet",
+    "cards": {
+      "epub3": {
+        "title": "ePub3 Creator Studio",
+        "description": "Hozzon létre promóciókat és könyv elrendezéseket. Illessze be a ChatGPT-5 által generált kódot és dizájnt, tekintse meg mobilon, és tegye közzé percek alatt.",
+        "features": {
+          "0": "Beillesztésre kész XHTML/CSS promptokból",
+          "1": "Akadálymentesség és fordítás kész",
+          "2": "Újrafelhasználható sablonok regény/nem regény számára"
+        }
+      },
+      "email": {
+        "title": "Postafiók-biztonságos e-mail",
+        "description": "Küldjön szöveg-előnyös, igazított linkes e-maileket beépített kézbesíthetőségi védőkeretekkel (SPF/DKIM/DMARC). Felmelegítés és monitorozás találgatás nélkül.",
+        "features": []
+      },
+      "analytics": {
+        "title": "Privát listák és elemzések",
+        "description": "Importáljon CSV-ket, szegmentáljon termék/műfaj szerint, és követés kattintások → letöltések → válaszok/vásárlások egy irányítópultról.",
+        "features": []
+      },
+      "byoa": {
+        "title": "BYOA: D2D és WordToWallet",
+        "description": "Exportáljon piacra kész csomagokat vagy szállítson ARCs-t linkekkel—integráljon, amikor szélesebb terjesztést szeretne.",
+        "features": []
+      }
+    }
+  },
+  "howItWorks": {
+    "title": "Hogyan működik",
+    "subtitle": "Kezdje el percek alatt egyszerű 3 lépéses folyamatunkkal, amelyet a sikerre terveztek",
+    "steps": {
+      "step1": {
+        "title": "Kezdje el a tanulást",
+        "description": "Kezdje ingyenes AI írási kurzusunkkal. Tanuljon gyakorlati technikákat kisebb leckékben."
+      },
+      "step2": {
+        "title": "Építse fel a listáját",
+        "description": "Használja olvasómágnesünket és MailerLite integrációnkat az e-mail közönség növeléséhez."
+      },
+      "step3": {
+        "title": "Adjon el és skálázza",
+        "description": "Indítsa el termékeit, és hagyja, hogy a WordToWallet kezelje a kézbesítést, miközben Ön az írásra összpontosít."
+      }
+    },
+    "cta": "Kezdje el most"
+  },
+  "howItWorksNew": {
+    "title": "Hogyan működik",
+    "steps": {
+      "step1": {
+        "title": "Mondja el a ChatGPT-5-nek a célját",
+        "description": "Használja prompt kártyáinkat ajánlatokhoz, közönséghez és nyelvekhez."
+      },
+      "step2": {
+        "title": "Generáljon szöveget és kódot",
+        "description": "Tárgysorok, CTA-k és beillesztésre kész ePub3 szakaszok."
+      },
+      "step3": {
+        "title": "Tegye közzé és küldje el",
+        "description": "Menjen élőben első fél e-mailen keresztül, és kövesse a tölcsért."
+      }
+    }
+  },
+  "features": {
+    "title": "Minden, amire szüksége van a",
+    "titleHighlight": "sikerhez",
+    "subtitle": "AI-alapú írási leckéktől a közvetlen értékesítési infrastruktúráig, mindent lefedünk.",
+    "cards": {
+      "aiWriting": {
+        "title": "Tanuljon AI írást",
+        "description": "10 perces gyakorlati leckék, amelyek megtanítják fejezetek, fülszövegek és hirdetések készítésére AI használatával.",
+        "features": [
+          "Interaktív oktatóanyagok",
+          "Valós példák",
+          "Haladás követése"
+        ]
+      },
+      "audience": {
+        "title": "Építse fel a közönségét",
+        "description": "Olvasómágnes + MailerLite integráció automatikusan építi fel e-mail listáját.",
+        "features": ["Lead mágnesek", "E-mail automatizálás", "Közönség elemzés"]
+      },
+      "sales": {
+        "title": "Adjon el közvetlenül",
+        "description": "Csatlakoztassa üzletét; a WordToWallet közvetlenül a vásárlóknak szállítja a fájlokat.",
+        "features": ["Közvetlen értékesítés", "Fájl kézbesítés", "Ügyfélkezelés"]
+      }
+    }
+  },
+  "security": {
+    "badge": "Biztonság először",
+    "title": "A biztonsága a prioritásunk",
+    "subtitle": "Vállalati szintű biztonsági intézkedéseket alkalmazunk, hogy dokumentumai és adatai mindig teljes mértékben védve maradjanak.",
+    "features": {
+      "encryption": {
+        "title": "Banki szintű titkosítás",
+        "description": "256 bites SSL titkosítás védi az adatait"
+      },
+      "processing": {
+        "title": "Biztonságos feldolgozás",
+        "description": "A fájlok automatikusan törlődnek a feldolgozás után"
+      },
+      "privacy": {
+        "title": "Adatvédelem először",
+        "description": "Nincs emberi hozzáférés a dokumentumaihoz"
+      },
+      "compliance": {
+        "title": "GDPR megfelelő",
+        "description": "Teljes megfelelés az adatvédelmi szabályozásoknak"
+      }
+    },
+    "trustedBy": "Több mint 400 000 felhasználó bízik benne világszerte"
+  },
+  "testimonials": {
+    "title": "Szakértők bíznak benne világszerte",
+    "subtitle": "Nézze meg, mit mondanak ügyfeleink",
+    "rating": "5.0 értékelés több mint 3000 véleményből",
+    "review1": {
+      "name": "Jennifer Martinez",
+      "role": "Jogi műveletek igazgató",
+      "company": "Global Law Partners",
+      "review": "A WordToWallet átalakította dokumentum munkafolyamatunkat. Jogi csapatunk most 3x gyorsabban dolgozhat fel szerződéseket az automatizált űrlapkitöltő és e-aláírás funkciókkal. A csapat együttműködési eszközei teljes mértékben megszüntették a verziókezelési problémákat."
+    },
+    "review2": {
+      "name": "David Chen",
+      "role": "CTO",
+      "company": "TechFlow Solutions",
+      "review": "Növekvő startupként vállalati szintű dokumentumkezelésre volt szükségünk vállalati árcédula nélkül. A WordToWallet csapat funkciói és korlátlan feldolgozása tökéletesen skálázódott vállalkozásunkkal. A ROI-t az első hónapban értük el."
+    },
+    "review3": {
+      "name": "Sarah Williams",
+      "role": "Pénzügyi menedzser",
+      "company": "Merchant Capital Group",
+      "review": "Az OCR képességek forradalmasították dokumentum digitalizálási folyamatunkat. Könyvelő csapatunk most azonnal kereshet több ezer beolvasott számla között. Ez számtalan órát takarított meg számunkra, és jelentősen javította audit készültségünket."
+    },
+    "review4": {
+      "name": "Michael Rodriguez",
+      "role": "Megfelelőségi tisztviselő",
+      "company": "SecureBank International",
+      "review": "A WordToWallet vállalati biztonsági funkciói bizalmat adnak számunkra az érzékeny ügyfél dokumentumok kezelésekor. A megfelelőségi eszközök és audit nyomok sokkal egyszerűbbé tették szabályozási jelentéseinket. Megfelelőségi csapatunk imádja."
+    },
+    "review5": {
+      "name": "Lisa Thompson",
+      "role": "Marketing műveletek menedzser",
+      "company": "Digital Growth Agency",
+      "review": "Marketing csapatunk hetente több száz PDF-et dolgoz fel kampányokhoz. A WordToWallet kötegelt feldolgozási és automatizálási funkciói 70%-kal csökkentették dokumentum előkészítési idejünket. A ROI hihetetlen minden vállalkozás számára, amely műveleteit szeretné skálázni."
+    },
+    "review6": {
+      "name": "Robert Kim",
+      "role": "Projekt igazgató",
+      "company": "Construction Dynamics",
+      "review": "A csapat együttműködési funkciók megszüntették dokumentum szűk keresztmetszeteinket. Több osztály most egyidejűleg dolgozhat ugyanazokon a dokumentumokon valós idejű frissítésekkel. Ez 40%-kal javította projekt kézbesítési idejünket."
+    }
+  },
+  "course": {
+    "badge": "Ingyenes kurzus benne van",
+    "title": "Ingyenes kurzus benne van",
+    "bullets": [
+      "Közvetlen értékesítési útmutató e-mail + ePub3-hez.",
+      "Prompt könyvtár: ajánlatok, promóciók, landolási szakaszok, fordítás.",
+      "Spam elleni meghívó sablonok és felmelegítési ellenőrzőlista.",
+      "Záró projekt: az Ön 7 napos profit sprintje."
+    ],
+    "cta": "Ingyenes regisztráció (platform hozzáféréssel)"
+  },
+  "privacyPolicy": {
+    "title": "Adatvédelmi irányelvek",
+    "lastUpdated": "Utolsó frissítés: 2024. december",
+    "websiteAddress": "Weboldalunk címe: https://bestglobalai.com",
+    "sections": {
+      "whoWeAre": {
+        "title": "Kik vagyunk",
+        "content": "Weboldalunk címe: https://bestglobalai.com"
+      },
+      "comments": {
+        "title": "Hozzászólások",
+        "content": "Amikor a látogatók hozzászólásokat hagynak az oldalon, összegyűjtjük a hozzászólási űrlapon megjelenő adatokat, valamint a látogató IP címét és böngésző user agent karakterláncát a spam észlelés segítésére. Az e-mail címéből létrehozott anonimizált karakterlánc (más néven hash) a Gravatar szolgáltatásnak adható át, hogy lássa, használja-e. A Gravatar szolgáltatás adatvédelmi irányelvei itt érhetők el: https://automattic.com/privacy/. Hozzászólása jóváhagyása után profilképe nyilvánosan láthatóvá válik hozzászólása kontextusában."
+      },
+      "media": {
+        "title": "Média",
+        "content": "Ha képeket tölt fel a weboldalra, kerülje a beágyazott helyadatokkal (EXIF GPS) rendelkező képek feltöltését. A weboldal látogatói letölthetik és kinyerhetik a weboldal képeiből származó helyadatokat."
+      },
+      "cookies": {
+        "title": "Sütik",
+        "content": "Nem használunk sütiket látogatóink információinak gyűjtésére."
+      },
+      "embeddedContent": {
+        "title": "Beágyazott tartalom más weboldalakról",
+        "content": "Az oldalon található cikkek tartalmazhatnak beágyazott tartalmat (pl. videók, képek, cikkek stb.). A más weboldalakról származó beágyazott tartalom pontosan ugyanúgy viselkedik, mintha a látogató meglátogatta volna a másik weboldalt."
+      },
+      "dataSharing": {
+        "title": "Kivel osztjuk meg az adatait",
+        "content": "Ha jelszó visszaállítást kér, IP címe szerepelni fog a visszaállítási e-mailben."
+      },
+      "dataRetention": {
+        "title": "Mennyi ideig tároljuk az adatait",
+        "content": "Ha hozzászólást hagy, a hozzászólás és metaadatai korlátlan ideig megmaradnak. Ez azért van, hogy automatikusan felismerjük és jóváhagyhassuk a következő hozzászólásokat, ahelyett, hogy moderálási sorban tartanánk őket. A weboldalunkra regisztráló felhasználók (ha vannak) esetében a felhasználói profiljukban megadott személyes információkat is tároljuk. Minden felhasználó bármikor megtekintheti, szerkesztheti vagy törölheti személyes információit (kivéve, hogy nem változtathatja meg felhasználónevét). A weboldal adminisztrátorai ezeket az információkat is megtekinthetik és szerkeszthetik."
+      },
+      "userRights": {
+        "title": "Milyen jogai vannak az adatai felett",
+        "content": "Ha van fiókja ezen az oldalon, vagy hagyott hozzászólásokat, kérheti az Önről tárolt személyes adatok exportált fájljának átadását, beleértve az általunk biztosított összes adatot. Azt is kérheti, hogy töröljük az Önről tárolt személyes adatokat. Ez nem tartalmazza azokat az adatokat, amelyeket kötelezően meg kell tartanunk adminisztratív, jogi vagy biztonsági célokra."
+      },
+      "dataTransfer": {
+        "title": "Hová küldjük az adatait",
+        "content": "A látogatók hozzászólásai automatikus spam észlelési szolgáltatáson keresztül ellenőrizhetők."
+      }
+    },
+    "contact": {
+      "title": "Kérdései vannak ezzel az irányelvvel kapcsolatban?",
+      "description": "Ha bármilyen kérdése van ezzel az Adatvédelmi Irányelvvel vagy az adatok kezelésével kapcsolatban, kérjük, ne habozzon kapcsolatba lépni velünk.",
+      "website": "https://bestglobalai.com"
+    }
+  },
+  "contactPage": {
+    "title": "Lépjen velünk kapcsolatba",
+    "description": "Ha segítségre van szüksége szolgáltatásunkkal kapcsolatban, vagy bármilyen kérdése van, ne habozzon kapcsolatba lépni velünk.",
+    "form": {
+      "name": "Név",
+      "namePlaceholder": "Az Ön neve",
+      "email": "E-mail cím",
+      "emailPlaceholder": "email@domain.com",
+      "message": "Üzenet",
+      "messagePlaceholder": "Írja be üzenetét ide",
+      "sendButton": "Üzenet küldése"
+    },
+    "directContact": {
+      "title": "Lépjen velünk kapcsolatba közvetlenül"
+    },
+    "billing": {
+      "title": "Számlázási támogatás",
+      "description": "Kérdése van a díjával kapcsolatban? A platformon található fizetéssel kapcsolatos kérdésekért kérjük, lépjen velünk kapcsolatba:"
+    },
+    "customer": {
+      "title": "Ügyfélszolgálat",
+      "description": "Mindig örömmel beszélünk Önnel. Ha bármilyen kérdése van szolgáltatásunkkal kapcsolatban, hívjon vagy írjon nekünk:"
+    },
+    "meet": {
+      "title": "Találkozó ütemezése",
+      "description": "Közvetlen segítségre van szüksége? Ütemezzen személyre szabott találkozót csapatunkkal, hogy megbeszéljük igényeit és szakértői útmutatást kapjon."
+    }
+  },
+  "auction": {
+    "title": "Árverések",
+    "subtitle": "Fedezzen fel és vegyen részt élő árveréseken",
+    "myAuctions": "Árveréseim",
+    "createAuction": "Árverés létrehozása",
+    "browseAll": "Összes árverés böngészése",
+    "manageAuctions": "Kezelje és kövesse árverési hirdetéseit",
+    "createNewAuction": "Új árverés létrehozása",
+    "noAuctionsFound": "Nem található árverés",
+    "createFirstAuction": "Hozza létre első árverését",
+    "filters": {
+      "allAuctions": "Összes árverés",
+      "scheduled": "Ütemezett",
+      "active": "Aktív",
+      "sold": "Eladva",
+      "ended": "Befejezve"
+    },
+    "status": {
+      "scheduled": "Ütemezett",
+      "active": "Aktív",
+      "sold": "Eladva",
+      "soldBuyNow": "Eladva (Azonnal vásárol)",
+      "soldOffer": "Eladva (Ajánlat)",
+      "ended": "Befejezve",
+      "endedNoSale": "Befejezve (Nincs eladás)",
+      "cancelled": "Törölve"
+    },
+    "create": {
+      "title": "Új árverés létrehozása",
+      "form": {
+        "title": "Árverés címe",
+        "titlePlaceholder": "Adja meg az árverés címét",
+        "description": "Leírás",
+        "descriptionPlaceholder": "Írja le árverési tárgyát",
+        "currency": "Pénznem",
+        "startingPrice": "Kezdő ár",
+        "startingPricePlaceholder": "0,00",
+        "reservePrice": "Tartalék ár (Opcionális)",
+        "reservePricePlaceholder": "Minimális eladási ár",
+        "reservePriceHelp": "A minimális ár, amit hajlandó elfogadni. Ha nem éri el, az árverés nem lesz eladva.",
+        "buyNowPrice": "Azonnal vásárol ár (Opcionális)",
+        "buyNowPricePlaceholder": "Azonnali vásárlási ár",
+        "buyNowPriceHelp": "Engedélyezze a vásárlóknak, hogy azonnal vásároljanak ezen az áron.",
+        "startTime": "Kezdési idő",
+        "endTime": "Befejezési idő",
+        "extendSeconds": "Sniping elleni meghosszabbítás (másodperc)",
+        "extendSecondsPlaceholder": "30",
+        "extendSecondsHelp": "Hosszabbítsa meg az árverést ennyi másodperccel, amikor az utolsó percben ajánlatot tesznek.",
+        "minIncrement": "Minimális ajánlat növekmény",
+        "minIncrementPlaceholder": "1,00",
+        "createButton": "Árverés létrehozása",
+        "cancelButton": "Mégse"
+      },
+      "validation": {
+        "titleRequired": "A cím, leírás, kezdő ár, kezdési idő és befejezési idő kötelező",
+        "startingPriceRequired": "A kezdő árnak 0-nál nagyobbnak kell lennie",
+        "reservePriceInvalid": "A tartalék árnak nagyobbnak kell lennie, mint a kezdő ár",
+        "buyNowPriceInvalid": "Az azonnal vásárol árnak nagyobbnak kell lennie, mint a kezdő ár",
+        "reservePriceTooHigh": "A tartalék ár nem lehet magasabb, mint az azonnal vásárol ár",
+        "endTimeInvalid": "A befejezési időnek a kezdési idő után kell lennie",
+        "startTimeInvalid": "A kezdési időnek a jövőben kell lennie"
+      }
+    },
+    "list": {
+      "startingPrice": "Kezdő ár:",
+      "currentBid": "Jelenlegi ajánlat:",
+      "buyNow": "Azonnal vásárol:",
+      "starts": "Kezdődik:",
+      "ends": "Végződik:",
+      "timeLeft": "Hátralévő idő:",
+      "ended": "Befejezve",
+      "by": "által",
+      "viewAuction": "Árverés megtekintése",
+      "page": "Oldal",
+      "of": "a",
+      "previous": "Előző",
+      "next": "Következő"
+    },
+    "delete": "Törlés",
+    "confirmDeleteTitle": "Törlés megerősítése",
+    "confirmDelete": "Biztosan törölni szeretné ezt az árverést? Ez a művelet nem vonható vissza.",
+    "deleteError": "Az árverés törlése sikertelen",
+    "deleteDisabledActive": "Az aktív árverések nem törölhetők",
+    "deleting": "Törlés...",
+    "cancel": "Mégse",
+    "view": {
+      "placeBid": "Ajánlat tétel",
+      "buyNow": "Azonnal vásárol",
+      "makeOffer": "Ajánlat tétel",
+      "bidAmount": "Ajánlat összege",
+      "minimumBid": "Minimális ajánlat:",
+      "yourBid": "Az Ön ajánlata",
+      "bidButton": "Ajánlat tétel",
+      "offerAmount": "Ajánlat összege",
+      "offerButton": "Ajánlat tétel",
+      "bidHistory": "Ajánlat történet",
+      "offers": "Ajánlatok",
+      "noBids": "Még nincsenek ajánlatok",
+      "noOffers": "Még nincsenek ajánlatok",
+      "timeRemaining": "Hátralévő idő",
+      "days": "n",
+      "hours": "ó",
+      "minutes": "p",
+      "seconds": "m",
+      "reserveNotMet": "Tartalék ár nem érte el",
+      "reserveMet": "Tartalék ár elérve",
+      "online": "online",
+      "bidders": "licitálók"
+    },
+    "bidding": {
+      "bidPlaced": "Az ajánlat sikeresen leadva",
+      "bidFailed": "Az ajánlat leadása sikertelen",
+      "bidTooLow": "Az ajánlat összege túl alacsony",
+      "auctionEnded": "Az árverés befejeződött",
+      "auctionNotActive": "Az árverés nem fogad ajánlatokat",
+      "buyNowSuccess": "Az árverés sikeresen megvásárolva",
+      "buyNowFailed": "Az árverés vásárlása sikertelen",
+      "offerCreated": "Az ajánlat sikeresen létrehozva",
+      "offerFailed": "Az ajánlat létrehozása sikertelen",
+      "offerAccepted": "Az ajánlat elfogadva",
+      "offerDeclined": "Az ajánlat elutasítva"
+    },
+    "currency": {
+      "USD": "USD - Amerikai dollár",
+      "EUR": "EUR - Euró",
+      "GBP": "GBP - Brit font",
+      "CAD": "CAD - Kanadai dollár",
+      "AUD": "AUD - Ausztrál dollár"
+    }
+  },
+  "books": {
+    "title": "Könyvek",
+    "subtitle": "Kezelje EPUB könyveit és hozzon létre ARC kampányokat",
+    "uploadBook": "Könyv feltöltése",
+    "totalBooks": "Összes könyv",
+    "readyBooks": "Kész könyvek",
+    "processingBooks": "Feldolgozás",
+    "errorBooks": "Hiba",
+    "noBooks": "Nem található könyv",
+    "noBooksDescription": "Töltse fel első EPUB könyvét a kezdéshez.",
+    "epubFile": "EPUB fájl",
+    "dragDropFile": "Húzza ide EPUB fájlját",
+    "browse": "böngészés",
+    "epubOnly": "Csak EPUB fájlok",
+    "title": "Cím",
+    "author": "Szerző",
+    "description": "Leírás",
+    "isbn": "ISBN",
+    "publisher": "Kiadó",
+    "publicationDate": "Kiadás dátuma",
+    "language": "Nyelv",
+    "genre": "Műfaj",
+    "tags": "Címkék",
+    "genrePlaceholder": "Regény, Nem regény, Romantika stb.",
+    "tagsPlaceholder": "bestseller, díjazott stb.",
+    "upload": "Feltöltés",
+    "uploading": "Feltöltés...",
+    "cancel": "Mégse",
+    "invalidFileType": "Kérjük, válasszon érvényes EPUB fájlt",
+    "noFileSelected": "Kérjük, válasszon fájlt feltöltéshez",
+    "titleAndAuthorRequired": "A cím és a szerző kötelező",
+    "uploadError": "A könyv feltöltése sikertelen",
+    "statusReady": "Kész",
+    "statusProcessing": "Feldolgozás",
+    "statusUploading": "Feltöltés",
+    "statusError": "Hiba",
+    "statusDeleted": "Törölve",
+    "view": "Megtekintés",
+    "edit": "Szerkesztés",
+    "delete": "Törlés",
+    "confirmDelete": "Biztosan törölni szeretné ezt a könyvet?",
+    "deleteError": "A könyv törlése sikertelen",
+    "download": "Letöltés",
+    "downloadError": "A könyv letöltése sikertelen",
+    "loading": "Betöltés...",
+    "bookNotFound": "A könyv nem található",
+    "backToBooks": "Vissza a könyvekhez",
+    "coverImage": "Borító kép",
+    "quickStats": "Gyors statisztikák",
+    "fileSize": "Fájl méret",
+    "pages": "Oldalak",
+    "words": "Szavak",
+    "readingTime": "Olvasási idő",
+    "minutes": "perc",
+    "uploadDate": "Feltöltés dátuma",
+    "actions": "Műveletek",
+    "bookDetails": "Könyv részletek",
+    "epubMetadata": "EPUB metaadatok",
+    "creator": "Készítő",
+    "date": "Dátum",
+    "rights": "Jogok",
+    "lastModified": "Utolsó módosítás",
+    "filters": "Szűrők",
+    "clearFilters": "Szűrők törlése",
+    "searchPlaceholder": "Könyvek keresése...",
+    "allStatuses": "Összes állapot",
+    "allLanguages": "Összes nyelv",
+    "authorPlaceholder": "Keresés szerző szerint...",
+    "showAdvanced": "Haladó megjelenítése",
+    "hideAdvanced": "Haladó elrejtése",
+    "sortBy": "Rendezés",
+    "showing": "Megjelenítés",
+    "to": "-",
+    "of": "a",
+    "results": "eredményből",
+    "previous": "Előző",
+    "next": "Következő",
+    "page": "Oldal",
+    "statusReadyDescription": "A könyv használatra kész",
+    "statusProcessingDescription": "A könyv feldolgozás alatt van",
+    "statusUploadingDescription": "A könyv feltöltés alatt van",
+    "statusErrorDescription": "Hiba történt a feldolgozás során",
+    "statusDeletedDescription": "A könyv törölve lett",
+    "statusUnknownDescription": "Ismeretlen állapot",
+    "processingStarted": "A feldolgozás elindult",
+    "processingProgress": "Feldolgozás folyamatban...",
+    "errorOccurred": "Hiba történt",
+    "viewErrorDetails": "Hibareszletek megtekintése",
+    "readyForUse": "Használatra kész",
+    "createArcCampaign": "ARC kampány létrehozása",
+    "uploaded": "Feltöltve",
+    "duplicate": "Duplikálás",
+    "share": "Megosztás",
+    "status": "Állapot"
+  },
+  "integrations": {
+    "title": "Integrációk",
+    "subtitle": "Csatlakoztassa fiókjait külső szolgáltatásokhoz",
+    "connectIntegration": "Integráció csatlakoztatása",
+    "loading": "Betöltés...",
+    "connectWordToWallet": "WordToWallet csatlakoztatása",
+    "connectWordToWalletDescription": "Csatlakoztassa WordToWallet fiókját ARC kampányok létrehozásához",
+    "apiKey": "API kulcs",
+    "apiKeyPlaceholder": "Adja meg WordToWallet API kulcsát",
+    "apiKeyHelp": "API kulcsa titkosítva és biztonságosan tárolódik",
+    "howToGetApiKey": "Hogyan szerezze meg API kulcsát:",
+    "step1": "Jelentkezzen be WordToWallet fiókjába",
+    "step2": "Lépjen a Beállítások > API kulcsok menüpontra",
+    "step3": "Generáljon új API kulcsot",
+    "step4": "Másolja és illessze be ide",
+    "features": "Funkciók",
+    "feature1": "Könyvek feltöltése WordToWallet-ba",
+    "feature2": "ARC kampányok létrehozása",
+    "feature3": "Letöltési kódok generálása",
+    "feature4": "Letöltési elemzések követése",
+    "connect": "Csatlakozás",
+    "connecting": "Csatlakozás...",
+    "cancel": "Mégse",
+    "apiKeyRequired": "Az API kulcs kötelező",
+    "connectionFailed": "A WordToWallet-hez való csatlakozás sikertelen",
+    "availableIntegrations": "Elérhető integrációk",
+    "WordToWalletDescription": "Hozzon létre és kezeljen ARC kampányokat könyveihez",
+    "amazonKdpDescription": "Közvetlenül publikáljon az Amazon Kindle Direct Publishing-ra",
+    "draft2digitalDescription": "Terjesztés több e-könyv kiskereskedőhöz",
+    "smashwordsDescription": "Publikálás a Smashwords piacon",
+    "comingSoon": "Hamarosan",
+    "connectedIntegrations": "Csatlakoztatott integrációk",
+    "lastSync": "Utolsó szinkronizálás",
+    "test": "Teszt",
+    "sync": "Szinkronizálás",
+    "disconnect": "Leválasztás",
+    "confirmDisconnect": "Biztosan le szeretné választani ezt az integrációt?",
+    "statusActive": "Aktív",
+    "statusInactive": "Inaktív",
+    "statusError": "Hiba",
+    "statusPending": "Függőben"
+  },
+  "arc": {
+    "title": "ARC kampányok",
+    "subtitle": "Hozzon létre és kezeljen Advanced Reader Copy kampányokat",
+    "createCampaign": "Kampány létrehozása",
+    "cancel": "Mégse",
+    "totalLinks": "Összes link",
+    "activeLinks": "Aktív linkek",
+    "expiredLinks": "Lejárt linkek",
+    "maxDownloads": "Max letöltések",
+    "errorLinks": "Hibás linkek",
+    "filters": "Szűrők",
+    "status": "Állapot",
+    "allStatuses": "Összes állapot",
+    "statusActive": "Aktív",
+    "statusExpired": "Lejárt",
+    "statusMaxDownloads": "Elérte a max letöltéseket",
+    "statusDisabled": "Letiltva",
+    "statusError": "Hiba",
+    "book": "Könyv",
+    "allBooks": "Összes könyv",
+    "expired": "Lejárt",
+    "all": "Összes",
+    "expiredOnly": "Csak lejárt",
+    "activeOnly": "Csak aktív",
+    "noArcLinks": "Nem található ARC link",
+    "noArcLinksDescription": "Hozza létre első ARC kampányát letöltési linkek generálásához.",
+    "downloads": "letöltések",
+    "max": "max",
+    "expires": "Lejár",
+    "created": "Létrehozva",
+    "copyCode": "Kód másolása",
+    "copied": "Másolva!",
+    "share": "Megosztás",
+    "view": "Megtekintés",
+    "delete": "Törlés",
+    "confirmDelete": "Biztosan törölni szeretné ezt az ARC linket?",
+    "deleteError": "Az ARC link törlése sikertelen",
+    "linkCopied": "A link a vágólapra másolva",
+    "showing": "Megjelenítés",
+    "to": "-",
+    "of": "a",
+    "results": "eredményből",
+    "previous": "Előző",
+    "next": "Következő",
+    "page": "Oldal",
+    "createCampaignDescription": "Hozzon létre új ARC kampányt könyve letöltési linkjeinek generálásához",
+    "selectBook": "Könyv kiválasztása",
+    "chooseBook": "Válasszon könyvet...",
+    "selectedBook": "Kiválasztott könyv",
+    "campaignName": "Kampány neve",
+    "campaignNamePlaceholder": "Adja meg a kampány nevét",
+    "description": "Leírás",
+    "descriptionPlaceholder": "Adja meg a kampány leírását",
+    "numberOfCodes": "Kódok száma",
+    "quantityHelp": "Generálandó letöltési kódok száma (1-1000)",
+    "maxDownloadsPerCode": "Max letöltések kódonként",
+    "unlimited": "Korlátlan",
+    "totalMaxDownloads": "Összes max letöltés",
+    "expirationDate": "Lejárati dátum",
+    "campaignInfo": "Kampány információk",
+    "info1": "Az ARC kódok automatikusan generálódnak",
+    "info2": "Minden kód megosztható az olvasókkal",
+    "info3": "A letöltés követés elérhető",
+    "info4": "A kódok beállíthatók automatikus lejáratra",
+    "bookAndNameRequired": "A könyv kiválasztása és a kampány neve kötelező",
+    "invalidQuantity": "A mennyiségnek 1 és 1000 között kell lennie",
+    "creating": "Létrehozás...",
+    "creationFailed": "A kampány létrehozása sikertelen"
+  }
+}

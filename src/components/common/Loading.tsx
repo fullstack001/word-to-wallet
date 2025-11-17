@@ -2,11 +2,12 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 interface LoadingProps {
   message?: string;
   size?: "sm" | "md" | "lg" | "xl";
-  variant?: "spinner" | "dots" | "pulse" | "skeleton";
+  variant?: "spinner" | "dots" | "pulse" | "skeleton" | "logo";
   fullScreen?: boolean;
   className?: string;
 }
@@ -80,6 +81,35 @@ export default function Loading({
     </div>
   );
 
+  const renderLogo = () => {
+    const logoSize = {
+      sm: "w-12 h-12",
+      md: "w-16 h-16",
+      lg: "w-24 h-24",
+      xl: "w-32 h-32",
+    };
+
+    return (
+      <motion.div
+        className={`relative ${logoSize[size]}`}
+        animate={{ rotate: 360 }}
+        transition={{
+          duration: 2,
+          repeat: Infinity,
+          ease: "linear",
+        }}
+      >
+        <Image
+          src="/logo.png"
+          alt="Loading..."
+          fill
+          className="object-contain"
+          priority
+        />
+      </motion.div>
+    );
+  };
+
   const renderLoader = () => {
     switch (variant) {
       case "dots":
@@ -88,6 +118,8 @@ export default function Loading({
         return renderPulse();
       case "skeleton":
         return renderSkeleton();
+      case "logo":
+        return renderLogo();
       default:
         return renderSpinner();
     }
@@ -133,7 +165,7 @@ export function PageLoading({
 }: {
   message?: string;
 }) {
-  return <Loading message={message} size="lg" fullScreen />;
+  return <Loading message={message} size="lg" variant="logo" fullScreen />;
 }
 
 export function InlineLoading({

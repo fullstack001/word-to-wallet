@@ -113,7 +113,16 @@ export function validateForm(
   const errors: { [key: string]: string } = {};
 
   for (const [fieldName, rule] of Object.entries(schema)) {
-    const error = validateField(data[fieldName], rule, fieldName);
+    // For custom validation functions that need access to formData, pass the full data object
+    let error: string | null;
+    if (rule.custom && rule.custom.length > 1) {
+      // Custom function expects formData parameter
+      error = rule.custom(data[fieldName], data);
+    } else {
+      // Standard validation or custom function without formData
+      error = validateField(data[fieldName], rule, fieldName);
+    }
+    
     if (error) {
       errors[fieldName] = error;
     }

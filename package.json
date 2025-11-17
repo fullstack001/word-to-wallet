@@ -8,7 +8,13 @@
     "start": "next start -p 3065",
     "lint": "next lint",
     "setup-env": "node scripts/setup-env.js",
-    "copy-env": "node scripts/copy-env-template.js"
+    "copy-env": "node scripts/copy-env-template.js",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "test:api": "node test-frontend-api.js",
+    "test:qa": "node run-all-tests.js",
+    "test:qa:quick": "node run-all-tests.js --skip-e2e"
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
@@ -46,6 +52,10 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@testing-library/jest-dom": "^6.1.5",
+    "@testing-library/react": "^14.1.2",
+    "@testing-library/user-event": "^14.5.1",
+    "@types/jest": "^29.5.11",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
@@ -53,6 +63,8 @@
     "autoprefixer": "^10.4.21",
     "eslint": "^9",
     "eslint-config-next": "15.1.8",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
     "postcss": "^8.5.3",
     "tailwindcss": "^3.4.17",
     "typescript": "^5"

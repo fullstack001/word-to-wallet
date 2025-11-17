@@ -1,0 +1,666 @@
+{
+  "common": {
+    "loading": "Se încarcă...",
+    "error": "Eroare",
+    "configNotFound": "Configurația nu a fost găsită pentru pagina principală.",
+    "home": "Acasă"
+  },
+  "errors": {
+    "oops": "Ups!",
+    "somethingWentWrong": "Ceva nu a mers bine",
+    "pageNotFound": "Pagina nu a fost găsită",
+    "pageNotExist": "Pagina pe care o căutați nu există.",
+    "errorLoadingPage": "Am întâmpinat o eroare la încărcarea acestei pagini. Vă rugăm să încercați din nou.",
+    "errorLoadingApp": "Am întâmpinat o eroare la încărcarea aplicației. Vă rugăm să încercați din nou.",
+    "tryAgain": "Încercați din nou",
+    "goHome": "Mergi acasă",
+    "goToHomePage": "Mergi la pagina principală",
+    "errorDetails": "Detalii eroare (doar pentru dezvoltare)"
+  },
+  "faq": {
+    "title": "Întrebări frecvente",
+    "q1": {
+      "q": "Am nevoie de alte instrumente AI?",
+      "a": "Nu. WordToWallet centralizează textul, designul și livrarea, astfel încât să nu trebuiască să jonglați cu zeci de aplicații."
+    },
+    "q2": {
+      "q": "Pot încă să public pe piețe?",
+      "a": "Da—conectați-vă conturile Draft2Digital sau WordToWallet și predați când doriți o distribuție mai largă."
+    },
+    "q3": {
+      "q": "Cursul este cu adevărat gratuit?",
+      "a": "Da—cursul este gratuit pentru membri. Plătiți pentru accesul la platformă și puteți anula oricând."
+    }
+  },
+  "footer": {
+    "selectLanguage": "Selectează limba"
+  },
+  "auth": {
+    "signIn": "Conectează-te",
+    "email": "E-mail",
+    "password": "Parolă",
+    "emailAddress": "Adresă e-mail"
+  },
+  "account": {
+    "account": "Cont",
+    "membership": "Membru",
+    "noSubscription": "Fără abonament activ",
+    "unlockAllTools": "Deblocați toate instrumentele",
+    "fullAccess": "Obțineți acces complet la toate instrumentele PDF",
+    "subscribeNow": "Abonează-te acum",
+    "subscribe": "Abonează-te",
+    "paymentMethod": "Metodă de plată",
+    "saveTime": "Economisește timp cu plăți automate",
+    "cardNumber": "Număr card",
+    "notSpecified": "Nespecificat",
+    "importantUpdates": "Actualizări importante despre contul dvs."
+  },
+  "plan": {
+    "choosePlan": "Alegeți planul dvs.",
+    "continue": "Continuă"
+  },
+  "navbar": {
+    "profileDetails": "Detalii profil",
+    "noSubscription": "Fără abonament",
+    "myDocuments": "Documentele mele",
+    "myAccount": "Contul meu"
+  },
+  "hero": {
+    "badge": "Membri primul · Instrumente private · Acoperire globală",
+    "title": "Transformă cuvintele în vânzări — Curs gratuit + Platformă ePub3",
+    "sub": "Construiește promo-uri ePub3 interactive cu ChatGPT-5 și vinde direct prin e-mail. Multilingv, măsurabil și fără intermediari.",
+    "ctaPrimary": "Obține acces la platformă",
+    "ctaSecondary": "Previzualizează cursul gratuit",
+    "legal": "Nu vindem niciodată datele dvs. Anulează oricând."
+  },
+  "audiences": {
+    "title": "Construit pentru cazul dvs. de utilizare",
+    "solopreneurs": {
+      "title": "Solopreneuri și echipe micro",
+      "desc": "Lansează promo-uri, colectează abonați și vinde servicii sau produse fără platforme publicitare costisitoare. Până la cinci membri ai echipei permisi."
+    },
+    "authors": {
+      "title": "Autori auto-publicați și agenții PR micro",
+      "desc": "Creează campanii și layout-uri de cărți (ficțiune și non-ficțiune), livrează ARCs și vinde către liste de cititori de nișă."
+    }
+  },
+  "value": {
+    "title": "De ce WordToWallet",
+    "cards": {
+      "epub3": {
+        "title": "Studio Creator ePub3",
+        "description": "Creează promo-uri și layout-uri de cărți. Lipește cod și design-uri generate de ChatGPT-5, previzualizează pe mobil și publică în câteva minute.",
+        "features": {
+          "0": "XHTML/CSS gata de lipit din prompt-uri",
+          "1": "Accesibilitate și traducere gata",
+          "2": "Șabloane reutilizabile pentru ficțiune/non-ficțiune"
+        }
+      },
+      "email": {
+        "title": "E-mail sigur pentru inbox",
+        "description": "Trimite e-mailuri cu text-prioritar, link-uri aliniate cu protecții de livrabilitate integrate (SPF/DKIM/DMARC). Încălzește și monitorizează fără ghicituri.",
+        "features": []
+      },
+      "analytics": {
+        "title": "Liste private și analiză",
+        "description": "Importă CSV-uri, segmentează după produs/gen și urmărește clicuri → descărcări → răspunsuri/cumpărături dintr-un singur tablou de bord.",
+        "features": []
+      },
+      "byoa": {
+        "title": "BYOA: D2D și WordToWallet",
+        "description": "Exportă pachete gata pentru piață sau livrează ARCs cu link-uri—integrează când dorești o distribuție mai largă.",
+        "features": []
+      }
+    }
+  },
+  "howItWorks": {
+    "title": "Cum funcționează",
+    "subtitle": "Începe în câteva minute cu procesul nostru simplu în 3 pași conceput pentru succes",
+    "steps": {
+      "step1": {
+        "title": "Începe să înveți",
+        "description": "Începe cu cursul nostru gratuit de scriere AI. Învață tehnici practice în lecții mici."
+      },
+      "step2": {
+        "title": "Construiește lista ta",
+        "description": "Folosește magneții noștri de cititori și integrarea MailerLite pentru a-ți crește audiența de e-mail."
+      },
+      "step3": {
+        "title": "Vinde și scalează",
+        "description": "Lansează produsele tale și lasă WordToWallet să se ocupe de livrare în timp ce te concentrezi pe scriere."
+      }
+    },
+    "cta": "Începe acum"
+  },
+  "howItWorksNew": {
+    "title": "Cum funcționează",
+    "steps": {
+      "step1": {
+        "title": "Spune-i ChatGPT-5 obiectivul tău",
+        "description": "Folosește cardurile noastre de prompt pentru oferte, audiențe și limbi."
+      },
+      "step2": {
+        "title": "Generează text și cod",
+        "description": "Subiecte, CTA-uri și secțiuni ePub3 gata de lipit."
+      },
+      "step3": {
+        "title": "Publică și trimite",
+        "description": "Intră live prin e-mail de la prima parte și urmărește funnel-ul."
+      }
+    }
+  },
+  "features": {
+    "title": "Tot ce ai nevoie pentru a",
+    "titleHighlight": "reuși",
+    "subtitle": "De la lecții de scriere alimentate de AI la infrastructura de vânzare directă, te-am acoperit.",
+    "cards": {
+      "aiWriting": {
+        "title": "Învață scrierea AI",
+        "description": "Lecții practice de 10 minute care te învață să produci capitole, rezumate și reclame folosind AI.",
+        "features": [
+          "Tutoriale interactive",
+          "Exemple din lumea reală",
+          "Urmărire progres"
+        ]
+      },
+      "audience": {
+        "title": "Construiește audiența ta",
+        "description": "Magnet de cititori + integrarea MailerLite construiește automat lista ta de e-mail.",
+        "features": ["Magneți de lead-uri", "Automatizare e-mail", "Analiză audiență"]
+      },
+      "sales": {
+        "title": "Vinde direct",
+        "description": "Conectează-ți magazinul; WordToWallet livrează fișiere direct către cumpărători.",
+        "features": ["Vânzări directe", "Livrare fișiere", "Gestionare clienți"]
+      }
+    }
+  },
+  "security": {
+    "badge": "Securitate primul",
+    "title": "Securitatea ta este prioritatea noastră",
+    "subtitle": "Implementăm măsuri de securitate de nivel enterprise pentru a ne asigura că documentele și datele tale rămân complet protejate în tot timpul.",
+    "features": {
+      "encryption": {
+        "title": "Criptare de nivel bancar",
+        "description": "Criptarea SSL de 256 de biți protejează datele tale"
+      },
+      "processing": {
+        "title": "Procesare sigură",
+        "description": "Fișierele sunt șterse automat după procesare"
+      },
+      "privacy": {
+        "title": "Confidențialitate primul",
+        "description": "Fără acces uman la documentele tale"
+      },
+      "compliance": {
+        "title": "Conform GDPR",
+        "description": "Conformitate completă cu reglementările de protecție a datelor"
+      }
+    },
+    "trustedBy": "De încredere pentru peste 400.000 de utilizatori din întreaga lume"
+  },
+  "testimonials": {
+    "title": "De încredere pentru profesioniști din întreaga lume",
+    "subtitle": "Vezi ce spun clienții noștri",
+    "rating": "Evaluare 5.0 din peste 3.000 de recenzii",
+    "review1": {
+      "name": "Jennifer Martinez",
+      "role": "Director Operațiuni Legale",
+      "company": "Global Law Partners",
+      "review": "WordToWallet a transformat fluxul nostru de lucru cu documentele. Echipa noastră juridică poate acum procesa contracte de 3 ori mai rapid cu funcțiile de completare automată a formularelor și semnătură electronică. Instrumentele de colaborare în echipă au eliminat complet problemele de control al versiunilor."
+    },
+    "review2": {
+      "name": "David Chen",
+      "role": "CTO",
+      "company": "TechFlow Solutions",
+      "review": "Ca startup în creștere, aveam nevoie de management de documente de nivel enterprise fără prețul enterprise. Funcțiile de echipă și procesarea nelimitată a WordToWallet s-au scalat perfect cu afacerea noastră. ROI-ul a fost atins în prima lună."
+    },
+    "review3": {
+      "name": "Sarah Williams",
+      "role": "Manager Financiar",
+      "company": "Merchant Capital Group",
+      "review": "Capacitățile OCR au revoluționat procesul nostru de digitalizare a documentelor. Echipa noastră contabilă poate acum căuta instantaneu prin mii de facturi scanate. Acest lucru ne-a economisit nenumărate ore și a îmbunătățit semnificativ pregătirea noastră pentru audit."
+    },
+    "review4": {
+      "name": "Michael Rodriguez",
+      "role": "Ofițer Conformitate",
+      "company": "SecureBank International",
+      "review": "Funcțiile de securitate enterprise ale WordToWallet ne dau încredere atunci când gestionăm documente sensibile ale clienților. Instrumentele de conformitate și urmele de audit au făcut raportarea noastră de reglementare mult mai simplă. Echipa noastră de conformitate o iubește."
+    },
+    "review5": {
+      "name": "Lisa Thompson",
+      "role": "Manager Operațiuni Marketing",
+      "company": "Digital Growth Agency",
+      "review": "Echipa noastră de marketing procesează sute de PDF-uri săptămânal pentru campanii. Funcțiile de procesare în lot și automatizare ale WordToWallet au redus timpul nostru de pregătire a documentelor cu 70%. ROI-ul este incredibil pentru orice afacere care dorește să-și scaleze operațiunile."
+    },
+    "review6": {
+      "name": "Robert Kim",
+      "role": "Director Proiect",
+      "company": "Construction Dynamics",
+      "review": "Funcțiile de colaborare în echipă au eliminat blocajele noastre de documente. Mai multe departamente pot acum lucra simultan pe aceleași documente cu actualizări în timp real. Acest lucru a îmbunătățit timpii noștri de livrare a proiectelor cu 40%."
+    }
+  },
+  "course": {
+    "badge": "Curs gratuit inclus",
+    "title": "Curs gratuit inclus",
+    "bullets": [
+      "Ghid de vânzare directă pentru e-mail + ePub3.",
+      "Bibliotecă de prompt-uri: oferte, promo-uri, secțiuni de destinație, traducere.",
+      "Șabloane de invitație anti-spam și listă de verificare de încălzire.",
+      "Proiect final: sprint-ul tău de profit de 7 zile."
+    ],
+    "cta": "Înscrie-te gratuit (cu acces la platformă)"
+  },
+  "privacyPolicy": {
+    "title": "Politica de confidențialitate",
+    "lastUpdated": "Ultima actualizare: decembrie 2024",
+    "websiteAddress": "Adresa site-ului nostru web este: https://bestglobalai.com",
+    "sections": {
+      "whoWeAre": {
+        "title": "Cine suntem",
+        "content": "Adresa site-ului nostru web este: https://bestglobalai.com"
+      },
+      "comments": {
+        "title": "Comentarii",
+        "content": "Când vizitatorii lasă comentarii pe site, colectăm datele afișate în formularul de comentarii, precum și adresa IP a vizitatorului și șirul user agent al browserului pentru a ajuta la detectarea spam-ului. Un șir anonimizat creat din adresa dvs. de e-mail (numit și hash) poate fi furnizat serviciului Gravatar pentru a vedea dacă îl folosiți. Politica de confidențialitate a serviciului Gravatar este disponibilă aici: https://automattic.com/privacy/. După aprobarea comentariului dvs., fotografia dvs. de profil este vizibilă publicului în contextul comentariului dvs."
+      },
+      "media": {
+        "title": "Media",
+        "content": "Dacă încărcați imagini pe site-ul web, ar trebui să evitați încărcarea imaginilor cu date de localizare încorporate (EXIF GPS) incluse. Vizitatorii site-ului web pot descărca și extrage orice date de localizare din imaginile de pe site."
+      },
+      "cookies": {
+        "title": "Cookie-uri",
+        "content": "Nu folosim cookie-uri pentru a colecta informațiile vizitatorilor noștri."
+      },
+      "embeddedContent": {
+        "title": "Conținut încorporat de pe alte site-uri web",
+        "content": "Articolele de pe acest site pot include conținut încorporat (de ex. videoclipuri, imagini, articole etc.). Conținutul încorporat de pe alte site-uri web se comportă exact la fel ca și cum vizitatorul ar fi vizitat celălalt site web."
+      },
+      "dataSharing": {
+        "title": "Cu cine împărtășim datele dvs.",
+        "content": "Dacă solicitați o resetare a parolei, adresa dvs. IP va fi inclusă în e-mailul de resetare."
+      },
+      "dataRetention": {
+        "title": "Cât timp păstrăm datele dvs.",
+        "content": "Dacă lăsați un comentariu, comentariul și metadatele sale sunt păstrate pe termen nelimitat. Acest lucru este pentru a putea recunoaște și aproba automat orice comentarii de urmărire în loc să le ținem într-o coadă de moderare. Pentru utilizatorii care se înregistrează pe site-ul nostru web (dacă există), stocăm și informațiile personale pe care le furnizează în profilul lor de utilizator. Toți utilizatorii pot vedea, edita sau șterge informațiile lor personale în orice moment (cu excepția faptului că nu pot schimba numele de utilizator). Administratorii site-ului web pot vedea și edita, de asemenea, aceste informații."
+      },
+      "userRights": {
+        "title": "Ce drepturi aveți asupra datelor dvs.",
+        "content": "Dacă aveți un cont pe acest site sau ați lăsat comentarii, puteți solicita să primiți un fișier exportat al datelor personale pe care le deținem despre dvs., inclusiv orice date pe care ni le-ați furnizat. De asemenea, puteți solicita să ștergem orice date personale pe care le deținem despre dvs. Acest lucru nu include datele pe care suntem obligați să le păstrăm în scopuri administrative, legale sau de securitate."
+      },
+      "dataTransfer": {
+        "title": "Unde sunt trimise datele dvs.",
+        "content": "Comentariile vizitatorilor pot fi verificate printr-un serviciu automat de detectare a spam-ului."
+      }
+    },
+    "contact": {
+      "title": "Întrebări despre această politică?",
+      "description": "Dacă aveți întrebări despre această Politică de Confidențialitate sau despre modul în care gestionăm datele dvs., nu ezitați să ne contactați.",
+      "website": "https://bestglobalai.com"
+    }
+  },
+  "contactPage": {
+    "title": "Contactează-ne",
+    "description": "Dacă ai nevoie de asistență cu serviciul nostru sau ai întrebări, nu ezita să ne contactezi.",
+    "form": {
+      "name": "Nume",
+      "namePlaceholder": "Numele tău",
+      "email": "Adresă e-mail",
+      "emailPlaceholder": "email@domain.com",
+      "message": "Mesaj",
+      "messagePlaceholder": "Scrie mesajul tău aici",
+      "sendButton": "Trimite mesaj"
+    },
+    "directContact": {
+      "title": "Contactează-ne direct"
+    },
+    "billing": {
+      "title": "Suport facturare",
+      "description": "Ai o întrebare despre taxa ta? Pentru orice întrebări legate de plăți pe platformă, te rugăm să ne contactezi la:"
+    },
+    "customer": {
+      "title": "Suport clienți",
+      "description": "Suntem întotdeauna bucuroși să vorbim cu tine. Dacă ai întrebări despre serviciul nostru, sună-ne sau trimite-ne un e-mail la:"
+    },
+    "meet": {
+      "title": "Programează o întâlnire",
+      "description": "Ai nevoie de ajutor direct? Programează o întâlnire personalizată cu echipa noastră pentru a discuta nevoile tale și a obține îndrumări de la experți."
+    }
+  },
+  "auction": {
+    "title": "Licității",
+    "subtitle": "Descoperă și participă la licitații live",
+    "myAuctions": "Licitățiile mele",
+    "createAuction": "Creează licitație",
+    "browseAll": "Răsfoiește toate licitațiile",
+    "manageAuctions": "Gestionează și urmărește anunțurile tale de licitație",
+    "createNewAuction": "Creează licitație nouă",
+    "noAuctionsFound": "Nu s-au găsit licitații",
+    "createFirstAuction": "Creează prima ta licitație",
+    "filters": {
+      "allAuctions": "Toate licitațiile",
+      "scheduled": "Programate",
+      "active": "Active",
+      "sold": "Vândute",
+      "ended": "Terminate"
+    },
+    "status": {
+      "scheduled": "Programată",
+      "active": "Activă",
+      "sold": "Vândută",
+      "soldBuyNow": "Vândută (Cumpără acum)",
+      "soldOffer": "Vândută (Ofertă)",
+      "ended": "Terminată",
+      "endedNoSale": "Terminată (Fără vânzare)",
+      "cancelled": "Anulată"
+    },
+    "create": {
+      "title": "Creează licitație nouă",
+      "form": {
+        "title": "Titlu licitație",
+        "titlePlaceholder": "Introdu titlul licitației",
+        "description": "Descriere",
+        "descriptionPlaceholder": "Descrie obiectul licitației",
+        "currency": "Monedă",
+        "startingPrice": "Preț de pornire",
+        "startingPricePlaceholder": "0.00",
+        "reservePrice": "Preț de rezervă (Opțional)",
+        "reservePricePlaceholder": "Preț minim de vânzare",
+        "reservePriceHelp": "Prețul minim pe care ești dispus să-l accepți. Dacă nu este atins, licitația nu va fi vândută.",
+        "buyNowPrice": "Preț Cumpără acum (Opțional)",
+        "buyNowPricePlaceholder": "Preț de cumpărare instant",
+        "buyNowPriceHelp": "Permite cumpărătorilor să cumpere imediat la acest preț.",
+        "startTime": "Ora de început",
+        "endTime": "Ora de sfârșit",
+        "extendSeconds": "Prelungire anti-sniping (secunde)",
+        "extendSecondsPlaceholder": "30",
+        "extendSecondsHelp": "Prelungește licitația cu atâtea secunde când oferta este plasată în ultimul minut.",
+        "minIncrement": "Creștere minimă a ofertei",
+        "minIncrementPlaceholder": "1.00",
+        "createButton": "Creează licitație",
+        "cancelButton": "Anulează"
+      },
+      "validation": {
+        "titleRequired": "Titlul, descrierea, prețul de pornire, ora de început și ora de sfârșit sunt obligatorii",
+        "startingPriceRequired": "Prețul de pornire trebuie să fie mai mare decât 0",
+        "reservePriceInvalid": "Prețul de rezervă trebuie să fie mai mare decât prețul de pornire",
+        "buyNowPriceInvalid": "Prețul Cumpără acum trebuie să fie mai mare decât prețul de pornire",
+        "reservePriceTooHigh": "Prețul de rezervă nu poate fi mai mare decât prețul Cumpără acum",
+        "endTimeInvalid": "Ora de sfârșit trebuie să fie după ora de început",
+        "startTimeInvalid": "Ora de început trebuie să fie în viitor"
+      }
+    },
+    "list": {
+      "startingPrice": "Preț de pornire:",
+      "currentBid": "Ofertă curentă:",
+      "buyNow": "Cumpără acum:",
+      "starts": "Începe:",
+      "ends": "Se termină:",
+      "timeLeft": "Timp rămas:",
+      "ended": "Terminată",
+      "by": "de",
+      "viewAuction": "Vezi licitația",
+      "page": "Pagina",
+      "of": "din",
+      "previous": "Anterior",
+      "next": "Următor"
+    },
+    "delete": "Șterge",
+    "confirmDeleteTitle": "Confirmă ștergerea",
+    "confirmDelete": "Ești sigur că vrei să ștergi această licitație? Această acțiune nu poate fi anulată.",
+    "deleteError": "Nu s-a putut șterge licitația",
+    "deleteDisabledActive": "Nu se pot șterge licitațiile active",
+    "deleting": "Se șterge...",
+    "cancel": "Anulează",
+    "view": {
+      "placeBid": "Plasează ofertă",
+      "buyNow": "Cumpără acum",
+      "makeOffer": "Fă o ofertă",
+      "bidAmount": "Suma ofertei",
+      "minimumBid": "Ofertă minimă:",
+      "yourBid": "Oferta ta",
+      "bidButton": "Plasează ofertă",
+      "offerAmount": "Suma ofertei",
+      "offerButton": "Fă o ofertă",
+      "bidHistory": "Istoric oferte",
+      "offers": "Oferte",
+      "noBids": "Încă nu sunt oferte",
+      "noOffers": "Încă nu sunt oferte",
+      "timeRemaining": "Timp rămas",
+      "days": "z",
+      "hours": "h",
+      "minutes": "m",
+      "seconds": "s",
+      "reserveNotMet": "Preț de rezervă neatin",
+      "reserveMet": "Preț de rezervă atins",
+      "online": "online",
+      "bidders": "licitatori"
+    },
+    "bidding": {
+      "bidPlaced": "Oferta a fost plasată cu succes",
+      "bidFailed": "Nu s-a putut plasa oferta",
+      "bidTooLow": "Suma ofertei este prea mică",
+      "auctionEnded": "Licitația s-a terminat",
+      "auctionNotActive": "Licitația nu acceptă oferte",
+      "buyNowSuccess": "Licitația a fost cumpărată cu succes",
+      "buyNowFailed": "Nu s-a putut cumpăra licitația",
+      "offerCreated": "Oferta a fost creată cu succes",
+      "offerFailed": "Nu s-a putut crea oferta",
+      "offerAccepted": "Oferta acceptată",
+      "offerDeclined": "Oferta respinsă"
+    },
+    "currency": {
+      "USD": "USD - Dolar american",
+      "EUR": "EUR - Euro",
+      "GBP": "GBP - Liră sterlină",
+      "CAD": "CAD - Dolar canadian",
+      "AUD": "AUD - Dolar australian"
+    }
+  },
+  "books": {
+    "title": "Cărți",
+    "subtitle": "Gestionează cărțile tale EPUB și creează campanii ARC",
+    "uploadBook": "Încarcă carte",
+    "totalBooks": "Total cărți",
+    "readyBooks": "Cărți gata",
+    "processingBooks": "Se procesează",
+    "errorBooks": "Eroare",
+    "noBooks": "Nu s-au găsit cărți",
+    "noBooksDescription": "Încarcă prima ta carte EPUB pentru a începe.",
+    "epubFile": "Fișier EPUB",
+    "dragDropFile": "Trage și plasează fișierul tău EPUB aici",
+    "browse": "răsfoiește",
+    "epubOnly": "Doar fișiere EPUB",
+    "title": "Titlu",
+    "author": "Autor",
+    "description": "Descriere",
+    "isbn": "ISBN",
+    "publisher": "Editor",
+    "publicationDate": "Data publicării",
+    "language": "Limba",
+    "genre": "Gen",
+    "tags": "Etichete",
+    "genrePlaceholder": "Ficțiune, Non-ficțiune, Romanță etc.",
+    "tagsPlaceholder": "bestseller, premiat etc.",
+    "upload": "Încarcă",
+    "uploading": "Se încarcă...",
+    "cancel": "Anulează",
+    "invalidFileType": "Te rugăm să selectezi un fișier EPUB valid",
+    "noFileSelected": "Te rugăm să selectezi un fișier de încărcat",
+    "titleAndAuthorRequired": "Titlul și autorul sunt obligatorii",
+    "uploadError": "Nu s-a putut încărca cartea",
+    "statusReady": "Gata",
+    "statusProcessing": "Se procesează",
+    "statusUploading": "Se încarcă",
+    "statusError": "Eroare",
+    "statusDeleted": "Ștearsă",
+    "view": "Vezi",
+    "edit": "Editează",
+    "delete": "Șterge",
+    "confirmDelete": "Ești sigur că vrei să ștergi această carte?",
+    "deleteError": "Nu s-a putut șterge cartea",
+    "download": "Descarcă",
+    "downloadError": "Nu s-a putut descărca cartea",
+    "loading": "Se încarcă...",
+    "bookNotFound": "Cartea nu a fost găsită",
+    "backToBooks": "Înapoi la cărți",
+    "coverImage": "Imagine copertă",
+    "quickStats": "Statistici rapide",
+    "fileSize": "Dimensiune fișier",
+    "pages": "Pagini",
+    "words": "Cuvinte",
+    "readingTime": "Timp de lectură",
+    "minutes": "minute",
+    "uploadDate": "Data încărcării",
+    "actions": "Acțiuni",
+    "bookDetails": "Detalii carte",
+    "epubMetadata": "Metadate EPUB",
+    "creator": "Creator",
+    "date": "Data",
+    "rights": "Drepturi",
+    "lastModified": "Ultima modificare",
+    "filters": "Filtre",
+    "clearFilters": "Șterge filtrele",
+    "searchPlaceholder": "Caută cărți...",
+    "allStatuses": "Toate statusurile",
+    "allLanguages": "Toate limbile",
+    "authorPlaceholder": "Caută după autor...",
+    "showAdvanced": "Afișează avansat",
+    "hideAdvanced": "Ascunde avansat",
+    "sortBy": "Sortează după",
+    "showing": "Afișează",
+    "to": "până la",
+    "of": "din",
+    "results": "rezultate",
+    "previous": "Anterior",
+    "next": "Următor",
+    "page": "Pagina",
+    "statusReadyDescription": "Cartea este gata de utilizare",
+    "statusProcessingDescription": "Cartea se procesează",
+    "statusUploadingDescription": "Cartea se încarcă",
+    "statusErrorDescription": "A apărut o eroare în timpul procesării",
+    "statusDeletedDescription": "Cartea a fost ștearsă",
+    "statusUnknownDescription": "Status necunoscut",
+    "processingStarted": "Procesarea a început",
+    "processingProgress": "Procesare în curs...",
+    "errorOccurred": "A apărut o eroare",
+    "viewErrorDetails": "Vezi detaliile erorii",
+    "readyForUse": "Gata de utilizare",
+    "createArcCampaign": "Creează campanie ARC",
+    "uploaded": "Încărcată",
+    "duplicate": "Duplică",
+    "share": "Distribuie",
+    "status": "Status"
+  },
+  "integrations": {
+    "title": "Integrări",
+    "subtitle": "Conectează-ți conturile la servicii externe",
+    "connectIntegration": "Conectează integrarea",
+    "loading": "Se încarcă...",
+    "connectWordToWallet": "Conectează WordToWallet",
+    "connectWordToWalletDescription": "Conectează-ți contul WordToWallet pentru a crea campanii ARC",
+    "apiKey": "Cheie API",
+    "apiKeyPlaceholder": "Introdu cheia ta API WordToWallet",
+    "apiKeyHelp": "Cheia ta API va fi criptată și stocată în siguranță",
+    "howToGetApiKey": "Cum să-ți obții cheia API:",
+    "step1": "Conectează-te la contul tău WordToWallet",
+    "step2": "Mergi la Setări > Chei API",
+    "step3": "Generează o cheie API nouă",
+    "step4": "Copiază și lipește-o aici",
+    "features": "Funcții",
+    "feature1": "Încarcă cărți în WordToWallet",
+    "feature2": "Creează campanii ARC",
+    "feature3": "Generează coduri de descărcare",
+    "feature4": "Urmărește analitica descărcărilor",
+    "connect": "Conectează",
+    "connecting": "Se conectează...",
+    "cancel": "Anulează",
+    "apiKeyRequired": "Cheia API este obligatorie",
+    "connectionFailed": "Nu s-a putut conecta la WordToWallet",
+    "availableIntegrations": "Integrări disponibile",
+    "WordToWalletDescription": "Creează și gestionează campanii ARC pentru cărțile tale",
+    "amazonKdpDescription": "Publică direct pe Amazon Kindle Direct Publishing",
+    "draft2digitalDescription": "Distribuie la mai mulți vânzători de ebook-uri",
+    "smashwordsDescription": "Publică pe piața Smashwords",
+    "comingSoon": "În curând",
+    "connectedIntegrations": "Integrări conectate",
+    "lastSync": "Ultima sincronizare",
+    "test": "Testează",
+    "sync": "Sincronizează",
+    "disconnect": "Deconectează",
+    "confirmDisconnect": "Ești sigur că vrei să deconectezi această integrare?",
+    "statusActive": "Activă",
+    "statusInactive": "Inactivă",
+    "statusError": "Eroare",
+    "statusPending": "În așteptare"
+  },
+  "arc": {
+    "title": "Campanii ARC",
+    "subtitle": "Creează și gestionează campanii Advanced Reader Copy",
+    "createCampaign": "Creează campanie",
+    "cancel": "Anulează",
+    "totalLinks": "Total link-uri",
+    "activeLinks": "Link-uri active",
+    "expiredLinks": "Link-uri expirate",
+    "maxDownloads": "Descărcări max",
+    "errorLinks": "Link-uri eroare",
+    "filters": "Filtre",
+    "status": "Status",
+    "allStatuses": "Toate statusurile",
+    "statusActive": "Activă",
+    "statusExpired": "Expirată",
+    "statusMaxDownloads": "Descărcări max atinse",
+    "statusDisabled": "Dezactivată",
+    "statusError": "Eroare",
+    "book": "Carte",
+    "allBooks": "Toate cărțile",
+    "expired": "Expirată",
+    "all": "Toate",
+    "expiredOnly": "Doar expirate",
+    "activeOnly": "Doar active",
+    "noArcLinks": "Nu s-au găsit link-uri ARC",
+    "noArcLinksDescription": "Creează prima ta campanie ARC pentru a genera link-uri de descărcare.",
+    "downloads": "descărcări",
+    "max": "max",
+    "expires": "Expiră",
+    "created": "Creată",
+    "copyCode": "Copiază codul",
+    "copied": "Copiat!",
+    "share": "Distribuie",
+    "view": "Vezi",
+    "delete": "Șterge",
+    "confirmDelete": "Ești sigur că vrei să ștergi acest link ARC?",
+    "deleteError": "Nu s-a putut șterge link-ul ARC",
+    "linkCopied": "Link-ul a fost copiat în clipboard",
+    "showing": "Afișează",
+    "to": "până la",
+    "of": "din",
+    "results": "rezultate",
+    "previous": "Anterior",
+    "next": "Următor",
+    "page": "Pagina",
+    "createCampaignDescription": "Creează o campanie ARC nouă pentru a genera link-uri de descărcare pentru cartea ta",
+    "selectBook": "Selectează carte",
+    "chooseBook": "Alege o carte...",
+    "selectedBook": "Cartea selectată",
+    "campaignName": "Nume campanie",
+    "campaignNamePlaceholder": "Introdu numele campaniei",
+    "description": "Descriere",
+    "descriptionPlaceholder": "Introdu descrierea campaniei",
+    "numberOfCodes": "Număr de coduri",
+    "quantityHelp": "Număr de coduri de descărcare de generat (1-1000)",
+    "maxDownloadsPerCode": "Descărcări max per cod",
+    "unlimited": "Nelimitat",
+    "totalMaxDownloads": "Total descărcări max",
+    "expirationDate": "Data expirării",
+    "campaignInfo": "Informații campanie",
+    "info1": "Codurile ARC vor fi generate automat",
+    "info2": "Fiecare cod poate fi distribuit cititorilor",
+    "info3": "Urmărirea descărcărilor este disponibilă",
+    "info4": "Codurile pot fi setate să expire automat",
+    "bookAndNameRequired": "Selectarea cărții și numele campaniei sunt obligatorii",
+    "invalidQuantity": "Cantitatea trebuie să fie între 1 și 1000",
+    "creating": "Se creează...",
+    "creationFailed": "Nu s-a putut crea campania"
+  }
+}

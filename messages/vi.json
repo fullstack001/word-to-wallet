@@ -1,0 +1,666 @@
+{
+  "common": {
+    "loading": "Đang tải...",
+    "error": "Lỗi",
+    "configNotFound": "Không tìm thấy cấu hình cho trang chủ.",
+    "home": "Trang chủ"
+  },
+  "errors": {
+    "oops": "Ối!",
+    "somethingWentWrong": "Đã xảy ra lỗi",
+    "pageNotFound": "Không tìm thấy trang",
+    "pageNotExist": "Trang bạn đang tìm không tồn tại.",
+    "errorLoadingPage": "Chúng tôi gặp lỗi khi tải trang này. Vui lòng thử lại.",
+    "errorLoadingApp": "Chúng tôi gặp lỗi khi tải ứng dụng. Vui lòng thử lại.",
+    "tryAgain": "Thử lại",
+    "goHome": "Về trang chủ",
+    "goToHomePage": "Đi đến trang chủ",
+    "errorDetails": "Chi tiết lỗi (chỉ dành cho phát triển)"
+  },
+  "faq": {
+    "title": "Câu hỏi thường gặp",
+    "q1": {
+      "q": "Tôi có cần các công cụ AI khác không?",
+      "a": "Không. WordToWallet tập trung văn bản, thiết kế và giao hàng để bạn không phải xử lý hàng chục ứng dụng."
+    },
+    "q2": {
+      "q": "Tôi có thể vẫn xuất bản lên các thị trường không?",
+      "a": "Có—kết nối tài khoản Draft2Digital hoặc WordToWallet của bạn và chuyển giao khi bạn muốn phân phối rộng hơn."
+    },
+    "q3": {
+      "q": "Khóa học có thực sự miễn phí không?",
+      "a": "Có—khóa học miễn phí cho thành viên. Bạn trả phí để truy cập nền tảng và có thể hủy bất cứ lúc nào."
+    }
+  },
+  "footer": {
+    "selectLanguage": "Chọn ngôn ngữ"
+  },
+  "auth": {
+    "signIn": "Đăng nhập",
+    "email": "Email",
+    "password": "Mật khẩu",
+    "emailAddress": "Địa chỉ email"
+  },
+  "account": {
+    "account": "Tài khoản",
+    "membership": "Thành viên",
+    "noSubscription": "Không có đăng ký hoạt động",
+    "unlockAllTools": "Mở khóa tất cả công cụ",
+    "fullAccess": "Nhận quyền truy cập đầy đủ vào tất cả công cụ PDF",
+    "subscribeNow": "Đăng ký ngay",
+    "subscribe": "Đăng ký",
+    "paymentMethod": "Phương thức thanh toán",
+    "saveTime": "Tiết kiệm thời gian với thanh toán tự động",
+    "cardNumber": "Số thẻ",
+    "notSpecified": "Không được chỉ định",
+    "importantUpdates": "Cập nhật quan trọng về tài khoản của bạn"
+  },
+  "plan": {
+    "choosePlan": "Chọn gói của bạn",
+    "continue": "Tiếp tục"
+  },
+  "navbar": {
+    "profileDetails": "Chi tiết hồ sơ",
+    "noSubscription": "Không có đăng ký",
+    "myDocuments": "Tài liệu của tôi",
+    "myAccount": "Tài khoản của tôi"
+  },
+  "hero": {
+    "badge": "Thành viên trước · Công cụ riêng tư · Phạm vi toàn cầu",
+    "title": "Biến từ ngữ thành doanh số — Khóa học miễn phí + Nền tảng ePub3",
+    "sub": "Tạo các chương trình khuyến mãi ePub3 tương tác với ChatGPT-5 và bán trực tiếp qua email. Đa ngôn ngữ, có thể đo lường và không qua trung gian.",
+    "ctaPrimary": "Nhận quyền truy cập nền tảng",
+    "ctaSecondary": "Xem trước khóa học miễn phí",
+    "legal": "Chúng tôi không bao giờ bán dữ liệu của bạn. Hủy bất cứ lúc nào."
+  },
+  "audiences": {
+    "title": "Được xây dựng cho trường hợp sử dụng của bạn",
+    "solopreneurs": {
+      "title": "Solopreneur & Nhóm vi mô",
+      "desc": "Khởi chạy chương trình khuyến mãi, thu thập người đăng ký và bán dịch vụ hoặc sản phẩm mà không cần các nền tảng quảng cáo đắt tiền. Cho phép tối đa năm thành viên nhóm."
+    },
+    "authors": {
+      "title": "Tác giả tự xuất bản & Cơ quan PR vi mô",
+      "desc": "Tạo chiến dịch và bố cục sách (hư cấu & phi hư cấu), giao ARCs và bán cho danh sách độc giả chuyên biệt."
+    }
+  },
+  "value": {
+    "title": "Tại sao WordToWallet",
+    "cards": {
+      "epub3": {
+        "title": "Studio Tạo ePub3",
+        "description": "Tạo chương trình khuyến mãi và bố cục sách. Dán mã & thiết kế được tạo bởi ChatGPT-5, xem trước trên thiết bị di động và xuất bản trong vài phút.",
+        "features": {
+          "0": "XHTML/CSS sẵn sàng dán từ prompt",
+          "1": "Sẵn sàng cho khả năng truy cập & dịch thuật",
+          "2": "Mẫu tái sử dụng cho hư cấu/phi hư cấu"
+        }
+      },
+      "email": {
+        "title": "Email an toàn cho hộp thư đến",
+        "description": "Gửi email ưu tiên văn bản, liên kết căn chỉnh với các biện pháp bảo vệ khả năng gửi tích hợp (SPF/DKIM/DMARC). Làm nóng và theo dõi mà không cần đoán.",
+        "features": []
+      },
+      "analytics": {
+        "title": "Danh sách riêng tư & Phân tích",
+        "description": "Nhập CSV, phân đoạn theo sản phẩm/thể loại và theo dõi nhấp chuột → tải xuống → phản hồi/mua hàng từ một bảng điều khiển.",
+        "features": []
+      },
+      "byoa": {
+        "title": "BYOA: D2D & WordToWallet",
+        "description": "Xuất các gói sẵn sàng cho thị trường hoặc giao ARCs với liên kết—tích hợp khi bạn muốn phân phối rộng hơn.",
+        "features": []
+      }
+    }
+  },
+  "howItWorks": {
+    "title": "Cách hoạt động",
+    "subtitle": "Bắt đầu trong vài phút với quy trình 3 bước đơn giản của chúng tôi được thiết kế cho thành công",
+    "steps": {
+      "step1": {
+        "title": "Bắt đầu học",
+        "description": "Bắt đầu với khóa học viết AI miễn phí của chúng tôi. Học các kỹ thuật thực tế trong các bài học nhỏ."
+      },
+      "step2": {
+        "title": "Xây dựng danh sách của bạn",
+        "description": "Sử dụng nam châm độc giả của chúng tôi và tích hợp MailerLite để phát triển đối tượng email của bạn."
+      },
+      "step3": {
+        "title": "Bán & Mở rộng",
+        "description": "Khởi chạy sản phẩm của bạn và để WordToWallet xử lý giao hàng trong khi bạn tập trung vào viết."
+      }
+    },
+    "cta": "Bắt đầu ngay"
+  },
+  "howItWorksNew": {
+    "title": "Cách hoạt động",
+    "steps": {
+      "step1": {
+        "title": "Nói với ChatGPT-5 mục tiêu của bạn",
+        "description": "Sử dụng thẻ prompt của chúng tôi cho ưu đãi, đối tượng và ngôn ngữ."
+      },
+      "step2": {
+        "title": "Tạo văn bản & mã",
+        "description": "Dòng chủ đề, CTA và các phần ePub3 sẵn sàng dán."
+      },
+      "step3": {
+        "title": "Xuất bản & gửi",
+        "description": "Phát trực tiếp qua email bên thứ nhất và theo dõi kênh."
+      }
+    }
+  },
+  "features": {
+    "title": "Tất cả những gì bạn cần để",
+    "titleHighlight": "thành công",
+    "subtitle": "Từ các bài học viết được hỗ trợ bởi AI đến cơ sở hạ tầng bán hàng trực tiếp, chúng tôi đã bao gồm tất cả.",
+    "cards": {
+      "aiWriting": {
+        "title": "Học viết AI",
+        "description": "Các bài học thực tế 10 phút dạy bạn tạo chương, tóm tắt và quảng cáo bằng AI.",
+        "features": [
+          "Hướng dẫn tương tác",
+          "Ví dụ thực tế",
+          "Theo dõi tiến trình"
+        ]
+      },
+      "audience": {
+        "title": "Xây dựng đối tượng của bạn",
+        "description": "Nam châm độc giả + tích hợp MailerLite tự động xây dựng danh sách email của bạn.",
+        "features": ["Nam châm khách hàng tiềm năng", "Tự động hóa email", "Phân tích đối tượng"]
+      },
+      "sales": {
+        "title": "Bán trực tiếp",
+        "description": "Kết nối cửa hàng của bạn; WordToWallet giao tệp trực tiếp cho người mua.",
+        "features": ["Bán hàng trực tiếp", "Giao tệp", "Quản lý khách hàng"]
+      }
+    }
+  },
+  "security": {
+    "badge": "Bảo mật trước",
+    "title": "Bảo mật của bạn là ưu tiên của chúng tôi",
+    "subtitle": "Chúng tôi triển khai các biện pháp bảo mật cấp doanh nghiệp để đảm bảo tài liệu và dữ liệu của bạn luôn được bảo vệ hoàn toàn mọi lúc.",
+    "features": {
+      "encryption": {
+        "title": "Mã hóa cấp ngân hàng",
+        "description": "Mã hóa SSL 256 bit bảo vệ dữ liệu của bạn"
+      },
+      "processing": {
+        "title": "Xử lý an toàn",
+        "description": "Tệp được tự động xóa sau khi xử lý"
+      },
+      "privacy": {
+        "title": "Quyền riêng tư trước",
+        "description": "Không có quyền truy cập của con người vào tài liệu của bạn"
+      },
+      "compliance": {
+        "title": "Tuân thủ GDPR",
+        "description": "Tuân thủ đầy đủ các quy định bảo vệ dữ liệu"
+      }
+    },
+    "trustedBy": "Được tin cậy bởi hơn 400.000 người dùng trên toàn thế giới"
+  },
+  "testimonials": {
+    "title": "Được tin cậy bởi các chuyên gia trên toàn thế giới",
+    "subtitle": "Xem khách hàng của chúng tôi nói gì",
+    "rating": "Đánh giá 5.0 từ hơn 3.000 đánh giá",
+    "review1": {
+      "name": "Jennifer Martinez",
+      "role": "Giám đốc Vận hành Pháp lý",
+      "company": "Global Law Partners",
+      "review": "WordToWallet đã chuyển đổi quy trình làm việc tài liệu của chúng tôi. Nhóm pháp lý của chúng tôi giờ có thể xử lý hợp đồng nhanh hơn 3 lần với các tính năng điền biểu mẫu tự động và chữ ký điện tử. Các công cụ cộng tác nhóm đã loại bỏ hoàn toàn các vấn đề kiểm soát phiên bản."
+    },
+    "review2": {
+      "name": "David Chen",
+      "role": "CTO",
+      "company": "TechFlow Solutions",
+      "review": "Là một startup đang phát triển, chúng tôi cần quản lý tài liệu cấp doanh nghiệp mà không có giá doanh nghiệp. Các tính năng nhóm và xử lý không giới hạn của WordToWallet đã mở rộng hoàn hảo với doanh nghiệp của chúng tôi. ROI đạt được trong tháng đầu tiên."
+    },
+    "review3": {
+      "name": "Sarah Williams",
+      "role": "Quản lý Tài chính",
+      "company": "Merchant Capital Group",
+      "review": "Khả năng OCR đã cách mạng hóa quy trình số hóa tài liệu của chúng tôi. Nhóm kế toán của chúng tôi giờ có thể tìm kiếm qua hàng nghìn hóa đơn đã quét ngay lập tức. Điều này đã tiết kiệm cho chúng tôi vô số giờ và cải thiện đáng kể khả năng sẵn sàng kiểm toán của chúng tôi."
+    },
+    "review4": {
+      "name": "Michael Rodriguez",
+      "role": "Nhân viên Tuân thủ",
+      "company": "SecureBank International",
+      "review": "Các tính năng bảo mật cấp doanh nghiệp của WordToWallet cho chúng tôi sự tự tin khi xử lý tài liệu khách hàng nhạy cảm. Các công cụ tuân thủ và dấu vết kiểm toán đã làm cho báo cáo quy định của chúng tôi trở nên đơn giản hơn nhiều. Nhóm tuân thủ của chúng tôi yêu thích nó."
+    },
+    "review5": {
+      "name": "Lisa Thompson",
+      "role": "Quản lý Vận hành Tiếp thị",
+      "company": "Digital Growth Agency",
+      "review": "Nhóm tiếp thị của chúng tôi xử lý hàng trăm PDF hàng tuần cho các chiến dịch. Các tính năng xử lý hàng loạt và tự động hóa của WordToWallet đã giảm thời gian chuẩn bị tài liệu của chúng tôi xuống 70%. ROI là đáng kinh ngạc cho bất kỳ doanh nghiệp nào muốn mở rộng hoạt động."
+    },
+    "review6": {
+      "name": "Robert Kim",
+      "role": "Giám đốc Dự án",
+      "company": "Construction Dynamics",
+      "review": "Các tính năng cộng tác nhóm đã loại bỏ các nút thắt cổ chai tài liệu của chúng tôi. Nhiều phòng ban giờ có thể làm việc trên cùng các tài liệu đồng thời với cập nhật thời gian thực. Điều này đã cải thiện thời gian giao hàng dự án của chúng tôi lên 40%."
+    }
+  },
+  "course": {
+    "badge": "Bao gồm khóa học miễn phí",
+    "title": "Bao gồm khóa học miễn phí",
+    "bullets": [
+      "Sách hướng dẫn bán hàng trực tiếp cho email + ePub3.",
+      "Thư viện prompt: ưu đãi, chương trình khuyến mãi, phần landing, dịch thuật.",
+      "Mẫu mời chống spam và danh sách kiểm tra làm nóng.",
+      "Dự án cuối cùng: sprint lợi nhuận 7 ngày của bạn."
+    ],
+    "cta": "Đăng ký miễn phí (với quyền truy cập nền tảng)"
+  },
+  "privacyPolicy": {
+    "title": "Chính sách bảo mật",
+    "lastUpdated": "Cập nhật lần cuối: Tháng 12 năm 2024",
+    "websiteAddress": "Địa chỉ trang web của chúng tôi là: https://bestglobalai.com",
+    "sections": {
+      "whoWeAre": {
+        "title": "Chúng tôi là ai",
+        "content": "Địa chỉ trang web của chúng tôi là: https://bestglobalai.com"
+      },
+      "comments": {
+        "title": "Bình luận",
+        "content": "Khi khách truy cập để lại bình luận trên trang web, chúng tôi thu thập dữ liệu hiển thị trong biểu mẫu bình luận, cũng như địa chỉ IP của khách truy cập và chuỗi user agent của trình duyệt để giúp phát hiện spam. Một chuỗi ẩn danh được tạo từ địa chỉ email của bạn (còn gọi là hash) có thể được cung cấp cho dịch vụ Gravatar để xem bạn có đang sử dụng nó không. Chính sách bảo mật của dịch vụ Gravatar có sẵn tại đây: https://automattic.com/privacy/. Sau khi bình luận của bạn được phê duyệt, hình ảnh hồ sơ của bạn sẽ hiển thị công khai trong ngữ cảnh bình luận của bạn."
+      },
+      "media": {
+        "title": "Phương tiện",
+        "content": "Nếu bạn tải hình ảnh lên trang web, bạn nên tránh tải hình ảnh có dữ liệu vị trí được nhúng (EXIF GPS) bao gồm. Khách truy cập trang web có thể tải xuống và trích xuất bất kỳ dữ liệu vị trí nào từ hình ảnh trên trang web."
+      },
+      "cookies": {
+        "title": "Cookie",
+        "content": "Chúng tôi không sử dụng cookie để thu thập thông tin khách truy cập của chúng tôi."
+      },
+      "embeddedContent": {
+        "title": "Nội dung được nhúng từ các trang web khác",
+        "content": "Các bài viết trên trang web này có thể bao gồm nội dung được nhúng (ví dụ: video, hình ảnh, bài viết, v.v.). Nội dung được nhúng từ các trang web khác hoạt động giống hệt như thể khách truy cập đã truy cập trang web khác."
+      },
+      "dataSharing": {
+        "title": "Chúng tôi chia sẻ dữ liệu của bạn với ai",
+        "content": "Nếu bạn yêu cầu đặt lại mật khẩu, địa chỉ IP của bạn sẽ được bao gồm trong email đặt lại."
+      },
+      "dataRetention": {
+        "title": "Chúng tôi lưu giữ dữ liệu của bạn trong bao lâu",
+        "content": "Nếu bạn để lại bình luận, bình luận và siêu dữ liệu của nó được lưu giữ vô thời hạn. Điều này để chúng tôi có thể tự động nhận ra và phê duyệt bất kỳ bình luận tiếp theo nào thay vì giữ chúng trong hàng đợi kiểm duyệt. Đối với người dùng đăng ký trên trang web của chúng tôi (nếu có), chúng tôi cũng lưu trữ thông tin cá nhân mà họ cung cấp trong hồ sơ người dùng của họ. Tất cả người dùng có thể xem, chỉnh sửa hoặc xóa thông tin cá nhân của họ bất cứ lúc nào (ngoại trừ họ không thể thay đổi tên người dùng của họ). Quản trị viên trang web cũng có thể xem và chỉnh sửa thông tin đó."
+      },
+      "userRights": {
+        "title": "Bạn có những quyền gì đối với dữ liệu của mình",
+        "content": "Nếu bạn có tài khoản trên trang web này hoặc đã để lại bình luận, bạn có thể yêu cầu nhận tệp xuất dữ liệu cá nhân mà chúng tôi lưu giữ về bạn, bao gồm bất kỳ dữ liệu nào bạn đã cung cấp cho chúng tôi. Bạn cũng có thể yêu cầu chúng tôi xóa bất kỳ dữ liệu cá nhân nào mà chúng tôi lưu giữ về bạn. Điều này không bao gồm bất kỳ dữ liệu nào chúng tôi bắt buộc phải giữ cho mục đích hành chính, pháp lý hoặc bảo mật."
+      },
+      "dataTransfer": {
+        "title": "Dữ liệu của bạn được gửi đến đâu",
+        "content": "Bình luận của khách truy cập có thể được kiểm tra thông qua dịch vụ phát hiện spam tự động."
+      }
+    },
+    "contact": {
+      "title": "Câu hỏi về chính sách này?",
+      "description": "Nếu bạn có bất kỳ câu hỏi nào về Chính sách Bảo mật này hoặc cách chúng tôi xử lý dữ liệu của bạn, vui lòng liên hệ với chúng tôi.",
+      "website": "https://bestglobalai.com"
+    }
+  },
+  "contactPage": {
+    "title": "Liên hệ chúng tôi",
+    "description": "Nếu bạn cần hỗ trợ với dịch vụ của chúng tôi hoặc có câu hỏi, đừng ngần ngại liên hệ với chúng tôi.",
+    "form": {
+      "name": "Tên",
+      "namePlaceholder": "Tên của bạn",
+      "email": "Địa chỉ email",
+      "emailPlaceholder": "email@domain.com",
+      "message": "Tin nhắn",
+      "messagePlaceholder": "Nhập tin nhắn của bạn ở đây",
+      "sendButton": "Gửi tin nhắn"
+    },
+    "directContact": {
+      "title": "Liên hệ chúng tôi trực tiếp"
+    },
+    "billing": {
+      "title": "Hỗ trợ thanh toán",
+      "description": "Bạn có câu hỏi về phí của mình? Đối với bất kỳ câu hỏi nào liên quan đến thanh toán trên nền tảng, vui lòng liên hệ với chúng tôi tại:"
+    },
+    "customer": {
+      "title": "Hỗ trợ khách hàng",
+      "description": "Chúng tôi luôn vui mừng được nói chuyện với bạn. Nếu bạn có câu hỏi về dịch vụ của chúng tôi, hãy gọi cho chúng tôi hoặc gửi email cho chúng tôi tại:"
+    },
+    "meet": {
+      "title": "Lên lịch cuộc họp",
+      "description": "Cần hỗ trợ trực tiếp? Lên lịch cuộc họp cá nhân hóa với nhóm của chúng tôi để thảo luận về nhu cầu của bạn và nhận hướng dẫn chuyên gia."
+    }
+  },
+  "auction": {
+    "title": "Đấu giá",
+    "subtitle": "Khám phá và tham gia đấu giá trực tiếp",
+    "myAuctions": "Đấu giá của tôi",
+    "createAuction": "Tạo đấu giá",
+    "browseAll": "Duyệt tất cả đấu giá",
+    "manageAuctions": "Quản lý và theo dõi danh sách đấu giá của bạn",
+    "createNewAuction": "Tạo đấu giá mới",
+    "noAuctionsFound": "Không tìm thấy đấu giá",
+    "createFirstAuction": "Tạo đấu giá đầu tiên của bạn",
+    "filters": {
+      "allAuctions": "Tất cả đấu giá",
+      "scheduled": "Đã lên lịch",
+      "active": "Đang hoạt động",
+      "sold": "Đã bán",
+      "ended": "Đã kết thúc"
+    },
+    "status": {
+      "scheduled": "Đã lên lịch",
+      "active": "Đang hoạt động",
+      "sold": "Đã bán",
+      "soldBuyNow": "Đã bán (Mua ngay)",
+      "soldOffer": "Đã bán (Đề xuất)",
+      "ended": "Đã kết thúc",
+      "endedNoSale": "Đã kết thúc (Không bán)",
+      "cancelled": "Đã hủy"
+    },
+    "create": {
+      "title": "Tạo đấu giá mới",
+      "form": {
+        "title": "Tiêu đề đấu giá",
+        "titlePlaceholder": "Nhập tiêu đề đấu giá",
+        "description": "Mô tả",
+        "descriptionPlaceholder": "Mô tả mặt hàng đấu giá của bạn",
+        "currency": "Tiền tệ",
+        "startingPrice": "Giá khởi điểm",
+        "startingPricePlaceholder": "0.00",
+        "reservePrice": "Giá dự trữ (Tùy chọn)",
+        "reservePricePlaceholder": "Giá tối thiểu để bán",
+        "reservePriceHelp": "Giá tối thiểu bạn sẵn sàng chấp nhận. Nếu không đạt được, đấu giá sẽ không được bán.",
+        "buyNowPrice": "Giá Mua ngay (Tùy chọn)",
+        "buyNowPricePlaceholder": "Giá mua ngay lập tức",
+        "buyNowPriceHelp": "Cho phép người mua mua ngay lập tức với giá này.",
+        "startTime": "Thời gian bắt đầu",
+        "endTime": "Thời gian kết thúc",
+        "extendSeconds": "Gia hạn chống snipe (giây)",
+        "extendSecondsPlaceholder": "30",
+        "extendSecondsHelp": "Gia hạn đấu giá thêm số giây này khi đặt giá trong phút cuối.",
+        "minIncrement": "Mức tăng giá tối thiểu",
+        "minIncrementPlaceholder": "1.00",
+        "createButton": "Tạo đấu giá",
+        "cancelButton": "Hủy"
+      },
+      "validation": {
+        "titleRequired": "Tiêu đề, mô tả, giá khởi điểm, thời gian bắt đầu và thời gian kết thúc là bắt buộc",
+        "startingPriceRequired": "Giá khởi điểm phải lớn hơn 0",
+        "reservePriceInvalid": "Giá dự trữ phải lớn hơn giá khởi điểm",
+        "buyNowPriceInvalid": "Giá Mua ngay phải lớn hơn giá khởi điểm",
+        "reservePriceTooHigh": "Giá dự trữ không thể cao hơn giá Mua ngay",
+        "endTimeInvalid": "Thời gian kết thúc phải sau thời gian bắt đầu",
+        "startTimeInvalid": "Thời gian bắt đầu phải trong tương lai"
+      }
+    },
+    "list": {
+      "startingPrice": "Giá khởi điểm:",
+      "currentBid": "Giá hiện tại:",
+      "buyNow": "Mua ngay:",
+      "starts": "Bắt đầu:",
+      "ends": "Kết thúc:",
+      "timeLeft": "Thời gian còn lại:",
+      "ended": "Đã kết thúc",
+      "by": "bởi",
+      "viewAuction": "Xem đấu giá",
+      "page": "Trang",
+      "of": "của",
+      "previous": "Trước",
+      "next": "Tiếp theo"
+    },
+    "delete": "Xóa",
+    "confirmDeleteTitle": "Xác nhận xóa",
+    "confirmDelete": "Bạn có chắc chắn muốn xóa đấu giá này không? Hành động này không thể hoàn tác.",
+    "deleteError": "Không thể xóa đấu giá",
+    "deleteDisabledActive": "Không thể xóa đấu giá đang hoạt động",
+    "deleting": "Đang xóa...",
+    "cancel": "Hủy",
+    "view": {
+      "placeBid": "Đặt giá",
+      "buyNow": "Mua ngay",
+      "makeOffer": "Đưa ra đề xuất",
+      "bidAmount": "Số tiền đặt giá",
+      "minimumBid": "Giá tối thiểu:",
+      "yourBid": "Giá của bạn",
+      "bidButton": "Đặt giá",
+      "offerAmount": "Số tiền đề xuất",
+      "offerButton": "Đưa ra đề xuất",
+      "bidHistory": "Lịch sử đặt giá",
+      "offers": "Đề xuất",
+      "noBids": "Chưa có giá",
+      "noOffers": "Chưa có đề xuất",
+      "timeRemaining": "Thời gian còn lại",
+      "days": "ngày",
+      "hours": "giờ",
+      "minutes": "phút",
+      "seconds": "giây",
+      "reserveNotMet": "Chưa đạt giá dự trữ",
+      "reserveMet": "Đã đạt giá dự trữ",
+      "online": "trực tuyến",
+      "bidders": "người đặt giá"
+    },
+    "bidding": {
+      "bidPlaced": "Đặt giá thành công",
+      "bidFailed": "Không thể đặt giá",
+      "bidTooLow": "Số tiền đặt giá quá thấp",
+      "auctionEnded": "Đấu giá đã kết thúc",
+      "auctionNotActive": "Đấu giá không chấp nhận giá",
+      "buyNowSuccess": "Mua đấu giá thành công",
+      "buyNowFailed": "Không thể mua đấu giá",
+      "offerCreated": "Tạo đề xuất thành công",
+      "offerFailed": "Không thể tạo đề xuất",
+      "offerAccepted": "Đề xuất được chấp nhận",
+      "offerDeclined": "Đề xuất bị từ chối"
+    },
+    "currency": {
+      "USD": "USD - Đô la Mỹ",
+      "EUR": "EUR - Euro",
+      "GBP": "GBP - Bảng Anh",
+      "CAD": "CAD - Đô la Canada",
+      "AUD": "AUD - Đô la Úc"
+    }
+  },
+  "books": {
+    "title": "Sách",
+    "subtitle": "Quản lý sách EPUB của bạn và tạo chiến dịch ARC",
+    "uploadBook": "Tải sách lên",
+    "totalBooks": "Tổng số sách",
+    "readyBooks": "Sách sẵn sàng",
+    "processingBooks": "Đang xử lý",
+    "errorBooks": "Lỗi",
+    "noBooks": "Không tìm thấy sách",
+    "noBooksDescription": "Tải lên cuốn sách EPUB đầu tiên của bạn để bắt đầu.",
+    "epubFile": "Tệp EPUB",
+    "dragDropFile": "Kéo và thả tệp EPUB của bạn vào đây",
+    "browse": "duyệt",
+    "epubOnly": "Chỉ tệp EPUB",
+    "title": "Tiêu đề",
+    "author": "Tác giả",
+    "description": "Mô tả",
+    "isbn": "ISBN",
+    "publisher": "Nhà xuất bản",
+    "publicationDate": "Ngày xuất bản",
+    "language": "Ngôn ngữ",
+    "genre": "Thể loại",
+    "tags": "Thẻ",
+    "genrePlaceholder": "Hư cấu, Phi hư cấu, Lãng mạn, v.v.",
+    "tagsPlaceholder": "bán chạy, đoạt giải, v.v.",
+    "upload": "Tải lên",
+    "uploading": "Đang tải lên...",
+    "cancel": "Hủy",
+    "invalidFileType": "Vui lòng chọn tệp EPUB hợp lệ",
+    "noFileSelected": "Vui lòng chọn tệp để tải lên",
+    "titleAndAuthorRequired": "Tiêu đề và tác giả là bắt buộc",
+    "uploadError": "Không thể tải sách lên",
+    "statusReady": "Sẵn sàng",
+    "statusProcessing": "Đang xử lý",
+    "statusUploading": "Đang tải lên",
+    "statusError": "Lỗi",
+    "statusDeleted": "Đã xóa",
+    "view": "Xem",
+    "edit": "Chỉnh sửa",
+    "delete": "Xóa",
+    "confirmDelete": "Bạn có chắc chắn muốn xóa cuốn sách này không?",
+    "deleteError": "Không thể xóa sách",
+    "download": "Tải xuống",
+    "downloadError": "Không thể tải sách xuống",
+    "loading": "Đang tải...",
+    "bookNotFound": "Không tìm thấy sách",
+    "backToBooks": "Quay lại Sách",
+    "coverImage": "Hình ảnh bìa",
+    "quickStats": "Thống kê nhanh",
+    "fileSize": "Kích thước tệp",
+    "pages": "Trang",
+    "words": "Từ",
+    "readingTime": "Thời gian đọc",
+    "minutes": "phút",
+    "uploadDate": "Ngày tải lên",
+    "actions": "Hành động",
+    "bookDetails": "Chi tiết sách",
+    "epubMetadata": "Siêu dữ liệu EPUB",
+    "creator": "Người tạo",
+    "date": "Ngày",
+    "rights": "Quyền",
+    "lastModified": "Sửa đổi lần cuối",
+    "filters": "Bộ lọc",
+    "clearFilters": "Xóa bộ lọc",
+    "searchPlaceholder": "Tìm kiếm sách...",
+    "allStatuses": "Tất cả trạng thái",
+    "allLanguages": "Tất cả ngôn ngữ",
+    "authorPlaceholder": "Tìm kiếm theo tác giả...",
+    "showAdvanced": "Hiển thị nâng cao",
+    "hideAdvanced": "Ẩn nâng cao",
+    "sortBy": "Sắp xếp theo",
+    "showing": "Hiển thị",
+    "to": "đến",
+    "of": "của",
+    "results": "kết quả",
+    "previous": "Trước",
+    "next": "Tiếp theo",
+    "page": "Trang",
+    "statusReadyDescription": "Sách sẵn sàng sử dụng",
+    "statusProcessingDescription": "Sách đang được xử lý",
+    "statusUploadingDescription": "Sách đang được tải lên",
+    "statusErrorDescription": "Đã xảy ra lỗi trong quá trình xử lý",
+    "statusDeletedDescription": "Sách đã bị xóa",
+    "statusUnknownDescription": "Trạng thái không xác định",
+    "processingStarted": "Đã bắt đầu xử lý",
+    "processingProgress": "Đang xử lý...",
+    "errorOccurred": "Đã xảy ra lỗi",
+    "viewErrorDetails": "Xem chi tiết lỗi",
+    "readyForUse": "Sẵn sàng sử dụng",
+    "createArcCampaign": "Tạo chiến dịch ARC",
+    "uploaded": "Đã tải lên",
+    "duplicate": "Nhân đôi",
+    "share": "Chia sẻ",
+    "status": "Trạng thái"
+  },
+  "integrations": {
+    "title": "Tích hợp",
+    "subtitle": "Kết nối tài khoản của bạn với các dịch vụ bên ngoài",
+    "connectIntegration": "Kết nối tích hợp",
+    "loading": "Đang tải...",
+    "connectWordToWallet": "Kết nối WordToWallet",
+    "connectWordToWalletDescription": "Kết nối tài khoản WordToWallet của bạn để tạo chiến dịch ARC",
+    "apiKey": "Khóa API",
+    "apiKeyPlaceholder": "Nhập khóa API WordToWallet của bạn",
+    "apiKeyHelp": "Khóa API của bạn sẽ được mã hóa và lưu trữ an toàn",
+    "howToGetApiKey": "Cách lấy khóa API của bạn:",
+    "step1": "Đăng nhập vào tài khoản WordToWallet của bạn",
+    "step2": "Đi tới Cài đặt > Khóa API",
+    "step3": "Tạo khóa API mới",
+    "step4": "Sao chép và dán vào đây",
+    "features": "Tính năng",
+    "feature1": "Tải sách lên WordToWallet",
+    "feature2": "Tạo chiến dịch ARC",
+    "feature3": "Tạo mã tải xuống",
+    "feature4": "Theo dõi phân tích tải xuống",
+    "connect": "Kết nối",
+    "connecting": "Đang kết nối...",
+    "cancel": "Hủy",
+    "apiKeyRequired": "Khóa API là bắt buộc",
+    "connectionFailed": "Không thể kết nối với WordToWallet",
+    "availableIntegrations": "Tích hợp có sẵn",
+    "WordToWalletDescription": "Tạo và quản lý chiến dịch ARC cho sách của bạn",
+    "amazonKdpDescription": "Xuất bản trực tiếp lên Amazon Kindle Direct Publishing",
+    "draft2digitalDescription": "Phân phối đến nhiều nhà bán lẻ sách điện tử",
+    "smashwordsDescription": "Xuất bản lên thị trường Smashwords",
+    "comingSoon": "Sắp ra mắt",
+    "connectedIntegrations": "Tích hợp đã kết nối",
+    "lastSync": "Đồng bộ lần cuối",
+    "test": "Kiểm tra",
+    "sync": "Đồng bộ",
+    "disconnect": "Ngắt kết nối",
+    "confirmDisconnect": "Bạn có chắc chắn muốn ngắt kết nối tích hợp này không?",
+    "statusActive": "Đang hoạt động",
+    "statusInactive": "Không hoạt động",
+    "statusError": "Lỗi",
+    "statusPending": "Đang chờ"
+  },
+  "arc": {
+    "title": "Chiến dịch ARC",
+    "subtitle": "Tạo và quản lý chiến dịch Advanced Reader Copy",
+    "createCampaign": "Tạo chiến dịch",
+    "cancel": "Hủy",
+    "totalLinks": "Tổng số liên kết",
+    "activeLinks": "Liên kết đang hoạt động",
+    "expiredLinks": "Liên kết đã hết hạn",
+    "maxDownloads": "Tải xuống tối đa",
+    "errorLinks": "Liên kết lỗi",
+    "filters": "Bộ lọc",
+    "status": "Trạng thái",
+    "allStatuses": "Tất cả trạng thái",
+    "statusActive": "Đang hoạt động",
+    "statusExpired": "Đã hết hạn",
+    "statusMaxDownloads": "Đã đạt tải xuống tối đa",
+    "statusDisabled": "Đã tắt",
+    "statusError": "Lỗi",
+    "book": "Sách",
+    "allBooks": "Tất cả sách",
+    "expired": "Đã hết hạn",
+    "all": "Tất cả",
+    "expiredOnly": "Chỉ hết hạn",
+    "activeOnly": "Chỉ hoạt động",
+    "noArcLinks": "Không tìm thấy liên kết ARC",
+    "noArcLinksDescription": "Tạo chiến dịch ARC đầu tiên của bạn để tạo liên kết tải xuống.",
+    "downloads": "tải xuống",
+    "max": "tối đa",
+    "expires": "Hết hạn",
+    "created": "Đã tạo",
+    "copyCode": "Sao chép mã",
+    "copied": "Đã sao chép!",
+    "share": "Chia sẻ",
+    "view": "Xem",
+    "delete": "Xóa",
+    "confirmDelete": "Bạn có chắc chắn muốn xóa liên kết ARC này không?",
+    "deleteError": "Không thể xóa liên kết ARC",
+    "linkCopied": "Đã sao chép liên kết vào clipboard",
+    "showing": "Hiển thị",
+    "to": "đến",
+    "of": "của",
+    "results": "kết quả",
+    "previous": "Trước",
+    "next": "Tiếp theo",
+    "page": "Trang",
+    "createCampaignDescription": "Tạo chiến dịch ARC mới để tạo liên kết tải xuống cho sách của bạn",
+    "selectBook": "Chọn sách",
+    "chooseBook": "Chọn một cuốn sách...",
+    "selectedBook": "Sách đã chọn",
+    "campaignName": "Tên chiến dịch",
+    "campaignNamePlaceholder": "Nhập tên chiến dịch",
+    "description": "Mô tả",
+    "descriptionPlaceholder": "Nhập mô tả chiến dịch",
+    "numberOfCodes": "Số lượng mã",
+    "quantityHelp": "Số lượng mã tải xuống để tạo (1-1000)",
+    "maxDownloadsPerCode": "Tải xuống tối đa mỗi mã",
+    "unlimited": "Không giới hạn",
+    "totalMaxDownloads": "Tổng tải xuống tối đa",
+    "expirationDate": "Ngày hết hạn",
+    "campaignInfo": "Thông tin chiến dịch",
+    "info1": "Mã ARC sẽ được tạo tự động",
+    "info2": "Mỗi mã có thể được chia sẻ với độc giả",
+    "info3": "Theo dõi tải xuống có sẵn",
+    "info4": "Mã có thể được đặt để tự động hết hạn",
+    "bookAndNameRequired": "Lựa chọn sách và tên chiến dịch là bắt buộc",
+    "invalidQuantity": "Số lượng phải từ 1 đến 1000",
+    "creating": "Đang tạo...",
+    "creationFailed": "Không thể tạo chiến dịch"
+  }
+}

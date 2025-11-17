@@ -9,6 +9,7 @@ import Navbar from "../Navbar";
 import Footer from "../Footer";
 import { useLocalizedNavigation } from "@/utils/navigation";
 import { RootState } from "@/store/store";
+import { api } from "@/services/api";
 import {
   PhoneIcon,
   EnvelopeIcon,
@@ -27,6 +28,11 @@ export default function ContactPage() {
     email: "",
     message: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<{
+    type: "success" | "error" | null;
+    message: string;
+  }>({ type: null, message: "" });
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -36,12 +42,42 @@ export default function ContactPage() {
       ...prev,
       [name]: value,
     }));
+    // Clear status when user starts typing
+    if (submitStatus.type) {
+      setSubmitStatus({ type: null, message: "" });
+    }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log("Form submitted:", formData);
+    setIsSubmitting(true);
+    setSubmitStatus({ type: null, message: "" });
+
+    try {
+      await api.post("/contact", formData);
+      setSubmitStatus({
+        type: "success",
+        message: t("form.successMessage") || "Your message has been sent successfully! We'll get back to you soon.",
+      });
+      // Reset form
+      setFormData({
+        name: "",
+        email: "",
+        message: "",
+      });
+    } catch (error: any) {
+      console.error("Contact form submission error:", error);
+      setSubmitStatus({
+        type: "error",
+        message:
+          error.response?.data?.message ||
+          error.message ||
+          t("form.errorMessage") ||
+          "Failed to send message. Please try again later.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const supportCards = [
@@ -140,6 +176,7 @@ export default function ContactPage() {
                     placeholder={t("form.namePlaceholder")}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
                     required
+                    disabled={isSubmitting}
                   />
                 </div>
 
@@ -159,6 +196,7 @@ export default function ContactPage() {
                     placeholder={t("form.emailPlaceholder")}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
                     required
+                    disabled={isSubmitting}
                   />
                 </div>
 
@@ -178,17 +216,66 @@ export default function ContactPage() {
                     rows={6}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors resize-none"
                     required
+                    disabled={isSubmitting}
                   />
                 </div>
 
+                {/* Status Message */}
+                {submitStatus.type && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className={`p-4 rounded-lg ${
+                      submitStatus.type === "success"
+                        ? "bg-green-50 border border-green-200 text-green-800"
+                        : "bg-red-50 border border-red-200 text-red-800"
+                    }`}
+                  >
+                    <p className="text-sm font-medium">{submitStatus.message}</p>
+                  </motion.div>
+                )}
+
                 <motion.button
                   type="submit"
-                  className="w-full bg-gradient-to-r from-blue-500 to-purple-600 text-white py-3 px-6 rounded-xl font-semibold hover:from-blue-600 hover:to-purple-700 transition-all duration-300 flex items-center justify-center space-x-2 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
+                  disabled={isSubmitting}
+                  className={`w-full bg-gradient-to-r from-blue-500 to-purple-600 text-white py-3 px-6 rounded-xl font-semibold transition-all duration-300 flex items-center justify-center space-x-2 shadow-lg hover:shadow-xl transform hover:-translate-y-1 ${
+                    isSubmitting
+                      ? "opacity-50 cursor-not-allowed"
+                      : "hover:from-blue-600 hover:to-purple-700"
+                  }`}
+                  whileHover={isSubmitting ? {} : { scale: 1.02 }}
+                  whileTap={isSubmitting ? {} : { scale: 0.98 }}
                 >
-                  <span>{t("form.sendButton")}</span>
-                  <PaperAirplaneIcon className="w-5 h-5" />
+                  {isSubmitting ? (
+                    <>
+                      <svg
+                        className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                      >
+                        <circle
+                          className="opacity-25"
+                          cx="12"
+                          cy="12"
+                          r="10"
+                          stroke="currentColor"
+                          strokeWidth="4"
+                        ></circle>
+                        <path
+                          className="opacity-75"
+                          fill="currentColor"
+                          d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                        ></path>
+                      </svg>
+                      <span>{t("form.sending") || "Sending..."}</span>
+                    </>
+                  ) : (
+                    <>
+                      <span>{t("form.sendButton")}</span>
+                      <PaperAirplaneIcon className="w-5 h-5" />
+                    </>
+                  )}
                 </motion.button>
               </form>
             </motion.div>
