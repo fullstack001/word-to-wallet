@@ -409,7 +409,10 @@
       "emailPlaceholder": "email@domain.com",
       "message": "Meddelande",
       "messagePlaceholder": "Skriv ditt meddelande här",
-      "sendButton": "Skicka meddelande"
+      "sendButton": "Skicka meddelande",
+      "sending": "Skickar...",
+      "successMessage": "Ditt meddelande har skickats framgångsrikt! Vi återkommer snart.",
+      "errorMessage": "Kunde inte skicka meddelandet. Försök igen senare."
     },
     "directContact": {
       "title": "Kontakta oss direkt"

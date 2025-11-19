@@ -409,7 +409,10 @@
       "emailPlaceholder": "email@domain.com",
       "message": "Mesej",
       "messagePlaceholder": "Taip mesej anda di sini",
-      "sendButton": "Hantar Mesej"
+      "sendButton": "Hantar Mesej",
+      "sending": "Menghantar...",
+      "successMessage": "Mesej anda telah berjaya dihantar! Kami akan membalas tidak lama lagi.",
+      "errorMessage": "Gagal menghantar mesej. Sila cuba lagi kemudian."
     },
     "directContact": {
       "title": "Hubungi kami secara langsung"

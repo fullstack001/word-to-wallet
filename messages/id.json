@@ -409,7 +409,10 @@
       "emailPlaceholder": "email@domain.com",
       "message": "Pesan",
       "messagePlaceholder": "Ketik pesan Anda di sini",
-      "sendButton": "Kirim Pesan"
+      "sendButton": "Kirim Pesan",
+      "sending": "Mengirim...",
+      "successMessage": "Pesan Anda berhasil dikirim! Kami akan segera membalas.",
+      "errorMessage": "Gagal mengirim pesan. Silakan coba lagi nanti."
     },
     "directContact": {
       "title": "Hubungi kami langsung"

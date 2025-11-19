@@ -409,7 +409,10 @@
       "emailPlaceholder": "email@domain.com",
       "message": "Tin nhắn",
       "messagePlaceholder": "Nhập tin nhắn của bạn ở đây",
-      "sendButton": "Gửi tin nhắn"
+      "sendButton": "Gửi tin nhắn",
+      "sending": "Đang gửi...",
+      "successMessage": "Tin nhắn của bạn đã được gửi thành công! Chúng tôi sẽ phản hồi sớm.",
+      "errorMessage": "Gửi tin nhắn thất bại. Vui lòng thử lại sau."
     },
     "directContact": {
       "title": "Liên hệ chúng tôi trực tiếp"

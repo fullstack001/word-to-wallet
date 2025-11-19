@@ -409,7 +409,10 @@
       "emailPlaceholder": "email@domain.com",
       "message": "Порука",
       "messagePlaceholder": "Унесите вашу поруку овде",
-      "sendButton": "Пошаљи поруку"
+      "sendButton": "Пошаљи поруку",
+      "sending": "Слање...",
+      "successMessage": "Ваша порука је успешно послата! Ускоро ћемо вам одговорити.",
+      "errorMessage": "Слање поруке није успело. Молимо покушајте касније."
     },
     "directContact": {
       "title": "Контактирајте нас директно"

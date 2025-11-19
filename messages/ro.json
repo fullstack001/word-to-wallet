@@ -409,7 +409,10 @@
       "emailPlaceholder": "email@domain.com",
       "message": "Mesaj",
       "messagePlaceholder": "Scrie mesajul tău aici",
-      "sendButton": "Trimite mesaj"
+      "sendButton": "Trimite mesaj",
+      "sending": "Se trimite...",
+      "successMessage": "Mesajul dvs. a fost trimis cu succes! Vă vom răspunde în curând.",
+      "errorMessage": "Trimiterea mesajului a eșuat. Vă rugăm să încercați din nou mai târziu."
     },
     "directContact": {
       "title": "Contactează-ne direct"

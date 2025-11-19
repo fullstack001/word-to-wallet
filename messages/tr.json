@@ -409,7 +409,10 @@
       "emailPlaceholder": "email@domain.com",
       "message": "Mesaj",
       "messagePlaceholder": "Mesajınızı buraya yazın",
-      "sendButton": "Mesaj Gönder"
+      "sendButton": "Mesaj Gönder",
+      "sending": "Gönderiliyor...",
+      "successMessage": "Mesajınız başarıyla gönderildi! Yakında size döneceğiz.",
+      "errorMessage": "Mesaj gönderilemedi. Lütfen daha sonra tekrar deneyin."
     },
     "directContact": {
       "title": "Doğrudan bize ulaşın"

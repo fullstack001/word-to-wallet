@@ -409,7 +409,10 @@
       "emailPlaceholder": "email@domain.com",
       "message": "ข้อความ",
       "messagePlaceholder": "พิมพ์ข้อความของคุณที่นี่",
-      "sendButton": "ส่งข้อความ"
+      "sendButton": "ส่งข้อความ",
+      "sending": "กำลังส่ง...",
+      "successMessage": "ข้อความของคุณถูกส่งเรียบร้อยแล้ว! เราจะตอบกลับเร็วๆ นี้",
+      "errorMessage": "ส่งข้อความไม่สำเร็จ กรุณาลองใหม่อีกครั้งในภายหลัง"
     },
     "directContact": {
       "title": "ติดต่อเราโดยตรง"

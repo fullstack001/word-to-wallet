@@ -409,7 +409,10 @@
       "emailPlaceholder": "email@domain.com",
       "message": "消息",
       "messagePlaceholder": "在此输入您的消息",
-      "sendButton": "发送消息"
+      "sendButton": "发送消息",
+      "sending": "发送中...",
+      "successMessage": "您的消息已成功发送！我们会尽快回复您。",
+      "errorMessage": "发送消息失败。请稍后再试。"
     },
     "directContact": {
       "title": "直接联系我们"

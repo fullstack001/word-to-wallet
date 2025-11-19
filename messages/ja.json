@@ -409,7 +409,10 @@
       "emailPlaceholder": "email@domain.com",
       "message": "メッセージ",
       "messagePlaceholder": "ここにメッセージを入力してください",
-      "sendButton": "メッセージを送信"
+      "sendButton": "メッセージを送信",
+      "sending": "送信中...",
+      "successMessage": "メッセージが正常に送信されました！すぐにご返信いたします。",
+      "errorMessage": "メッセージの送信に失敗しました。後でもう一度お試しください。"
     },
     "directContact": {
       "title": "直接お問い合わせ"

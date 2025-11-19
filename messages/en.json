@@ -401,7 +401,10 @@
       "emailPlaceholder": "email@domain.com",
       "message": "Message",
       "messagePlaceholder": "Type your message here",
-      "sendButton": "Send Message"
+      "sendButton": "Send Message",
+      "sending": "Sending...",
+      "successMessage": "Your message has been sent successfully! We'll get back to you soon.",
+      "errorMessage": "Failed to send message. Please try again later."
     },
     "directContact": {
       "title": "Contact us directly"

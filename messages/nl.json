@@ -409,7 +409,10 @@
       "emailPlaceholder": "email@domain.com",
       "message": "Bericht",
       "messagePlaceholder": "Typ hier uw bericht",
-      "sendButton": "Bericht verzenden"
+      "sendButton": "Bericht verzenden",
+      "sending": "Verzenden...",
+      "successMessage": "Uw bericht is succesvol verzonden! We nemen binnenkort contact met u op.",
+      "errorMessage": "Bericht verzenden mislukt. Probeer het later opnieuw."
     },
     "directContact": {
       "title": "Neem direct contact met ons op"

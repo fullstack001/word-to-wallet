@@ -409,7 +409,10 @@
       "emailPlaceholder": "email@domaine.com",
       "message": "Message",
       "messagePlaceholder": "Tapez votre message ici",
-      "sendButton": "Envoyer le Message"
+      "sendButton": "Envoyer le Message",
+      "sending": "Envoi en cours...",
+      "successMessage": "Votre message a été envoyé avec succès ! Nous vous répondrons bientôt.",
+      "errorMessage": "Échec de l'envoi du message. Veuillez réessayer plus tard."
     },
     "directContact": {
       "title": "Contactez-nous directement"

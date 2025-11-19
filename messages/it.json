@@ -409,7 +409,10 @@
       "emailPlaceholder": "email@domain.com",
       "message": "Messaggio",
       "messagePlaceholder": "Digita il tuo messaggio qui",
-      "sendButton": "Invia messaggio"
+      "sendButton": "Invia messaggio",
+      "sending": "Invio in corso...",
+      "successMessage": "Il tuo messaggio è stato inviato con successo! Ti risponderemo presto.",
+      "errorMessage": "Invio del messaggio fallito. Riprova più tardi."
     },
     "directContact": {
       "title": "Contattaci direttamente"

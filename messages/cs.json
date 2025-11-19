@@ -409,7 +409,10 @@
       "emailPlaceholder": "email@domain.com",
       "message": "Zpráva",
       "messagePlaceholder": "Napište zde svou zprávu",
-      "sendButton": "Odeslat zprávu"
+      "sendButton": "Odeslat zprávu",
+      "sending": "Odesílání...",
+      "successMessage": "Vaše zpráva byla úspěšně odeslána! Brzy se vám ozveme.",
+      "errorMessage": "Odeslání zprávy se nezdařilo. Zkuste to prosím později."
     },
     "directContact": {
       "title": "Kontaktujte nás přímo"

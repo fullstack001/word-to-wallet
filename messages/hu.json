@@ -409,7 +409,10 @@
       "emailPlaceholder": "email@domain.com",
       "message": "Üzenet",
       "messagePlaceholder": "Írja be üzenetét ide",
-      "sendButton": "Üzenet küldése"
+      "sendButton": "Üzenet küldése",
+      "sending": "Küldés...",
+      "successMessage": "Üzenete sikeresen elküldve! Hamarosan válaszolunk.",
+      "errorMessage": "Az üzenet küldése sikertelen volt. Kérjük, próbálja újra később."
     },
     "directContact": {
       "title": "Lépjen velünk kapcsolatba közvetlenül"

@@ -409,7 +409,10 @@
       "emailPlaceholder": "email@domain.com",
       "message": "Viesti",
       "messagePlaceholder": "Kirjoita viestisi tähän",
-      "sendButton": "Lähetä viesti"
+      "sendButton": "Lähetä viesti",
+      "sending": "Lähetetään...",
+      "successMessage": "Viestisi on lähetetty onnistuneesti! Vastaamme sinulle pian.",
+      "errorMessage": "Viestin lähetys epäonnistui. Yritä myöhemmin uudelleen."
     },
     "directContact": {
       "title": "Ota meihin yhteyttä suoraan"
