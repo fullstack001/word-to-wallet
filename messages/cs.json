@@ -166,7 +166,7 @@
     "legal": "Nikdy neprodáváme vaše data. Zrušte kdykoli."
   },
   "audiences": {
-    "title": "Vytvořeno pro váš případ použití",
+    "title": "Vytvořeno pro vaše jedinečné podnikání",
     "solopreneurs": {
       "title": "Solo podnikatelé a mikrotýmy",
       "desc": "Spouštějte promo akce, sbírejte předplatitele a prodávejte služby nebo produkty bez nákladných reklamních platforem. Povoleno až pět členů týmu."
@@ -267,11 +267,7 @@
       "sales": {
         "title": "Prodávejte přímo",
         "description": "Připojte svůj obchod; WordToWallet doručuje soubory přímo kupujícím.",
-        "features": [
-          "Přímý prodej",
-          "Doručení souborů",
-          "Správa zákazníků"
-        ]
+        "features": ["Přímý prodej", "Doručení souborů", "Správa zákazníků"]
       }
     }
   },
