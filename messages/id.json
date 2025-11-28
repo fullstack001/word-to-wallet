@@ -258,11 +258,7 @@
       "audience": {
         "title": "Buat Audiens Anda",
         "description": "Magnet pembaca + integrasi MailerLite secara otomatis membangun daftar email Anda.",
-        "features": [
-          "Magnet prospek",
-          "Otomasi email",
-          "Analitik audiens"
-        ]
+        "features": ["Magnet prospek", "Otomasi email", "Analitik audiens"]
       },
       "sales": {
         "title": "Jual Langsung",

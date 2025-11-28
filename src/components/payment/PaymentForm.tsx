@@ -92,8 +92,8 @@ export default function PaymentForm({
         dispatch(login());
         localStorage.setItem("authToken", token as string);
 
-        // Redirect to files page after successful payment
-        navigate("/files");
+        // Redirect to thank you page after successful payment
+        navigate("/thank-you");
       })
       .catch(() => {
         console.log("network error");

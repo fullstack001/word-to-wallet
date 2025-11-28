@@ -1,7 +1,12 @@
 "use client";
 import ToolLandingPage from "@/components/common/ToolLandingPage";
-import { useTranslations } from "next-intl";
+import FacebookPixel from "@/components/common/FacebookPixel";
 
 export default function HomePage() {
-  return <ToolLandingPage />;
+  return (
+    <>
+      <FacebookPixel id="facebook-pixel-home" />
+      <ToolLandingPage />
+    </>
+  );
 }

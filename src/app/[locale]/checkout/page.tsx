@@ -154,8 +154,8 @@ export default function CheckoutPage({ params }: CheckoutPageProps) {
         );
       }
 
-      // Navigate to dashboard
-      navigate("/dashboard");
+      // Navigate to localized thank you page instead of dashboard
+      navigate("/thank-you");
     } catch (error) {
       console.error("Payment processing failed:", error);
       setError("Payment processing failed. Please try again.");
