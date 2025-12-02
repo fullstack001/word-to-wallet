@@ -6,6 +6,7 @@ import ValueSection from "@/components/landing/ValueSection";
 import CourseSection from "@/components/landing/CourseSection";
 import HowItWorksNew from "@/components/landing/HowItWorksNew";
 import FeatureCTA from "@/components/landing/FeatureCTA";
+import SpecialOffer from "@/components/landing/SpecialOffer";
 import SecurityPriority from "@/components/landing/SecurityPriority";
 import CustomerTestimonials from "@/components/landing/CustomerTestimonials";
 import FAQ from "@/components/landing/FAQ";
@@ -26,6 +27,7 @@ export default function ToolLandingPage() {
         <HowItWorksNew />
         <CourseSection />
         <FeatureCTA />
+        <SpecialOffer />
         {/* <WhyUs /> */}
         <SecurityPriority />
         <FAQ />
