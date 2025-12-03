@@ -22,12 +22,12 @@ export default function ToolLandingPage() {
       <Navbar />
       <div>
         <HeroSection />
+        <SpecialOffer />
         <AudiencesSection />
         <ValueSection />
         <HowItWorksNew />
         <CourseSection />
-        <FeatureCTA />
-        <SpecialOffer />
+        <FeatureCTA />        
         {/* <WhyUs /> */}
         <SecurityPriority />
         <FAQ />
