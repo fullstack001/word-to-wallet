@@ -423,6 +423,7 @@ export default function LoginPage() {
               error={validation.errors.password}
               placeholder="Enter your password"
               required
+              inputType={showPassword ? "text" : "password"}
               icon={
                 <svg
                   className="h-5 w-5 text-gray-400"

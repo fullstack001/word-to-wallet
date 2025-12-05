@@ -164,6 +164,7 @@ export default function SignupForm({
           error={errors.password}
           placeholder="Create a strong password"
           required
+          inputType={showPassword ? "text" : "password"}
           rightIcon={
             showPassword ? (
               <EyeSlashIcon className="w-5 h-5" />
@@ -184,6 +185,7 @@ export default function SignupForm({
           error={errors.confirmPassword}
           placeholder="Confirm your password"
           required
+          inputType={showConfirmPassword ? "text" : "password"}
           rightIcon={
             showConfirmPassword ? (
               <EyeSlashIcon className="w-5 h-5" />

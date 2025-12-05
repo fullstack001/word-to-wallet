@@ -159,8 +159,15 @@ export function EmailField(props: Omit<FormFieldProps, 'type'>) {
   return <FormField {...props} type="email" />;
 }
 
-export function PasswordField(props: Omit<FormFieldProps, 'type'>) {
-  return <FormField {...props} type="password" />;
+interface PasswordFieldProps extends Omit<FormFieldProps, 'type'> {
+  inputType?: 'password' | 'text';
+}
+
+export function PasswordField({
+  inputType = 'password',
+  ...rest
+}: PasswordFieldProps) {
+  return <FormField {...rest} type={inputType} />;
 }
 
 export function TextAreaField(props: Omit<FormFieldProps, 'type'>) {
