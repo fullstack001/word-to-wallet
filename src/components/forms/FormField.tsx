@@ -2,16 +2,32 @@
  * Reusable form field component with built-in validation
  */
 
-import React from 'react';
-import { ExclamationTriangleIcon } from '@heroicons/react/24/outline';
+import React from "react";
+import { ExclamationTriangleIcon } from "@heroicons/react/24/outline";
 
 export interface FormFieldProps {
   label: string;
   name: string;
-  type?: 'text' | 'email' | 'password' | 'number' | 'tel' | 'url' | 'textarea' | 'select';
+  type?:
+    | "text"
+    | "email"
+    | "password"
+    | "number"
+    | "tel"
+    | "url"
+    | "textarea"
+    | "select";
   value: any;
-  onChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => void;
-  onBlur?: (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => void;
+  onChange: (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) => void;
+  onBlur?: (
+    e: React.FocusEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) => void;
   error?: string;
   placeholder?: string;
   required?: boolean;
@@ -32,7 +48,7 @@ export interface FormFieldProps {
 export default function FormField({
   label,
   name,
-  type = 'text',
+  type = "text",
   value,
   onChange,
   onBlur,
@@ -42,10 +58,10 @@ export default function FormField({
   disabled = false,
   options = [],
   rows = 4,
-  className = '',
-  inputClassName = '',
-  labelClassName = '',
-  errorClassName = '',
+  className = "",
+  inputClassName = "",
+  labelClassName = "",
+  errorClassName = "",
   showError = true,
   helpText,
   icon,
@@ -54,15 +70,15 @@ export default function FormField({
 }: FormFieldProps) {
   const baseInputClasses = `
     w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors
-    ${error ? 'border-red-300 bg-red-50' : 'border-gray-300'}
-    ${disabled ? 'bg-gray-100 cursor-not-allowed' : 'bg-white'}
+    ${error ? "border-red-300 bg-red-50" : "border-gray-300"}
+    ${disabled ? "bg-gray-100 cursor-not-allowed" : "bg-white"}
     ${inputClassName}
   `;
 
   const renderInput = () => {
     const commonProps = {
       name,
-      value: value || '',
+      value: value || "",
       onChange,
       onBlur,
       placeholder,
@@ -72,7 +88,7 @@ export default function FormField({
     };
 
     switch (type) {
-      case 'textarea':
+      case "textarea":
         return (
           <textarea
             {...commonProps}
@@ -81,7 +97,7 @@ export default function FormField({
           />
         );
 
-      case 'select':
+      case "select":
         return (
           <select {...commonProps}>
             <option value="">Select {label}</option>
@@ -94,12 +110,7 @@ export default function FormField({
         );
 
       default:
-        return (
-          <input
-            {...commonProps}
-            type={type}
-          />
-        );
+        return <input {...commonProps} type={type} />;
     }
   };
 
@@ -120,9 +131,7 @@ export default function FormField({
           </div>
         )}
 
-        <div className={icon ? 'pl-10' : ''}>
-          {renderInput()}
-        </div>
+        <div className={icon ? "pl-10" : ""}>{renderInput()}</div>
 
         {rightIcon && (
           <div className="absolute inset-y-0 right-0 pr-3 flex items-center">
@@ -142,7 +151,9 @@ export default function FormField({
       )}
 
       {showError && error && (
-        <div className={`flex items-center space-x-1 text-sm text-red-600 ${errorClassName}`}>
+        <div
+          className={`flex items-center space-x-1 text-sm text-red-600 ${errorClassName}`}
+        >
           <ExclamationTriangleIcon className="w-4 h-4 flex-shrink-0" />
           <span>{error}</span>
         </div>
@@ -155,29 +166,29 @@ export default function FormField({
  * Specialized form field components
  */
 
-export function EmailField(props: Omit<FormFieldProps, 'type'>) {
+export function EmailField(props: Omit<FormFieldProps, "type">) {
   return <FormField {...props} type="email" />;
 }
 
-interface PasswordFieldProps extends Omit<FormFieldProps, 'type'> {
-  inputType?: 'password' | 'text';
+interface PasswordFieldProps extends Omit<FormFieldProps, "type"> {
+  inputType?: "password" | "text";
 }
 
 export function PasswordField({
-  inputType = 'password',
+  inputType = "password",
   ...rest
 }: PasswordFieldProps) {
   return <FormField {...rest} type={inputType} />;
 }
 
-export function TextAreaField(props: Omit<FormFieldProps, 'type'>) {
+export function TextAreaField(props: Omit<FormFieldProps, "type">) {
   return <FormField {...props} type="textarea" />;
 }
 
-export function SelectField(props: Omit<FormFieldProps, 'type'>) {
+export function SelectField(props: Omit<FormFieldProps, "type">) {
   return <FormField {...props} type="select" />;
 }
 
-export function NumberField(props: Omit<FormFieldProps, 'type'>) {
+export function NumberField(props: Omit<FormFieldProps, "type">) {
   return <FormField {...props} type="number" />;
 }
