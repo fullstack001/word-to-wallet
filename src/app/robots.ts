@@ -40,7 +40,13 @@ export default function robots(): MetadataRoute.Robots {
     rules: [
       {
         userAgent: "*",
-        allow: ["/"],
+        allow: [
+          "/",          // root
+          "/en/*",      // all English pages
+          "/fr/*",      // all French pages
+          "/blogs/*",   // non-localized blog base (if any)
+          "/*/blogs/*", // localized blog posts, e.g. /en/blogs/*
+        ],
         disallow: DISALLOWED_PATHS,
       },
     ],
