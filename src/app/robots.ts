@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { locales as supportedLocales } from "@/i18n/config";
 
 const DEFAULT_SITE_URL =
   process.env.NODE_ENV === "production"
@@ -41,10 +42,9 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: [
-          "/",          // root
-          "/en/*",      // all English pages
-          "/fr/*",      // all French pages
-          "/blogs/*",   // non-localized blog base (if any)
+          "/", // root
+          ...supportedLocales.map((l) => `/${l}/*`),
+          "/blogs/*", // non-localized blog base (if any)
           "/*/blogs/*", // localized blog posts, e.g. /en/blogs/*
         ],
         disallow: DISALLOWED_PATHS,
