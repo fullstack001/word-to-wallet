@@ -304,11 +304,11 @@ export default function CourseView({
 
             {/* Cover Image */}
             {course.epubCover && (
-              <div className="flex justify-center lg:justify-end lg:ml-6">
+              <div className="flex justify-center lg:justify-end lg:ml-6 flex-shrink-0">
                 <img
                   src={`/api/courses/${course._id}/cover`}
                   alt="Course Cover"
-                  className=" w-auto h-auto object-cover rounded-lg shadow-md"
+                  className="max-w-[200px] sm:max-w-[250px] lg:max-w-[300px] max-h-[300px] sm:max-h-[350px] lg:max-h-[400px] w-auto h-auto object-contain rounded-lg shadow-md"
                 />
               </div>
             )}
