@@ -57,7 +57,9 @@ export default function ContactPage() {
       await api.post("/contact", formData);
       setSubmitStatus({
         type: "success",
-        message: t("form.successMessage") || "Your message has been sent successfully! We'll get back to you soon.",
+        message:
+          t("form.successMessage") ||
+          "Your message has been sent successfully! We'll get back to you soon.",
       });
       // Reset form
       setFormData({
@@ -87,7 +89,7 @@ export default function ContactPage() {
       color: "blue",
       title: t("billing.title"),
       description: t("billing.description"),
-      email: "billing@wordtowallet.com",
+      email: "Ilonka@wordtowallet.com",
     },
     {
       key: "customer",
@@ -95,7 +97,7 @@ export default function ContactPage() {
       color: "green",
       title: t("customer.title"),
       description: t("customer.description"),
-      email: "support@wordtowallet.com",
+      email: "Nazar@wordtowallet.com",
     },
     {
       key: "meet",
@@ -103,7 +105,7 @@ export default function ContactPage() {
       color: "purple",
       title: t("meet.title"),
       description: t("meet.description"),
-      email: "meet@wordtowallet.com",
+      email: "admin@wordtowallet.com",
     },
   ];
 
@@ -231,7 +233,9 @@ export default function ContactPage() {
                         : "bg-red-50 border border-red-200 text-red-800"
                     }`}
                   >
-                    <p className="text-sm font-medium">{submitStatus.message}</p>
+                    <p className="text-sm font-medium">
+                      {submitStatus.message}
+                    </p>
                   </motion.div>
                 )}
 
