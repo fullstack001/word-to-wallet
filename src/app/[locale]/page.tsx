@@ -1,5 +1,5 @@
 "use client";
-import ToolLandingPage from "@/components/common/ToolLandingPage";
+import { ToolLandingPage } from "@/components/common";
 import FacebookPixel from "@/components/common/FacebookPixel";
 
 export default function HomePage() {
