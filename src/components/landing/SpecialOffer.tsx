@@ -59,7 +59,7 @@ export default function SpecialOffer() {
               tailored, integrated website built to match your business. For
               further information, please{" "}
               <Link
-                href="https://wordtowallet.com/en/blogs/how-purchasing-a-tailored-website-can-increase-your-brand-awareness"
+                href="https://wordtowallet.com/en/blogs/free-six-month-pro-membership-with-purchase-of-a-tailored-and-integrated-website"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-purple-600 hover:text-purple-800 font-semibold underline decoration-2 underline-offset-2 transition-colors duration-200"
