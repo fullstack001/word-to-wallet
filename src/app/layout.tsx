@@ -1,6 +1,7 @@
 import { Poppins } from "next/font/google";
 import { Metadata } from "next";
 import "./globals.css";
+import TikTokPixel from "@/components/common/TikTokPixel";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -29,7 +30,10 @@ export default function RootLayout({
 }) {
   return (
     <html className={poppins.variable} suppressHydrationWarning>
-      <body suppressHydrationWarning>{children}</body>
+      <body suppressHydrationWarning>
+        <TikTokPixel id="tiktok-pixel-root" />
+        {children}
+      </body>
     </html>
   );
 }
