@@ -454,13 +454,14 @@ export default function ContactPage() {
                           </span>
                           <p className="text-gray-600">{card.email}</p>
                         </div>
-                        <motion.button
-                          className={`w-full bg-gradient-to-r ${colors.button} text-white py-2 px-4 rounded-xl font-medium transition-all duration-300 mt-2 shadow-lg hover:shadow-xl transform hover:-translate-y-1`}
+                        <motion.a
+                          href={`mailto:${card.email}`}
+                          className={`w-full bg-gradient-to-r ${colors.button} text-white py-2 px-4 rounded-xl font-medium transition-all duration-300 mt-2 shadow-lg hover:shadow-xl transform hover:-translate-y-1 inline-block text-center`}
                           whileHover={{ scale: 1.02 }}
                           whileTap={{ scale: 0.98 }}
                         >
                           EMAIL US
-                        </motion.button>
+                        </motion.a>
                       </div>
                     ) : (
                       <div className="space-y-4 text-center">
@@ -475,15 +476,16 @@ export default function ContactPage() {
                               ? "Get help with payments and billing questions"
                               : "Get support for your account and technical issues"}
                           </p>
-                          <motion.button
-                            className={`w-full bg-gradient-to-r ${colors.button} text-white py-3 px-6 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1`}
+                          <motion.a
+                            href={`mailto:${card.email}`}
+                            className={`w-full bg-gradient-to-r ${colors.button} text-white py-3 px-6 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 inline-block text-center`}
                             whileHover={{ scale: 1.02 }}
                             whileTap={{ scale: 0.98 }}
                           >
                             {card.key === "billing"
                               ? "CONTACT BILLING"
                               : "GET SUPPORT"}
-                          </motion.button>
+                          </motion.a>
                         </div>
                         <div>
                           <span className="font-medium text-gray-700">
@@ -491,13 +493,14 @@ export default function ContactPage() {
                           </span>
                           <p className="text-gray-600">{card.email}</p>
                         </div>
-                        <motion.button
-                          className={`w-full bg-gradient-to-r ${colors.button} text-white py-2 px-4 rounded-xl font-medium transition-all duration-300 mt-2 shadow-lg hover:shadow-xl transform hover:-translate-y-1`}
+                        <motion.a
+                          href={`mailto:${card.email}`}
+                          className={`w-full bg-gradient-to-r ${colors.button} text-white py-2 px-4 rounded-xl font-medium transition-all duration-300 mt-2 shadow-lg hover:shadow-xl transform hover:-translate-y-1 inline-block text-center`}
                           whileHover={{ scale: 1.02 }}
                           whileTap={{ scale: 0.98 }}
                         >
                           EMAIL US
-                        </motion.button>
+                        </motion.a>
                       </div>
                     )}
                   </div>
