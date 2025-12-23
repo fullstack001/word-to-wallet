@@ -437,13 +437,16 @@ export default function ContactPage() {
                           <p className="text-sm text-gray-600 mb-3">
                             Schedule a personalized meeting with our team
                           </p>
-                          <motion.button
-                            className={`w-full bg-gradient-to-r ${colors.button} text-white py-3 px-6 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1`}
+                          <motion.a
+                            href="https://calendly.com/admin-wordtowallet/consulting-ai-and-chatgpt"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={`w-full bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700 text-white py-3 px-6 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 inline-block text-center`}
                             whileHover={{ scale: 1.02 }}
                             whileTap={{ scale: 0.98 }}
                           >
                             SCHEDULE MEETING
-                          </motion.button>
+                          </motion.a>
                         </div>
                         <div>
                           <span className="font-medium text-gray-700">
